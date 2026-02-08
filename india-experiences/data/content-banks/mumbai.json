@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T22:01:21.840Z",
+  "updatedAt": "2026-02-08T22:02:01.026Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -598,9 +598,9 @@
       "title": "Best Clubs In Mumbai",
       "slug": "best-clubs-mumbai",
       "contentDirection": "Club scene guide: Trilogy in Juhu, Kitty Su at The Lalit, 1Above, entry procedures, cover charges (₹2,000-5,000), music genres, guest list requirements, dress codes (smart casual), and peak timing (11pm-3am).",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 694,
+      "generatedAt": "2026-02-08T22:02:01.026Z",
       "validationErrors": []
     },
     {
