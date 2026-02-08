@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:24:28.683Z",
+  "updatedAt": "2026-02-08T20:25:06.238Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -574,9 +574,9 @@
       "title": "Pubs And Clubs In Jaipur",
       "slug": "pubs-clubs-jaipur",
       "contentDirection": "Cover popular venues in C-Scheme like Blackout, F Bar & Lounge, and hotel-based clubs. Detail entry fees (₹500-1500), age restrictions (21+), music styles, and weekend vs weekday crowd differences.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 708,
+      "generatedAt": "2026-02-08T20:25:06.238Z",
       "validationErrors": []
     },
     {
