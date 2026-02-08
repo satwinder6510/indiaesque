@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:59:56.148Z",
+  "updatedAt": "2026-02-08T22:00:39.744Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -574,9 +574,9 @@
       "title": "Mumbai Nightlife Guide",
       "slug": "mumbai-nightlife",
       "contentDirection": "Night scene overview: Bandra West pubs and bars, Lower Parel club district, Colaba late-night spots, entry fees (₹1,500-3,000), dress codes, age restrictions (25+ for many venues), and safety tips for late-night travel.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 857,
+      "generatedAt": "2026-02-08T22:00:39.744Z",
       "validationErrors": []
     },
     {
