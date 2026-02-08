@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:28:18.623Z",
+  "updatedAt": "2026-02-08T20:29:10.684Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -634,9 +634,9 @@
       "title": "Jaipur Weather By Month",
       "slug": "jaipur-weather-by-month",
       "contentDirection": "Detail month-wise temperatures, rainfall patterns, and recommended clothing. Emphasize October-March comfort (15-28°C), April-June heat warnings (35-45°C), July-September monsoon considerations, and festival season weather coincidence.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 929,
+      "generatedAt": "2026-02-08T20:29:10.684Z",
       "validationErrors": []
     },
     {
