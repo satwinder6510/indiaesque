@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T19:56:47.581Z",
+  "updatedAt": "2026-02-08T19:57:56.076Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -442,9 +442,9 @@
       "title": "Nature & Day Trips From Jaipur — 2026 Guide",
       "slug": "nature",
       "contentDirection": "Complete guide to Ranthambore (180km), Pushkar (150km), and Mandawa (170km) day trips. Include transport options, timing recommendations, package prices (₹3000-8000), and seasonal considerations for wildlife and weather.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1413,
+      "generatedAt": "2026-02-08T19:57:56.076Z",
       "validationErrors": []
     },
     {
