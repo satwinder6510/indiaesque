@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:46:00.971Z",
+  "updatedAt": "2026-02-08T21:46:46.142Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -346,9 +346,9 @@
       "title": "Mumbai Art Deco Architecture Tour",
       "slug": "mumbai-art-deco-architecture",
       "contentDirection": "Second-largest Art Deco collection after Miami: Marine Drive buildings, Oval Maidan area, Eros Cinema, self-guided vs guided tours (₹1,500-2,500), best photography spots, and architectural significance in city's development.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 940,
+      "generatedAt": "2026-02-08T21:46:46.142Z",
       "validationErrors": []
     },
     {
