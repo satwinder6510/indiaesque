@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:35:06.046Z",
+  "updatedAt": "2026-02-08T21:35:48.980Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -154,9 +154,9 @@
       "title": "How Many Days Do You Need In Mumbai?",
       "slug": "how-many-days-mumbai",
       "contentDirection": "Recommend 3-4 days minimum for major attractions, 5-7 days for comprehensive exploration. Break down day-by-day itineraries: Day 1 South Mumbai (Gateway, Taj Hotel), Day 2 Markets and food tours, Day 3 Dharavi and film city, Day 4+ beaches and suburbs.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 836,
+      "generatedAt": "2026-02-08T21:35:48.980Z",
       "validationErrors": []
     },
     {
