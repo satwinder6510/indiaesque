@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:15:06.537Z",
+  "updatedAt": "2026-02-08T20:15:44.118Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -370,9 +370,9 @@
       "title": "Tripolia Bazaar Jaipur — Iron & Brass Shopping",
       "slug": "tripolia-bazaar-jaipur",
       "contentDirection": "Specialize in metal crafts, traditional utensils, decorative items (₹200-5000), and lac bangles. Cover wholesale opportunities, custom orders (15-day delivery), and traditional Rajasthani metalwork techniques demonstration.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 635,
+      "generatedAt": "2026-02-08T20:15:44.118Z",
       "validationErrors": []
     },
     {
