@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:58:28.157Z",
+  "updatedAt": "2026-02-08T21:59:14.802Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -550,9 +550,9 @@
       "title": "Religious Sites In Mumbai",
       "slug": "religious-sites-mumbai",
       "contentDirection": "Multi-faith guide: Hindu temples (Siddhivinayak, Mahalaxmi), Islamic sites (Haji Ali), Christian churches (Mount Mary, St. Thomas Cathedral), Buddhist caves, Jain temples, and visiting etiquette for each religion.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 962,
+      "generatedAt": "2026-02-08T21:59:14.802Z",
       "validationErrors": []
     },
     {
