@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:29:56.689Z",
+  "updatedAt": "2026-02-08T20:30:51.823Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -658,9 +658,9 @@
       "title": "Photography In Jaipur — Best Spots Guide",
       "slug": "photography-jaipur-best-spots",
       "contentDirection": "Detail golden hour timing at Amber Fort (6-8 AM), Hawa Mahal street shots, colorful market scenes in Johari Bazaar. Include photography fees at monuments (₹25-200), drone restrictions, and respectful photography practices in religious sites.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1062,
+      "generatedAt": "2026-02-08T20:30:51.823Z",
       "validationErrors": []
     },
     {
