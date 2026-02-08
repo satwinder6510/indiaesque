@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:40:45.366Z",
+  "updatedAt": "2026-02-08T21:41:24.594Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -250,9 +250,9 @@
       "title": "Best Pav Bhaji In Mumbai",
       "slug": "best-pav-bhaji-mumbai",
       "contentDirection": "Highlight famous spots: Sardar Pav Bhaji, Canon Pav Bhaji, Amrit Sagar in Bandra (₹80-150 per plate), and beachside stalls at Juhu and Chowpatty. Include preparation style and accompaniments like onions and lemon.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 824,
+      "generatedAt": "2026-02-08T21:41:24.594Z",
       "validationErrors": []
     },
     {
