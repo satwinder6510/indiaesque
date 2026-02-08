@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T21:06:37.981Z",
+  "updatedAt": "2026-02-08T21:13:58.759Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -82,9 +82,9 @@
       "title": "Things To Do In Jaipur — 2026 Guide",
       "slug": "_index",
       "contentDirection": "Comprehensive hub covering Amber Fort, City Palace, Hawa Mahal, and 15+ top attractions. Include 3-day itinerary, transport options (metro, auto-rickshaw rates ₹200-500), and seasonal considerations. Link to all category pages with preview content.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 2450,
+      "generatedAt": "2026-02-08T21:13:58.758Z",
       "validationErrors": []
     },
     {
