@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:30:48.501Z",
+  "updatedAt": "2026-02-08T21:32:00.324Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -106,9 +106,9 @@
       "title": "Best Heritage Walks In Mumbai — 2026 Guide",
       "slug": "heritage-walks",
       "contentDirection": "Cover architectural tours through South Mumbai's colonial buildings, Art Deco heritage (second-largest collection after Miami), Fort area, and Chhatrapati Shivaji Terminus. Include guided tour prices (₹800-2,000) and self-guided options.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1541,
+      "generatedAt": "2026-02-08T21:32:00.324Z",
       "validationErrors": []
     },
     {
