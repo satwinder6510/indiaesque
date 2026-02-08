@@ -172,9 +172,12 @@ export async function generatePage(
     bannedPhrases
   );
 
+  // Hub pages need more tokens for 2,500-3,000 word content
+  const maxTokens = pageSpec.type === "hub" ? 8000 : pageSpec.type === "category" ? 6000 : 4000;
+
   const response = await anthropic.messages.create({
     model,
-    max_tokens: 4000,
+    max_tokens: maxTokens,
     messages: [{ role: "user", content: prompt }],
   });
 

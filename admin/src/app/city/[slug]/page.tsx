@@ -11,6 +11,7 @@ const STATUS_CONFIG: Record<PageStatus, { bg: string; text: string }> = {
   "not-started": { bg: "bg-gray-100 dark:bg-gray-800", text: "text-gray-600 dark:text-gray-400" },
   generating: { bg: "bg-amber-100 dark:bg-amber-900/30", text: "text-amber-700 dark:text-amber-300" },
   generated: { bg: "bg-blue-100 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-300" },
+  "needs-fix": { bg: "bg-orange-100 dark:bg-orange-900/30", text: "text-orange-700 dark:text-orange-300" },
   "validation-failed": { bg: "bg-red-100 dark:bg-red-900/30", text: "text-red-700 dark:text-red-300" },
   validated: { bg: "bg-emerald-100 dark:bg-emerald-900/30", text: "text-emerald-700 dark:text-emerald-300" },
   published: { bg: "bg-purple-100 dark:bg-purple-900/30", text: "text-purple-700 dark:text-purple-300" },
@@ -487,7 +488,7 @@ function GenerateTab({ contentBank, citySlug, onRefresh }: { contentBank: Conten
     return <div className="text-center py-12 text-[var(--foreground-muted)]">No content bank available. Run research first.</div>;
   }
 
-  const pendingPages = contentBank.pages.filter((p) => p.status === "not-started");
+  const pendingPages = contentBank.pages.filter((p) => p.status === "not-started" || p.status === "needs-fix");
 
   const generateSinglePage = async (pageId: string, pageTitle: string): Promise<{ success: boolean; error?: string; wordCount?: number }> => {
     try {
