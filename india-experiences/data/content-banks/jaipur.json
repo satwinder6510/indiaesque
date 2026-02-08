@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:13:29.871Z",
+  "updatedAt": "2026-02-08T20:14:14.554Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -346,9 +346,9 @@
       "title": "Bapu Bazaar Jaipur — Textile Shopping Guide",
       "slug": "bapu-bazaar-jaipur-textiles",
       "contentDirection": "Cover bandhani scarves (₹200-1500), block-printed fabrics, leather juttis (₹300-1200), and custom tailoring services. Detail quality indicators, wholesale vs. retail areas, and comparison with nearby Nehru Bazaar options.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 819,
+      "generatedAt": "2026-02-08T20:14:14.554Z",
       "validationErrors": []
     },
     {
