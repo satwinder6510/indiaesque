@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:00:11.239Z",
+  "updatedAt": "2026-02-08T20:00:57.479Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -94,9 +94,9 @@
       "title": "Is Jaipur Safe For Tourists?",
       "slug": "is-jaipur-safe-for-tourists",
       "contentDirection": "Address safety in Old City vs New Jaipur, common gem/carpet scams near City Palace, safe areas like C-Scheme and MI Road. Include women's safety tips, reliable taxi services, and emergency contacts.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1003,
+      "generatedAt": "2026-02-08T20:00:57.479Z",
       "validationErrors": []
     },
     {
