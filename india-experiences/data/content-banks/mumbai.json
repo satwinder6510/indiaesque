@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:39:18.849Z",
+  "updatedAt": "2026-02-08T21:40:02.572Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -226,9 +226,9 @@
       "title": "Where To Eat The Best Vada Pav In Mumbai",
       "slug": "best-vada-pav-mumbai",
       "contentDirection": "Feature iconic spots: Ashok Vada Pav in Dadar (₹15-25), street stalls near railway stations, Swati Snacks in Tardeo (₹30-50). Include history of the dish, preparation details, and accompaniments like green chutney.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 872,
+      "generatedAt": "2026-02-08T21:40:02.572Z",
       "validationErrors": []
     },
     {
