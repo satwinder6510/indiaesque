@@ -1,0 +1,67 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  schema?: object[];
+  type?: string;
+}
+
+const siteName = 'Indiaesque';
+const siteUrl = 'https://indiaesque.com';
+
+const {
+  title,
+  description,
+  canonicalUrl = Astro.url.href,
+  ogImage = `${siteUrl}/og-default.jpg`,
+  schema = [],
+  type = 'article',
+} = Astro.props;
+
+const fullTitle = `${title} | ${siteName}`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description}>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href={canonicalUrl}>
+
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:url" content={canonicalUrl}>
+    <meta property="og:type" content={type}>
+    <meta property="og:image" content={ogImage}>
+    <meta property="og:site_name" content={siteName}>
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+
+    {schema.length > 0 && (
+      <script type="application/ld+json" set:html={JSON.stringify(schema.length === 1 ? schema[0] : schema)} />
+    )}
+
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+    <Header />
+
+    <main>
+        <slot />
+    </main>
+
+    <Footer />
+</body>
+</html>

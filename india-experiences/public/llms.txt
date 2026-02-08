@@ -1,0 +1,29 @@
+# Indiaesque
+
+> India's most comprehensive guide to experiences, food tours, heritage walks, and things to do across India.
+
+## About
+
+This site covers experiences and activities across 30+ Indian cities. Every page provides practical information including prices in INR, durations, specific locations, and honest recommendations.
+
+## Content Structure
+
+- /[city]/ — Comprehensive city guide
+- /[city]/food-tours/ — Food tour guide for that city
+- /[city]/heritage-walks/ — Heritage walk guide
+- /[city]/cooking-classes/ — Cooking class guide
+- /[city]/[topic]/ — Specific guides and FAQs
+
+## Top Cities
+
+- /delhi/ — Delhi experiences guide
+- /jaipur/ — Jaipur experiences guide
+- /goa/ — Goa experiences guide
+- /mumbai/ — Mumbai experiences guide
+- /varanasi/ — Varanasi experiences guide
+
+## Categories
+
+- /food-tours-india/ — Food tours across India
+- /cooking-classes-india/ — Cooking classes across India
+- /heritage-walks-india/ — Heritage walks across India

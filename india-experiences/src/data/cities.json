@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Delhi",
+    "slug": "delhi",
+    "tier": 1,
+    "lat": "28.6139",
+    "lng": "77.2090",
+    "description": "India's capital city, home to Mughal architecture, world-class street food, and 174 protected heritage monuments."
+  },
+  {
+    "name": "Jaipur",
+    "slug": "jaipur",
+    "tier": 1,
+    "lat": "26.9124",
+    "lng": "75.7873",
+    "description": "The Pink City — Rajasthan's capital, known for its forts, palaces, textile traditions, and vibrant bazaars."
+  },
+  {
+    "name": "Mumbai",
+    "slug": "mumbai",
+    "tier": 1,
+    "lat": "19.0760",
+    "lng": "72.8777",
+    "description": "India's financial capital and Bollywood's home, where colonial-era architecture meets street food culture."
+  },
+  {
+    "name": "Goa",
+    "slug": "goa",
+    "tier": 1,
+    "lat": "15.2993",
+    "lng": "74.1240",
+    "description": "India's smallest state, known for Portuguese heritage, beaches, spice plantations, and seafood."
+  },
+  {
+    "name": "Varanasi",
+    "slug": "varanasi",
+    "tier": 1,
+    "lat": "25.3176",
+    "lng": "83.0064",
+    "description": "One of the world's oldest continuously inhabited cities, the spiritual heart of Hinduism on the banks of the Ganges."
+  },
+  {
+    "name": "Udaipur",
+    "slug": "udaipur",
+    "tier": 2,
+    "lat": "24.5854",
+    "lng": "73.7125",
+    "description": "The City of Lakes — Rajasthan's most romantic destination with palatial architecture and miniature painting traditions."
+  },
+  {
+    "name": "Agra",
+    "slug": "agra",
+    "tier": 2,
+    "lat": "27.1767",
+    "lng": "78.0081",
+    "description": "Home to the Taj Mahal, Agra Fort, and a street food scene centred around petha and chaat."
+  },
+  {
+    "name": "Kolkata",
+    "slug": "kolkata",
+    "tier": 2,
+    "lat": "22.5726",
+    "lng": "88.3639",
+    "description": "The cultural capital of India — literature, cinema, art, and arguably the country's best street food."
+  },
+  {
+    "name": "Kerala",
+    "slug": "kerala",
+    "tier": 2,
+    "lat": "10.8505",
+    "lng": "76.2711",
+    "description": "God's Own Country — backwaters, Ayurveda, spice gardens, and Kerala cuisine."
+  },
+  {
+    "name": "Rishikesh",
+    "slug": "rishikesh",
+    "tier": 2,
+    "lat": "30.0869",
+    "lng": "78.2676",
+    "description": "The yoga capital of the world, set on the Ganges in the Himalayan foothills."
+  }
+]

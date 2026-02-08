@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import cities from '../data/cities.json';
+import categories from '../data/categories.json';
+
+const tierOneCities = cities.filter(c => c.tier === 1);
+const tierTwoCities = cities.filter(c => c.tier === 2);
+---
+
+<BaseLayout
+  title="India Experiences — 2026 Guide"
+  description="The most comprehensive guide to experiences, food tours, heritage walks, and things to do across India. Honest recommendations with prices in INR."
+>
+  <article>
+    <h1>India Experiences — 2026 Guide</h1>
+    <p class="intro">
+      Practical guides to food tours, heritage walks, cooking classes, and things
+      to do across India. Every page includes prices in INR, durations, and
+      specific recommendations.
+    </p>
+
+    <section>
+      <h2>Top Cities</h2>
+      <ul>
+        {tierOneCities.map(city => (
+          <li>
+            <a href={`/${city.slug}/`}><strong>{city.name}</strong></a>
+            &mdash; {city.description}
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    {tierTwoCities.length > 0 && (
+      <section>
+        <h2>More Cities</h2>
+        <ul>
+          {tierTwoCities.map(city => (
+            <li>
+              <a href={`/${city.slug}/`}><strong>{city.name}</strong></a>
+              &mdash; {city.description}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <section>
+      <h2>Experiences Across India</h2>
+      <ul>
+        {categories.map(cat => (
+          <li>
+            <a href={`/${cat.crossCitySlug}/`}><strong>{cat.name}</strong></a>
+            &mdash; {cat.description}
+          </li>
+        ))}
+      </ul>
+    </section>
+  </article>
+</BaseLayout>

@@ -1,0 +1,37 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedPages from '../components/RelatedPages.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  city: string;
+  citySlug: string;
+  faq?: { question: string; answer: string }[];
+  relatedPages?: { href: string; label: string }[];
+  schema?: object[];
+}
+
+const { title, description, city, citySlug, faq = [], relatedPages = [], schema = [] } = Astro.props;
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: city },
+];
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <article>
+    <h1>{title}</h1>
+    <slot />
+    {faq.length > 0 && <FAQ items={faq} />}
+  </article>
+
+  {relatedPages.length > 0 && (
+    <RelatedPages heading={`More ${city} Guides`} links={relatedPages} />
+  )}
+</BaseLayout>

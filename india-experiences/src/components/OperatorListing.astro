@@ -1,0 +1,22 @@
+---
+interface Props {
+  name: string;
+  duration?: string;
+  price?: string;
+  groupSize?: string;
+  description?: string;
+  id?: string;
+}
+
+const { name, duration, price, groupSize, description, id } = Astro.props;
+---
+
+<div class="listing" id={id}>
+  <h3>{name}</h3>
+  <p class="listing-meta">
+    {duration && <span>Duration: {duration}</span>}
+    {price && <span>Price: {price}</span>}
+    {groupSize && <span>Group size: {groupSize}</span>}
+  </p>
+  {description && <p>{description}</p>}
+</div>

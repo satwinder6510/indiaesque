@@ -1,0 +1,26 @@
+---
+import cities from '../data/cities.json';
+import categories from '../data/categories.json';
+---
+
+<footer>
+  <nav aria-label="Cities">
+    <h3>Cities</h3>
+    <ul>
+      {cities.map(city => (
+        <li><a href={`/${city.slug}/`}>{city.name}</a></li>
+      ))}
+    </ul>
+  </nav>
+  <nav aria-label="Experiences">
+    <h3>Experiences Across India</h3>
+    <ul>
+      {categories.map(cat => (
+        <li><a href={`/${cat.crossCitySlug}/`}>{cat.name}</a></li>
+      ))}
+    </ul>
+  </nav>
+  <div>
+    <p>&copy; {new Date().getFullYear()} Indiaesque. All rights reserved.</p>
+  </div>
+</footer>
