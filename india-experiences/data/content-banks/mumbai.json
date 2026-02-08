@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:43:19.852Z",
+  "updatedAt": "2026-02-08T21:44:01.566Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -298,9 +298,9 @@
       "title": "Gateway Of India Mumbai Guide",
       "slug": "gateway-of-india-mumbai",
       "contentDirection": "Complete guide: built in 1924, Indo-Saracenic architecture, ferry point to Elephanta Caves (₹200-300 return), crowd management tips, best photography times (early morning/evening), nearby attractions like Taj Hotel and Colaba Causeway.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 878,
+      "generatedAt": "2026-02-08T21:44:01.566Z",
       "validationErrors": []
     },
     {
