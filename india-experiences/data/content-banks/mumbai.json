@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T22:00:39.744Z",
+  "updatedAt": "2026-02-08T22:01:21.840Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -586,9 +586,9 @@
       "title": "Best Bars In Mumbai",
       "slug": "best-bars-mumbai",
       "contentDirection": "Top bars guide: Aer (₹2,000+ cover), Toto's Garage in Bandra, Harbour Bar at Taj Hotel (since 1933), Social outlets, rooftop bars with city views, craft beer scenes, happy hour timings, and signature cocktails.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 728,
+      "generatedAt": "2026-02-08T22:01:21.840Z",
       "validationErrors": []
     },
     {
