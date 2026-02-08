@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:11:12.549Z",
+  "updatedAt": "2026-02-08T20:11:54.151Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -298,9 +298,9 @@
       "title": "Nahargarh Fort Jaipur — Sunset Views Guide",
       "slug": "nahargarh-fort-jaipur",
       "contentDirection": "Cover 10km drive from city, sunset timings (5-7 PM best), Madhavendra Bhawan palace, and panoramic city views. Include vehicle access (₹50 parking), café options, and combination with Jaigarh Fort visit (additional 5km).",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 931,
+      "generatedAt": "2026-02-08T20:11:54.151Z",
       "validationErrors": []
     },
     {
