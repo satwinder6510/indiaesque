@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:40:02.572Z",
+  "updatedAt": "2026-02-08T21:40:45.366Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -238,9 +238,9 @@
       "title": "Best Street Food Tours In Mumbai",
       "slug": "mumbai-street-food-tours",
       "contentDirection": "Review top operators: A Chef's Tour (₹2,500-3,500), Reality Tours (₹1,800-2,800), and Mumbai Food Tours. Cover 12+ food stops, safety standards, group sizes, and must-try items like pav bhaji, bhel puri, and Mumbai sandwich.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 843,
+      "generatedAt": "2026-02-08T21:40:45.366Z",
       "validationErrors": []
     },
     {
