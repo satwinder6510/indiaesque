@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:42:44.353Z",
+  "updatedAt": "2026-02-08T21:43:19.852Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -286,9 +286,9 @@
       "title": "Best Fine Dining Restaurants In Mumbai",
       "slug": "best-fine-dining-mumbai",
       "contentDirection": "Cover top restaurants: Trishna (₹3,000-5,000), Bombay Canteen (₹2,500-4,000), restaurants at Taj Mahal Palace like Wasabi and Golden Dragon. Include cuisine types, reservation requirements, and dress codes.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 687,
+      "generatedAt": "2026-02-08T21:43:19.852Z",
       "validationErrors": []
     },
     {
