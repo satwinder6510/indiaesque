@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T22:02:40.345Z",
+  "updatedAt": "2026-02-08T22:03:27.362Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -622,9 +622,9 @@
       "title": "Mumbai During Monsoon Season",
       "slug": "mumbai-monsoon-travel",
       "contentDirection": "Monsoon guide (June-September): Average 2,400mm rainfall, flooding in low-lying areas, transport disruptions, waterproof gear essentials, indoor attractions during rains, and pros/cons of monsoon travel with specific precautions.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 949,
+      "generatedAt": "2026-02-08T22:03:27.362Z",
       "validationErrors": []
     },
     {
