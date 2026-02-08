@@ -255,3 +255,33 @@ export async function writeJSON<T>(
   const content = JSON.stringify(data, null, 2);
   return writeFile(path, content, message);
 }
+
+/**
+ * Upload a binary file (like an image) to the GitHub repository
+ */
+export async function uploadBinaryFile(
+  path: string,
+  base64Content: string,
+  message: string
+): Promise<{ sha: string; committed: boolean }> {
+  // Get existing file SHA if it exists (for updates)
+  let sha: string | undefined;
+  const existing = await getFileInfo(path);
+  if (existing) {
+    sha = existing.sha;
+  }
+
+  const response = await octokit.rest.repos.createOrUpdateFileContents({
+    owner,
+    repo,
+    path,
+    message,
+    content: base64Content,
+    sha,
+  });
+
+  return {
+    sha: response.data.content?.sha || "",
+    committed: true,
+  };
+}

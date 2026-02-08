@@ -34,13 +34,21 @@ const {
   schema = []
 } = Astro.props;
 
+// Generate mobile image path from hero image
+const heroImageMobile = heroImage.replace(/(\.[^.]+)$/, '-mobile$1');
+
 const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 ---
 
 <BaseLayout title={title} description={description} schema={schema} includeFooter={false}>
 
   <!-- HERO -->
-  <div class="hero" style={`background-image: url('${heroImage}');`}>
+  <div class="hero">
+    <picture class="hero-picture">
+      <source media="(max-width: 599px)" srcset={heroImageMobile} />
+      <source media="(min-width: 600px)" srcset={heroImage} />
+      <img src={heroImage} alt={city} class="hero-img" loading="eager" />
+    </picture>
     <div class="hero-overlay">
       <span class="hero-location">INDIA</span>
       <h1 class="hero-title">{city.toUpperCase()}</h1>
@@ -191,14 +199,28 @@ const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep
 <style>
   /* HERO */
   .hero {
+    position: relative;
     width: 100%;
     min-height: 350px;
-    background-size: cover;
-    background-position: center;
     display: flex;
     align-items: flex-end;
+    overflow: hidden;
+  }
+  .hero-picture {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
   .hero-overlay {
+    position: relative;
+    z-index: 1;
     width: 100%;
     padding: 80px 20px 40px;
     background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);

@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { use } from "react";
 import type { ContentBank, ContentBankPage, PageStatus } from "@/lib/types";
 
-type TabType = "bank" | "research" | "generate" | "validate" | "files";
+type TabType = "bank" | "research" | "generate" | "validate" | "files" | "images";
 
 const STATUS_CONFIG: Record<PageStatus, { bg: string; text: string }> = {
   "not-started": { bg: "bg-gray-100 dark:bg-gray-800", text: "text-gray-600 dark:text-gray-400" },
@@ -41,6 +41,11 @@ const TABS: { id: TabType; label: string; icon: React.ReactNode }[] = [
     id: "files",
     label: "Files",
     icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>,
+  },
+  {
+    id: "images",
+    label: "Images",
+    icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>,
   },
 ];
 
@@ -163,6 +168,7 @@ export default function CityPage({ params }: { params: Promise<{ slug: string }>
           <ValidateTab contentBank={contentBank} citySlug={slug} />
         )}
         {activeTab === "files" && <FilesTab citySlug={slug} />}
+        {activeTab === "images" && <ImagesTab citySlug={slug} cityName={cityName} />}
       </main>
     </div>
   );
@@ -633,6 +639,241 @@ function FilesTab({ citySlug }: { citySlug: string }) {
           ))}
         </div>
       )}
+    </div>
+  );
+}
+
+interface CityImage {
+  name: string;
+  path: string;
+  size: number;
+  type: "desktop" | "mobile";
+  url: string;
+}
+
+function ImagesTab({ citySlug, cityName }: { citySlug: string; cityName: string }) {
+  const [images, setImages] = useState<CityImage[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [uploading, setUploading] = useState<"desktop" | "mobile" | null>(null);
+  const [error, setError] = useState("");
+
+  const fetchImages = useCallback(async () => {
+    try {
+      const response = await fetch(`/api/images?city=${citySlug}`);
+      const data = await response.json();
+      setImages(data.images || []);
+    } catch {
+      setError("Failed to load images");
+    } finally {
+      setLoading(false);
+    }
+  }, [citySlug]);
+
+  useEffect(() => {
+    fetchImages();
+  }, [fetchImages]);
+
+  const handleUpload = async (type: "desktop" | "mobile", file: File) => {
+    setUploading(type);
+    setError("");
+
+    const formData = new FormData();
+    formData.append("city", citySlug);
+    formData.append("type", type);
+    formData.append("file", file);
+
+    try {
+      const response = await fetch("/api/images", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Upload failed");
+      }
+
+      await fetchImages();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Upload failed");
+    } finally {
+      setUploading(null);
+    }
+  };
+
+  const desktopImage = images.find((i) => i.type === "desktop");
+  const mobileImage = images.find((i) => i.type === "mobile");
+
+  if (loading) {
+    return <div className="text-center py-12 text-[var(--foreground-muted)]">Loading images...</div>;
+  }
+
+  return (
+    <div className="max-w-2xl space-y-6">
+      {/* Size Guide */}
+      <div className="bg-[var(--background-card)] rounded-2xl shadow-lg border border-[var(--border)] p-6">
+        <h2 className="text-lg font-semibold mb-4">Hero Images for {cityName}</h2>
+
+        <div className="bg-[var(--primary)]/5 rounded-xl p-4 mb-6">
+          <h3 className="font-medium text-sm text-[var(--primary)] mb-2">Recommended Sizes</h3>
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <span className="font-semibold">Desktop:</span>
+              <span className="text-[var(--foreground-muted)] ml-2">1920 × 800px</span>
+              <p className="text-xs text-[var(--foreground-muted)] mt-1">Wide landscape, hero banner</p>
+            </div>
+            <div>
+              <span className="font-semibold">Mobile:</span>
+              <span className="text-[var(--foreground-muted)] ml-2">800 × 500px</span>
+              <p className="text-xs text-[var(--foreground-muted)] mt-1">Cropped tighter on subject</p>
+            </div>
+          </div>
+        </div>
+
+        {error && (
+          <div className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 rounded-xl text-sm">
+            {error}
+          </div>
+        )}
+
+        {/* Desktop Image */}
+        <div className="mb-6">
+          <div className="flex items-center justify-between mb-3">
+            <div>
+              <h3 className="font-medium">Desktop Hero</h3>
+              <p className="text-xs text-[var(--foreground-muted)]">{citySlug}-hero.jpg</p>
+            </div>
+            {desktopImage && (
+              <span className="flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                {(desktopImage.size / 1024).toFixed(0)} KB
+              </span>
+            )}
+          </div>
+
+          <label className={`block border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-colors ${
+            desktopImage
+              ? "border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-900/10"
+              : "border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--primary)]/5"
+          }`}>
+            <input
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+              className="hidden"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) handleUpload("desktop", file);
+              }}
+              disabled={uploading !== null}
+            />
+            {uploading === "desktop" ? (
+              <div className="flex items-center justify-center gap-2 text-[var(--foreground-muted)]">
+                <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                </svg>
+                Uploading...
+              </div>
+            ) : desktopImage ? (
+              <span className="text-sm text-[var(--foreground-muted)]">Click to replace</span>
+            ) : (
+              <div>
+                <svg className="w-8 h-8 mx-auto mb-2 text-[var(--foreground-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span className="text-sm text-[var(--foreground-muted)]">Click to upload desktop image</span>
+              </div>
+            )}
+          </label>
+        </div>
+
+        {/* Mobile Image */}
+        <div>
+          <div className="flex items-center justify-between mb-3">
+            <div>
+              <h3 className="font-medium">Mobile Hero</h3>
+              <p className="text-xs text-[var(--foreground-muted)]">{citySlug}-hero-mobile.jpg</p>
+            </div>
+            {mobileImage && (
+              <span className="flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                {(mobileImage.size / 1024).toFixed(0)} KB
+              </span>
+            )}
+          </div>
+
+          <label className={`block border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-colors ${
+            mobileImage
+              ? "border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-900/10"
+              : "border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--primary)]/5"
+          }`}>
+            <input
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+              className="hidden"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) handleUpload("mobile", file);
+              }}
+              disabled={uploading !== null}
+            />
+            {uploading === "mobile" ? (
+              <div className="flex items-center justify-center gap-2 text-[var(--foreground-muted)]">
+                <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                </svg>
+                Uploading...
+              </div>
+            ) : mobileImage ? (
+              <span className="text-sm text-[var(--foreground-muted)]">Click to replace</span>
+            ) : (
+              <div>
+                <svg className="w-8 h-8 mx-auto mb-2 text-[var(--foreground-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+                <span className="text-sm text-[var(--foreground-muted)]">Click to upload mobile image</span>
+              </div>
+            )}
+          </label>
+        </div>
+      </div>
+
+      {/* Status Summary */}
+      <div className="bg-[var(--background-card)] rounded-2xl shadow-lg border border-[var(--border)] p-6">
+        <h3 className="font-medium mb-3">Status</h3>
+        <div className="space-y-2 text-sm">
+          <div className="flex items-center gap-2">
+            {desktopImage ? (
+              <svg className="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            ) : (
+              <svg className="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            )}
+            <span>Desktop: {desktopImage ? desktopImage.name : "Not uploaded"}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            {mobileImage ? (
+              <svg className="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            ) : (
+              <svg className="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            )}
+            <span>Mobile: {mobileImage ? mobileImage.name : "Not uploaded"}</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
