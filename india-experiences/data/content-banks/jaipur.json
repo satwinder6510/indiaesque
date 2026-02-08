@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:12:37.763Z",
+  "updatedAt": "2026-02-08T20:13:29.871Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -334,9 +334,9 @@
       "title": "Johari Bazaar Jaipur Shopping Guide",
       "slug": "johari-bazaar-jaipur-shopping",
       "contentDirection": "Focus on jewelry (silver ₹500-5000/piece, gems ₹1000-50000), traditional kundan work, and certified dealers vs. tourist shops. Include location near Hawa Mahal, parking options, and gem testing tips to avoid fake stones.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1044,
+      "generatedAt": "2026-02-08T20:13:29.871Z",
       "validationErrors": []
     },
     {
