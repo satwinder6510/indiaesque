@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:25:06.238Z",
+  "updatedAt": "2026-02-08T20:25:54.461Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -586,9 +586,9 @@
       "title": "Money And Currency In Jaipur",
       "slug": "money-currency-jaipur",
       "contentDirection": "Cover ATM availability, card acceptance at hotels/restaurants, forex counters near MI Road and railway station. Include tipping guidelines (10-15% restaurants, ₹50-100 guides), bargaining culture, and digital payment adoption in markets.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1030,
+      "generatedAt": "2026-02-08T20:25:54.461Z",
       "validationErrors": []
     },
     {
