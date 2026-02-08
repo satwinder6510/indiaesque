@@ -13,6 +13,7 @@ const STATUS_CONFIG: Record<CityStatus, { bg: string; text: string; label: strin
   generated: { bg: "bg-purple-100 dark:bg-purple-900/30", text: "text-purple-700 dark:text-purple-300", label: "Generated" },
   validated: { bg: "bg-teal-100 dark:bg-teal-900/30", text: "text-teal-700 dark:text-teal-300", label: "Validated" },
   "content-complete": { bg: "bg-emerald-100 dark:bg-emerald-900/30", text: "text-emerald-700 dark:text-emerald-300", label: "Complete" },
+  content: { bg: "bg-green-100 dark:bg-green-900/30", text: "text-green-700 dark:text-green-300", label: "Has Content" },
 };
 
 export default function Dashboard() {
