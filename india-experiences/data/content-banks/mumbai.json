@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:38:35.969Z",
+  "updatedAt": "2026-02-08T21:39:18.849Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -214,9 +214,9 @@
       "title": "Mumbai Airport To City Center",
       "slug": "mumbai-airport-to-city",
       "contentDirection": "Cover transport options from Chhatrapati Shivaji Airport: Uber (₹800-1,500 to Colaba, 1-2 hours depending on traffic), pre-paid taxis, airport shuttles, and metro connections. Include terminal-specific details and timing advice.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 805,
+      "generatedAt": "2026-02-08T21:39:18.849Z",
       "validationErrors": []
     },
     {
