@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:23:43.030Z",
+  "updatedAt": "2026-02-08T20:24:28.683Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -562,9 +562,9 @@
       "title": "Best Rooftop Bars In Jaipur",
       "slug": "best-rooftop-bars-jaipur",
       "contentDirection": "Highlight PCO (Palace Cinema), Tattoo Café, and heritage hotel terraces with Amber Fort views. Include drink prices (₹400-1200), food options, sunset timing reservations, and fort illumination viewing (post 7 PM).",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 905,
+      "generatedAt": "2026-02-08T20:24:28.683Z",
       "validationErrors": []
     },
     {
