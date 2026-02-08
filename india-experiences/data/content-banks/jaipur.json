@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:19:29.175Z",
+  "updatedAt": "2026-02-08T20:20:18.608Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -466,9 +466,9 @@
       "title": "Pushkar Day Trip From Jaipur",
       "slug": "pushkar-day-trip-jaipur",
       "contentDirection": "Cover 2.5-hour drive, Brahma Temple significance, Pushkar Lake, and camel safari options (₹1500-3000). Include holy city protocols, photography restrictions, market timings, and return journey considerations with sunset viewing.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1051,
+      "generatedAt": "2026-02-08T20:20:18.608Z",
       "validationErrors": []
     },
     {
