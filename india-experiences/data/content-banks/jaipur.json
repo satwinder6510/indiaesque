@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:30:51.823Z",
+  "updatedAt": "2026-02-08T20:31:47.683Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -670,9 +670,9 @@
       "title": "Budget Travel Guide To Jaipur",
       "slug": "budget-travel-jaipur",
       "contentDirection": "Break down daily costs: accommodation ₹800-2000, food ₹300-600, transport ₹200-500, entries ₹200-400. Include free activities like Hawa Mahal exterior viewing, budget eateries, and composite ticket savings (₹1000 for 5 sites).",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 870,
+      "generatedAt": "2026-02-08T20:31:47.683Z",
       "validationErrors": []
     }
   ],
