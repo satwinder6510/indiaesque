@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:03:54.469Z",
+  "updatedAt": "2026-02-08T20:04:39.190Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -154,9 +154,9 @@
       "title": "Getting Around Jaipur",
       "slug": "getting-around-jaipur",
       "contentDirection": "Cover Jaipur Metro (₹5-25 per journey), auto-rickshaws (₹10-15/km), app cabs, and cycle rickshaws for Old City. Include parking info, traffic patterns, and recommended routes between major attractions.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 872,
+      "generatedAt": "2026-02-08T20:04:39.190Z",
       "validationErrors": []
     },
     {
