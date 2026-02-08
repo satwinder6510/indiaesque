@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:55:16.889Z",
+  "updatedAt": "2026-02-08T21:56:05.028Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -502,9 +502,9 @@
       "title": "Best Day Trips From Mumbai",
       "slug": "day-trips-from-mumbai",
       "contentDirection": "Day trip options: Lonavala hill station (2 hours by train, ₹40), Alibaug beach (ferry ₹200), Matheran toy train experience, Karjat adventure activities, Elephanta Caves, and weekend getaway recommendations with transport options.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 837,
+      "generatedAt": "2026-02-08T21:56:05.028Z",
       "validationErrors": []
     },
     {
