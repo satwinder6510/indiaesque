@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:07:34.911Z",
+  "updatedAt": "2026-02-08T20:08:17.598Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -226,9 +226,9 @@
       "title": "Famous Sweets Of Jaipur",
       "slug": "famous-sweets-jaipur",
       "contentDirection": "Detail ghewar (monsoon special), feeni, and mawa kachori at legendary shops like LMB, Rawat Mishthan Bhandar, and Annapurna Bhandar. Include seasonal availability, packaging for travel, and price ranges ₹50-300 per kg.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 836,
+      "generatedAt": "2026-02-08T20:08:17.598Z",
       "validationErrors": []
     },
     {
