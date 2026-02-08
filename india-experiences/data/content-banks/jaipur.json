@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T19:57:56.076Z",
+  "updatedAt": "2026-02-08T19:59:06.287Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -502,9 +502,9 @@
       "title": "Temples & Spiritual Sites In Jaipur — 2026 Guide",
       "slug": "spiritual",
       "contentDirection": "Complete guide to Galta Ji (Monkey Temple), Govind Dev Ji Temple, and Birla Mandir. Include prayer timings, dress codes, photography rules, donation practices (₹21-501 common amounts), and spiritual significance explanations.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1567,
+      "generatedAt": "2026-02-08T19:59:06.287Z",
       "validationErrors": []
     },
     {
