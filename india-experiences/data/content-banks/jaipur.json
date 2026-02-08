@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:01:38.019Z",
+  "updatedAt": "2026-02-08T20:02:28.648Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -118,9 +118,9 @@
       "title": "What Is Jaipur Famous For?",
       "slug": "what-is-jaipur-famous-for",
       "contentDirection": "Cover Pink City architecture, Rajput heritage, gem cutting industry, block printing, and being part of Golden Triangle. Mention UNESCO World Heritage status and specific crafts like blue pottery and lac jewelry.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1187,
+      "generatedAt": "2026-02-08T20:02:28.648Z",
       "validationErrors": []
     },
     {
