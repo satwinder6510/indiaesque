@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:45:18.976Z",
+  "updatedAt": "2026-02-08T21:46:00.971Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -334,9 +334,9 @@
       "title": "Marine Drive Mumbai Guide",
       "slug": "marine-drive-mumbai",
       "contentDirection": "Complete guide to 'Queen's Necklace': 3.6km promenade, Art Deco buildings, sunset viewing spots, walking vs driving, street food stalls, Nariman Point business district, and nearby attractions like Hanging Gardens.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 921,
+      "generatedAt": "2026-02-08T21:46:00.971Z",
       "validationErrors": []
     },
     {
