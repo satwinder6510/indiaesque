@@ -12,6 +12,19 @@
       "airport": "DEL",
       "nearestHub": null,
       "status": "generated"
+    },
+    {
+      "name": "Jaipur",
+      "slug": "jaipur",
+      "state": "Rajasthan",
+      "tier": 2,
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "airport": "JAI",
+      "nearestHub": null,
+      "status": "new"
     }
   ]
 }
