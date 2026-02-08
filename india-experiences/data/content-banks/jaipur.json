@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:15:44.118Z",
+  "updatedAt": "2026-02-08T20:16:28.032Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -394,9 +394,9 @@
       "title": "Best Art Workshops In Jaipur",
       "slug": "best-art-workshops-jaipur",
       "contentDirection": "Detail block printing at Anokhi Museum (₹2500), blue pottery at Neeru Kumar Studio (₹3000), and jewelry making workshops (₹2000-4000). Include duration (3-6 hours), take-home items, and advance booking requirements.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 901,
+      "generatedAt": "2026-02-08T20:16:28.032Z",
       "validationErrors": []
     },
     {
