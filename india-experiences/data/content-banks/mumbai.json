@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:47:26.458Z",
+  "updatedAt": "2026-02-08T21:48:07.176Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -370,9 +370,9 @@
       "title": "Colaba Causeway Shopping Guide",
       "slug": "colaba-causeway-shopping-mumbai",
       "contentDirection": "Shopping street guide: jewelry, handicrafts, clothes, bargaining strategies (start at 30% of quoted price), Leopold Café and Mondegar nearby, street food options, opening hours (10am-9pm), and specific shops to visit.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 736,
+      "generatedAt": "2026-02-08T21:48:07.176Z",
       "validationErrors": []
     },
     {
