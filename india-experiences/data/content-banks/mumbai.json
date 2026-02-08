@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:34:21.762Z",
+  "updatedAt": "2026-02-08T21:35:06.046Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -142,9 +142,9 @@
       "title": "Is Mumbai Safe For Tourists?",
       "slug": "is-mumbai-safe-for-tourists",
       "contentDirection": "Answer directly that Mumbai is generally safe (rated 50th out of 60 cities globally). Cover safety by area: Colaba and South Mumbai safest, avoid walking alone after 11pm, common scams (fake meters, gem scams), and specific safety tips for women travelers.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 944,
+      "generatedAt": "2026-02-08T21:35:06.046Z",
       "validationErrors": []
     },
     {
