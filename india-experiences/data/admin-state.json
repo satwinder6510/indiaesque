@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-02-08T22:00:40.791Z",
+  "lastUpdated": "2026-02-08T22:01:23.246Z",
   "apiCalls": {
     "research": {
       "total": 2,
       "today": 2
     },
     "generation": {
-      "total": 90,
-      "today": 90
+      "total": 91,
+      "today": 91
     }
   },
   "currentJob": null,
