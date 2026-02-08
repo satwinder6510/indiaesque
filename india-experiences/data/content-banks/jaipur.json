@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:22:20.195Z",
+  "updatedAt": "2026-02-08T20:23:05.613Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -526,9 +526,9 @@
       "title": "Govind Dev Ji Temple Jaipur",
       "slug": "govind-dev-temple-jaipur",
       "contentDirection": "Cover Krishna temple inside City Palace complex, special darshan timings (4:30 AM, 12 PM, 5:30 PM), and royal family connections. Include aarti participation, prasad distribution, and photography restrictions inside sanctum.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1042,
+      "generatedAt": "2026-02-08T20:23:05.613Z",
       "validationErrors": []
     },
     {
