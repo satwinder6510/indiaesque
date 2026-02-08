@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T22:07:01.262Z",
+  "updatedAt": "2026-02-08T23:45:49.339Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -94,7 +94,7 @@
       "title": "Best Food Tours In Mumbai — 2026 Guide",
       "slug": "food-tours",
       "contentDirection": "Overview of food tour options covering street food areas like Juhu Beach, Colaba Causeway, and Mohammad Ali Road. Include specific operators like A Chef's Tour, pricing (₹1,500-3,000), and must-try dishes like vada pav, pav bhaji, and bhel puri.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 1334,
       "generatedAt": "2026-02-08T21:30:48.501Z",
       "validationErrors": []
@@ -106,7 +106,7 @@
       "title": "Best Heritage Walks In Mumbai — 2026 Guide",
       "slug": "heritage-walks",
       "contentDirection": "Cover architectural tours through South Mumbai's colonial buildings, Art Deco heritage (second-largest collection after Miami), Fort area, and Chhatrapati Shivaji Terminus. Include guided tour prices (₹800-2,000) and self-guided options.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 1541,
       "generatedAt": "2026-02-08T21:32:00.324Z",
       "validationErrors": []
@@ -118,7 +118,7 @@
       "title": "Best Markets In Mumbai — 2026 Guide",
       "slug": "markets",
       "contentDirection": "Guide to Crawford Market, Colaba Causeway, Linking Road in Bandra, and Chor Bazaar. Include opening hours, bargaining tips, and specific items to buy. Cover price ranges and transport access from major hotels.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 1296,
       "generatedAt": "2026-02-08T21:33:05.591Z",
       "validationErrors": []
@@ -130,7 +130,7 @@
       "title": "Mumbai Transport Guide — 2026",
       "slug": "transport",
       "contentDirection": "Comprehensive guide to local trains (avoid 8-10am and 5-8pm), Uber/Ola apps, airport transfers (₹800-1,500 to Colaba), and metro system. Include safety tips for public transport and taxi meter requirements.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 1531,
       "generatedAt": "2026-02-08T21:34:21.762Z",
       "validationErrors": []
@@ -142,7 +142,7 @@
       "title": "Is Mumbai Safe For Tourists?",
       "slug": "is-mumbai-safe-for-tourists",
       "contentDirection": "Answer directly that Mumbai is generally safe (rated 50th out of 60 cities globally). Cover safety by area: Colaba and South Mumbai safest, avoid walking alone after 11pm, common scams (fake meters, gem scams), and specific safety tips for women travelers.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 944,
       "generatedAt": "2026-02-08T21:35:06.046Z",
       "validationErrors": []
@@ -154,7 +154,7 @@
       "title": "How Many Days Do You Need In Mumbai?",
       "slug": "how-many-days-mumbai",
       "contentDirection": "Recommend 3-4 days minimum for major attractions, 5-7 days for comprehensive exploration. Break down day-by-day itineraries: Day 1 South Mumbai (Gateway, Taj Hotel), Day 2 Markets and food tours, Day 3 Dharavi and film city, Day 4+ beaches and suburbs.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 836,
       "generatedAt": "2026-02-08T21:35:48.980Z",
       "validationErrors": []
@@ -166,7 +166,7 @@
       "title": "What Is Mumbai Famous For?",
       "slug": "what-is-mumbai-famous-for",
       "contentDirection": "Cover Bollywood film industry, financial capital status, street food culture, colonial and Art Deco architecture, Dharavi slum, textile industry, and business hub reputation. Include specific examples and statistics.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 902,
       "generatedAt": "2026-02-08T21:36:35.758Z",
       "validationErrors": []
@@ -178,7 +178,7 @@
       "title": "Best Time To Visit Mumbai",
       "slug": "best-time-visit-mumbai",
       "contentDirection": "Recommend October-March for cool, dry weather. Avoid June-September monsoons (heavy flooding). Cover temperature ranges (30°C year-round), humidity levels, and festival seasons like Ganesh Chaturthi in September.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 701,
       "generatedAt": "2026-02-08T21:37:13.563Z",
       "validationErrors": []
@@ -190,7 +190,7 @@
       "title": "Where To Stay In Mumbai",
       "slug": "where-to-stay-mumbai",
       "contentDirection": "Detail best neighborhoods: Colaba (first-time visitors, ₹3,000-15,000/night), Bandra West (trendy, ₹2,500-8,000), Marine Drive (business, ₹4,000-20,000), BKC (business district), and Juhu (beaches, families). Include transport connections.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 907,
       "generatedAt": "2026-02-08T21:37:55.030Z",
       "validationErrors": []
@@ -202,7 +202,7 @@
       "title": "Getting Around Mumbai",
       "slug": "getting-around-mumbai",
       "contentDirection": "Comprehensive transport guide: Local trains (₹5-15 per journey), Uber/Ola (₹150-500 across city), auto-rickshaws (north of Bandra only), taxis with meters mandatory. Include rush hour timings and safety tips.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 814,
       "generatedAt": "2026-02-08T21:38:35.969Z",
       "validationErrors": []
@@ -214,7 +214,7 @@
       "title": "Mumbai Airport To City Center",
       "slug": "mumbai-airport-to-city",
       "contentDirection": "Cover transport options from Chhatrapati Shivaji Airport: Uber (₹800-1,500 to Colaba, 1-2 hours depending on traffic), pre-paid taxis, airport shuttles, and metro connections. Include terminal-specific details and timing advice.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 805,
       "generatedAt": "2026-02-08T21:39:18.849Z",
       "validationErrors": []
@@ -226,7 +226,7 @@
       "title": "Where To Eat The Best Vada Pav In Mumbai",
       "slug": "best-vada-pav-mumbai",
       "contentDirection": "Feature iconic spots: Ashok Vada Pav in Dadar (₹15-25), street stalls near railway stations, Swati Snacks in Tardeo (₹30-50). Include history of the dish, preparation details, and accompaniments like green chutney.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 872,
       "generatedAt": "2026-02-08T21:40:02.572Z",
       "validationErrors": []
@@ -238,7 +238,7 @@
       "title": "Best Street Food Tours In Mumbai",
       "slug": "mumbai-street-food-tours",
       "contentDirection": "Review top operators: A Chef's Tour (₹2,500-3,500), Reality Tours (₹1,800-2,800), and Mumbai Food Tours. Cover 12+ food stops, safety standards, group sizes, and must-try items like pav bhaji, bhel puri, and Mumbai sandwich.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 843,
       "generatedAt": "2026-02-08T21:40:45.366Z",
       "validationErrors": []
@@ -250,7 +250,7 @@
       "title": "Best Pav Bhaji In Mumbai",
       "slug": "best-pav-bhaji-mumbai",
       "contentDirection": "Highlight famous spots: Sardar Pav Bhaji, Canon Pav Bhaji, Amrit Sagar in Bandra (₹80-150 per plate), and beachside stalls at Juhu and Chowpatty. Include preparation style and accompaniments like onions and lemon.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 824,
       "generatedAt": "2026-02-08T21:41:24.594Z",
       "validationErrors": []
@@ -262,7 +262,7 @@
       "title": "Mumbai Street Food Safety Tips",
       "slug": "mumbai-street-food-safety",
       "contentDirection": "Essential safety guidelines: choose busy stalls with high turnover, avoid water-based items, stick to fried/grilled foods, popular tourist-friendly spots like Elco in Bandra and Sukh Sagar at Chowpatty. Include stomach-settling remedies.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 870,
       "generatedAt": "2026-02-08T21:42:08.544Z",
       "validationErrors": []
@@ -274,7 +274,7 @@
       "title": "Best Thali Restaurants In Mumbai",
       "slug": "best-thali-mumbai",
       "contentDirection": "Feature unlimited thali experiences: Shree Thaker Bhojanalay (₹600-800 for 30 dishes), Gujarati and Rajasthani options, Maharashtrian thalis at Sindhudurg and Chaitanya. Include what's typically served and dining etiquette.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 657,
       "generatedAt": "2026-02-08T21:42:44.353Z",
       "validationErrors": []
@@ -286,7 +286,7 @@
       "title": "Best Fine Dining Restaurants In Mumbai",
       "slug": "best-fine-dining-mumbai",
       "contentDirection": "Cover top restaurants: Trishna (₹3,000-5,000), Bombay Canteen (₹2,500-4,000), restaurants at Taj Mahal Palace like Wasabi and Golden Dragon. Include cuisine types, reservation requirements, and dress codes.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 687,
       "generatedAt": "2026-02-08T21:43:19.852Z",
       "validationErrors": []
@@ -298,7 +298,7 @@
       "title": "Gateway Of India Mumbai Guide",
       "slug": "gateway-of-india-mumbai",
       "contentDirection": "Complete guide: built in 1924, Indo-Saracenic architecture, ferry point to Elephanta Caves (₹200-300 return), crowd management tips, best photography times (early morning/evening), nearby attractions like Taj Hotel and Colaba Causeway.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 878,
       "generatedAt": "2026-02-08T21:44:01.566Z",
       "validationErrors": []
@@ -310,7 +310,7 @@
       "title": "Elephanta Caves From Mumbai",
       "slug": "elephanta-caves-mumbai",
       "contentDirection": "Day trip guide: 1-hour ferry from Gateway of India (₹200-300), UNESCO World Heritage site, 7th-century Hindu temples, entry fee ₹40 for Indians/₹600 for foreigners, train ride on island (₹20), timing and crowd advice.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 755,
       "generatedAt": "2026-02-08T21:44:40.491Z",
       "validationErrors": []
@@ -322,7 +322,7 @@
       "title": "Chhatrapati Shivaji Terminus Guide",
       "slug": "chhatrapati-shivaji-terminus-mumbai",
       "contentDirection": "Architectural marvel guide: Victorian Gothic Revival with Indian elements, UNESCO World Heritage site, built 1887, busiest station with 3 million daily passengers, photography restrictions, nearby BMC building and Crawford Market.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 870,
       "generatedAt": "2026-02-08T21:45:18.976Z",
       "validationErrors": []
@@ -334,7 +334,7 @@
       "title": "Marine Drive Mumbai Guide",
       "slug": "marine-drive-mumbai",
       "contentDirection": "Complete guide to 'Queen's Necklace': 3.6km promenade, Art Deco buildings, sunset viewing spots, walking vs driving, street food stalls, Nariman Point business district, and nearby attractions like Hanging Gardens.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 921,
       "generatedAt": "2026-02-08T21:46:00.971Z",
       "validationErrors": []
@@ -346,7 +346,7 @@
       "title": "Mumbai Art Deco Architecture Tour",
       "slug": "mumbai-art-deco-architecture",
       "contentDirection": "Second-largest Art Deco collection after Miami: Marine Drive buildings, Oval Maidan area, Eros Cinema, self-guided vs guided tours (₹1,500-2,500), best photography spots, and architectural significance in city's development.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 940,
       "generatedAt": "2026-02-08T21:46:46.142Z",
       "validationErrors": []
@@ -358,7 +358,7 @@
       "title": "Dharavi Slum Tour Mumbai",
       "slug": "dharavi-slum-tour-mumbai",
       "contentDirection": "Responsible tourism guide: Reality Tours & Travel (₹1,400 for 2.5 hours), 80% profits to community, no-photo policy, 1 million residents, small industries, ethical considerations, and alternative perspectives on urban development.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 820,
       "generatedAt": "2026-02-08T21:47:26.458Z",
       "validationErrors": []
@@ -370,7 +370,7 @@
       "title": "Colaba Causeway Shopping Guide",
       "slug": "colaba-causeway-shopping-mumbai",
       "contentDirection": "Shopping street guide: jewelry, handicrafts, clothes, bargaining strategies (start at 30% of quoted price), Leopold Café and Mondegar nearby, street food options, opening hours (10am-9pm), and specific shops to visit.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 736,
       "generatedAt": "2026-02-08T21:48:07.176Z",
       "validationErrors": []
@@ -382,7 +382,7 @@
       "title": "Crawford Market Mumbai Guide",
       "slug": "crawford-market-mumbai",
       "contentDirection": "Historic market guide: British architecture, fruits and spices, textiles section, pet section (avoid illegal animal shops), bargaining tips, opening hours (11am-8pm, closed Sundays), transport access, and nearby attractions.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 1037,
       "generatedAt": "2026-02-08T21:48:57.393Z",
       "validationErrors": []
@@ -394,7 +394,7 @@
       "title": "Linking Road Shopping Guide Mumbai",
       "slug": "linking-road-shopping-mumbai",
       "contentDirection": "Bandra shopping street: fashion items, street food while shopping, Hill Road parallel market, bargaining culture, evening crowds (6-9pm best), nearby brands like Zara and H&M in malls, and local designer stores.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 950,
       "generatedAt": "2026-02-08T21:49:45.368Z",
       "validationErrors": []
@@ -406,7 +406,7 @@
       "title": "Chor Bazaar Mumbai Guide",
       "slug": "chor-bazaar-mumbai",
       "contentDirection": "'Thieves Market' guide: antiques and vintage items, furniture, Bollywood memorabilia, haggling essential (expect 50-70% off first price), Friday closure, morning visits best (9am-12pm), transport via Mumbai Central station.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 899,
       "generatedAt": "2026-02-08T21:50:31.576Z",
       "validationErrors": []
@@ -418,7 +418,7 @@
       "title": "Bollywood Tours In Mumbai",
       "slug": "bollywood-tours-mumbai",
       "contentDirection": "Film city experiences: Film City tours (₹1,200-2,500), studio visits, celebrity home tours in Juhu and Bandra, movie theater experiences at iconic cinemas like Regal, and Bollywood museum visits. Include booking requirements.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 747,
       "generatedAt": "2026-02-08T21:51:09.844Z",
       "validationErrors": []
@@ -430,7 +430,7 @@
       "title": "Kala Ghoda Art District Mumbai",
       "slug": "kala-ghoda-art-mumbai",
       "contentDirection": "Cultural hub guide: Jehangir Art Gallery (free entry), National Gallery of Modern Art, annual Kala Ghoda Festival (February), street art, boutique shops, cafés like Rhythm House, and Chhatrapati Shivaji Museum (₹70 entry).",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 892,
       "generatedAt": "2026-02-08T21:51:52.785Z",
       "validationErrors": []
@@ -442,7 +442,7 @@
       "title": "Mumbai Cultural Festivals Calendar",
       "slug": "mumbai-festivals",
       "contentDirection": "Annual festival guide: Ganesh Chaturthi (August/September), Kala Ghoda Arts Festival (February), Mumbai Film Festival (October), Navratri celebrations, Diwali festivities, and seasonal celebrations with dates, locations, and visitor tips.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 919,
       "generatedAt": "2026-02-08T21:52:39.016Z",
       "validationErrors": []
@@ -454,7 +454,7 @@
       "title": "Best Museums In Mumbai",
       "slug": "best-museums-mumbai",
       "contentDirection": "Museum guide: Chhatrapati Shivaji Museum (₹70, closed Mondays), Nehru Science Centre (₹65), Mani Bhavan Gandhi Museum (₹15), Bhau Daji Lad Museum, opening hours, special exhibitions, and combined ticket options.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 824,
       "generatedAt": "2026-02-08T21:53:18.125Z",
       "validationErrors": []
@@ -466,7 +466,7 @@
       "title": "Juhu Beach Mumbai Guide",
       "slug": "juhu-beach-mumbai",
       "contentDirection": "Beach guide: 6km stretch, sunset views, street food stalls, celebrity spotting, water sports limitations (pollution), nearby ISKCON temple, accommodation options, and transport from city center (1-2 hours by road).",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 850,
       "generatedAt": "2026-02-08T21:54:00.772Z",
       "validationErrors": []
@@ -478,7 +478,7 @@
       "title": "Sanjay Gandhi National Park Mumbai",
       "slug": "sanjay-gandhi-national-park-mumbai",
       "contentDirection": "Urban wildlife guide: 104 sq km park, Kanheri Caves inside (₹25 entry), leopard population (35+ leopards), lion safari (₹75-100), toy train, entry fees ₹44 for adults, best time to visit (October-March).",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 798,
       "generatedAt": "2026-02-08T21:54:36.673Z",
       "validationErrors": []
@@ -490,7 +490,7 @@
       "title": "Kanheri Caves Mumbai",
       "slug": "kanheri-caves-mumbai",
       "contentDirection": "Buddhist heritage site: 109 rock-cut caves within Sanjay Gandhi National Park, 1st-10th century Buddhist monastery, entry ₹25, guided tours available, monsoon closure (June-September), transport within park required.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 905,
       "generatedAt": "2026-02-08T21:55:16.889Z",
       "validationErrors": []
@@ -502,7 +502,7 @@
       "title": "Best Day Trips From Mumbai",
       "slug": "day-trips-from-mumbai",
       "contentDirection": "Day trip options: Lonavala hill station (2 hours by train, ₹40), Alibaug beach (ferry ₹200), Matheran toy train experience, Karjat adventure activities, Elephanta Caves, and weekend getaway recommendations with transport options.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 837,
       "generatedAt": "2026-02-08T21:56:05.028Z",
       "validationErrors": []
@@ -514,7 +514,7 @@
       "title": "Best Beaches In Mumbai",
       "slug": "best-beaches-mumbai",
       "contentDirection": "Beach guide: Juhu (most popular, celebrity spotting), Versova (cleaner, sunset views), Aksa (less crowded), Madh Island (secluded), Chowpatty (street food, no swimming), water quality warnings, and safety tips.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 1081,
       "generatedAt": "2026-02-08T21:56:52.908Z",
       "validationErrors": []
@@ -526,7 +526,7 @@
       "title": "Siddhivinayak Temple Mumbai Guide",
       "slug": "siddhivinayak-temple-mumbai",
       "contentDirection": "Temple guide: Most famous Ganesh temple, Prabhadevi location, darshan timings (5:30am-10pm), Tuesday rush crowds, dress code requirements, prasad options (₹51, ₹101, ₹501), nearby accommodation and food options.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 922,
       "generatedAt": "2026-02-08T21:57:42.181Z",
       "validationErrors": []
@@ -538,7 +538,7 @@
       "title": "Haji Ali Dargah Mumbai Guide",
       "slug": "haji-ali-dargah-mumbai",
       "contentDirection": "Iconic dargah guide: 500m walkway accessible only at low tide, check tide timings, Sufi saint tomb, all religions welcome, no entry fees, evening prayers atmosphere, photography restrictions, and nearby Mahalaxmi Temple.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 999,
       "generatedAt": "2026-02-08T21:58:28.157Z",
       "validationErrors": []
@@ -550,7 +550,7 @@
       "title": "Religious Sites In Mumbai",
       "slug": "religious-sites-mumbai",
       "contentDirection": "Multi-faith guide: Hindu temples (Siddhivinayak, Mahalaxmi), Islamic sites (Haji Ali), Christian churches (Mount Mary, St. Thomas Cathedral), Buddhist caves, Jain temples, and visiting etiquette for each religion.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 962,
       "generatedAt": "2026-02-08T21:59:14.802Z",
       "validationErrors": []
@@ -562,7 +562,7 @@
       "title": "Mount Mary Church Bandra Mumbai",
       "slug": "mount-mary-church-mumbai",
       "contentDirection": "Historic basilica guide: Portuguese-built church, miraculous healing reputation, annual Bandra Fair (September), stunning Arabian Sea views, Bandra West location, mass timings, and nearby attractions like Bandstand Promenade.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 925,
       "generatedAt": "2026-02-08T21:59:56.148Z",
       "validationErrors": []
@@ -574,7 +574,7 @@
       "title": "Mumbai Nightlife Guide",
       "slug": "mumbai-nightlife",
       "contentDirection": "Night scene overview: Bandra West pubs and bars, Lower Parel club district, Colaba late-night spots, entry fees (₹1,500-3,000), dress codes, age restrictions (25+ for many venues), and safety tips for late-night travel.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 857,
       "generatedAt": "2026-02-08T22:00:39.744Z",
       "validationErrors": []
@@ -586,7 +586,7 @@
       "title": "Best Bars In Mumbai",
       "slug": "best-bars-mumbai",
       "contentDirection": "Top bars guide: Aer (₹2,000+ cover), Toto's Garage in Bandra, Harbour Bar at Taj Hotel (since 1933), Social outlets, rooftop bars with city views, craft beer scenes, happy hour timings, and signature cocktails.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 728,
       "generatedAt": "2026-02-08T22:01:21.840Z",
       "validationErrors": []
@@ -598,7 +598,7 @@
       "title": "Best Clubs In Mumbai",
       "slug": "best-clubs-mumbai",
       "contentDirection": "Club scene guide: Trilogy in Juhu, Kitty Su at The Lalit, 1Above, entry procedures, cover charges (₹2,000-5,000), music genres, guest list requirements, dress codes (smart casual), and peak timing (11pm-3am).",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 694,
       "generatedAt": "2026-02-08T22:02:01.026Z",
       "validationErrors": []
@@ -610,7 +610,7 @@
       "title": "Live Music Venues In Mumbai",
       "slug": "live-music-mumbai",
       "contentDirection": "Music scene guide: Blue Frog (now closed, but alternatives), antiSOCIAL, Hard Rock Café, indie music venues in Bandra, classical music venues, Bollywood karaoke nights, cover charges, and upcoming artist showcases.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 728,
       "generatedAt": "2026-02-08T22:02:40.345Z",
       "validationErrors": []
@@ -622,7 +622,7 @@
       "title": "Mumbai During Monsoon Season",
       "slug": "mumbai-monsoon-travel",
       "contentDirection": "Monsoon guide (June-September): Average 2,400mm rainfall, flooding in low-lying areas, transport disruptions, waterproof gear essentials, indoor attractions during rains, and pros/cons of monsoon travel with specific precautions.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 949,
       "generatedAt": "2026-02-08T22:03:27.362Z",
       "validationErrors": []
@@ -634,7 +634,7 @@
       "title": "Mumbai Visa Requirements",
       "slug": "mumbai-visa-requirements",
       "contentDirection": "Visa information: e-Tourist visa (most common), 30-90 day options, application process timeline (4-7 days), required documents, visa fees by nationality, airport arrival procedures, and embassy contact information.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 821,
       "generatedAt": "2026-02-08T22:04:06.098Z",
       "validationErrors": []
@@ -646,7 +646,7 @@
       "title": "Money And Currency In Mumbai",
       "slug": "mumbai-money-currency",
       "contentDirection": "Financial guide: Indian Rupee (INR), ATM availability and charges, currency exchange at airport vs city (Thomas Cook, UAE Exchange), UPI payments widespread, credit card acceptance, typical daily budgets (₹2,000-8,000), and tipping culture.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 795,
       "generatedAt": "2026-02-08T22:04:46.231Z",
       "validationErrors": []
@@ -658,7 +658,7 @@
       "title": "SIM Cards And Internet In Mumbai",
       "slug": "mumbai-sim-internet",
       "contentDirection": "Connectivity guide: Prepaid SIM options (Airtel, Jio, Vi), eSIM availability, documentation required (passport copy), data plans (₹299-799 for tourist plans), WiFi availability in hotels/cafés, and internet speed expectations.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 945,
       "generatedAt": "2026-02-08T22:05:33.474Z",
       "validationErrors": []
@@ -670,7 +670,7 @@
       "title": "Mumbai On A Budget",
       "slug": "mumbai-budget-travel",
       "contentDirection": "Budget guide: Daily costs breakdown (₹1,500-3,000), budget accommodations in Colaba and Bandra (₹800-2,500/night), street food vs restaurant costs, free attractions, local transport savings, and money-saving tips.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 817,
       "generatedAt": "2026-02-08T22:06:20.707Z",
       "validationErrors": []
@@ -682,7 +682,7 @@
       "title": "Luxury Travel In Mumbai",
       "slug": "mumbai-luxury-travel",
       "contentDescription": "Premium experiences: 5-star hotels (Taj Mahal Palace ₹15,000+, St. Regis ₹25,000+), fine dining restaurants, private city tours, helicopter rides, luxury shopping in Palladium Mall, spa treatments, and VIP airport services.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 781,
       "generatedAt": "2026-02-08T22:07:01.262Z",
       "validationErrors": []
