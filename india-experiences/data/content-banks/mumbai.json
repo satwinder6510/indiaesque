@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:59:14.802Z",
+  "updatedAt": "2026-02-08T21:59:56.148Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -562,9 +562,9 @@
       "title": "Mount Mary Church Bandra Mumbai",
       "slug": "mount-mary-church-mumbai",
       "contentDirection": "Historic basilica guide: Portuguese-built church, miraculous healing reputation, annual Bandra Fair (September), stunning Arabian Sea views, Bandra West location, mass timings, and nearby attractions like Bandstand Promenade.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 925,
+      "generatedAt": "2026-02-08T21:59:56.148Z",
       "validationErrors": []
     },
     {
