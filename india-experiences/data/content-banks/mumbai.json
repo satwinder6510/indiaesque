@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:36:35.758Z",
+  "updatedAt": "2026-02-08T21:37:13.563Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -178,9 +178,9 @@
       "title": "Best Time To Visit Mumbai",
       "slug": "best-time-visit-mumbai",
       "contentDirection": "Recommend October-March for cool, dry weather. Avoid June-September monsoons (heavy flooding). Cover temperature ranges (30°C year-round), humidity levels, and festival seasons like Ganesh Chaturthi in September.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 701,
+      "generatedAt": "2026-02-08T21:37:13.563Z",
       "validationErrors": []
     },
     {
