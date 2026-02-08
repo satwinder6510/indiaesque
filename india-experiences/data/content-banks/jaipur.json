@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:20:58.006Z",
+  "updatedAt": "2026-02-08T20:21:36.082Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -490,9 +490,9 @@
       "title": "Central Park Jaipur — Jogging Track Guide",
       "slug": "central-park-jaipur",
       "contentDirection": "Cover 5.25km jogging track, musical fountain shows (7 PM), entry fees (₹5), and metro connectivity (Central Park station). Include morning walk timings (5:30-9 AM), children's park area, and nearby shopping at World Trade Park.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 815,
+      "generatedAt": "2026-02-08T20:21:36.082Z",
       "validationErrors": []
     },
     {
