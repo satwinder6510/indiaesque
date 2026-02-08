@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:44:40.491Z",
+  "updatedAt": "2026-02-08T21:45:18.976Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -322,9 +322,9 @@
       "title": "Chhatrapati Shivaji Terminus Guide",
       "slug": "chhatrapati-shivaji-terminus-mumbai",
       "contentDirection": "Architectural marvel guide: Victorian Gothic Revival with Indian elements, UNESCO World Heritage site, built 1887, busiest station with 3 million daily passengers, photography restrictions, nearby BMC building and Crawford Market.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 870,
+      "generatedAt": "2026-02-08T21:45:18.976Z",
       "validationErrors": []
     },
     {
