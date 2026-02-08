@@ -1,0 +1,121 @@
+---
+import cities from '../data/cities.json';
+import categories from '../data/categories.json';
+
+const tierOneCities = cities.filter(c => c.tier === 1);
+const tierTwoCities = cities.filter(c => c.tier === 2);
+---
+
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-backdrop" data-menu-close></div>
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-header">
+      <a href="/" class="site-logo text-white">Indiaesque</a>
+      <button class="mobile-menu-close" aria-label="Close menu" data-menu-close>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <nav class="mobile-nav">
+      <div class="mobile-nav-item" data-accordion>
+        <button class="mobile-nav-link" data-accordion-trigger>
+          Destinations
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" class="accordion-icon">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div class="mobile-nav-submenu">
+          {tierOneCities.map(city => (
+            <a href={`/${city.slug}/`}>{city.name}</a>
+          ))}
+          {tierTwoCities.map(city => (
+            <a href={`/${city.slug}/`}>{city.name}</a>
+          ))}
+        </div>
+      </div>
+
+      <div class="mobile-nav-item" data-accordion>
+        <button class="mobile-nav-link" data-accordion-trigger>
+          Experiences
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" class="accordion-icon">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <div class="mobile-nav-submenu">
+          {categories.map(cat => (
+            <a href={`/${cat.crossCitySlug}/`}>{cat.name}</a>
+          ))}
+        </div>
+      </div>
+
+      <div class="mobile-nav-item">
+        <a href="/about/" class="mobile-nav-link">About</a>
+      </div>
+
+      <div class="mobile-nav-item">
+        <a href="/contact/" class="mobile-nav-link">Contact</a>
+      </div>
+
+      <div class="mobile-nav-item">
+        <a href="/journals/" class="mobile-nav-link">Journals</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<script>
+  function initMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const toggleBtns = document.querySelectorAll('[data-menu-toggle]');
+    const closeBtns = document.querySelectorAll('[data-menu-close]');
+    const accordionTriggers = document.querySelectorAll('[data-accordion-trigger]');
+
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        menu?.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    closeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        menu?.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    accordionTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('[data-accordion]');
+        item?.classList.toggle('active');
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initMobileMenu);
+  initMobileMenu();
+</script>
+
+<style>
+  .accordion-icon {
+    transition: transform var(--transition-base);
+  }
+
+  .mobile-nav-item.active .accordion-icon {
+    transform: rotate(180deg);
+  }
+
+  .mobile-nav-link {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .text-white {
+    color: var(--color-white);
+  }
+</style>

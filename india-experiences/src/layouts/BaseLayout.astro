@@ -1,6 +1,9 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import MobileMenu from '../components/MobileMenu.astro';
+import SearchModal from '../components/SearchModal.astro';
+import '../styles/main.css';
 
 interface Props {
   title: string;
@@ -9,6 +12,7 @@ interface Props {
   ogImage?: string;
   schema?: object[];
   type?: string;
+  includeFooter?: boolean;
 }
 
 const siteName = 'Indiaesque';
@@ -21,6 +25,7 @@ const {
   ogImage = `${siteUrl}/og-default.jpg`,
   schema = [],
   type = 'article',
+  includeFooter = true,
 } = Astro.props;
 
 const fullTitle = `${title} | ${siteName}`;
@@ -52,16 +57,25 @@ const fullTitle = `${title} | ${siteName}`;
       <script type="application/ld+json" set:html={JSON.stringify(schema.length === 1 ? schema[0] : schema)} />
     )}
 
-    <link rel="stylesheet" href="/styles/main.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="icon" href="/favicon.ico">
 </head>
 <body>
-    <Header />
+    <div class="page-wrapper">
+        <Header />
 
-    <main>
-        <slot />
-    </main>
+        <main>
+            <slot />
+        </main>
 
-    <Footer />
+        {includeFooter && <Footer />}
+    </div>
+
+    <MobileMenu />
+    <SearchModal />
 </body>
 </html>

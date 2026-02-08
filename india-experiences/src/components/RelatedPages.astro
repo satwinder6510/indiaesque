@@ -8,11 +8,13 @@ const { heading, links } = Astro.props;
 ---
 
 {links.length > 0 && (
-  <aside>
+  <aside class="related-pages">
     <h2>{heading}</h2>
     <ul>
       {links.map(link => (
-        <li><a href={link.href}>{link.label}</a></li>
+        <li>
+          <a href={link.href}>{link.label}</a>
+        </li>
       ))}
     </ul>
   </aside>

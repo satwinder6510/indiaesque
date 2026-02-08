@@ -19,6 +19,13 @@ const pages = defineCollection({
       question: z.string(),
       answer: z.string(),
     })).optional(),
+    // New optional fields for enhanced layouts
+    heroImage: z.string().optional(),
+    cardImage: z.string().optional(),
+    duration: z.string().optional(),
+    price: z.string().optional(),
+    bestMonths: z.array(z.number()).optional(),
+    goodMonths: z.array(z.number()).optional(),
   }),
 });
 

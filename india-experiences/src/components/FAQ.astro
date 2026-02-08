@@ -13,13 +13,55 @@ const { items, heading = 'Frequently Asked Questions' } = Astro.props;
 ---
 
 {items.length > 0 && (
-  <section id="faq">
+  <section class="faq-section" id="faq">
     <h2>{heading}</h2>
-    {items.map(item => (
-      <div class="faq-item">
-        <h3>{item.question}</h3>
-        <p>{item.answer}</p>
-      </div>
-    ))}
+    <div class="faq-list">
+      {items.map((item, index) => (
+        <div class="faq-item" data-faq-item>
+          <button class="faq-question" data-faq-trigger aria-expanded="false">
+            <span>{item.question}</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>{item.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
   </section>
 )}
+
+<script>
+  function initFAQ() {
+    const faqItems = document.querySelectorAll('[data-faq-item]');
+
+    faqItems.forEach(item => {
+      const trigger = item.querySelector('[data-faq-trigger]');
+
+      trigger?.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        // Close all other items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+            otherItem.querySelector('[data-faq-trigger]')?.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Toggle current item
+        item.classList.toggle('active');
+        trigger.setAttribute('aria-expanded', String(!isActive));
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initFAQ);
+  initFAQ();
+</script>
+
+<style>
+  .faq-list {
+    max-width: 800px;
+  }
+</style>

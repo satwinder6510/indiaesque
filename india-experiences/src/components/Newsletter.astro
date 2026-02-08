@@ -1,0 +1,127 @@
+---
+interface Props {
+  title?: string;
+  variant?: 'default' | 'dark';
+}
+
+const {
+  title = 'Stay Up To Date By Subscribing To Our Newsletter',
+  variant = 'default',
+} = Astro.props;
+---
+
+<section class={`newsletter ${variant === 'dark' ? 'newsletter-dark' : ''}`}>
+  <div class="newsletter-container">
+    <h2 class="newsletter-title">{title}</h2>
+    <form class="newsletter-form" data-newsletter-form>
+      <div class="newsletter-field">
+        <input
+          type="text"
+          name="forename"
+          placeholder="FORENAME"
+          class="newsletter-input"
+          aria-label="Forename"
+        />
+      </div>
+      <div class="newsletter-field">
+        <input
+          type="text"
+          name="surname"
+          placeholder="SURNAME"
+          class="newsletter-input"
+          aria-label="Surname"
+        />
+      </div>
+      <div class="newsletter-field">
+        <input
+          type="email"
+          name="email"
+          placeholder="EMAIL ADDRESS"
+          class="newsletter-input"
+          aria-label="Email address"
+          required
+        />
+      </div>
+      <button type="submit" class="newsletter-button">
+        Subscribe
+      </button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .newsletter {
+    padding: var(--space-12) var(--space-4);
+    background-color: var(--color-accent);
+    text-align: center;
+  }
+
+  .newsletter-dark {
+    background-color: var(--color-accent);
+  }
+
+  .newsletter-container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .newsletter-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-normal);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-white);
+    margin-bottom: var(--space-8);
+    line-height: var(--line-height-snug);
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .newsletter-field {
+    width: 100%;
+  }
+
+  .newsletter-input {
+    width: 100%;
+    padding: var(--space-4);
+    font-size: var(--font-size-sm);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text);
+    background-color: var(--color-white);
+    border: none;
+    outline: none;
+  }
+
+  .newsletter-input::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .newsletter-input:focus {
+    box-shadow: 0 0 0 2px var(--color-accent-dark);
+  }
+
+  .newsletter-button {
+    width: 100%;
+    padding: var(--space-4);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+  }
+
+  .newsletter-button:hover {
+    background-color: var(--color-primary-dark);
+  }
+</style>

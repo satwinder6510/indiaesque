@@ -1,0 +1,111 @@
+---
+interface Props {
+  bestMonths?: number[];
+  goodMonths?: number[];
+  title?: string;
+}
+
+const {
+  bestMonths = [],
+  goodMonths = [],
+  title = 'Best Time to Visit',
+} = Astro.props;
+
+const months = [
+  { short: 'Jan', full: 'January' },
+  { short: 'Feb', full: 'February' },
+  { short: 'Mar', full: 'March' },
+  { short: 'Apr', full: 'April' },
+  { short: 'May', full: 'May' },
+  { short: 'Jun', full: 'June' },
+  { short: 'Jul', full: 'July' },
+  { short: 'Aug', full: 'August' },
+  { short: 'Sep', full: 'September' },
+  { short: 'Oct', full: 'October' },
+  { short: 'Nov', full: 'November' },
+  { short: 'Dec', full: 'December' },
+];
+
+function getMonthClass(index: number): string {
+  const monthNum = index + 1;
+  if (bestMonths.includes(monthNum)) return 'best';
+  if (goodMonths.includes(monthNum)) return 'good';
+  // Monsoon months (July-September) as avoid
+  if ([7, 8, 9].includes(monthNum) && !bestMonths.includes(monthNum) && !goodMonths.includes(monthNum)) {
+    return 'avoid';
+  }
+  return 'ok';
+}
+---
+
+<div class="best-time">
+  <h3 class="best-time-title">{title}</h3>
+  <div class="best-time-bar">
+    {months.map((month, index) => (
+      <div class={`best-time-month ${getMonthClass(index)}`} title={month.full}>
+        <span class="month-short">{month.short}</span>
+      </div>
+    ))}
+  </div>
+  <div class="best-time-legend">
+    <span class="legend-item legend-best">Best</span>
+    <span class="legend-item legend-good">Good</span>
+    <span class="legend-item legend-ok">Okay</span>
+    <span class="legend-item legend-avoid">Avoid</span>
+  </div>
+</div>
+
+<style>
+  .best-time-legend {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-6);
+    margin-top: var(--space-4);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+  }
+
+  .legend-item::before {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+  }
+
+  .legend-best::before {
+    background-color: var(--color-accent);
+  }
+
+  .legend-good::before {
+    background-color: var(--color-accent-light);
+  }
+
+  .legend-ok::before {
+    background-color: var(--color-gray-200);
+  }
+
+  .legend-avoid::before {
+    background-color: var(--color-gray-300);
+  }
+
+  .month-short {
+    font-weight: var(--font-weight-medium);
+  }
+
+  @media (max-width: 640px) {
+    .month-short {
+      font-size: 0.65rem;
+    }
+
+    .best-time-month {
+      padding: var(--space-2) 0;
+    }
+  }
+</style>

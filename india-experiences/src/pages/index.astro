@@ -1,60 +1,305 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Homepage from '../layouts/Homepage.astro';
+import Hero from '../components/Hero.astro';
+import HolidayCard from '../components/HolidayCard.astro';
 import cities from '../data/cities.json';
 import categories from '../data/categories.json';
 
 const tierOneCities = cities.filter(c => c.tier === 1);
 const tierTwoCities = cities.filter(c => c.tier === 2);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Indiaesque',
+  url: 'https://indiaesque.com',
+  description: 'Curated travel experiences across India. Food tours, heritage walks, cooking classes, and authentic local experiences.',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://indiaesque.com/search?q={search_term_string}',
+    'query-input': 'required name=search_term_string'
+  }
+};
 ---
 
-<BaseLayout
-  title="India Experiences — 2026 Guide"
-  description="The most comprehensive guide to experiences, food tours, heritage walks, and things to do across India. Honest recommendations with prices in INR."
+<Homepage
+  title="Curated India Experiences"
+  description="Discover authentic India through curated food tours, heritage walks, cooking classes, and local experiences. Honest recommendations with prices in INR."
+  schema={[schema]}
 >
-  <article>
-    <h1>India Experiences — 2026 Guide</h1>
-    <p class="intro">
-      Practical guides to food tours, heritage walks, cooking classes, and things
-      to do across India. Every page includes prices in INR, durations, and
-      specific recommendations.
-    </p>
+  <Fragment slot="hero">
+    <Hero
+      title="Discover the Soul of India"
+      subtitle="Curated experiences that take you beyond the tourist trail. Food tours, heritage walks, cooking classes, and authentic encounters across India's most captivating destinations."
+      size="full"
+      backgroundImage="/images/hero-india.jpg"
+      cta={{ text: 'Explore Destinations', href: '#destinations' }}
+      secondaryCta={{ text: 'View Experiences', href: '#experiences' }}
+    />
+  </Fragment>
 
-    <section>
-      <h2>Top Cities</h2>
-      <ul>
+  <!-- Featured Destinations -->
+  <section class="section bg-white" id="destinations">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="section-title">Explore India's Top Destinations</h2>
+        <p class="section-subtitle">
+          From the ancient streets of Delhi to the spiritual ghats of Varanasi, discover experiences that reveal India's true character.
+        </p>
+      </div>
+
+      <div class="featured-grid">
         {tierOneCities.map(city => (
-          <li>
-            <a href={`/${city.slug}/`}><strong>{city.name}</strong></a>
-            &mdash; {city.description}
-          </li>
+          <a href={`/${city.slug}/`} class="destination-card">
+            <img src={`/images/cities/${city.slug}.jpg`} alt={city.name} loading="lazy" />
+            <div class="destination-card-overlay">
+              <h3 class="destination-card-title">{city.name}</h3>
+              <p class="destination-card-count">Explore experiences</p>
+            </div>
+          </a>
         ))}
-      </ul>
-    </section>
+      </div>
 
-    {tierTwoCities.length > 0 && (
-      <section>
-        <h2>More Cities</h2>
-        <ul>
-          {tierTwoCities.map(city => (
-            <li>
-              <a href={`/${city.slug}/`}><strong>{city.name}</strong></a>
-              &mdash; {city.description}
-            </li>
-          ))}
-        </ul>
-      </section>
-    )}
+      {tierTwoCities.length > 0 && (
+        <div class="mt-8">
+          <h3 class="text-center mb-6" style="font-family: var(--font-heading); font-size: var(--font-size-2xl);">
+            More Destinations
+          </h3>
+          <div class="grid grid-4">
+            {tierTwoCities.map(city => (
+              <a href={`/${city.slug}/`} class="destination-link">
+                <span class="destination-link-name">{city.name}</span>
+                <span class="destination-link-arrow">&rarr;</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
 
-    <section>
-      <h2>Experiences Across India</h2>
-      <ul>
+  <!-- Experience Types -->
+  <section class="section bg-cream" id="experiences">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="section-title">Experiences Across India</h2>
+        <p class="section-subtitle">
+          Whether you're a foodie, history buff, or seeking authentic cultural encounters, we've curated the best experiences for you.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
         {categories.map(cat => (
-          <li>
-            <a href={`/${cat.crossCitySlug}/`}><strong>{cat.name}</strong></a>
-            &mdash; {cat.description}
-          </li>
+          <a href={`/${cat.crossCitySlug}/`} class="experience-card">
+            <div class="experience-card-icon">
+              {cat.slug === 'food-tours' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                  <line x1="6" y1="1" x2="6" y2="4"></line>
+                  <line x1="10" y1="1" x2="10" y2="4"></line>
+                  <line x1="14" y1="1" x2="14" y2="4"></line>
+                </svg>
+              )}
+              {cat.slug === 'cooking-classes' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6V13.87Z"></path>
+                  <line x1="6" y1="17" x2="18" y2="17"></line>
+                </svg>
+              )}
+              {cat.slug === 'heritage-walks' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 21h18"></path>
+                  <path d="M5 21V7l8-4v18"></path>
+                  <path d="M19 21V11l-6-4"></path>
+                  <path d="M9 9v.01"></path>
+                  <path d="M9 12v.01"></path>
+                  <path d="M9 15v.01"></path>
+                  <path d="M9 18v.01"></path>
+                </svg>
+              )}
+              {cat.slug === 'markets-shopping' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+              )}
+              {cat.slug === 'day-trips' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                </svg>
+              )}
+              {cat.slug === 'art-craft-workshops' && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                  <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                  <path d="M2 2l7.586 7.586"></path>
+                  <circle cx="11" cy="11" r="2"></circle>
+                </svg>
+              )}
+            </div>
+            <h3 class="experience-card-title">{cat.name}</h3>
+            <p class="experience-card-desc">{cat.description}</p>
+            <span class="experience-card-link">Explore &rarr;</span>
+          </a>
         ))}
-      </ul>
-    </section>
-  </article>
-</BaseLayout>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Indiaesque -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="section-title">Why Travel With Indiaesque</h2>
+        <p class="section-subtitle">
+          We're not just another travel guide. We're your insider connection to India's best experiences.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="M9 12l2 2 4-4"></path>
+            </svg>
+          </div>
+          <h3 class="feature-title">Curated Quality</h3>
+          <p class="feature-desc">Every experience is personally vetted. We visit, taste, and explore before recommending.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
+          <h3 class="feature-title">Honest Pricing</h3>
+          <p class="feature-desc">All prices in INR with no hidden fees. Know exactly what you'll pay before you go.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h3 class="feature-title">Local Experts</h3>
+          <p class="feature-desc">Connect with guides and hosts who know their cities inside out.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Homepage>
+
+<style>
+  .destination-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: all var(--transition-fast);
+  }
+
+  .destination-link:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .destination-link-name {
+    font-weight: var(--font-weight-medium);
+  }
+
+  .destination-link-arrow {
+    color: var(--color-accent);
+  }
+
+  .experience-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-6);
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+  }
+
+  .experience-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+
+  .experience-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background-color: var(--color-cream);
+    border-radius: var(--radius-full);
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+  }
+
+  .experience-card-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-dark);
+    margin-bottom: var(--space-2);
+  }
+
+  .experience-card-desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    margin-bottom: var(--space-4);
+    flex: 1;
+  }
+
+  .experience-card-link {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary);
+  }
+
+  .feature-card {
+    text-align: center;
+    padding: var(--space-6);
+  }
+
+  .feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-cream);
+    border-radius: var(--radius-full);
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+  }
+
+  .feature-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-dark);
+    margin-bottom: var(--space-2);
+  }
+
+  .feature-desc {
+    font-size: var(--font-size-base);
+    color: var(--color-text-light);
+  }
+</style>

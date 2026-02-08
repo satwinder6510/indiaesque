@@ -1,16 +1,83 @@
 ---
-import cities from '../data/cities.json';
-
-const tierOneCities = cities.filter(c => c.tier === 1);
 ---
 
-<header>
-  <nav aria-label="Main navigation">
-    <a href="/" class="site-logo">Indiaesque</a>
-    <ul>
-      {tierOneCities.map(city => (
-        <li><a href={`/${city.slug}/`}>{city.name}</a></li>
-      ))}
-    </ul>
-  </nav>
+<header class="site-header">
+  <div class="header-container">
+    <button class="header-menu" aria-label="Open menu" data-menu-toggle>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+
+    <a href="/" class="header-logo">
+      <span class="header-logo-text">Indiaesque</span>
+    </a>
+
+    <div class="header-spacer"></div>
+  </div>
 </header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-gray-200);
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 var(--space-4);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .header-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+  }
+
+  .header-menu:hover {
+    color: var(--color-primary);
+  }
+
+  .header-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-decoration: none;
+  }
+
+  .header-logo-text {
+    font-family: var(--font-body);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-text);
+    transition: color var(--transition-fast);
+  }
+
+  .header-logo:hover .header-logo-text {
+    color: var(--color-primary);
+  }
+
+  .header-spacer {
+    width: 40px;
+  }
+</style>

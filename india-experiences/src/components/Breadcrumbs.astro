@@ -12,12 +12,14 @@ const { items } = Astro.props;
 const siteUrl = 'https://indiaesque.com';
 ---
 
-<nav aria-label="Breadcrumb">
+<nav class="breadcrumbs" aria-label="Breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
     {items.map((item, i) => (
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         {item.href ? (
-          <a itemprop="item" href={item.href}><span itemprop="name">{item.label}</span></a>
+          <a itemprop="item" href={item.href}>
+            <span itemprop="name">{item.label}</span>
+          </a>
         ) : (
           <span itemprop="name">{item.label}</span>
         )}

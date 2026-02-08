@@ -1,0 +1,166 @@
+---
+import cities from '../data/cities.json';
+import categories from '../data/categories.json';
+---
+
+<div class="search-modal" id="search-modal">
+  <div class="search-modal-header">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon">
+      <circle cx="11" cy="11" r="8" />
+      <path d="M21 21l-4.35-4.35" />
+    </svg>
+    <input
+      type="text"
+      class="search-modal-input"
+      placeholder="Search destinations, experiences..."
+      id="search-input"
+      autocomplete="off"
+    />
+    <button class="search-modal-close" data-search-close>
+      Cancel
+    </button>
+  </div>
+
+  <div class="search-modal-body">
+    <div class="search-results" id="search-results">
+      <!-- Search results will be populated here -->
+    </div>
+
+    <div class="search-suggestions" id="search-suggestions">
+      <div class="search-section">
+        <h3 class="search-section-title">Popular Destinations</h3>
+        <div class="search-tags">
+          {cities.filter(c => c.tier === 1).map(city => (
+            <a href={`/${city.slug}/`} class="search-tag">{city.name}</a>
+          ))}
+        </div>
+      </div>
+
+      <div class="search-section">
+        <h3 class="search-section-title">Experience Types</h3>
+        <div class="search-tags">
+          {categories.map(cat => (
+            <a href={`/${cat.crossCitySlug}/`} class="search-tag">{cat.name}</a>
+          ))}
+        </div>
+      </div>
+
+      <div class="search-section">
+        <h3 class="search-section-title">Popular Searches</h3>
+        <ul class="search-links">
+          <li><a href="/delhi/best-street-food-in-delhi/">Street Food in Delhi</a></li>
+          <li><a href="/delhi/best-cooking-classes-in-delhi/">Cooking Classes</a></li>
+          <li><a href="/delhi/best-heritage-walks-in-delhi/">Heritage Walks</a></li>
+          <li><a href="/delhi/things-to-do-in-old-delhi-chandni-chowk/">Old Delhi Exploration</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initSearch() {
+    const modal = document.getElementById('search-modal');
+    const input = document.getElementById('search-input') as HTMLInputElement;
+    const triggers = document.querySelectorAll('[data-search-trigger]');
+    const closeBtns = document.querySelectorAll('[data-search-close]');
+
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        modal?.classList.add('active');
+        input?.focus();
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    closeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        modal?.classList.remove('active');
+        document.body.style.overflow = '';
+        if (input) input.value = '';
+      });
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal?.classList.contains('active')) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        if (input) input.value = '';
+      }
+    });
+  }
+
+  document.addEventListener('astro:page-load', initSearch);
+  initSearch();
+</script>
+
+<style>
+  .search-icon {
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+  }
+
+  .search-section {
+    margin-bottom: var(--space-8);
+  }
+
+  .search-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .search-section-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-dark);
+    margin-bottom: var(--space-4);
+  }
+
+  .search-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .search-tag {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    background-color: var(--color-gray-100);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .search-tag:hover {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+  }
+
+  .search-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .search-links a {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) 0;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .search-links a:hover {
+    color: var(--color-primary);
+  }
+
+  .search-links a::before {
+    content: '\2192';
+    color: var(--color-accent);
+  }
+</style>

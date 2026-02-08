@@ -1,8 +1,5 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
-import FAQ from '../components/FAQ.astro';
-import RelatedPages from '../components/RelatedPages.astro';
 
 interface Props {
   title: string;
@@ -10,30 +7,529 @@ interface Props {
   city: string;
   citySlug: string;
   categoryName: string;
+  categorySlug?: string;
+  heroImage?: string;
+  experiences?: {
+    title: string;
+    href: string;
+    image?: string;
+    duration?: string;
+    price?: string;
+  }[];
   faq?: { question: string; answer: string }[];
   relatedPages?: { href: string; label: string }[];
   schema?: object[];
 }
 
-const { title, description, city, citySlug, categoryName, faq = [], relatedPages = [], schema = [] } = Astro.props;
-
-const breadcrumbs = [
-  { label: 'Home', href: '/' },
-  { label: city, href: `/${citySlug}/` },
-  { label: categoryName },
-];
+const {
+  title,
+  description,
+  city,
+  citySlug,
+  categoryName,
+  categorySlug,
+  heroImage = '/images/default-hero.jpg',
+  experiences = [],
+  faq = [],
+  relatedPages = [],
+  schema = []
+} = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} schema={schema}>
-  <Breadcrumbs items={breadcrumbs} />
+<BaseLayout title={title} description={description} schema={schema} includeFooter={false}>
 
-  <article>
-    <h1>{title}</h1>
-    <slot />
-    {faq.length > 0 && <FAQ items={faq} />}
+  <!-- HERO -->
+  <div class="hero" style={`background-image: url('${heroImage}');`}>
+    <div class="hero-overlay">
+      <span class="hero-location">{city.toUpperCase()}</span>
+      <h1 class="hero-title">{categoryName.toUpperCase()}</h1>
+      <p class="hero-subtitle">{description}</p>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <article class="article">
+    <div class="article-content">
+      <slot />
+    </div>
+
+    <!-- EXPERIENCES LIST -->
+    {relatedPages.length > 0 && (
+      <div class="experiences">
+        <h2 class="experiences-title">{categoryName} in {city}</h2>
+        <ul class="experiences-list">
+          {relatedPages.map(link => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <!-- FAQ -->
+    {faq.length > 0 && (
+      <div class="faq">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+        {faq.map(item => (
+          <div class="faq-item">
+            <h3>{item.question}</h3>
+            <p>{item.answer}</p>
+          </div>
+        ))}
+      </div>
+    )}
   </article>
 
-  {relatedPages.length > 0 && (
-    <RelatedPages heading={`More ${city} Experiences`} links={relatedPages} />
+  <!-- FEATURED EXPERIENCES -->
+  {experiences.length > 0 && (
+    <section class="related">
+      <div class="related-inner">
+        <div class="related-header">
+          <h2>{categoryName}</h2>
+          <a href={`/${citySlug}/`}>&rarr;</a>
+        </div>
+        <p class="related-desc">Explore {categoryName.toLowerCase()} experiences in {city}.</p>
+
+        {experiences.slice(0, 2).map(exp => (
+          <div class="holiday-card">
+            <div class="holiday-image">
+              <img src={exp.image || heroImage} alt={exp.title} />
+            </div>
+            <div class="holiday-body">
+              <span class="holiday-location">{city.toUpperCase()}</span>
+              <p class="holiday-title">{exp.title}</p>
+              <div class="holiday-meta">
+                {exp.duration && <span>{exp.duration}</span>}
+              </div>
+              <div class="holiday-footer">
+                <span class="holiday-price">{exp.price || 'View Details'}</span>
+                <a href={exp.href} class="holiday-arrow">&rarr;</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   )}
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="newsletter-inner">
+      <h2 class="newsletter-title">Stay Up To Date By Subscribing<br/>To Our Newsletter</h2>
+      <form class="newsletter-form">
+        <input type="text" placeholder="FORENAME" />
+        <input type="text" placeholder="SURNAME" />
+        <input type="email" placeholder="EMAIL ADDRESS" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact">
+    <h3 class="contact-title">Contact</h3>
+    <p class="contact-phone">+91 00000 00000</p>
+    <p class="contact-address">Indiaesque &bull; Address Line 1<br/>Address Line 2 &bull; 110001</p>
+  </section>
+
+  <!-- FOOTER LINKS -->
+  <section class="foot-links">
+    <div class="foot-col">
+      <h4>Destinations</h4>
+      <ul>
+        <li><a href="/delhi/">Delhi</a></li>
+        <li><a href="/jaipur/">Jaipur</a></li>
+        <li><a href="/mumbai/">Mumbai</a></li>
+        <li><a href="/goa/">Goa</a></li>
+        <li><a href="/varanasi/">Varanasi</a></li>
+        <li><a href="/kerala/">Kerala</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Collections</h4>
+      <ul>
+        <li><a href="#">Food Tours</a></li>
+        <li><a href="#">Heritage</a></li>
+        <li><a href="#">Cooking</a></li>
+        <li><a href="#">Markets</a></li>
+        <li><a href="#">Day Trips</a></li>
+        <li><a href="#">Art & Craft</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- COPYRIGHT -->
+  <footer class="copyright">
+    <p>&copy; Indiaesque {new Date().getFullYear()}</p>
+    <p class="credit">Designed & Built in India</p>
+  </footer>
+
 </BaseLayout>
+
+<style>
+  /* HERO */
+  .hero {
+    width: 100%;
+    min-height: 300px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+  }
+  .hero-overlay {
+    width: 100%;
+    padding: 60px 20px 30px;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+    text-align: center;
+  }
+  .hero-location {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+    color: #fff;
+    margin: 0 0 15px;
+  }
+  .hero-subtitle {
+    font-size: 14px;
+    color: rgba(255,255,255,0.9);
+    margin: 0;
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+  @media (min-width: 600px) {
+    .hero { min-height: 400px; }
+    .hero-title { font-size: 32px; }
+  }
+
+  /* ARTICLE */
+  .article {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px 20px;
+  }
+  .article-content {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #333;
+  }
+  .article-content :global(h2) {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 40px 0 20px;
+    color: #1a1a1a;
+  }
+  .article-content :global(p) {
+    margin: 0 0 20px;
+  }
+
+  /* EXPERIENCES */
+  .experiences {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #e5e5e5;
+  }
+  .experiences-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 20px;
+    color: #1a1a1a;
+  }
+  .experiences-list {
+    list-style: disc;
+    padding-left: 18px;
+    margin: 0;
+  }
+  .experiences-list li {
+    margin-bottom: 10px;
+  }
+  .experiences-list a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .experiences-list a:hover {
+    color: #e07060;
+  }
+
+  /* FAQ */
+  .faq {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #e5e5e5;
+  }
+  .faq-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 30px;
+    color: #1a1a1a;
+  }
+  .faq-item {
+    margin-bottom: 25px;
+  }
+  .faq-item h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: #1a1a1a;
+  }
+  .faq-item p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+  }
+
+  /* RELATED/FEATURED */
+  .related {
+    background: #f5f5f0;
+    padding: 40px 20px;
+  }
+  .related-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .related-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .related-header h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+    color: #1a1a1a;
+  }
+  .related-header a {
+    font-size: 18px;
+    color: #1a1a1a;
+    text-decoration: none;
+  }
+  .related-desc {
+    font-size: 13px;
+    color: #666;
+    margin: 0 0 25px;
+    line-height: 1.5;
+  }
+
+  /* HOLIDAY CARD */
+  .holiday-card {
+    background: #fff;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .holiday-card:last-child {
+    margin-bottom: 0;
+  }
+  .holiday-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+  }
+  .holiday-body {
+    padding: 20px;
+  }
+  .holiday-location {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #e07060;
+    margin-bottom: 10px;
+  }
+  .holiday-title {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
+    margin: 0 0 15px;
+  }
+  .holiday-meta {
+    font-size: 11px;
+    color: #999;
+    margin-bottom: 15px;
+  }
+  .holiday-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #e5e5e5;
+  }
+  .holiday-price {
+    font-size: 13px;
+    color: #1a1a1a;
+  }
+  .holiday-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: #e07060;
+    color: #fff;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  /* NEWSLETTER */
+  .newsletter {
+    background: #2a9d8f;
+    padding: 50px 20px;
+    text-align: center;
+  }
+  .newsletter-inner {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .newsletter-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1.6;
+    color: #fff;
+    margin: 0 0 30px;
+  }
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .newsletter-form input {
+    width: 100%;
+    padding: 14px;
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: none;
+    background: #fff;
+    color: #333;
+  }
+  .newsletter-form input::placeholder {
+    color: #aaa;
+  }
+  .newsletter-form button {
+    padding: 14px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: none;
+    background: #e07060;
+    color: #fff;
+    cursor: pointer;
+  }
+  .newsletter-form button:hover {
+    background: #c85a4a;
+  }
+
+  /* CONTACT */
+  .contact {
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .contact-title {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #333;
+    margin: 0 0 15px;
+  }
+  .contact-phone {
+    font-size: 13px;
+    color: #666;
+    margin: 0 0 8px;
+  }
+  .contact-address {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* FOOTER LINKS */
+  .foot-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 30px 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .foot-col {
+    text-align: center;
+  }
+  .foot-col h4 {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #333;
+    margin: 0 0 15px;
+  }
+  .foot-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .foot-col li {
+    margin-bottom: 8px;
+  }
+  .foot-col a {
+    font-size: 12px;
+    color: #666;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .foot-col a:hover {
+    color: #e07060;
+  }
+
+  /* COPYRIGHT */
+  .copyright {
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+  }
+  .copyright p {
+    font-size: 11px;
+    color: #999;
+    margin: 0 0 5px;
+  }
+  .credit {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+</style>

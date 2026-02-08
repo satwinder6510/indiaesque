@@ -1,0 +1,87 @@
+---
+import cities from '../data/cities.json';
+import categories from '../data/categories.json';
+
+interface Props {
+  activeCity?: string;
+  activeCategory?: string;
+}
+
+const { activeCity, activeCategory } = Astro.props;
+---
+
+<aside class="filter-panel">
+  <div class="filter-group">
+    <span class="filter-label">Destination</span>
+    <div class="filter-options">
+      <button class={`filter-option ${!activeCity ? 'active' : ''}`} data-filter="city" data-value="">
+        All
+      </button>
+      {cities.filter(c => c.tier === 1).map(city => (
+        <button
+          class={`filter-option ${activeCity === city.slug ? 'active' : ''}`}
+          data-filter="city"
+          data-value={city.slug}
+        >
+          {city.name}
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <span class="filter-label">Experience Type</span>
+    <div class="filter-options">
+      <button class={`filter-option ${!activeCategory ? 'active' : ''}`} data-filter="category" data-value="">
+        All
+      </button>
+      {categories.map(cat => (
+        <button
+          class={`filter-option ${activeCategory === cat.slug ? 'active' : ''}`}
+          data-filter="category"
+          data-value={cat.slug}
+        >
+          {cat.name}
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <span class="filter-label">Best Time to Visit</span>
+    <div class="filter-options">
+      <button class="filter-option" data-filter="season" data-value="">All Year</button>
+      <button class="filter-option" data-filter="season" data-value="winter">Winter (Oct-Feb)</button>
+      <button class="filter-option" data-filter="season" data-value="summer">Summer (Mar-Jun)</button>
+      <button class="filter-option" data-filter="season" data-value="monsoon">Monsoon (Jul-Sep)</button>
+    </div>
+  </div>
+</aside>
+
+<script>
+  function initFilters() {
+    const filterOptions = document.querySelectorAll('.filter-option');
+
+    filterOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        const filterType = option.getAttribute('data-filter');
+        const filterValue = option.getAttribute('data-value');
+
+        // Toggle active state within the same filter group
+        const group = option.closest('.filter-group');
+        group?.querySelectorAll('.filter-option').forEach(opt => {
+          opt.classList.remove('active');
+        });
+        option.classList.add('active');
+
+        // Dispatch custom event for filter change
+        document.dispatchEvent(new CustomEvent('filterChange', {
+          detail: { type: filterType, value: filterValue }
+        }));
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initFilters);
+  initFilters();
+</script>

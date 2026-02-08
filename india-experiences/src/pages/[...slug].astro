@@ -24,11 +24,27 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { title, description, city, type, faq, relatedPages, schema: schemaTypes } = entry.data;
+const {
+  title,
+  description,
+  city,
+  type,
+  faq,
+  relatedPages,
+  schema: schemaTypes,
+  heroImage,
+  datePublished,
+  dateModified,
+} = entry.data;
 
 const cityData = cities.find(c => c.slug === city);
 const cityName = cityData?.name ?? city ?? '';
 const citySlug = city ?? '';
+
+// Get best months from city data if available
+const bestMonths = cityData?.bestMonths ?? [];
+const goodMonths = cityData?.goodMonths ?? [];
+const cityHeroImage = heroImage ?? cityData?.heroImage;
 
 const siteUrl = 'https://indiaesque.com';
 const pageUrl = `${siteUrl}/${Astro.params.slug}/`;
@@ -102,6 +118,9 @@ const categoryName = entry.data.category !== 'general'
     description={description}
     city={cityName}
     citySlug={citySlug}
+    heroImage={cityHeroImage}
+    bestMonths={bestMonths}
+    goodMonths={goodMonths}
     faq={faq}
     relatedPages={relatedLinks}
     schema={schemaObjects}
@@ -115,6 +134,8 @@ const categoryName = entry.data.category !== 'general'
     city={cityName}
     citySlug={citySlug}
     categoryName={categoryName}
+    categorySlug={entry.data.category}
+    heroImage={heroImage}
     faq={faq}
     relatedPages={relatedLinks}
     schema={schemaObjects}
@@ -127,6 +148,8 @@ const categoryName = entry.data.category !== 'general'
     description={description}
     city={cityName}
     citySlug={citySlug}
+    datePublished={datePublished}
+    dateModified={dateModified}
     faq={faq}
     relatedPages={relatedLinks}
     schema={schemaObjects}

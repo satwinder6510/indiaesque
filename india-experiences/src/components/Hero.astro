@@ -1,0 +1,61 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  tag?: string;
+  backgroundImage?: string;
+  size?: 'full' | 'medium' | 'small';
+  cta?: {
+    text: string;
+    href: string;
+    variant?: 'primary' | 'outline-white';
+  };
+  secondaryCta?: {
+    text: string;
+    href: string;
+  };
+}
+
+const {
+  title,
+  subtitle,
+  tag,
+  backgroundImage,
+  size = 'medium',
+  cta,
+  secondaryCta,
+} = Astro.props;
+
+const sizeClass = {
+  full: 'hero-full',
+  medium: 'hero-medium',
+  small: 'hero-small',
+}[size];
+
+const backgroundStyle = backgroundImage
+  ? `background-image: url('${backgroundImage}');`
+  : '';
+---
+
+<section class={`hero ${sizeClass}`} style={backgroundStyle}>
+  <div class="hero-content">
+    {tag && <span class="hero-tag">{tag}</span>}
+    <h1 class="hero-title">{title}</h1>
+    {subtitle && <p class="hero-subtitle">{subtitle}</p>}
+    {(cta || secondaryCta) && (
+      <div class="hero-actions">
+        {cta && (
+          <a href={cta.href} class={`btn ${cta.variant === 'outline-white' ? 'btn-outline-white' : 'btn-primary'} btn-lg`}>
+            {cta.text}
+          </a>
+        )}
+        {secondaryCta && (
+          <a href={secondaryCta.href} class="btn btn-outline-white btn-lg">
+            {secondaryCta.text}
+          </a>
+        )}
+      </div>
+    )}
+    <slot />
+  </div>
+</section>

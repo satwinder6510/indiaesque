@@ -1,0 +1,105 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  image?: string;
+  location?: string;
+  duration?: string;
+  price?: string;
+  tag?: string;
+}
+
+const {
+  title,
+  href,
+  image = '/images/placeholder.jpg',
+  location,
+  duration,
+  price,
+  tag,
+} = Astro.props;
+---
+
+<article class="card holiday-card">
+  <a href={href} class="card-link">
+    <div class="card-image">
+      <img src={image} alt={title} loading="lazy" />
+    </div>
+    <div class="card-body">
+      {tag && <span class="card-tag">{tag}</span>}
+      <h3 class="card-title">{title}</h3>
+      {(location || duration) && (
+        <div class="card-meta">
+          {location && (
+            <span class="card-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              {location}
+            </span>
+          )}
+          {duration && (
+            <span class="card-duration">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              {duration}
+            </span>
+          )}
+        </div>
+      )}
+      {price && (
+        <div class="card-footer">
+          <span class="card-price">
+            {price}
+            <span>/ person</span>
+          </span>
+          <span class="card-cta">View Details</span>
+        </div>
+      )}
+    </div>
+  </a>
+</article>
+
+<style>
+  .holiday-card {
+    height: 100%;
+  }
+
+  .card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card-location,
+  .card-duration {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-gray-200);
+  }
+
+  .card-cta {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-accent);
+    transition: color var(--transition-fast);
+  }
+
+  .holiday-card:hover .card-cta {
+    color: var(--color-primary);
+  }
+</style>

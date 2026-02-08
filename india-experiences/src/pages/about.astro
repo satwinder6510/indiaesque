@@ -1,0 +1,331 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About Indiaesque"
+  description="Learn about Indiaesque - your curated guide to authentic India experiences. Our story, mission, and the team behind your next adventure."
+  includeFooter={false}
+>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-overlay">
+      <span class="hero-location">ABOUT</span>
+      <h1 class="hero-title">INDIAESQUE</h1>
+      <p class="hero-subtitle">Connecting curious travellers with India's most authentic experiences since 2024.</p>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <article class="article">
+    <div class="article-content">
+      <h2>Our Story</h2>
+      <p>
+        Indiaesque was born from a simple frustration: finding genuine, quality experiences
+        in India shouldn't be this hard. Too many travel websites offer generic recommendations,
+        outdated information, or hidden costs that only reveal themselves at checkout.
+      </p>
+      <p>
+        We're travelers ourselves, and we wanted something different. A guide that tells you
+        exactly what to expect, what you'll pay, and whether it's actually worth your time.
+        No sponsored listings, no paid placements, just honest recommendations from people
+        who've been there.
+      </p>
+
+      <h2>Our Mission</h2>
+      <p>
+        We believe travel should be transformative, not transactional. Our mission is to
+        connect curious travelers with experiences that reveal India's true character—the
+        flavors, stories, crafts, and people that make this country unlike any other.
+      </p>
+      <p>
+        Every experience on Indiaesque is personally vetted. We visit, taste, walk, and
+        explore before recommending anything. If it doesn't move us, it won't make our guide.
+      </p>
+
+      <h2>What Makes Us Different</h2>
+      <ul>
+        <li><strong>Honest Pricing</strong> - All prices in INR, always. No surprise fees, no hidden charges.</li>
+        <li><strong>Personal Curation</strong> - Every experience is vetted by our team. No paid placements.</li>
+        <li><strong>Local Connections</strong> - We partner with local guides and artisans who share their expertise.</li>
+        <li><strong>Practical Details</strong> - Duration, accessibility, best times to visit—the details that matter.</li>
+      </ul>
+
+      <h2>Get in Touch</h2>
+      <p>
+        Have a question about an experience? Want to suggest something we should check out?
+        We'd love to hear from you. Reach out at <a href="mailto:hello@indiaesque.com">hello@indiaesque.com</a>
+        or visit our <a href="/contact/">contact page</a>.
+      </p>
+    </div>
+  </article>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="newsletter-inner">
+      <h2 class="newsletter-title">Stay Up To Date By Subscribing<br/>To Our Newsletter</h2>
+      <form class="newsletter-form">
+        <input type="text" placeholder="FORENAME" />
+        <input type="text" placeholder="SURNAME" />
+        <input type="email" placeholder="EMAIL ADDRESS" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact">
+    <h3 class="contact-title">Contact</h3>
+    <p class="contact-phone">+91 00000 00000</p>
+    <p class="contact-address">Indiaesque &bull; Address Line 1<br/>Address Line 2 &bull; 110001</p>
+  </section>
+
+  <!-- FOOTER LINKS -->
+  <section class="foot-links">
+    <div class="foot-col">
+      <h4>Destinations</h4>
+      <ul>
+        <li><a href="/delhi/">Delhi</a></li>
+        <li><a href="/jaipur/">Jaipur</a></li>
+        <li><a href="/mumbai/">Mumbai</a></li>
+        <li><a href="/goa/">Goa</a></li>
+        <li><a href="/varanasi/">Varanasi</a></li>
+        <li><a href="/kerala/">Kerala</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Collections</h4>
+      <ul>
+        <li><a href="#">Food Tours</a></li>
+        <li><a href="#">Heritage</a></li>
+        <li><a href="#">Cooking</a></li>
+        <li><a href="#">Markets</a></li>
+        <li><a href="#">Day Trips</a></li>
+        <li><a href="#">Art & Craft</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- COPYRIGHT -->
+  <footer class="copyright">
+    <p>&copy; Indiaesque {new Date().getFullYear()}</p>
+    <p class="credit">Designed & Built in India</p>
+  </footer>
+</BaseLayout>
+
+<style>
+  /* HERO */
+  .hero {
+    width: 100%;
+    min-height: 300px;
+    background: linear-gradient(135deg, #2a9d8f 0%, #1a6b61 100%);
+    display: flex;
+    align-items: flex-end;
+  }
+  .hero-overlay {
+    width: 100%;
+    padding: 60px 20px 40px;
+    text-align: center;
+  }
+  .hero-location {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 12px;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+    color: #fff;
+    margin: 0 0 15px;
+  }
+  .hero-subtitle {
+    font-size: 14px;
+    color: rgba(255,255,255,0.9);
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* ARTICLE */
+  .article {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px 20px;
+  }
+  .article-content {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #333;
+  }
+  .article-content h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 40px 0 20px;
+    color: #1a1a1a;
+  }
+  .article-content h2:first-child {
+    margin-top: 0;
+  }
+  .article-content p {
+    margin: 0 0 20px;
+  }
+  .article-content ul {
+    margin: 0 0 20px;
+    padding-left: 20px;
+  }
+  .article-content li {
+    margin-bottom: 10px;
+  }
+  .article-content a {
+    color: #e07060;
+  }
+  .article-content a:hover {
+    text-decoration: underline;
+  }
+
+  /* NEWSLETTER */
+  .newsletter {
+    background: #2a9d8f;
+    padding: 50px 20px;
+    text-align: center;
+  }
+  .newsletter-inner {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .newsletter-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1.6;
+    color: #fff;
+    margin: 0 0 30px;
+  }
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .newsletter-form input {
+    width: 100%;
+    padding: 14px;
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: none;
+    background: #fff;
+    color: #333;
+  }
+  .newsletter-form input::placeholder {
+    color: #aaa;
+  }
+  .newsletter-form button {
+    padding: 14px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: none;
+    background: #e07060;
+    color: #fff;
+    cursor: pointer;
+  }
+  .newsletter-form button:hover {
+    background: #c85a4a;
+  }
+
+  /* CONTACT */
+  .contact {
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .contact-title {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #333;
+    margin: 0 0 15px;
+  }
+  .contact-phone {
+    font-size: 13px;
+    color: #666;
+    margin: 0 0 8px;
+  }
+  .contact-address {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* FOOTER LINKS */
+  .foot-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 30px 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .foot-col {
+    text-align: center;
+  }
+  .foot-col h4 {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #333;
+    margin: 0 0 15px;
+  }
+  .foot-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .foot-col li {
+    margin-bottom: 8px;
+  }
+  .foot-col a {
+    font-size: 12px;
+    color: #666;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .foot-col a:hover {
+    color: #e07060;
+  }
+
+  /* COPYRIGHT */
+  .copyright {
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+  }
+  .copyright p {
+    font-size: 11px;
+    color: #999;
+    margin: 0 0 5px;
+  }
+  .credit {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+</style>
