@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:48:57.393Z",
+  "updatedAt": "2026-02-08T21:49:45.368Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -394,9 +394,9 @@
       "title": "Linking Road Shopping Guide Mumbai",
       "slug": "linking-road-shopping-mumbai",
       "contentDirection": "Bandra shopping street: fashion items, street food while shopping, Hill Road parallel market, bargaining culture, evening crowds (6-9pm best), nearby brands like Zara and H&M in malls, and local designer stores.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 950,
+      "generatedAt": "2026-02-08T21:49:45.368Z",
       "validationErrors": []
     },
     {
