@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T22:05:33.474Z",
+  "updatedAt": "2026-02-08T22:06:20.707Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -670,9 +670,9 @@
       "title": "Mumbai On A Budget",
       "slug": "mumbai-budget-travel",
       "contentDirection": "Budget guide: Daily costs breakdown (₹1,500-3,000), budget accommodations in Colaba and Bandra (₹800-2,500/night), street food vs restaurant costs, free attractions, local transport savings, and money-saving tips.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 817,
+      "generatedAt": "2026-02-08T22:06:20.707Z",
       "validationErrors": []
     },
     {
