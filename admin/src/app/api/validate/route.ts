@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { readFile, listDirectory, readJSON } from "@/lib/github";
+import { readFile, listDirectory, readJSON, writeJSON } from "@/lib/github";
 import { validateContent } from "@/lib/validator";
 import type { ContentBank, City } from "@/lib/types";
 
@@ -97,6 +97,13 @@ export async function POST(request: NextRequest) {
       }
 
       contentBank.updatedAt = new Date().toISOString();
+
+      // Save updated content bank
+      await writeJSON(
+        `india-experiences/data/content-banks/${city}.json`,
+        contentBank,
+        `chore: update validation status for ${city} [admin-tool]`
+      );
     }
 
     return NextResponse.json({
