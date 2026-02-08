@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:25:54.461Z",
+  "updatedAt": "2026-02-08T20:26:37.623Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -598,9 +598,9 @@
       "title": "Jaipur Airport To City Transport Guide",
       "slug": "jaipur-airport-city-transport",
       "contentDirection": "Detail 13km distance to city center, taxi rates (₹400-600), prepaid taxi counters, bus services (₹25-50), and metro connectivity plans. Include ride-sharing apps availability, travel time (45 minutes), and terminal facilities.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 881,
+      "generatedAt": "2026-02-08T20:26:37.623Z",
       "validationErrors": []
     },
     {
