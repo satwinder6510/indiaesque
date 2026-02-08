@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:56:05.028Z",
+  "updatedAt": "2026-02-08T21:56:52.908Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -514,9 +514,9 @@
       "title": "Best Beaches In Mumbai",
       "slug": "best-beaches-mumbai",
       "contentDirection": "Beach guide: Juhu (most popular, celebrity spotting), Versova (cleaner, sunset views), Aksa (less crowded), Madh Island (secluded), Chowpatty (street food, no swimming), water quality warnings, and safety tips.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1081,
+      "generatedAt": "2026-02-08T21:56:52.908Z",
       "validationErrors": []
     },
     {
