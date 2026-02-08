@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T19:59:06.287Z",
+  "updatedAt": "2026-02-08T20:00:11.239Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -550,9 +550,9 @@
       "title": "Nightlife In Jaipur — 2026 Guide",
       "slug": "nightlife",
       "contentDirection": "Cover rooftop bars with fort views, heritage hotel lounges, and cultural evening shows. Include pricing (₹500-2000 per drink), timing (till 1 AM), dress codes, and comparison between hotel bars vs standalone venues in C-Scheme area.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1343,
+      "generatedAt": "2026-02-08T20:00:11.239Z",
       "validationErrors": []
     },
     {
