@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:00:57.479Z",
+  "updatedAt": "2026-02-08T20:01:38.019Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -106,9 +106,9 @@
       "title": "How Many Days Do You Need In Jaipur?",
       "slug": "how-many-days-jaipur",
       "contentDirection": "Recommend 3-4 days minimum covering Golden Triangle itinerary. Detail 1-day (forts only), 2-day (add markets), 3-day (add day trips), and 5-day (add cultural experiences) options with specific attractions and timing.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 798,
+      "generatedAt": "2026-02-08T20:01:38.019Z",
       "validationErrors": []
     },
     {
