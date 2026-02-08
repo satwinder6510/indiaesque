@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:04:39.190Z",
+  "updatedAt": "2026-02-08T20:05:24.475Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -166,9 +166,9 @@
       "title": "Jaipur Travel Tips For First Time Visitors",
       "slug": "jaipur-travel-tips-first-time",
       "contentDirection": "Essential tips including bargaining at Johari Bazaar (start 30% of quoted price), dress codes for temples, avoiding gem scams, tipping culture (10-15%), and booking composite tickets (₹1000 for 5 attractions, valid 2 days).",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 882,
+      "generatedAt": "2026-02-08T20:05:24.475Z",
       "validationErrors": []
     },
     {
