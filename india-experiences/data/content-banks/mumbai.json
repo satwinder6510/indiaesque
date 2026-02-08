@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:42:08.544Z",
+  "updatedAt": "2026-02-08T21:42:44.353Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -274,9 +274,9 @@
       "title": "Best Thali Restaurants In Mumbai",
       "slug": "best-thali-mumbai",
       "contentDirection": "Feature unlimited thali experiences: Shree Thaker Bhojanalay (₹600-800 for 30 dishes), Gujarati and Rajasthani options, Maharashtrian thalis at Sindhudurg and Chaitanya. Include what's typically served and dining etiquette.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 657,
+      "generatedAt": "2026-02-08T21:42:44.353Z",
       "validationErrors": []
     },
     {
