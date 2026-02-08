@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:23:05.613Z",
+  "updatedAt": "2026-02-08T20:23:43.030Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -538,9 +538,9 @@
       "title": "Birla Mandir Jaipur — Laxmi Narayan Temple",
       "slug": "birla-mandir-jaipur",
       "contentDirection": "Detail white marble architecture, evening illumination (after sunset), free entry, and Moti Dungri hill location. Include parking facilities, wheelchair accessibility, and panoramic city views from temple premises (3km from city center).",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 831,
+      "generatedAt": "2026-02-08T20:23:43.030Z",
       "validationErrors": []
     },
     {
