@@ -63,18 +63,40 @@ export async function researchCity(
     throw new Error("No text content in response");
   }
 
-  // Parse the JSON response
-  const jsonMatch = textContent.text.match(/```json\n([\s\S]*?)\n```/);
-  if (!jsonMatch) {
-    // Try parsing the entire response as JSON
-    try {
-      return JSON.parse(textContent.text);
-    } catch {
-      throw new Error("Could not parse research response as JSON");
+  // Parse the JSON response - try multiple patterns
+  const text = textContent.text;
+
+  // Try various JSON block patterns
+  const patterns = [
+    /```json\s*([\s\S]*?)\s*```/,      // Standard markdown JSON block
+    /```\s*([\s\S]*?)\s*```/,           // Code block without language
+    /\{[\s\S]*"pages"[\s\S]*\}/,        // Raw JSON object with pages
+  ];
+
+  for (const pattern of patterns) {
+    const match = text.match(pattern);
+    if (match) {
+      try {
+        const jsonStr = match[1] || match[0];
+        return JSON.parse(jsonStr);
+      } catch {
+        continue;
+      }
     }
   }
 
-  return JSON.parse(jsonMatch[1]);
+  // Last resort: try to find and parse any JSON object
+  const jsonStart = text.indexOf('{');
+  const jsonEnd = text.lastIndexOf('}');
+  if (jsonStart !== -1 && jsonEnd > jsonStart) {
+    try {
+      return JSON.parse(text.slice(jsonStart, jsonEnd + 1));
+    } catch {
+      // Fall through to error
+    }
+  }
+
+  throw new Error(`Could not parse research response as JSON. Response started with: ${text.slice(0, 200)}...`);
 }
 
 /**

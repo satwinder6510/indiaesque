@@ -12,7 +12,7 @@ export async function POST(
     const newPage = (await request.json()) as ContentBankPage;
 
     const contentBank = await readJSON<ContentBank>(
-      `data/content-banks/${city}.json`
+      `india-experiences/data/content-banks/${city}.json`
     );
 
     if (!contentBank) {
@@ -48,7 +48,7 @@ export async function POST(
     contentBank.updatedAt = new Date().toISOString();
 
     await writeJSON(
-      `data/content-banks/${city}.json`,
+      `india-experiences/data/content-banks/${city}.json`,
       contentBank,
       `feat(content-bank): add page ${pageToAdd.slug} to ${city} [admin-tool]`
     );
@@ -73,7 +73,7 @@ export async function PUT(
     const { pageId, updates } = await request.json();
 
     const contentBank = await readJSON<ContentBank>(
-      `data/content-banks/${city}.json`
+      `india-experiences/data/content-banks/${city}.json`
     );
 
     if (!contentBank) {
@@ -99,7 +99,7 @@ export async function PUT(
     contentBank.updatedAt = new Date().toISOString();
 
     await writeJSON(
-      `data/content-banks/${city}.json`,
+      `india-experiences/data/content-banks/${city}.json`,
       contentBank,
       `feat(content-bank): update page ${pageId} in ${city} [admin-tool]`
     );
@@ -127,7 +127,7 @@ export async function DELETE(
     const { pageId } = await request.json();
 
     const contentBank = await readJSON<ContentBank>(
-      `data/content-banks/${city}.json`
+      `india-experiences/data/content-banks/${city}.json`
     );
 
     if (!contentBank) {
@@ -149,7 +149,7 @@ export async function DELETE(
     contentBank.updatedAt = new Date().toISOString();
 
     await writeJSON(
-      `data/content-banks/${city}.json`,
+      `india-experiences/data/content-banks/${city}.json`,
       contentBank,
       `feat(content-bank): remove page ${pageId} from ${city} [admin-tool]`
     );
