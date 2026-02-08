@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:51:52.785Z",
+  "updatedAt": "2026-02-08T21:52:39.016Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -442,9 +442,9 @@
       "title": "Mumbai Cultural Festivals Calendar",
       "slug": "mumbai-festivals",
       "contentDirection": "Annual festival guide: Ganesh Chaturthi (August/September), Kala Ghoda Arts Festival (February), Mumbai Film Festival (October), Navratri celebrations, Diwali festivities, and seasonal celebrations with dates, locations, and visitor tips.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 919,
+      "generatedAt": "2026-02-08T21:52:39.016Z",
       "validationErrors": []
     },
     {
