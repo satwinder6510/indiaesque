@@ -1,0 +1,24 @@
+{
+  "lastUpdated": "2026-02-08T19:50:45.212Z",
+  "apiCalls": {
+    "research": {
+      "total": 1,
+      "today": 1
+    },
+    "generation": {
+      "total": 0,
+      "today": 0
+    }
+  },
+  "currentJob": null,
+  "jobHistory": [
+    {
+      "type": "research",
+      "city": "jaipur",
+      "startedAt": "2026-02-08T19:50:45.212Z",
+      "completedAt": "2026-02-08T19:50:45.212Z",
+      "pagesDiscovered": 50,
+      "status": "completed"
+    }
+  ]
+}
