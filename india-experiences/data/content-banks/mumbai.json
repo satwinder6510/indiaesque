@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:21:35.394Z",
+  "updatedAt": "2026-02-08T21:30:48.501Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -94,9 +94,9 @@
       "title": "Best Food Tours In Mumbai — 2026 Guide",
       "slug": "food-tours",
       "contentDirection": "Overview of food tour options covering street food areas like Juhu Beach, Colaba Causeway, and Mohammad Ali Road. Include specific operators like A Chef's Tour, pricing (₹1,500-3,000), and must-try dishes like vada pav, pav bhaji, and bhel puri.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1334,
+      "generatedAt": "2026-02-08T21:30:48.501Z",
       "validationErrors": []
     },
     {
