@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:18:05.638Z",
+  "updatedAt": "2026-02-08T20:18:50.613Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -430,9 +430,9 @@
       "title": "Best Art Galleries In Jaipur",
       "slug": "art-galleries-jaipur",
       "contentDirection": "Cover contemporary galleries like Gallery Art Positive, traditional art at museums, and artist studios in Sanganer. Include exhibition schedules, purchasing options (₹2000-50000), and artist interaction opportunities.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 871,
+      "generatedAt": "2026-02-08T20:18:50.613Z",
       "validationErrors": []
     },
     {
