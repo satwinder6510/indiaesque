@@ -82,17 +82,22 @@ export async function POST(request: NextRequest) {
     );
 
     if (contentBank) {
+      let needsFixCount = 0;
+      let validatedCount = 0;
+
       for (const page of contentBank.pages) {
         const fileName =
           page.slug === "_index" ? "_index.md" : `${page.slug}.md`;
         const fileErrors = errors.find((e) => e.file === fileName);
 
-        if (fileErrors) {
-          page.status = "validation-failed";
+        if (fileErrors && fileErrors.errors.length > 0) {
+          page.status = "needs-fix";
           page.validationErrors = fileErrors.errors.map((e) => e.type);
-        } else if (page.status === "generated" || page.status === "validation-failed") {
+          needsFixCount++;
+        } else if (page.status === "generated" || page.status === "needs-fix" || page.status === "validation-failed") {
           page.status = "validated";
           page.validationErrors = [];
+          validatedCount++;
         }
       }
 
@@ -102,7 +107,7 @@ export async function POST(request: NextRequest) {
       await writeJSON(
         `india-experiences/data/content-banks/${city}.json`,
         contentBank,
-        `chore: update validation status for ${city} [admin-tool]`
+        `chore: update validation status for ${city} - ${validatedCount} validated, ${needsFixCount} need fix [admin-tool]`
       );
     }
 

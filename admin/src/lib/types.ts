@@ -62,6 +62,7 @@ export type PageStatus =
   | "not-started"
   | "generating"
   | "generated"
+  | "needs-fix"
   | "validation-failed"
   | "validated"
   | "published";
