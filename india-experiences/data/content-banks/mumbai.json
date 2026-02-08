@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:57:42.181Z",
+  "updatedAt": "2026-02-08T21:58:28.157Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -538,9 +538,9 @@
       "title": "Haji Ali Dargah Mumbai Guide",
       "slug": "haji-ali-dargah-mumbai",
       "contentDirection": "Iconic dargah guide: 500m walkway accessible only at low tide, check tide timings, Sufi saint tomb, all religions welcome, no entry fees, evening prayers atmosphere, photography restrictions, and nearby Mahalaxmi Temple.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 999,
+      "generatedAt": "2026-02-08T21:58:28.157Z",
       "validationErrors": []
     },
     {
