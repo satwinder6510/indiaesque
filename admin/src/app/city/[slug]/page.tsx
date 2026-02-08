@@ -469,10 +469,19 @@ function ResearchTab({ citySlug, cityName, onRefresh }: { citySlug: string; city
   );
 }
 
+interface FailedPage {
+  id: string;
+  title: string;
+  error: string;
+}
+
 function GenerateTab({ contentBank, citySlug, onRefresh }: { contentBank: ContentBank | null; citySlug: string; onRefresh: () => void }) {
   const [generating, setGenerating] = useState(false);
   const [progress, setProgress] = useState({ current: 0, total: 0 });
   const [log, setLog] = useState<{ text: string; type: "info" | "success" | "error" }[]>([]);
+  const [failedPages, setFailedPages] = useState<FailedPage[]>([]);
+  const [successCount, setSuccessCount] = useState(0);
+  const [retrying, setRetrying] = useState<string | null>(null);
 
   if (!contentBank) {
     return <div className="text-center py-12 text-[var(--foreground-muted)]">No content bank available. Run research first.</div>;
@@ -480,33 +489,95 @@ function GenerateTab({ contentBank, citySlug, onRefresh }: { contentBank: Conten
 
   const pendingPages = contentBank.pages.filter((p) => p.status === "not-started");
 
+  const generateSinglePage = async (pageId: string, pageTitle: string): Promise<{ success: boolean; error?: string; wordCount?: number }> => {
+    try {
+      const response = await fetch("/api/generate-page", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ city: citySlug, pageId }),
+      });
+      const result = await response.json();
+      if (result.status === "success") {
+        return { success: true, wordCount: result.wordCount };
+      } else {
+        return { success: false, error: result.error || "Unknown error" };
+      }
+    } catch (err) {
+      return { success: false, error: err instanceof Error ? err.message : "Network error" };
+    }
+  };
+
   const handleGenerate = async () => {
     setGenerating(true);
     setLog([]);
-    const ordered = [...pendingPages.filter((p) => p.type === "hub"), ...pendingPages.filter((p) => p.type === "category"), ...pendingPages.filter((p) => p.type === "paa")];
+    setFailedPages([]);
+    setSuccessCount(0);
+
+    const ordered = [
+      ...pendingPages.filter((p) => p.type === "hub"),
+      ...pendingPages.filter((p) => p.type === "category"),
+      ...pendingPages.filter((p) => p.type === "paa"),
+    ];
     setProgress({ current: 0, total: ordered.length });
+
+    const failed: FailedPage[] = [];
+    let succeeded = 0;
 
     for (let i = 0; i < ordered.length; i++) {
       const page = ordered[i];
       setProgress({ current: i + 1, total: ordered.length });
       setLog((prev) => [...prev, { text: `Generating: ${page.title}...`, type: "info" }]);
 
-      try {
-        const response = await fetch("/api/generate-page", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ city: citySlug, pageId: page.id }) });
-        const result = await response.json();
-        if (result.status === "success") {
-          setLog((prev) => [...prev.slice(0, -1), { text: `${page.title} (${result.wordCount} words)`, type: "success" }]);
-        } else {
-          setLog((prev) => [...prev.slice(0, -1), { text: `${page.title}: ${result.error}`, type: "error" }]);
-        }
-      } catch {
-        setLog((prev) => [...prev.slice(0, -1), { text: `${page.title}: Failed`, type: "error" }]);
+      const result = await generateSinglePage(page.id, page.title);
+
+      if (result.success) {
+        succeeded++;
+        setSuccessCount(succeeded);
+        setLog((prev) => [...prev.slice(0, -1), { text: `${page.title} (${result.wordCount} words)`, type: "success" }]);
+      } else {
+        failed.push({ id: page.id, title: page.title, error: result.error || "Failed" });
+        setFailedPages([...failed]);
+        setLog((prev) => [...prev.slice(0, -1), { text: `${page.title}: ${result.error}`, type: "error" }]);
       }
+
       await new Promise((r) => setTimeout(r, 1000));
     }
+
     setGenerating(false);
-    setLog((prev) => [...prev, { text: "Generation complete!", type: "success" }]);
+
+    if (failed.length === 0) {
+      setLog((prev) => [...prev, { text: `All ${succeeded} pages generated successfully!`, type: "success" }]);
+    } else {
+      setLog((prev) => [...prev, { text: `Completed: ${succeeded} succeeded, ${failed.length} failed`, type: failed.length > 0 ? "error" : "success" }]);
+    }
+
     onRefresh();
+  };
+
+  const handleRetry = async (page: FailedPage) => {
+    setRetrying(page.id);
+    setLog((prev) => [...prev, { text: `Retrying: ${page.title}...`, type: "info" }]);
+
+    const result = await generateSinglePage(page.id, page.title);
+
+    if (result.success) {
+      setFailedPages((prev) => prev.filter((p) => p.id !== page.id));
+      setSuccessCount((prev) => prev + 1);
+      setLog((prev) => [...prev.slice(0, -1), { text: `${page.title} (${result.wordCount} words) - Retry succeeded!`, type: "success" }]);
+      onRefresh();
+    } else {
+      setFailedPages((prev) => prev.map((p) => (p.id === page.id ? { ...p, error: result.error || "Failed" } : p)));
+      setLog((prev) => [...prev.slice(0, -1), { text: `${page.title}: ${result.error} - Retry failed`, type: "error" }]);
+    }
+
+    setRetrying(null);
+  };
+
+  const handleRetryAll = async () => {
+    for (const page of failedPages) {
+      await handleRetry(page);
+      await new Promise((r) => setTimeout(r, 1000));
+    }
   };
 
   const progressPercent = progress.total > 0 ? (progress.current / progress.total) * 100 : 0;
@@ -521,14 +592,16 @@ function GenerateTab({ contentBank, citySlug, onRefresh }: { contentBank: Conten
           <MiniStatCard label="Total" value={contentBank.pages.length} />
         </div>
 
-        <button onClick={handleGenerate} disabled={generating || pendingPages.length === 0} className="px-6 py-3 bg-[var(--accent)] hover:bg-[var(--accent-light)] disabled:opacity-50 text-white font-semibold rounded-xl shadow-lg transition-all flex items-center gap-2">
-          {generating ? (
-            <>
-              <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg>
-              Generating {progress.current}/{progress.total}...
-            </>
-          ) : `Generate All (${pendingPages.length} pages)`}
-        </button>
+        <div className="flex gap-3">
+          <button onClick={handleGenerate} disabled={generating || pendingPages.length === 0} className="px-6 py-3 bg-[var(--accent)] hover:bg-[var(--accent-light)] disabled:opacity-50 text-white font-semibold rounded-xl shadow-lg transition-all flex items-center gap-2">
+            {generating ? (
+              <>
+                <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg>
+                Generating {progress.current}/{progress.total}...
+              </>
+            ) : `Generate All (${pendingPages.length} pages)`}
+          </button>
+        </div>
 
         {generating && (
           <div className="mt-4">
@@ -551,6 +624,64 @@ function GenerateTab({ contentBank, citySlug, onRefresh }: { contentBank: Conten
           </div>
         )}
       </div>
+
+      {/* Failed Pages Panel */}
+      {failedPages.length > 0 && !generating && (
+        <div className="bg-red-50 dark:bg-red-900/20 rounded-2xl border border-red-200 dark:border-red-800 p-6">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <h3 className="font-semibold text-red-800 dark:text-red-200">{failedPages.length} Failed Page{failedPages.length > 1 ? "s" : ""}</h3>
+            </div>
+            <button
+              onClick={handleRetryAll}
+              disabled={retrying !== null}
+              className="px-4 py-2 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white text-sm font-medium rounded-lg transition-colors flex items-center gap-2"
+            >
+              {retrying ? (
+                <>
+                  <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg>
+                  Retrying...
+                </>
+              ) : (
+                <>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                  Retry All
+                </>
+              )}
+            </button>
+          </div>
+
+          <div className="space-y-2">
+            {failedPages.map((page) => (
+              <div key={page.id} className="flex items-center justify-between bg-white dark:bg-gray-800 rounded-lg p-3">
+                <div className="flex-1 min-w-0">
+                  <p className="font-medium text-sm text-gray-900 dark:text-gray-100 truncate">{page.title}</p>
+                  <p className="text-xs text-red-600 dark:text-red-400 truncate">{page.error}</p>
+                </div>
+                <button
+                  onClick={() => handleRetry(page)}
+                  disabled={retrying !== null}
+                  className="ml-3 px-3 py-1.5 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 disabled:opacity-50 text-sm font-medium rounded-lg transition-colors flex items-center gap-1.5"
+                >
+                  {retrying === page.id ? (
+                    <svg className="animate-spin w-3.5 h-3.5" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg>
+                  ) : (
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                  )}
+                  Retry
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
