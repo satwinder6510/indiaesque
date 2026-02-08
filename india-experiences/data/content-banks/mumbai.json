@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:37:13.563Z",
+  "updatedAt": "2026-02-08T21:37:55.030Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -190,9 +190,9 @@
       "title": "Where To Stay In Mumbai",
       "slug": "where-to-stay-mumbai",
       "contentDirection": "Detail best neighborhoods: Colaba (first-time visitors, ₹3,000-15,000/night), Bandra West (trendy, ₹2,500-8,000), Marine Drive (business, ₹4,000-20,000), BKC (business district), and Juhu (beaches, families). Include transport connections.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 907,
+      "generatedAt": "2026-02-08T21:37:55.030Z",
       "validationErrors": []
     },
     {
