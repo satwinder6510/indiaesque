@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:18:50.613Z",
+  "updatedAt": "2026-02-08T20:19:29.175Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -454,9 +454,9 @@
       "title": "Ranthambore Day Trip From Jaipur",
       "slug": "ranthambore-day-trip-jaipur",
       "contentDirection": "Detail 3.5-hour drive, safari timings (6 AM and 3 PM slots), tiger sighting chances (30-40%), and package inclusions. Cover entry fees (₹1400 Indians, ₹1700 foreigners), jeep vs canter options (₹1800 vs ₹400), and advance booking necessity.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 759,
+      "generatedAt": "2026-02-08T20:19:29.175Z",
       "validationErrors": []
     },
     {
