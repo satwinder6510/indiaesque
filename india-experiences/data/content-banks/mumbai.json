@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T22:03:27.362Z",
+  "updatedAt": "2026-02-08T22:04:06.098Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -634,9 +634,9 @@
       "title": "Mumbai Visa Requirements",
       "slug": "mumbai-visa-requirements",
       "contentDirection": "Visa information: e-Tourist visa (most common), 30-90 day options, application process timeline (4-7 days), required documents, visa fees by nationality, airport arrival procedures, and embassy contact information.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 821,
+      "generatedAt": "2026-02-08T22:04:06.098Z",
       "validationErrors": []
     },
     {
