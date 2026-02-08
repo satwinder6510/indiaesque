@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:26:37.623Z",
+  "updatedAt": "2026-02-08T20:27:27.888Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -610,9 +610,9 @@
       "title": "Jaipur Railway Station Guide",
       "slug": "jaipur-railway-station-guide",
       "contentDirection": "Cover main station location, auto-rickshaw stands (₹100-200 to city center), prepaid taxi services, waiting rooms, and left luggage facilities. Include major train connections to Delhi (4-5 hours), Mumbai (12-14 hours), and platform guidance.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1054,
+      "generatedAt": "2026-02-08T20:27:27.888Z",
       "validationErrors": []
     },
     {
