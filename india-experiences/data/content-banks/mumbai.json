@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:51:09.844Z",
+  "updatedAt": "2026-02-08T21:51:52.785Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -430,9 +430,9 @@
       "title": "Kala Ghoda Art District Mumbai",
       "slug": "kala-ghoda-art-mumbai",
       "contentDirection": "Cultural hub guide: Jehangir Art Gallery (free entry), National Gallery of Modern Art, annual Kala Ghoda Festival (February), street art, boutique shops, cafés like Rhythm House, and Chhatrapati Shivaji Museum (₹70 entry).",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 892,
+      "generatedAt": "2026-02-08T21:51:52.785Z",
       "validationErrors": []
     },
     {
