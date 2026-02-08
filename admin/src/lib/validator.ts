@@ -198,28 +198,28 @@ export function validateContent(
     });
   }
 
-  // Word count validation
+  // Word count validation (warning, not error)
   const wordCount = content.split(/\s+/).filter((w) => w.length > 0).length;
   const pageType = type as "hub" | "category" | "paa" | undefined;
   if (pageType && pageType in WORD_COUNT_REQUIREMENTS) {
     const required =
       WORD_COUNT_REQUIREMENTS[pageType as keyof typeof WORD_COUNT_REQUIREMENTS];
     if (wordCount < required) {
-      errors.push({
+      warnings.push({
         type: "word-count-low",
-        message: `Word count below minimum for ${pageType} pages`,
+        message: `Word count below recommended for ${pageType} pages`,
         limit: required,
         actual: wordCount,
       });
     }
   }
 
-  // Internal links validation
+  // Internal links validation (warning, not error)
   const internalLinks = content.match(/\]\(\/[^)]+\)/g) || [];
   if (internalLinks.length < 3) {
-    errors.push({
+    warnings.push({
       type: "insufficient-internal-links",
-      message: "Content must have at least 3 internal links",
+      message: "Content should have at least 3 internal links",
       limit: 3,
       actual: internalLinks.length,
     });
