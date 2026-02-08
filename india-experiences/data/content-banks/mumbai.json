@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:49:45.368Z",
+  "updatedAt": "2026-02-08T21:50:31.576Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -406,9 +406,9 @@
       "title": "Chor Bazaar Mumbai Guide",
       "slug": "chor-bazaar-mumbai",
       "contentDirection": "'Thieves Market' guide: antiques and vintage items, furniture, Bollywood memorabilia, haggling essential (expect 50-70% off first price), Friday closure, morning visits best (9am-12pm), transport via Mumbai Central station.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 899,
+      "generatedAt": "2026-02-08T21:50:31.576Z",
       "validationErrors": []
     },
     {
