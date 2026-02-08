@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:08:17.598Z",
+  "updatedAt": "2026-02-08T20:09:01.247Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -250,9 +250,9 @@
       "title": "Complete Guide To Amber Fort Jaipur",
       "slug": "amber-fort-jaipur-guide",
       "contentDirection": "Detailed coverage of elephant rides (₹1200), jeep rides (₹400), Sheesh Mahal, and Diwan-i-Khas. Include early morning visit tips (8 AM opening), sound & light show timings (6:30 PM winter), and 11km distance from city center.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 964,
+      "generatedAt": "2026-02-08T20:09:01.247Z",
       "validationErrors": []
     },
     {
