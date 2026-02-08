@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:53:18.125Z",
+  "updatedAt": "2026-02-08T21:54:00.772Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -466,9 +466,9 @@
       "title": "Juhu Beach Mumbai Guide",
       "slug": "juhu-beach-mumbai",
       "contentDirection": "Beach guide: 6km stretch, sunset views, street food stalls, celebrity spotting, water sports limitations (pollution), nearby ISKCON temple, accommodation options, and transport from city center (1-2 hours by road).",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 850,
+      "generatedAt": "2026-02-08T21:54:00.772Z",
       "validationErrors": []
     },
     {
