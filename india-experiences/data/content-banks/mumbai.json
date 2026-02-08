@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T22:02:01.026Z",
+  "updatedAt": "2026-02-08T22:02:40.345Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -610,9 +610,9 @@
       "title": "Live Music Venues In Mumbai",
       "slug": "live-music-mumbai",
       "contentDirection": "Music scene guide: Blue Frog (now closed, but alternatives), antiSOCIAL, Hard Rock Café, indie music venues in Bandra, classical music venues, Bollywood karaoke nights, cover charges, and upcoming artist showcases.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 728,
+      "generatedAt": "2026-02-08T22:02:40.345Z",
       "validationErrors": []
     },
     {
