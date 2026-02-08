@@ -1,0 +1,17 @@
+{
+  "cities": [
+    {
+      "name": "Delhi",
+      "slug": "delhi",
+      "state": "Delhi",
+      "tier": 1,
+      "coordinates": {
+        "lat": 28.6139,
+        "lng": 77.209
+      },
+      "airport": "DEL",
+      "nearestHub": null,
+      "status": "generated"
+    }
+  ]
+}
