@@ -10,25 +10,37 @@ export async function GET() {
   try {
     // Fetch cities from cities.json or scan content directories
     let cities: City[] = [];
+
+    console.log("Fetching cities, CONTENT_BASE:", CONTENT_BASE);
+    console.log("GITHUB_OWNER:", process.env.GITHUB_OWNER);
+    console.log("GITHUB_REPO:", process.env.GITHUB_REPO);
+    console.log("GITHUB_TOKEN exists:", !!process.env.GITHUB_TOKEN);
+
     const citiesData = await readJSON<CitiesData>("india-experiences/data/cities.json");
+    console.log("citiesData from JSON:", citiesData);
 
     if (citiesData?.cities?.length) {
       cities = citiesData.cities;
     } else {
       // Fallback: scan content directories
+      console.log("Scanning content directories...");
       const dirs = await listDirectory(CONTENT_BASE);
+      console.log("Directories found:", dirs);
+
       cities = dirs
         .filter((d) => d.type === "dir")
         .map((d) => ({
           name: d.name.charAt(0).toUpperCase() + d.name.slice(1),
           slug: d.name,
           state: "",
-          tier: 2,
+          tier: 2 as const,
           coordinates: { lat: 0, lng: 0 },
           airport: "",
           nearestHub: null,
           status: "content" as const,
         }));
+
+      console.log("Cities mapped:", cities);
     }
 
     // Fetch admin state
