@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:11:54.151Z",
+  "updatedAt": "2026-02-08T20:12:37.763Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -310,9 +310,9 @@
       "title": "Jaigarh Fort — The Victory Fort Guide",
       "slug": "jaigarh-fort-jaipur",
       "contentDirection": "Detail Jaivana cannon (world's largest), armory museum, and treasure excavation stories. Cover 15km distance from city, combined tickets with Amber Fort (₹100 extra), and 2-3 hour exploration time with fort walls walk.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 926,
+      "generatedAt": "2026-02-08T20:12:37.763Z",
       "validationErrors": []
     },
     {
