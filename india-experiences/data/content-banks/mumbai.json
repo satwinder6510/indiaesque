@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:37:55.030Z",
+  "updatedAt": "2026-02-08T21:38:35.969Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -202,9 +202,9 @@
       "title": "Getting Around Mumbai",
       "slug": "getting-around-mumbai",
       "contentDirection": "Comprehensive transport guide: Local trains (₹5-15 per journey), Uber/Ola (₹150-500 across city), auto-rickshaws (north of Bandra only), taxis with meters mandatory. Include rush hour timings and safety tips.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 814,
+      "generatedAt": "2026-02-08T21:38:35.969Z",
       "validationErrors": []
     },
     {
