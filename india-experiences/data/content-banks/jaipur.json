@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:21:36.082Z",
+  "updatedAt": "2026-02-08T20:22:20.195Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -514,9 +514,9 @@
       "title": "Galta Ji Monkey Temple Jaipur Guide",
       "slug": "galta-ji-monkey-temple-jaipur",
       "contentDirection": "Detail hilltop temple complex, natural springs, monkey interactions (bring minimal items), 10km from city center. Include sunrise visit benefits (6-8 AM), temple tank bathing customs, and precautions with monkeys around food/belongings.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1021,
+      "generatedAt": "2026-02-08T20:22:20.195Z",
       "validationErrors": []
     },
     {
