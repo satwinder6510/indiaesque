@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:17:14.010Z",
+  "updatedAt": "2026-02-08T20:18:05.638Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -418,9 +418,9 @@
       "title": "Folk Dance Shows In Jaipur",
       "slug": "folk-dance-shows-jaipur",
       "contentDirection": "Detail performances at Bagore Ki Haveli (₹30-60), heritage hotels, and cultural centers. Cover Rajasthani folk dances (Ghoomar, Kalbeliya), show timings (7-8 PM), dinner packages (₹1500-3000), and photography policies.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 932,
+      "generatedAt": "2026-02-08T20:18:05.638Z",
       "validationErrors": []
     },
     {
