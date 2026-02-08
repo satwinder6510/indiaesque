@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:35:48.980Z",
+  "updatedAt": "2026-02-08T21:36:35.758Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -166,9 +166,9 @@
       "title": "What Is Mumbai Famous For?",
       "slug": "what-is-mumbai-famous-for",
       "contentDirection": "Cover Bollywood film industry, financial capital status, street food culture, colonial and Art Deco architecture, Dharavi slum, textile industry, and business hub reputation. Include specific examples and statistics.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 902,
+      "generatedAt": "2026-02-08T21:36:35.758Z",
       "validationErrors": []
     },
     {
