@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:52:39.016Z",
+  "updatedAt": "2026-02-08T21:53:18.125Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -454,9 +454,9 @@
       "title": "Best Museums In Mumbai",
       "slug": "best-museums-mumbai",
       "contentDirection": "Museum guide: Chhatrapati Shivaji Museum (₹70, closed Mondays), Nehru Science Centre (₹65), Mani Bhavan Gandhi Museum (₹15), Bhau Daji Lad Museum, opening hours, special exhibitions, and combined ticket options.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 824,
+      "generatedAt": "2026-02-08T21:53:18.125Z",
       "validationErrors": []
     },
     {
