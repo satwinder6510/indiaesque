@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:29:10.684Z",
+  "updatedAt": "2026-02-08T20:29:56.689Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -646,9 +646,9 @@
       "title": "Visiting Jaipur With Kids",
       "slug": "jaipur-with-kids-family-guide",
       "contentDirection": "Cover kid-friendly attractions like elephant rides at Amber Fort, Jantar Mantar interactive exhibits, and Central Park activities. Include stroller-friendly venues, child pricing (50% discount common), and family restaurants with diverse menus.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 907,
+      "generatedAt": "2026-02-08T20:29:56.689Z",
       "validationErrors": []
     },
     {
