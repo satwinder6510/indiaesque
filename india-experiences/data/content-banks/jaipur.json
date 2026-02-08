@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:16:28.032Z",
+  "updatedAt": "2026-02-08T20:17:14.010Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -406,9 +406,9 @@
       "title": "Best Cooking Classes In Jaipur",
       "slug": "cooking-classes-jaipur",
       "contentDirection": "Cover traditional home cooking with local families (₹2500-4000), heritage hotel classes (₹5000-8000), and market visits included. Detail menu options (dal bati churma, gatte ki sabzi), duration (4-5 hours), and recipe booklets provided.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 904,
+      "generatedAt": "2026-02-08T20:17:14.010Z",
       "validationErrors": []
     },
     {
