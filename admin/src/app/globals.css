@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #1e3a5f;
+  --primary-light: #2d4a6f;
+  --primary-dark: #152a47;
+  --accent: #f97316;
+  --accent-light: #fb923c;
+  --background: #faf9f7;
+  --background-card: #ffffff;
+  --foreground: #1a1a1a;
+  --foreground-muted: #6b7280;
+  --border: #e5e5e5;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #3b6ea8;
+    --primary-light: #4a7db8;
+    --primary-dark: #2d5a8a;
+    --accent: #fb923c;
+    --accent-light: #fdba74;
+    --background: #0f172a;
+    --background-card: #1e293b;
+    --foreground: #f1f5f9;
+    --foreground-muted: #94a3b8;
+    --border: #334155;
+    --success: #34d399;
+    --warning: #fbbf24;
+    --error: #f87171;
+  }
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-background: var(--background);
+  --color-background-card: var(--background-card);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground-muted);
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+button, a, input, select, textarea {
+  transition: all 0.2s ease;
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Progress bar animation */
+@keyframes progress {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.progress-animated {
+  background: linear-gradient(90deg, var(--accent), var(--accent-light), var(--accent));
+  background-size: 200% 100%;
+  animation: progress 2s ease infinite;
+}
+
+/* Terminal log styling */
+.terminal-log {
+  background: #0d1117;
+  color: #c9d1d9;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.terminal-log .success { color: #3fb950; }
+.terminal-log .error { color: #f85149; }
+.terminal-log .warning { color: #d29922; }
+.terminal-log .info { color: #58a6ff; }

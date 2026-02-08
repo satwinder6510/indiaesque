@@ -1173,3 +1173,168 @@ Filter these from machine-generated content. They signal AI authorship to both G
 ```
 
 Replace with specific, concrete language. Instead of "a hidden gem nestled in the heart of Old Delhi" → "a 40-seat restaurant on the second floor above a spice shop in Chandni Chowk."
+
+---
+
+## 15. Admin Tool
+
+**Separate Next.js application for content management. Deployed on Vercel at `admin.indiaesque.com`.**
+
+### Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        ADMIN TOOL (Vercel)                       │
+│                                                                  │
+│   Next.js 15 + React 18 + Tailwind CSS                          │
+│   API Routes (serverless functions)                              │
+│   Claude API for research & generation                           │
+│   GitHub API for all file operations                             │
+│                                                                  │
+│   Environment Variables:                                         │
+│   - ANTHROPIC_API_KEY                                            │
+│   - GITHUB_TOKEN (repo scope)                                    │
+│   - GITHUB_OWNER / GITHUB_REPO                                   │
+│   - ADMIN_PASSWORD                                               │
+│   - SESSION_SECRET                                               │
+└──────────────────────────────────────────────────────────────────┘
+         │
+         │        GitHub API
+         ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                     GITHUB REPOSITORY                            │
+│                                                                  │
+│   src/content/{city}/*.md    ← Generated Markdown files         │
+│   data/content-banks/*.json  ← Content bank (planning docs)     │
+│   data/cities.json           ← City registry                    │
+│   data/admin-state.json      ← API usage tracking               │
+└──────────────────────────────────────────────────────────────────┘
+         │
+         │ Auto-deploy on push
+         ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    MAIN SITE (Cloudflare/Vercel)                 │
+│                                                                  │
+│   Astro static site built from Markdown                          │
+│   indiaesque.com                                                 │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+### Project Structure
+
+```
+indiaesque-admin/
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   │   ├── auth/login/route.ts      # Password login
+│   │   │   ├── auth/logout/route.ts     # Session destroy
+│   │   │   ├── cities/route.ts          # City CRUD
+│   │   │   ├── status/route.ts          # Dashboard data
+│   │   │   ├── content-bank/[city]/     # Content bank CRUD
+│   │   │   ├── research/route.ts        # PAA discovery
+│   │   │   ├── generate-page/route.ts   # Content generation
+│   │   │   ├── validate/route.ts        # Content validation
+│   │   │   └── files/[city]/route.ts    # File browser
+│   │   ├── city/[slug]/page.tsx         # City detail (5 tabs)
+│   │   ├── login/page.tsx               # Login form
+│   │   └── page.tsx                     # Dashboard
+│   ├── lib/
+│   │   ├── github.ts      # GitHub API wrapper (Octokit)
+│   │   ├── claude.ts      # Anthropic SDK wrapper
+│   │   ├── validator.ts   # Content validation rules
+│   │   ├── auth.ts        # Session management
+│   │   └── types.ts       # TypeScript interfaces
+│   └── middleware.ts      # Auth protection
+└── prompts/
+    ├── research.md        # PAA discovery prompt
+    ├── hub.md             # Hub page generation
+    ├── category.md        # Category page generation
+    └── paa.md             # PAA page generation
+```
+
+### Key Design Decisions
+
+1. **Browser-driven generation loop**: Each page generated via separate API call. Browser orchestrates the loop, calling `/api/generate-page` for each page. Stays within Vercel's 60-second timeout.
+
+2. **GitHub as database**: All state stored as JSON files in the repo. No separate database needed. Version-controlled, recoverable.
+
+3. **Batch commits**: Generated files committed in batches using Git Trees API for cleaner history.
+
+4. **Content banks as JSON**: Planning documents stored as structured JSON (not Markdown) for easy UI editing, filtering, and status tracking.
+
+### Content Bank Schema
+
+```json
+{
+  "city": "jaipur",
+  "cityName": "Jaipur",
+  "createdAt": "2026-02-08T10:00:00Z",
+  "updatedAt": "2026-02-08T12:00:00Z",
+  "researchSources": ["things to do in Jaipur", ...],
+  "categories": [
+    { "id": "food", "name": "Jaipur Food & Drink", "slug": "food", ... }
+  ],
+  "pages": [
+    {
+      "id": "jaipur-is-safe",
+      "type": "paa",
+      "category": "general",
+      "title": "Is Jaipur Safe For Tourists?",
+      "slug": "is-jaipur-safe-for-tourists",
+      "contentDirection": "Answer directly. Cover safety by area...",
+      "status": "not-started",
+      "wordCount": null,
+      "generatedAt": null,
+      "validationErrors": []
+    }
+  ],
+  "notes": "Jaipur-specific: elephant rides unethical..."
+}
+```
+
+### Page Status Values
+
+- `not-started` — In content bank, not yet generated
+- `generating` — Claude API call in progress
+- `generated` — File created in repo
+- `validation-failed` — Failed validation checks
+- `validated` — Passed all validation
+- `published` — Live on site
+
+### City Status Values
+
+- `new` — Added to registry
+- `researching` — PAA research in progress
+- `content-bank-ready` — Content bank created
+- `content-bank-approved` — Reviewed and approved
+- `generating` — Content generation in progress
+- `generated` — All files created
+- `validated` — Validation passed
+- `content-complete` — Deployed
+
+### Workflow
+
+1. Add city to registry (dashboard)
+2. Run PAA research (Claude + web search)
+3. Review/edit content bank
+4. Approve content bank
+5. Generate all pages (browser loop)
+6. Run validation
+7. Fix any errors
+8. Content auto-deploys via GitHub push
+
+### Dependencies
+
+```json
+{
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.74.0",
+    "gray-matter": "^4.0.3",
+    "next": "^15.0.0",
+    "octokit": "^5.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
+```
