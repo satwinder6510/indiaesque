@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:32:00.324Z",
+  "updatedAt": "2026-02-08T21:33:05.591Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -118,9 +118,9 @@
       "title": "Best Markets In Mumbai — 2026 Guide",
       "slug": "markets",
       "contentDirection": "Guide to Crawford Market, Colaba Causeway, Linking Road in Bandra, and Chor Bazaar. Include opening hours, bargaining tips, and specific items to buy. Cover price ranges and transport access from major hotels.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1296,
+      "generatedAt": "2026-02-08T21:33:05.591Z",
       "validationErrors": []
     },
     {
