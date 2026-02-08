@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T19:53:20.747Z",
+  "updatedAt": "2026-02-08T19:54:27.369Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -238,9 +238,9 @@
       "title": "Best Heritage Sites In Jaipur — 2026 Guide",
       "slug": "heritage",
       "contentDirection": "Complete guide to UNESCO World Heritage sites including Amber Fort, City Palace complex, and Jantar Mantar. Cover architecture styles, Rajput history, ticket prices (₹200-750), guided tour options (₹500-1500), and photography permissions.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1565,
+      "generatedAt": "2026-02-08T19:54:27.369Z",
       "validationErrors": []
     },
     {
