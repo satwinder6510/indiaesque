@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:48:07.176Z",
+  "updatedAt": "2026-02-08T21:48:57.393Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -382,9 +382,9 @@
       "title": "Crawford Market Mumbai Guide",
       "slug": "crawford-market-mumbai",
       "contentDirection": "Historic market guide: British architecture, fruits and spices, textiles section, pet section (avoid illegal animal shops), bargaining tips, opening hours (11am-8pm, closed Sundays), transport access, and nearby attractions.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1037,
+      "generatedAt": "2026-02-08T21:48:57.393Z",
       "validationErrors": []
     },
     {
