@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:41:24.594Z",
+  "updatedAt": "2026-02-08T21:42:08.544Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -262,9 +262,9 @@
       "title": "Mumbai Street Food Safety Tips",
       "slug": "mumbai-street-food-safety",
       "contentDirection": "Essential safety guidelines: choose busy stalls with high turnover, avoid water-based items, stick to fried/grilled foods, popular tourist-friendly spots like Elco in Bandra and Sukh Sagar at Chowpatty. Include stomach-settling remedies.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 870,
+      "generatedAt": "2026-02-08T21:42:08.544Z",
       "validationErrors": []
     },
     {
