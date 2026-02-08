@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T19:54:27.369Z",
+  "updatedAt": "2026-02-08T19:55:34.996Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -322,9 +322,9 @@
       "title": "Best Markets In Jaipur — 2026 Shopping Guide",
       "slug": "markets",
       "contentDirection": "Complete shopping guide covering Johari Bazaar (jewelry), Bapu Bazaar (textiles), Nehru Bazaar (handicrafts). Include bargaining strategies (start 30% of quoted), authentic vs. tourist prices, shipping services, and market timing (closed Sundays).",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1395,
+      "generatedAt": "2026-02-08T19:55:34.996Z",
       "validationErrors": []
     },
     {
