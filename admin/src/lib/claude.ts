@@ -45,43 +45,92 @@ export async function researchCity(
 ): Promise<ResearchResult> {
   const prompt = buildResearchPrompt(cityName, citySlug, seedQueries);
 
-  const response = await anthropic.messages.create({
-    model,
-    max_tokens: 8000,
-    tools: [
-      {
-        type: "web_search_20250305",
-        name: "web_search",
-      },
-    ],
-    messages: [{ role: "user", content: prompt }],
-  });
+  // Use agentic loop to handle tool use
+  const messages: Anthropic.MessageParam[] = [{ role: "user", content: prompt }];
+  let finalText = "";
+  let iterations = 0;
+  const maxIterations = 20; // Prevent infinite loops
 
-  // Extract text content from response
-  const textContent = response.content.find((block) => block.type === "text");
-  if (!textContent || textContent.type !== "text") {
-    throw new Error("No text content in response");
+  while (iterations < maxIterations) {
+    iterations++;
+
+    const response = await anthropic.messages.create({
+      model,
+      max_tokens: 8000,
+      tools: [
+        {
+          type: "web_search_20250305",
+          name: "web_search",
+        } as unknown as Anthropic.Tool,
+      ],
+      messages,
+    });
+
+    // Collect all text from this response
+    for (const block of response.content) {
+      if (block.type === "text") {
+        finalText += block.text;
+      }
+    }
+
+    // If Claude is done (end_turn), we have our final response
+    if (response.stop_reason === "end_turn") {
+      break;
+    }
+
+    // If Claude wants to use tools, add this response and continue
+    if (response.stop_reason === "tool_use") {
+      // Add assistant's response to messages
+      messages.push({ role: "assistant", content: response.content });
+
+      // For built-in tools like web_search, we don't need to provide results
+      // Just add an empty user turn to continue
+      messages.push({
+        role: "user",
+        content: "Please continue with your research and provide the final JSON output."
+      });
+    } else {
+      // Unknown stop reason, break
+      break;
+    }
+  }
+
+  if (!finalText) {
+    throw new Error("No text content in response after research");
   }
 
   // Parse the JSON response - try multiple patterns
-  const text = textContent.text;
+  return parseResearchJSON(finalText);
+}
 
+/**
+ * Parse JSON from research response text
+ */
+function parseResearchJSON(text: string): ResearchResult {
   // Try various JSON block patterns
   const patterns = [
     /```json\s*([\s\S]*?)\s*```/,      // Standard markdown JSON block
     /```\s*([\s\S]*?)\s*```/,           // Code block without language
-    /\{[\s\S]*"pages"[\s\S]*\}/,        // Raw JSON object with pages
   ];
 
   for (const pattern of patterns) {
     const match = text.match(pattern);
-    if (match) {
+    if (match && match[1]) {
       try {
-        const jsonStr = match[1] || match[0];
-        return JSON.parse(jsonStr);
+        return JSON.parse(match[1]);
       } catch {
         continue;
       }
+    }
+  }
+
+  // Try to find a JSON object with "pages" key
+  const pagesMatch = text.match(/\{[\s\S]*"pages"\s*:\s*\[[\s\S]*\][\s\S]*\}/);
+  if (pagesMatch) {
+    try {
+      return JSON.parse(pagesMatch[0]);
+    } catch {
+      // Continue to next attempt
     }
   }
 
