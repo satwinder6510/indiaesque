@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T19:50:43.693Z",
+  "updatedAt": "2026-02-08T19:53:20.747Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -178,9 +178,9 @@
       "title": "Best Food In Jaipur — 2026 Guide",
       "slug": "food",
       "contentDirection": "Comprehensive guide to dal bati churma, ghewar, and street food. Cover Johari Bazaar food walks, rooftop restaurants with fort views, and heritage hotel dining. Include budget breakdown: street food ₹50-150, restaurants ₹300-1500 per meal.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1274,
+      "generatedAt": "2026-02-08T19:53:20.747Z",
       "validationErrors": []
     },
     {
