@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:06:07.614Z",
+  "updatedAt": "2026-02-08T20:06:49.334Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -202,9 +202,9 @@
       "title": "Best Restaurants In Jaipur",
       "slug": "best-restaurants-jaipur",
       "contentDirection": "Cover rooftop dining at 1135 AD (City Palace views), Peacock Rooftop (Hawa Mahal views), heritage restaurants at Rambagh Palace, and local favorites like Spice Court. Include cuisine types, price ranges ₹500-3000, and booking requirements.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 832,
+      "generatedAt": "2026-02-08T20:06:49.333Z",
       "validationErrors": []
     },
     {
