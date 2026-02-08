@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:10:32.989Z",
+  "updatedAt": "2026-02-08T20:11:12.549Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -286,9 +286,9 @@
       "title": "Jantar Mantar Jaipur — Astronomical Marvel Guide",
       "slug": "jantar-mantar-jaipur-guide",
       "contentDirection": "Explain Samrat Yantra (world's largest sundial), Jai Prakash Yantra, and astronomical instruments. Detail guided tour necessity (₹500-700) for understanding complex concepts, UNESCO significance, and 1-2 hour visit duration.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 828,
+      "generatedAt": "2026-02-08T20:11:12.549Z",
       "validationErrors": []
     },
     {
