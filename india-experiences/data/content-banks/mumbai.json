@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T22:04:46.231Z",
+  "updatedAt": "2026-02-08T22:05:33.474Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -658,9 +658,9 @@
       "title": "SIM Cards And Internet In Mumbai",
       "slug": "mumbai-sim-internet",
       "contentDirection": "Connectivity guide: Prepaid SIM options (Airtel, Jio, Vi), eSIM availability, documentation required (passport copy), data plans (₹299-799 for tourist plans), WiFi availability in hotels/cafés, and internet speed expectations.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 945,
+      "generatedAt": "2026-02-08T22:05:33.474Z",
       "validationErrors": []
     },
     {
