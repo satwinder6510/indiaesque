@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:46:46.142Z",
+  "updatedAt": "2026-02-08T21:47:26.458Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -358,9 +358,9 @@
       "title": "Dharavi Slum Tour Mumbai",
       "slug": "dharavi-slum-tour-mumbai",
       "contentDirection": "Responsible tourism guide: Reality Tours & Travel (₹1,400 for 2.5 hours), 80% profits to community, no-photo policy, 1 million residents, small industries, ethical considerations, and alternative perspectives on urban development.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 820,
+      "generatedAt": "2026-02-08T21:47:26.458Z",
       "validationErrors": []
     },
     {
