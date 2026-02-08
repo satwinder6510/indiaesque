@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T22:04:06.098Z",
+  "updatedAt": "2026-02-08T22:04:46.231Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -646,9 +646,9 @@
       "title": "Money And Currency In Mumbai",
       "slug": "mumbai-money-currency",
       "contentDirection": "Financial guide: Indian Rupee (INR), ATM availability and charges, currency exchange at airport vs city (Thomas Cook, UAE Exchange), UPI payments widespread, credit card acceptance, typical daily budgets (₹2,000-8,000), and tipping culture.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 795,
+      "generatedAt": "2026-02-08T22:04:46.231Z",
       "validationErrors": []
     },
     {
