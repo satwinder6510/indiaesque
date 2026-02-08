@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:54:00.772Z",
+  "updatedAt": "2026-02-08T21:54:36.673Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -478,9 +478,9 @@
       "title": "Sanjay Gandhi National Park Mumbai",
       "slug": "sanjay-gandhi-national-park-mumbai",
       "contentDirection": "Urban wildlife guide: 104 sq km park, Kanheri Caves inside (₹25 entry), leopard population (35+ leopards), lion safari (₹75-100), toy train, entry fees ₹44 for adults, best time to visit (October-March).",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 798,
+      "generatedAt": "2026-02-08T21:54:36.673Z",
       "validationErrors": []
     },
     {
