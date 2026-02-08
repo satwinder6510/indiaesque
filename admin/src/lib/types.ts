@@ -21,7 +21,8 @@ export type CityStatus =
   | "generating"
   | "generated"
   | "validated"
-  | "content-complete";
+  | "content-complete"
+  | "content"; // For cities discovered from existing content directories
 
 // Content bank from data/content-banks/{city}.json
 export interface ContentBank {
