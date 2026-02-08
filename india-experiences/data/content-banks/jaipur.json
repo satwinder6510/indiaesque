@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:09:01.247Z",
+  "updatedAt": "2026-02-08T20:09:49.547Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -262,9 +262,9 @@
       "title": "City Palace Jaipur Complete Guide",
       "slug": "city-palace-jaipur-guide",
       "contentDirection": "Cover Chandra Mahal, Mubarak Mahal, and royal museums with 4-hour recommended visit time. Detail photography rules, dress code for palace areas, guided tours (₹500-800), and combination tickets with nearby Jantar Mantar.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1084,
+      "generatedAt": "2026-02-08T20:09:49.547Z",
       "validationErrors": []
     },
     {
