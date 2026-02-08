@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T22:06:20.707Z",
+  "updatedAt": "2026-02-08T22:07:01.262Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -682,9 +682,9 @@
       "title": "Luxury Travel In Mumbai",
       "slug": "mumbai-luxury-travel",
       "contentDescription": "Premium experiences: 5-star hotels (Taj Mahal Palace ₹15,000+, St. Regis ₹25,000+), fine dining restaurants, private city tours, helicopter rides, luxury shopping in Palladium Mall, spa treatments, and VIP airport services.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 781,
+      "generatedAt": "2026-02-08T22:07:01.262Z",
       "validationErrors": []
     }
   ],
