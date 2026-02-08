@@ -1,8 +1,8 @@
-# India Experiences Site — Technical Architecture
+# Indiaesque — Technical Architecture
 
 **Reference document. Consult before making any structural changes.**
 
-Last updated: 2026-02-07
+Last updated: 2026-02-08
 
 ---
 
@@ -82,7 +82,7 @@ Last updated: 2026-02-07
 
 **Install:**
 ```bash
-npm create astro@latest india-experiences
+npm create astro@latest indiaesque
 ```
 
 ---
@@ -142,12 +142,12 @@ Every page must have a canonical tag pointing to itself. This prevents duplicate
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <!-- SEO Meta (see Section 9) -->
     <title>{title} — {site_name}</title>
     <meta name="description" content="{meta_description}">
     <link rel="canonical" href="{canonical_url}">
-
+    
     <!-- Open Graph -->
     <meta property="og:title" content="{title}">
     <meta property="og:description" content="{meta_description}">
@@ -155,20 +155,20 @@ Every page must have a canonical tag pointing to itself. This prevents duplicate
     <meta property="og:type" content="article">
     <meta property="og:image" content="{og_image}">
     <meta property="og:site_name" content="{site_name}">
-
+    
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{title}">
     <meta name="twitter:description" content="{meta_description}">
-
+    
     <!-- Schema Markup (see Section 5) -->
     <script type="application/ld+json">
     {schema_json}
     </script>
-
+    
     <!-- Preload critical CSS -->
     <link rel="stylesheet" href="/styles/main.css">
-
+    
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -180,17 +180,17 @@ Every page must have a canonical tag pointing to itself. This prevents duplicate
             <!-- Keep minimal. No mega-menus that require JS -->
         </nav>
     </header>
-
+    
     <main>
         <!-- Breadcrumbs (see below) -->
         <!-- Page content -->
     </main>
-
+    
     <footer>
         <!-- City links, category links, about, contact -->
         <!-- This is a major internal linking opportunity -->
     </footer>
-
+    
     <!-- NO JavaScript required for content -->
     <!-- JS only for: search, analytics, optional interactivity -->
 </body>
@@ -226,12 +226,12 @@ Always in HTML, always visible, always with schema markup.
 <main>
     <article>
         <h1>Things To Do In Delhi — 2026 Guide</h1>
-
+        
         <p class="intro">
             <!-- 2-3 sentence intro. Include primary keyword naturally. -->
             <!-- This text should be unique and compelling — it may appear in search snippets -->
         </p>
-
+        
         <nav class="toc" aria-label="On this page">
             <!-- Jump links to each section -->
             <ul>
@@ -240,26 +240,26 @@ Always in HTML, always visible, always with schema markup.
                 <!-- ... -->
             </ul>
         </nav>
-
+        
         <section id="food">
             <h2>Food & Drink Experiences</h2>
             <p><!-- Summary paragraph --></p>
             <p><a href="/delhi/food-tours/">Full guide to Delhi food tours →</a></p>
         </section>
-
+        
         <section id="heritage">
             <h2>Heritage & History</h2>
             <p><!-- Summary paragraph --></p>
             <p><a href="/delhi/heritage-walks/">Full guide to Delhi heritage walks →</a></p>
         </section>
-
+        
         <!-- Repeat for each category -->
-
+        
         <section id="practical">
             <h2>Practical Information</h2>
             <p><!-- Best time, getting there, getting around, where to stay --></p>
         </section>
-
+        
         <section id="faq">
             <h2>Frequently Asked Questions</h2>
             <!-- Top 5-8 PAA questions answered directly -->
@@ -274,7 +274,7 @@ Always in HTML, always visible, always with schema markup.
             </div>
         </section>
     </article>
-
+    
     <!-- Related pages -->
     <aside>
         <h2>More Delhi Guides</h2>
@@ -293,17 +293,17 @@ Always in HTML, always visible, always with schema markup.
 <main>
     <article>
         <h1>Best Food Tours In Delhi — 2026 Guide</h1>
-
+        
         <p class="intro"><!-- Compelling intro with keyword --></p>
-
+        
         <section>
             <h2>What To Expect On A Delhi Food Tour</h2>
             <p><!-- Duration, price range, format, best time of day --></p>
         </section>
-
+        
         <section>
             <h2>The Best Delhi Food Tours</h2>
-
+            
             <!-- OPERATOR LISTINGS — this is where monetisation happens -->
             <div class="listing" id="operator-1">
                 <h3>{Operator Name}</h3>
@@ -314,23 +314,23 @@ Always in HTML, always visible, always with schema markup.
                 </p>
                 <p><!-- Description, what makes it good, who it's for --></p>
             </div>
-
+            
             <div class="listing" id="operator-2">
                 <h3>{Operator Name}</h3>
                 <!-- Same structure -->
             </div>
         </section>
-
+        
         <section>
             <h2>How To Book</h2>
             <p><!-- Booking info, advance notice needed --></p>
         </section>
-
+        
         <section>
             <h2>Tips For Your Food Tour</h2>
             <p><!-- What to wear, dietary needs, arrive hungry --></p>
         </section>
-
+        
         <section id="faq">
             <h2>Frequently Asked Questions</h2>
             <div class="faq-item">
@@ -343,7 +343,7 @@ Always in HTML, always visible, always with schema markup.
             </div>
         </section>
     </article>
-
+    
     <aside>
         <h2>More Delhi Experiences</h2>
         <ul>
@@ -360,7 +360,7 @@ Always in HTML, always visible, always with schema markup.
 <main>
     <article>
         <h1>Is Delhi Safe For Tourists?</h1>
-
+        
         <!-- CRITICAL: Direct answer in first 50 words -->
         <!-- This targets Google's featured snippet / position zero -->
         <p class="direct-answer">
@@ -369,27 +369,27 @@ Always in HTML, always visible, always with schema markup.
             touts. Use the metro, book Uber/Ola instead of street taxis, and avoid isolated
             areas after dark.
         </p>
-
+        
         <section>
             <h2>Safety By Area</h2>
             <p><!-- Detailed breakdown by neighbourhood --></p>
         </section>
-
+        
         <section>
             <h2>Common Scams To Watch For</h2>
             <p><!-- Specific scams with how to avoid --></p>
         </section>
-
+        
         <section>
             <h2>Safety Tips For Women</h2>
             <p><!-- Specific advice --></p>
         </section>
-
+        
         <section>
             <h2>Getting Around Safely</h2>
             <p><!-- Transport safety --></p>
         </section>
-
+        
         <!-- Related questions answered briefly -->
         <section id="faq">
             <h2>Related Questions</h2>
@@ -402,7 +402,7 @@ Always in HTML, always visible, always with schema markup.
                 <p><!-- Brief answer + link --></p>
             </div>
         </section>
-
+        
         <!-- Contextual navigation -->
         <nav class="next-steps">
             <h2>Plan Your Delhi Trip</h2>
@@ -607,7 +607,7 @@ Build these into templates so they're automatic:
     <!-- Other categories in same city -->
     <a href="/delhi/heritage-walks/">Heritage Walks</a>
     <a href="/delhi/cooking-classes/">Cooking Classes</a>
-
+    
     <h2>Food Tours In Other Cities</h2>
     <!-- Same category in other cities -->
     <a href="/jaipur/food-tours/">Jaipur Food Tours</a>
@@ -736,7 +736,7 @@ This site covers experiences and activities across 30+ Indian cities. Every page
 ## Top Cities
 
 - /delhi/ — Delhi experiences guide
-- /jaipur/ — Jaipur experiences guide
+- /jaipur/ — Jaipur experiences guide  
 - /goa/ — Goa experiences guide
 - /mumbai/ — Mumbai experiences guide
 - /varanasi/ — Varanasi experiences guide
@@ -832,19 +832,25 @@ Compare Delhi's best food tours from ₹1,500. Old Delhi street food walks, cook
 - [ ] **CSS inlined or preloaded** (single stylesheet, minified)
 - [ ] **Images in WebP format** with width/height attributes (prevents layout shift)
 - [ ] **Lazy loading on below-fold images** (`loading="lazy"`)
-- [ ] **No web fonts** (use system font stack) OR preload a single web font
+- [ ] **Web fonts preloaded** (two fonts: DM Serif Display for headings, Source Sans 3 for body)
 - [ ] **Gzip/Brotli compression enabled** (CDN handles this)
 - [ ] **Cache headers set** (static assets: 1 year, HTML: 1 hour)
 
-### System Font Stack (recommended)
+### Typography
 
 ```css
+/* Headings */
+h1, h2, h3 {
+    font-family: 'DM Serif Display', serif;
+}
+
+/* Body */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                 Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 ```
-Zero network requests for fonts. Instant rendering.
+
+Two Google Fonts loaded via `<link rel="preload">` to avoid render-blocking. System font stack as fallback. DM Serif Display gives headings character; Source Sans 3 is highly readable at body sizes.
 
 ### Image Strategy
 
@@ -858,40 +864,65 @@ Zero network requests for fonts. Instant rendering.
 
 ## 11. Hosting & Deployment
 
-### Recommended: Cloudflare Pages
+### Platform: Vercel
 
-| Host | Free Tier | Build Mins | Bandwidth | Custom Domain | Verdict |
-|------|-----------|-----------|-----------|---------------|---------|
-| Cloudflare Pages | Unlimited sites | 500/mo | Unlimited | Yes + free SSL | **Best** |
-| Netlify | 1 site | 300/mo | 100GB/mo | Yes + free SSL | Good |
-| Vercel | Unlimited | 6000/mo | 100GB/mo | Yes + free SSL | Good |
-| GitHub Pages | 1 site | Limited | 100GB/mo | Yes (manual SSL) | Basic |
+| Host | Free Tier | Build Mins | Bandwidth | Custom Domain | API Routes | Verdict |
+|------|-----------|-----------|-----------|---------------|------------|---------|
+| Vercel | Unlimited | 6000/mo | 100GB/mo | Yes + free SSL | Serverless functions | **Chosen** |
+| Cloudflare Pages | Unlimited sites | 500/mo | Unlimited | Yes + free SSL | Workers (different API) | Good |
+| Netlify | 1 site | 300/mo | 100GB/mo | Yes + free SSL | Serverless functions | Good |
 
-**Why Cloudflare Pages:**
-- Unlimited bandwidth (3,000 pages could get significant traffic)
-- Global CDN built in (fast for users in India, US, UK, everywhere)
+**Why Vercel:**
+- First-class Astro support (official adapter, zero config)
+- Global CDN + edge caching (fast for users in India, US, UK, everywhere)
 - Free SSL
 - Git-based deploys (push to GitHub → auto deploys)
-- Edge caching (extremely fast)
-- Free analytics (privacy-friendly, no cookie banner needed)
+- **Hybrid rendering** — static content pages (SEO) + serverless API routes (sales, bookings) on one platform
+- Same platform as the admin tool — one dashboard, one set of concepts
+- Generous free tier for a content site; Pro plan ($20/mo) if needed later for longer function timeouts
+
+**Hybrid rendering explained:**
+Astro's `hybrid` output mode lets you mark most pages as `prerender = true` (static HTML, built at deploy time) while adding server-rendered API routes for dynamic features later. Content pages stay static for SEO. Sales/booking APIs run as serverless functions.
+
+```javascript
+// astro.config.mjs
+import { defineConfig } from 'astro/config';
+import vercel from '@astrojs/vercel';
+
+export default defineConfig({
+  output: 'hybrid',        // Static by default, opt-in server routes
+  adapter: vercel(),
+});
+```
+
+When you're ready for sales APIs:
+```
+src/pages/api/booking.ts     → Serverless function at /api/booking
+src/pages/api/enquiry.ts     → Serverless function at /api/enquiry
+src/pages/delhi/index.astro  → Still static HTML (prerendered)
+```
+
+No architecture change needed. Add API files, they just work.
 
 ### Deployment Workflow
 
 ```
-Content (Markdown/JSON) → GitHub repo → Push → Cloudflare builds → CDN serves HTML
+Content (Markdown/JSON) → GitHub repo → Push → Vercel builds → CDN serves HTML
 ```
 
 1. Content files live in GitHub repository
 2. Push to `main` branch triggers build
-3. Astro generates static HTML
-4. Cloudflare deploys to global CDN
+3. Astro generates static HTML (+ serverless functions if any exist)
+4. Vercel deploys static pages to global CDN, functions to serverless runtime
 5. Live within 60 seconds of push
+
+The admin tool (`admin.indiaesque.com`) also commits to this repo via GitHub API, triggering the same build pipeline automatically.
 
 ### Domain Setup
 
-- Buy domain via Cloudflare Registrar (cheapest, no markup)
-- Or any registrar, point nameservers to Cloudflare
-- Enable HTTPS (automatic with Cloudflare)
+- Buy domain via any registrar (Namecheap, Porkbun, Google Domains — compare prices)
+- Point DNS to Vercel (add domain in Vercel dashboard, update nameservers or DNS records)
+- Enable HTTPS (automatic with Vercel)
 - Set up `www` redirect to non-www (or vice versa — pick one, be consistent)
 - Enable HSTS
 
@@ -909,20 +940,22 @@ Content (Markdown/JSON) → GitHub repo → Push → Cloudflare builds → CDN s
 
 ### Analytics
 
-**Option A: Cloudflare Web Analytics** (recommended to start)
-- Free, no cookie banner required, privacy-friendly
-- Basic but sufficient: page views, visitors, top pages, countries
-- Zero impact on page speed (runs at edge, not in browser)
+**Option A: Vercel Web Analytics** (recommended to start)
+- Included with Vercel hosting, privacy-friendly
+- No cookie banner required
+- Page views, visitors, top pages, countries, referrers
+- Minimal page speed impact
 
 **Option B: Google Analytics 4** (add later if needed)
 - More detailed: user journeys, conversion tracking, audience data
 - Requires cookie consent banner (GDPR)
 - Adds JavaScript to every page (small speed impact)
 - Add via `<script>` tag, not Google Tag Manager (simpler, faster)
+- **Required when sales features are added** — need conversion tracking
 
 **Option C: Plausible or Fathom** (privacy-friendly alternative)
 - Paid ($9-19/month) but no cookie banner needed
-- Good middle ground between Cloudflare and GA4
+- Good middle ground between Vercel Analytics and GA4
 
 ### Key Metrics To Monitor Weekly
 
@@ -987,12 +1020,12 @@ The most common scam targeting tourists...
 
 ```
 1. GENERATE    → AI creates Markdown file with frontmatter
-2. VALIDATE    → Script checks: title length, description length,
-                  internal links exist, no duplicate slugs,
+2. VALIDATE    → Script checks: title length, description length, 
+                  internal links exist, no duplicate slugs, 
                   schema fields populated, FAQ matches page content
 3. COMMIT      → File added to GitHub repo in correct folder
 4. BUILD       → Astro converts Markdown → HTML using template
-5. DEPLOY      → Cloudflare serves new page
+5. DEPLOY      → Vercel serves new page via global CDN
 6. INDEX       → Google Search Console pinged to recrawl
 7. MONITOR     → Track indexing, impressions, position
 8. HUMAN EDIT  → For pages showing traction (position 8-20)
@@ -1019,7 +1052,7 @@ Before any content file is committed, run automated checks:
 ## 14. File & Folder Structure
 
 ```
-india-experiences/
+indiaesque/
 ├── astro.config.mjs              ← Astro configuration
 ├── package.json
 ├── public/
@@ -1120,14 +1153,14 @@ This catches content errors at build time — if a Markdown file has a title ove
 ## Appendix: Pre-Launch Checklist
 
 - [ ] Domain purchased and DNS configured
-- [ ] Cloudflare Pages connected to GitHub repo
+- [ ] Vercel project connected to GitHub repo
 - [ ] HTTPS enabled
 - [ ] robots.txt deployed and verified
 - [ ] llms.txt deployed
 - [ ] XML sitemap generating correctly
 - [ ] HTML sitemap page live
 - [ ] Google Search Console verified and sitemap submitted
-- [ ] Analytics installed (Cloudflare Web Analytics minimum)
+- [ ] Analytics installed (Vercel Web Analytics minimum)
 - [ ] Favicon and og:image set
 - [ ] 404 page created
 - [ ] All templates rendering correctly
