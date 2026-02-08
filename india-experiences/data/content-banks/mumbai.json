@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:56:52.908Z",
+  "updatedAt": "2026-02-08T21:57:42.181Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -526,9 +526,9 @@
       "title": "Siddhivinayak Temple Mumbai Guide",
       "slug": "siddhivinayak-temple-mumbai",
       "contentDirection": "Temple guide: Most famous Ganesh temple, Prabhadevi location, darshan timings (5:30am-10pm), Tuesday rush crowds, dress code requirements, prasad options (₹51, ₹101, ₹501), nearby accommodation and food options.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 922,
+      "generatedAt": "2026-02-08T21:57:42.181Z",
       "validationErrors": []
     },
     {
