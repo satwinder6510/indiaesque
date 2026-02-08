@@ -88,8 +88,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true, city: cityToAdd });
   } catch (error) {
     console.error("Error adding city:", error);
+    const message = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { error: "Failed to add city" },
+      { error: `Failed to add city: ${message}` },
       { status: 500 }
     );
   }
