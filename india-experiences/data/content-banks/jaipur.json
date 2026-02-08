@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:03:13.744Z",
+  "updatedAt": "2026-02-08T20:03:54.469Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -142,9 +142,9 @@
       "title": "Where To Stay In Jaipur",
       "slug": "where-to-stay-jaipur",
       "contentDirection": "Compare Old City (heritage hotels ₹3000-15000), C-Scheme (business district ₹2000-8000), MI Road (shopping access ₹1500-5000), and Bani Park (budget ₹800-3000). Include transport connectivity and area characteristics.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 875,
+      "generatedAt": "2026-02-08T20:03:54.469Z",
       "validationErrors": []
     },
     {
