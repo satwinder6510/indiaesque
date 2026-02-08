@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:50:31.576Z",
+  "updatedAt": "2026-02-08T21:51:09.844Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -418,9 +418,9 @@
       "title": "Bollywood Tours In Mumbai",
       "slug": "bollywood-tours-mumbai",
       "contentDirection": "Film city experiences: Film City tours (₹1,200-2,500), studio visits, celebrity home tours in Juhu and Bandra, movie theater experiences at iconic cinemas like Regal, and Bollywood museum visits. Include booking requirements.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 747,
+      "generatedAt": "2026-02-08T21:51:09.844Z",
       "validationErrors": []
     },
     {
