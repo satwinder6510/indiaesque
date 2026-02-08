@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:44:01.566Z",
+  "updatedAt": "2026-02-08T21:44:40.491Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -310,9 +310,9 @@
       "title": "Elephanta Caves From Mumbai",
       "slug": "elephanta-caves-mumbai",
       "contentDirection": "Day trip guide: 1-hour ferry from Gateway of India (₹200-300), UNESCO World Heritage site, 7th-century Hindu temples, entry fee ₹40 for Indians/₹600 for foreigners, train ride on island (₹20), timing and crowd advice.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 755,
+      "generatedAt": "2026-02-08T21:44:40.491Z",
       "validationErrors": []
     },
     {
