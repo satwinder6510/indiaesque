@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T19:55:34.996Z",
+  "updatedAt": "2026-02-08T19:56:47.581Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -382,9 +382,9 @@
       "title": "Cultural Experiences In Jaipur — 2026 Guide",
       "slug": "culture",
       "contentDirection": "Comprehensive guide to block printing workshops, cooking classes, folk performances, and art galleries. Include authentic experience providers, pricing (₹1500-5000 per workshop), and cultural context explanations with local artisan interactions.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1453,
+      "generatedAt": "2026-02-08T19:56:47.581Z",
       "validationErrors": []
     },
     {
