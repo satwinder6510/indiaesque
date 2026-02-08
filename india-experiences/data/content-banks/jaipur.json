@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:02:28.648Z",
+  "updatedAt": "2026-02-08T20:03:13.744Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -130,9 +130,9 @@
       "title": "Best Time To Visit Jaipur",
       "slug": "best-time-visit-jaipur",
       "contentDirection": "Detail October-March as ideal (15-25°C), avoid April-June heat (40°C+). Cover monsoon considerations, festival seasons (Diwali, Teej), and seasonal pricing differences for hotels (₹2000-8000 range variations).",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 856,
+      "generatedAt": "2026-02-08T20:03:13.744Z",
       "validationErrors": []
     },
     {
