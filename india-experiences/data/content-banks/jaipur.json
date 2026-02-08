@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:20:18.608Z",
+  "updatedAt": "2026-02-08T20:20:58.006Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -478,9 +478,9 @@
       "title": "Sisodia Rani Garden Jaipur",
       "slug": "sisodia-rani-garden-jaipur",
       "contentDirection": "Detail Mughal-style terraced gardens, 8km from city center, entry fee (₹25), and best photography times (morning light). Include combination with nearby Vidyadhar Garden and Galta Ji temple visit (additional 5km).",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 832,
+      "generatedAt": "2026-02-08T20:20:58.006Z",
       "validationErrors": []
     },
     {
