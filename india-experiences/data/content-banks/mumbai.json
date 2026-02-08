@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T21:54:36.673Z",
+  "updatedAt": "2026-02-08T21:55:16.889Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -490,9 +490,9 @@
       "title": "Kanheri Caves Mumbai",
       "slug": "kanheri-caves-mumbai",
       "contentDirection": "Buddhist heritage site: 109 rock-cut caves within Sanjay Gandhi National Park, 1st-10th century Buddhist monastery, entry ₹25, guided tours available, monsoon closure (June-September), transport within park required.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 905,
+      "generatedAt": "2026-02-08T21:55:16.889Z",
       "validationErrors": []
     },
     {
