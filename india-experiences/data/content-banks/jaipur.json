@@ -2,7 +2,7 @@
   "city": "jaipur",
   "cityName": "Jaipur",
   "createdAt": "2026-02-08T19:50:43.693Z",
-  "updatedAt": "2026-02-08T20:14:14.554Z",
+  "updatedAt": "2026-02-08T20:15:06.537Z",
   "researchSources": [
     "things to do in Jaipur",
     "Jaipur travel guide",
@@ -358,9 +358,9 @@
       "title": "Nehru Bazaar Jaipur — Handicrafts Guide",
       "slug": "nehru-bazaar-jaipur-handicrafts",
       "contentDirection": "Focus on blue pottery (₹100-2000), lac jewelry, carpets, and antiques. Include authentic workshop visits, price comparison with other markets, export packaging services (₹500-1500), and quality certification details.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1006,
+      "generatedAt": "2026-02-08T20:15:06.537Z",
       "validationErrors": []
     },
     {
