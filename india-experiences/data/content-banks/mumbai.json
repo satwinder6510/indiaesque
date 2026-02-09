@@ -2,7 +2,7 @@
   "city": "mumbai",
   "cityName": "Mumbai",
   "createdAt": "2026-02-08T21:21:35.394Z",
-  "updatedAt": "2026-02-08T23:46:16.612Z",
+  "updatedAt": "2026-02-09T00:02:17.427Z",
   "researchSources": [
     "things to do in Mumbai",
     "Mumbai travel guide",
@@ -82,9 +82,9 @@
       "title": "Things To Do In Mumbai — 2026 Guide",
       "slug": "_index",
       "contentDirection": "Comprehensive hub covering Mumbai's top attractions, practical info, and FAQ section. Include Gateway of India, Marine Drive, Dharavi tours, Bollywood experiences, and local transport tips. Cover 3-day itinerary suggestions and link to all specialized categories. 2,500-3,000 words.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 2437,
+      "generatedAt": "2026-02-09T00:02:17.427Z",
       "validationErrors": []
     },
     {
