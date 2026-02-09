@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:49:24.173Z",
+  "updatedAt": "2026-02-09T00:49:43.897Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -76,7 +76,7 @@
       "title": "Things To Do In Kolkata — 2026 Guide",
       "slug": "_index",
       "contentDirection": "Comprehensive hub linking to all categories. Cover top 15-20 experiences, best time to visit (October-February), 3-5 day itinerary suggestions, safety overview (India's safest city), transport options, and practical info. Include sections for first-time visitors, cultural significance as Bengal's intellectual capital, and city overview. 2,500-3,000 words.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 2297,
       "generatedAt": "2026-02-09T00:16:24.191Z",
       "validationErrors": []
@@ -88,7 +88,7 @@
       "title": "Best Food Tours In Kolkata — 2026 Guide",
       "slug": "food-tours",
       "contentDirection": "Overview of food tour options including Kolkata Food Walk (volunteer-run), private tours, and self-guided routes. Cover Park Street restaurants, street food areas like New Market and North Kolkata, price ranges (INR 50-500 per dish), famous eateries like Arsalan, Peter Cat, Mocambo. Include Bengali cuisine specialties and Chinese quarter in Tangra.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 1391,
       "generatedAt": "2026-02-09T00:17:34.362Z",
       "validationErrors": []
@@ -100,7 +100,7 @@
       "title": "Best Heritage Sites In Kolkata — 2026 Guide",
       "slug": "heritage-sites",
       "contentDirection": "Comprehensive guide to Victoria Memorial (INR 30 entry), Indian Museum, colonial architecture in BBD Bagh, heritage houses in North Kolkata, Marble Palace (free with permit). Include opening hours, best photography spots, guided tour options, and heritage walk routes through different areas.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 1294,
       "generatedAt": "2026-02-09T00:18:36.333Z",
       "validationErrors": []
@@ -112,7 +112,7 @@
       "title": "Best Markets In Kolkata — 2026 Guide",
       "slug": "markets-shopping",
       "contentDirection": "Cover New Market (Sir Stuart Hogg Market), College Street book market (world's largest secondhand), Gariahat market, Hatibagan market. Include bargaining tips, price ranges, opening hours (usually 10 AM - 8 PM), what to buy (textiles, books, spices), and safety tips for crowded areas.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 1267,
       "generatedAt": "2026-02-09T00:19:35.100Z",
       "validationErrors": []
@@ -124,7 +124,7 @@
       "title": "Is Kolkata Safe For Tourists?",
       "slug": "is-kolkata-safe-for-tourists",
       "contentDirection": "Answer directly: Yes, Kolkata is India's safest city for 3rd consecutive year with 86.5 crime cases per lakh. Cover safety by area (avoid Sealdah/parts of Howrah, safer areas: Ballygunge, New Alipore, Park Street), common petty crimes, taxi scams, solo female travel tips, emergency numbers (tourist helpline: 1800-11-1363).",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 1046,
       "generatedAt": "2026-02-09T00:20:23.471Z",
       "validationErrors": []
@@ -136,7 +136,7 @@
       "title": "How Many Days Do You Need In Kolkata?",
       "slug": "how-many-days-visit-kolkata",
       "contentDirection": "Answer: 3-5 days ideal for comprehensive visit. 1 day (major highlights), 2 days (heritage + culture), 3-4 days (include food tours, markets, day trips), 5+ days (add Sundarbans, Shantiniketan). Include sample itineraries by duration, must-see vs. optional attractions, and tips for extending stay.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 825,
       "generatedAt": "2026-02-09T00:21:07.094Z",
       "validationErrors": []
@@ -148,7 +148,7 @@
       "title": "What Is Kolkata Famous For?",
       "slug": "what-is-kolkata-famous-for",
       "contentDirection": "Cover cultural capital status, intellectual heritage (Rabindranath Tagore, Indian Museum), colonial architecture, street food, Bengali sweets (Rosogulla origin), Victoria Memorial, Howrah Bridge, being safest Indian city, Durga Puja celebrations, film industry (Tollywood), and literary tradition.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 881,
       "generatedAt": "2026-02-09T00:21:51.184Z",
       "validationErrors": []
@@ -160,10 +160,12 @@
       "title": "Best Time To Visit Kolkata",
       "slug": "best-time-visit-kolkata",
       "contentDirection": "Answer: October-February is ideal (15-25°C). Cover seasonal details: Winter (Dec-Feb) best weather, Durga Puja season (Sep-Oct) cultural peak but crowded, Summer (Mar-Jun) hot & humid to avoid, Monsoon (Jul-Sep) heavy rains. Include temperature ranges, rainfall data, festival calendar.",
-      "status": "generated",
+      "status": "needs-fix",
       "wordCount": 889,
       "generatedAt": "2026-02-09T00:22:35.918Z",
-      "validationErrors": []
+      "validationErrors": [
+        "banned-phrase"
+      ]
     },
     {
       "id": "where-stay-kolkata",
@@ -172,7 +174,7 @@
       "title": "Where To Stay In Kolkata",
       "slug": "where-to-stay-kolkata",
       "contentDirection": "Cover areas: Park Street/Esplanade (central, INR 2000-5000), Sudder Street (backpacker hub, INR 800-2000), Salt Lake/New Town (modern, INR 3000-8000), Airport area (transit, INR 2500-6000). Include hotel recommendations by budget, proximity to attractions, transport connections.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 870,
       "generatedAt": "2026-02-09T00:23:18.932Z",
       "validationErrors": []
@@ -184,7 +186,7 @@
       "title": "Getting Around Kolkata",
       "slug": "kolkata-transport-guide",
       "contentDirection": "Cover Metro (INR 5-20, operates till 9:30 PM), yellow taxis (Ambassador cars, negotiate fare), Uber/Ola, buses (complex routes), trams (historic, limited routes), auto-rickshaws. Include airport transfers (prepaid taxi INR 300-400), traffic patterns, women-only coach timings.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 759,
       "generatedAt": "2026-02-09T00:24:01.180Z",
       "validationErrors": []
@@ -196,7 +198,7 @@
       "title": "Kolkata Travel Tips",
       "slug": "kolkata-travel-tips",
       "contentDirection": "Cover currency (Indian Rupee), language (Bengali, Hindi, English widely spoken), dress code for temples, bargaining in markets, food safety, avoiding monsoon season, booking heritage walk permits, photography restrictions, cultural etiquette, tipping practices (10-15%), and local customs.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 1013,
       "generatedAt": "2026-02-09T00:24:55.774Z",
       "validationErrors": []
@@ -208,7 +210,7 @@
       "title": "Best Street Food In Kolkata",
       "slug": "kolkata-street-food-guide",
       "contentDirection": "Cover must-try dishes: Puchka (INR 20-30), Kathi Rolls (INR 40-80), Jhal Muri (INR 10-20), Chinese breakfast at Tiretta Bazaar, fish fry, cutlets. Include best areas: New Market, Park Street, College Street, safety tips, price ranges, and recommended stalls with specific locations.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 1001,
       "generatedAt": "2026-02-09T00:25:44.416Z",
       "validationErrors": []
@@ -220,7 +222,7 @@
       "title": "Victoria Memorial Kolkata Guide",
       "slug": "victoria-memorial-kolkata",
       "contentDirection": "Cover entry fee (INR 30 Indians, INR 200 foreigners), timings (10 AM-5 PM, closed Mondays), laser show (evening), museum collections, photography allowed in gardens only, best visiting times (early morning), nearby attractions within walking distance, parking availability.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 966,
       "generatedAt": "2026-02-09T00:26:28.760Z",
       "validationErrors": []
@@ -232,7 +234,7 @@
       "title": "Durga Puja In Kolkata Guide",
       "slug": "durga-puja-kolkata",
       "contentDirection": "Cover festival dates (September-October, varies yearly), best pandal areas (South Kolkata, North Kolkata traditional), Bonedi Bari pujas, crowds and safety during festival, accommodation booking (advance required), special food during festival, cultural significance, and viewing itinerary.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 1097,
       "generatedAt": "2026-02-09T00:27:25.262Z",
       "validationErrors": []
@@ -244,7 +246,7 @@
       "title": "How To Visit Howrah Bridge",
       "slug": "howrah-bridge-kolkata",
       "contentDirection": "Cover access points (walk from either side), best photo spots, nearby Mullik Ghat flower market (visit 4-6 AM), ferry rides underneath, historical significance (built 1936-43), traffic restrictions, evening illumination, walking vs vehicle crossing, and safety precautions.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 982,
       "generatedAt": "2026-02-09T00:28:18.065Z",
       "validationErrors": []
@@ -256,7 +258,7 @@
       "title": "Best Bengali Sweets In Kolkata",
       "slug": "bengali-sweets-kolkata",
       "contentDirection": "Cover famous sweet shops: KC Das (original Rosogulla), Bhim Nag, Girish Chandra Dey, Nakur. Include must-try sweets: Rosogulla (INR 120/kg), Sandesh, Mishti Doi, Rasamalai, prices, shelf life, best shops by area, and sweet-making process tours available.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 866,
       "generatedAt": "2026-02-09T00:29:06.295Z",
       "validationErrors": []
@@ -268,7 +270,7 @@
       "title": "Dakshineswar Kali Temple Guide",
       "slug": "dakshineswar-temple-kolkata",
       "contentDirection": "Cover temple timings (5 AM-12:30 PM, 3 PM-8:30 PM), dress code, free entry, metro connectivity, river crossing to Belur Math, crowd patterns (less crowded weekday mornings), offerings, photography restrictions, nearby food stalls, and spiritual significance.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 866,
       "generatedAt": "2026-02-09T00:29:49.842Z",
       "validationErrors": []
@@ -280,7 +282,7 @@
       "title": "Indian Museum Kolkata Guide",
       "slug": "indian-museum-kolkata",
       "contentDirection": "Cover entry fee (INR 20 Indians, INR 500 foreigners), timings (10 AM-5 PM, closed Mondays), must-see collections (Egyptian mummy, Buddhist galleries, natural history), time needed (3-4 hours), photography charges (INR 300), guided tours, nearby attractions.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 988,
       "generatedAt": "2026-02-09T00:30:34.778Z",
       "validationErrors": []
@@ -292,7 +294,7 @@
       "title": "Park Street Kolkata Guide",
       "slug": "park-street-kolkata",
       "contentDirection": "Cover famous restaurants (Peter Cat, Mocambo, Trincas), nightlife options, Christmas celebrations, shopping, Park Street Cemetery, parking challenges, best visiting times, price ranges (meals INR 800-2000), dress codes for upscale venues, and booking requirements.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 846,
       "generatedAt": "2026-02-09T00:31:18.395Z",
       "validationErrors": []
@@ -304,7 +306,7 @@
       "title": "Best Chinese Food In Kolkata",
       "slug": "chinese-food-kolkata",
       "contentDirection": "Cover Tangra China Town area, famous restaurants (Golden Joy, Beijing), Tiretta Bazaar morning Chinese breakfast, Indo-Chinese fusion dishes, Hakka noodles origin, price ranges (INR 150-400), best visiting times (morning for breakfast, evening for dinner), and cultural history of Chinese community.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 880,
       "generatedAt": "2026-02-09T00:32:03.987Z",
       "validationErrors": []
@@ -316,7 +318,7 @@
       "title": "College Street Book Market Guide",
       "slug": "college-street-book-market",
       "contentDirection": "Cover world's largest secondhand book market claim, bargaining tips, rare book finds, academic books availability, Coffee House nearby, browsing time needed (2-3 hours), price ranges (INR 20-500), best sections for different interests, transport connectivity.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 854,
       "generatedAt": "2026-02-09T00:32:44.828Z",
       "validationErrors": []
@@ -328,7 +330,7 @@
       "title": "Belur Math Kolkata Guide",
       "slug": "belur-math-kolkata",
       "contentDirection": "Cover Ramakrishna Mission headquarters, ferry access from Dakshineswar, free entry, timings (6 AM-12 PM, 4:30-7:30 PM), architectural significance (Hindu-Islamic-Christian fusion), meditation halls, library, museum, peaceful gardens, and connection to Swami Vivekananda.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 930,
       "generatedAt": "2026-02-09T00:33:28.406Z",
       "validationErrors": []
@@ -340,7 +342,7 @@
       "title": "New Market Kolkata Shopping Guide",
       "slug": "new-market-kolkata",
       "contentDirection": "Cover Sir Stuart Hogg Market official name, sections (clothing, spices, electronics), bargaining strategies, fake goods awareness, price ranges, timings (10 AM-8 PM), parking, nearby food options, safety tips, and best buys for tourists.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 891,
       "generatedAt": "2026-02-09T00:34:12.490Z",
       "validationErrors": []
@@ -352,7 +354,7 @@
       "title": "Kumartuli Potters Quarter Guide",
       "slug": "kumartuli-kolkata",
       "contentDirection": "Cover traditional pottery area, idol-making process, best visiting times (morning light), photography permissions, interacting with artisans, seasonal variations (busy before Durga Puja), narrow lanes navigation, free exploration, nearby attractions, and cultural significance.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 975,
       "generatedAt": "2026-02-09T00:35:01.608Z",
       "validationErrors": []
@@ -364,7 +366,7 @@
       "title": "Kalighat Temple Kolkata Guide",
       "slug": "kalighat-temple-kolkata",
       "contentDirection": "Cover one of 51 Shakti Peethas, temple timings (5 AM-2 PM, 5-10:30 PM), crowd management, offerings, animal sacrifice traditions, scam awareness around temple, dress code, nearby Mother Teresa House connection, metro connectivity, and spiritual significance.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 877,
       "generatedAt": "2026-02-09T00:35:43.776Z",
       "validationErrors": []
@@ -376,7 +378,7 @@
       "title": "Sundarbans Day Trip From Kolkata",
       "slug": "sundarbans-day-trip-kolkata",
       "contentDirection": "Cover 1-2 day tour packages (INR 3000-8000), tour operator recommendations, tiger sighting possibilities, best season (October-March), departure points, inclusions (meals, accommodation, boat rides, permits), advance booking required, and what to expect during visit.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 817,
       "generatedAt": "2026-02-09T00:36:28.842Z",
       "validationErrors": []
@@ -388,7 +390,7 @@
       "title": "Rabindra Sarovar Lake Guide",
       "slug": "rabindra-sarovar-lake-kolkata",
       "contentDirection": "Cover peaceful retreat location, walking track around lake, boating facilities, early morning joggers, evening crowds, nearby Japanese Buddhist Temple, free entry, best photography times (sunset), food stalls nearby, and local's favorite spot for relaxation.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 1156,
       "generatedAt": "2026-02-09T00:37:22.852Z",
       "validationErrors": []
@@ -400,7 +402,7 @@
       "title": "Science City Kolkata Guide",
       "slug": "science-city-kolkata",
       "contentDirection": "Cover largest science center in subcontinent, entry fees (different sections INR 30-200), Space Odyssey, 3D theaters, Dynamotion Hall, time needed (full day), advance booking online, parking availability, food courts, and ideal for families with children.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 853,
       "generatedAt": "2026-02-09T00:38:02.760Z",
       "validationErrors": []
@@ -412,7 +414,7 @@
       "title": "Maidan Kolkata Guide",
       "slug": "maidan-kolkata",
       "contentDirection": "Cover largest urban park in India, morning activities (horse riding, jogging), cricket grounds, Eden Gardens stadium, Victoria Memorial location, free entry, evening gatherings, food stalls, safety (well-lit areas), and central location accessibility.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 978,
       "generatedAt": "2026-02-09T00:38:48.352Z",
       "validationErrors": []
@@ -424,7 +426,7 @@
       "title": "Eco Park New Town Guide",
       "slug": "eco-park-new-town-kolkata",
       "contentDirection": "Cover 480-acre recreational space, entry fees (INR 30 weekdays, INR 50 weekends), various zones, boating, cycling, time needed (half day), food courts, parking, distance from city center (21km), best visiting times, and family-friendly activities.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 823,
       "generatedAt": "2026-02-09T00:39:27.835Z",
       "validationErrors": []
@@ -436,7 +438,7 @@
       "title": "Mother Teresa House Kolkata Guide",
       "slug": "mother-teresa-house-kolkata",
       "contentDirection": "Cover Motherhouse location, visiting hours (8-11:45 AM, 3-6 PM), Mother Teresa's tomb, museum, volunteers welcome, dress code requirements, free entry, photography restrictions, nearby Kalighat Temple, and respectful visiting guidelines.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 951,
       "generatedAt": "2026-02-09T00:40:09.190Z",
       "validationErrors": []
@@ -448,7 +450,7 @@
       "title": "Shantiniketan Day Trip From Kolkata",
       "slug": "shantiniketan-day-trip-kolkata",
       "contentDirection": "Cover Rabindranath Tagore's university town, distance (165km, 3-4 hours), train connections, Visva Bharati University, handicraft shopping, local art, best visiting season, day trip vs overnight stay options, cultural significance, and Tagore museum.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 857,
       "generatedAt": "2026-02-09T00:40:53.307Z",
       "validationErrors": []
@@ -460,7 +462,7 @@
       "title": "Kolkata Nightlife Guide",
       "slug": "kolkata-nightlife",
       "contentDirection": "Cover Park Street pubs and bars, Someplace Else (live music), entry fees (INR 500-1500), dress codes, age restrictions, closing times (1-2 AM), safety tips, popular venues: Shisha, Roxy, HHI, alcohol prices, and group booking advantages.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 834,
       "generatedAt": "2026-02-09T00:41:33.066Z",
       "validationErrors": []
@@ -472,7 +474,7 @@
       "title": "Best Photography Spots In Kolkata",
       "slug": "photography-spots-kolkata",
       "contentDirection": "Cover Victoria Memorial (golden hour), Howrah Bridge (early morning), Kumartuli (portrait photography), heritage buildings in BBD Bagh, Mullik Ghat flower market (4-6 AM), tram shots, street photography areas, permission requirements, and best times for lighting.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 988,
       "generatedAt": "2026-02-09T00:42:18.413Z",
       "validationErrors": []
@@ -484,7 +486,7 @@
       "title": "Kolkata Tram Rides Guide",
       "slug": "kolkata-tram-rides",
       "contentDirection": "Cover last operating tram system in India (since 1873), routes still functional, fare (INR 5-10), heritage value, slow-paced sightseeing, photo opportunities, crowded during rush hours, tourist attraction more than transport, and preservation efforts.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 958,
       "generatedAt": "2026-02-09T00:43:06.988Z",
       "validationErrors": []
@@ -496,7 +498,7 @@
       "title": "Visiting Kolkata In Monsoon",
       "slug": "kolkata-monsoon-season",
       "contentDirection": "Cover monsoon season (June-September), heavy rainfall patterns, waterlogging in some areas, indoor attractions importance, umbrella necessity, reduced outdoor activities, lower hotel rates, fewer crowds, cultural activities continue, and precautions needed.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 1031,
       "generatedAt": "2026-02-09T00:43:57.196Z",
       "validationErrors": []
@@ -508,7 +510,7 @@
       "title": "Visiting Kolkata In Winter",
       "slug": "kolkata-winter-season",
       "contentDirection": "Cover best weather season (December-February), temperature range (10-25°C), perfect for walking tours, Christmas celebrations on Park Street, higher hotel rates, peak tourist season, advance booking required, cultural events, and ideal photography conditions.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 892,
       "generatedAt": "2026-02-09T00:44:37.922Z",
       "validationErrors": []
@@ -520,7 +522,7 @@
       "title": "Budget Travel In Kolkata",
       "slug": "budget-travel-kolkata",
       "contentDirection": "Cover daily budget ranges (INR 1000-2000 backpacker, INR 2000-4000 mid-range), cheap accommodation options, street food vs restaurants, public transport costs, free attractions, budget shopping areas, hostel recommendations, and money-saving tips.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 881,
       "generatedAt": "2026-02-09T00:45:25.650Z",
       "validationErrors": []
@@ -532,7 +534,7 @@
       "title": "Luxury Travel In Kolkata",
       "slug": "luxury-travel-kolkata",
       "contentDirection": "Cover 5-star hotels (Oberoi Grand, ITC Sonar, Taj Bengal), fine dining restaurants, private guided tours, luxury shopping malls, spa services, chauffeur services, helicopter tours if available, premium experiences, and exclusive cultural programs.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 824,
       "generatedAt": "2026-02-09T00:46:10.194Z",
       "validationErrors": []
@@ -544,7 +546,7 @@
       "title": "Visiting Kolkata With Kids",
       "slug": "kolkata-with-kids",
       "contentDirection": "Cover family-friendly attractions (Science City, Zoo, Eco Park), child-friendly restaurants, stroller accessibility challenges, safety considerations, entertainment options, educational value, suitable accommodation, transport with children, and age-appropriate activities.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 1084,
       "generatedAt": "2026-02-09T00:47:02.007Z",
       "validationErrors": []
@@ -556,7 +558,7 @@
       "title": "Solo Female Travel In Kolkata",
       "slug": "solo-female-travel-kolkata",
       "contentDirection": "Cover safety aspects (safest Indian city), recommended areas to stay, precautions after dark, women-only metro coaches, cultural sensitivities, appropriate dressing, connecting with other travelers, emergency contacts, and confidence tips for navigating the city.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 1040,
       "generatedAt": "2026-02-09T00:47:49.969Z",
       "validationErrors": []
@@ -568,7 +570,7 @@
       "title": "Kolkata Airport Guide",
       "slug": "kolkata-airport-guide",
       "contentDirection": "Cover Netaji Subhas Chandra Bose International Airport, distance from city (17km), transport options (prepaid taxi INR 300-400, metro connection), facilities, currency exchange, food options, nearby hotels, parking, and arrival/departure procedures.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 972,
       "generatedAt": "2026-02-09T00:48:40.616Z",
       "validationErrors": []
@@ -580,7 +582,7 @@
       "title": "Heritage Walks In Kolkata",
       "slug": "heritage-walks-kolkata",
       "contentDirection": "Cover organized walking tours (INR 300-800), self-guided routes, North Kolkata heritage trail, BBD Bagh colonial architecture walk, guided vs independent options, duration (2-4 hours), group bookings, photography permissions, and cultural context provided.",
-      "status": "generated",
+      "status": "validated",
       "wordCount": 829,
       "generatedAt": "2026-02-09T00:49:24.173Z",
       "validationErrors": []
