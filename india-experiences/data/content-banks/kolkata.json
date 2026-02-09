@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:30:34.778Z",
+  "updatedAt": "2026-02-09T00:31:18.395Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -292,9 +292,9 @@
       "title": "Park Street Kolkata Guide",
       "slug": "park-street-kolkata",
       "contentDirection": "Cover famous restaurants (Peter Cat, Mocambo, Trincas), nightlife options, Christmas celebrations, shopping, Park Street Cemetery, parking challenges, best visiting times, price ranges (meals INR 800-2000), dress codes for upscale venues, and booking requirements.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 846,
+      "generatedAt": "2026-02-09T00:31:18.395Z",
       "validationErrors": []
     },
     {
