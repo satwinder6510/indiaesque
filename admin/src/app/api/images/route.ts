@@ -1,46 +1,65 @@
 import { NextRequest, NextResponse } from "next/server";
 import { listDirectory, uploadBinaryFile } from "@/lib/github";
+import { processImage, imageSizes, getImageMetadata } from "@/lib/image-processor";
 
-const IMAGES_BASE = "india-experiences/public/images/cities";
+const IMAGES_BASE = "india-experiences/public/images";
 
-export interface CityImage {
+export interface ImageInfo {
   name: string;
   path: string;
   size: number;
-  type: "desktop" | "mobile";
+  variant: string;
   url: string;
 }
 
 /**
- * GET /api/images?city=delhi
- * List images for a city
+ * GET /api/images?category=cities&name=delhi
+ * List images for an item
  */
 export async function GET(request: NextRequest) {
-  const city = request.nextUrl.searchParams.get("city");
-
-  if (!city) {
-    return NextResponse.json({ error: "City is required" }, { status: 400 });
-  }
+  const category = request.nextUrl.searchParams.get("category") || "cities";
+  const name = request.nextUrl.searchParams.get("name");
 
   try {
-    const files = await listDirectory(IMAGES_BASE);
+    const basePath = `${IMAGES_BASE}/${category}`;
+    const files = await listDirectory(basePath);
 
-    // Filter files for this city
-    const cityImages: CityImage[] = files
-      .filter((f) => f.type === "file" && f.name.startsWith(`${city}-hero`))
-      .map((f) => ({
-        name: f.name,
-        path: f.path,
-        size: f.size,
-        type: f.name.includes("-mobile") ? "mobile" as const : "desktop" as const,
-        url: `/images/cities/${f.name}`,
-      }));
+    let images: ImageInfo[] = files
+      .filter((f) => f.type === "file" && f.name.endsWith(".jpg"))
+      .map((f) => {
+        // Extract variant from filename (e.g., delhi-hero.jpg -> hero)
+        const parts = f.name.replace(".jpg", "").split("-");
+        const variant = parts.slice(1).join("-") || "original";
+
+        return {
+          name: f.name,
+          path: f.path,
+          size: f.size,
+          variant,
+          url: `/images/${category}/${f.name}`,
+        };
+      });
+
+    // Filter by name if provided
+    if (name) {
+      images = images.filter((f) => f.name.startsWith(`${name}-`));
+    }
+
+    // Get available sizes for this category
+    const categoryKey = category === "cities" ? "city" :
+                        category === "staycations" ? "staycation" :
+                        category === "experiences" ? "experience" : "general";
+    const requiredSizes = imageSizes[categoryKey] || [];
 
     return NextResponse.json({
-      city,
-      images: cityImages,
-      hasDesktop: cityImages.some((i) => i.type === "desktop"),
-      hasMobile: cityImages.some((i) => i.type === "mobile"),
+      category,
+      name,
+      images,
+      requiredSizes: requiredSizes.map(s => ({
+        variant: s.name,
+        width: s.width,
+        height: s.height,
+      })),
     });
   } catch (error) {
     console.error("List images error:", error);
@@ -53,18 +72,23 @@ export async function GET(request: NextRequest) {
 
 /**
  * POST /api/images
- * Upload an image for a city
+ * Upload an image and generate all required sizes
+ *
+ * Body (FormData):
+ * - file: Image file
+ * - category: cities | staycations | experiences
+ * - name: Item name (e.g., delhi, rajasthan-palace, food-tours)
  */
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
-    const city = formData.get("city") as string;
-    const imageType = formData.get("type") as "desktop" | "mobile";
     const file = formData.get("file") as File;
+    const category = formData.get("category") as string;
+    const name = formData.get("name") as string;
 
-    if (!city || !imageType || !file) {
+    if (!file || !category || !name) {
       return NextResponse.json(
-        { error: "City, type, and file are required" },
+        { error: "file, category, and name are required" },
         { status: 400 }
       );
     }
@@ -77,41 +101,54 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Get file extension
-    const ext = file.name.split(".").pop()?.toLowerCase() || "jpg";
-    const allowedExts = ["jpg", "jpeg", "png", "webp"];
-    if (!allowedExts.includes(ext)) {
-      return NextResponse.json(
-        { error: "Allowed formats: JPG, PNG, WebP" },
-        { status: 400 }
-      );
-    }
+    // Map category to processor key
+    const categoryKey = category === "cities" ? "city" :
+                        category === "staycations" ? "staycation" :
+                        category === "experiences" ? "experience" : "general";
 
-    // Build filename
-    const filename =
-      imageType === "mobile"
-        ? `${city}-hero-mobile.${ext}`
-        : `${city}-hero.${ext}`;
-
-    const path = `${IMAGES_BASE}/${filename}`;
-
-    // Convert file to base64
+    // Get image buffer
     const arrayBuffer = await file.arrayBuffer();
-    const base64Content = Buffer.from(arrayBuffer).toString("base64");
+    const inputBuffer = Buffer.from(arrayBuffer);
 
-    // Upload to GitHub
-    const result = await uploadBinaryFile(
-      path,
-      base64Content,
-      `feat(images): add ${filename} [admin-tool]`
-    );
+    // Get original image metadata
+    const metadata = await getImageMetadata(inputBuffer);
+
+    // Process image into all required sizes
+    const processedImages = await processImage(inputBuffer, categoryKey, name);
+
+    // Upload all processed images to GitHub
+    const uploadResults = [];
+    for (const img of processedImages) {
+      const path = `${IMAGES_BASE}/${category}/${img.name}`;
+      const base64Content = img.buffer.toString("base64");
+
+      const result = await uploadBinaryFile(
+        path,
+        base64Content,
+        `feat(images): add ${img.name} [admin-tool]`
+      );
+
+      uploadResults.push({
+        name: img.name,
+        path,
+        width: img.width,
+        height: img.height,
+        size: img.size,
+        url: `/images/${category}/${img.name}`,
+        sha: result.sha,
+      });
+    }
 
     return NextResponse.json({
       status: "success",
-      filename,
-      path,
-      size: file.size,
-      sha: result.sha,
+      original: {
+        name: file.name,
+        width: metadata.width,
+        height: metadata.height,
+        size: metadata.size,
+      },
+      generated: uploadResults,
+      message: `Generated ${uploadResults.length} image sizes`,
     });
   } catch (error) {
     console.error("Upload image error:", error);

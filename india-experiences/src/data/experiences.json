@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Food Tours",
+    "slug": "food-tours",
+    "category": "Culinary",
+    "description": "Discover India through its flavours. Join guided food walks through bustling markets, sample street food with locals, and learn the stories behind iconic dishes.",
+    "cardImage": "https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?w=1200&q=80",
+    "href": "/experiences/food-tours/"
+  },
+  {
+    "name": "Nature",
+    "slug": "nature",
+    "category": "Adventure",
+    "description": "Encounter India's incredible biodiversity. Safari through national parks, trek in the Himalayas, and witness wildlife in their natural habitats.",
+    "cardImage": "https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?w=1200&q=80",
+    "href": "/experiences/nature/"
+  },
+  {
+    "name": "Cultural",
+    "slug": "cultural",
+    "category": "Heritage",
+    "description": "Walk through centuries of history with expert guides. Explore ancient monuments, hidden alleyways, and architectural wonders on foot.",
+    "cardImage": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1200&q=80",
+    "href": "/experiences/cultural/"
+  },
+  {
+    "name": "Arts and Crafts",
+    "slug": "arts-crafts",
+    "category": "Creative",
+    "description": "Create with your hands in traditional craft workshops. Learn block printing, pottery, weaving, and other artisan skills passed down through generations.",
+    "cardImage": "https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=1200&q=80",
+    "href": "/experiences/arts-crafts/"
+  },
+  {
+    "name": "Walking Tours",
+    "slug": "walking-tours",
+    "category": "Cultural",
+    "description": "Explore neighbourhoods on foot with local guides. Discover hidden gems, street art, and local stories you'd never find on your own.",
+    "cardImage": "https://images.unsplash.com/photo-1548013146-72479768bada?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1548013146-72479768bada?w=1200&q=80",
+    "href": "/experiences/walking-tours/"
+  },
+  {
+    "name": "Adventure",
+    "slug": "adventure",
+    "category": "Adventure",
+    "description": "Push your boundaries with thrilling experiences. From white-water rafting to paragliding, find your adrenaline rush across India's diverse landscapes.",
+    "cardImage": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1200&q=80",
+    "href": "/experiences/adventure/"
+  }
+]
