@@ -1,108 +1,84 @@
 ---
+// Header Component
 ---
 
-<header class="site-header">
-  <div class="header-container">
-    <a href="/" class="header-logo">india<span class="logo-accent">esque</span></a>
+<header class="header">
+  <div class="header-inner">
+    <div class="header-left"></div>
 
-    <nav class="header-nav">
-      <a href="/delhi/">Delhi</a>
-      <a href="/jaipur/">Jaipur</a>
-      <a href="/mumbai/">Mumbai</a>
-      <a href="/about/">About</a>
-    </nav>
+    <a href="/" class="header-logo">INDIAESQUE</a>
 
-    <button class="header-menu" aria-label="Open menu" data-menu-toggle>
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="3" y1="6" x2="21" y2="6" />
-        <line x1="3" y1="12" x2="21" y2="12" />
-        <line x1="3" y1="18" x2="21" y2="18" />
+    <button class="header-menu-btn" aria-label="Open menu" data-menu-toggle>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <line x1="4" y1="7" x2="20" y2="7" />
+        <line x1="4" y1="12" x2="20" y2="12" />
+        <line x1="4" y1="17" x2="20" y2="17" />
       </svg>
     </button>
   </div>
 </header>
-<div class="header-band"></div>
 
 <style>
-  .site-header {
-    position: sticky;
+  .header {
+    position: fixed;
     top: 0;
-    z-index: var(--z-sticky);
-    background: var(--navy-900);
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #000000;
   }
 
-  .header-container {
+  .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 56px;
-    padding: 0 32px;
-    max-width: 1280px;
-    margin: 0 auto;
+    height: 60px;
+    padding: 0 24px;
+  }
+
+  .header-left {
+    width: 24px;
   }
 
   .header-logo {
-    font-family: 'DM Serif Display', serif;
-    font-size: 21px;
-    color: #fff;
+    font-family: 'Benton Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    color: #E9CDB0;
     text-decoration: none;
-    letter-spacing: -0.01em;
+    transition: opacity 0.2s ease;
   }
 
-  .logo-accent {
-    color: var(--teal-400);
+  .header-logo:hover {
+    opacity: 0.8;
   }
 
-  .header-nav {
-    display: none;
-    gap: 28px;
-  }
-
-  @media (min-width: 768px) {
-    .header-nav {
-      display: flex;
-    }
-  }
-
-  .header-nav a {
-    color: rgba(255, 255, 255, 0.65);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    transition: color 0.15s;
-  }
-
-  .header-nav a:hover {
-    color: #fff;
-  }
-
-  .header-menu {
+  .header-menu-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 24px;
+    height: 24px;
     padding: 0;
     background: none;
     border: none;
-    color: rgba(255, 255, 255, 0.8);
+    color: #ffffff;
     cursor: pointer;
-    transition: color var(--transition-fast);
+    transition: opacity 0.2s ease;
+  }
+
+  .header-menu-btn:hover {
+    opacity: 0.7;
   }
 
   @media (min-width: 768px) {
-    .header-menu {
-      display: none;
+    .header-inner {
+      padding: 0 40px;
     }
-  }
 
-  .header-menu:hover {
-    color: #fff;
-  }
-
-  .header-band {
-    height: 4px;
-    background: linear-gradient(to right, var(--teal-500), var(--teal-400) 40%, var(--navy-700) 100%);
-    opacity: 0.7;
+    .header-logo {
+      font-size: 14px;
+    }
   }
 </style>

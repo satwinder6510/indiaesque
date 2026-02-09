@@ -1,66 +1,33 @@
 ---
-import cities from '../data/cities.json';
-import categories from '../data/categories.json';
-
-const tierOneCities = cities.filter(c => c.tier === 1);
-const tierTwoCities = cities.filter(c => c.tier === 2);
+// Mobile Menu Component
+const navLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'Delhi', href: '/delhi/' },
+  { name: 'Jaipur', href: '/jaipur/' },
+  { name: 'Mumbai', href: '/mumbai/' },
+  { name: 'Goa', href: '/goa/' },
+  { name: 'About', href: '/about/' },
+  { name: 'Contact', href: '/contact/' },
+];
 ---
 
 <div class="mobile-menu" id="mobile-menu">
   <div class="mobile-menu-backdrop" data-menu-close></div>
   <div class="mobile-menu-panel">
     <div class="mobile-menu-header">
-      <a href="/" class="site-logo text-white">Indiaesque</a>
       <button class="mobile-menu-close" aria-label="Close menu" data-menu-close>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
           <path d="M18 6L6 18M6 6l12 12" />
         </svg>
       </button>
+      <span class="mobile-menu-logo">Indiaesque</span>
+      <div class="mobile-menu-spacer"></div>
     </div>
 
     <nav class="mobile-nav">
-      <div class="mobile-nav-item" data-accordion>
-        <button class="mobile-nav-link" data-accordion-trigger>
-          Destinations
-          <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" class="accordion-icon">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-          </svg>
-        </button>
-        <div class="mobile-nav-submenu">
-          {tierOneCities.map(city => (
-            <a href={`/${city.slug}/`}>{city.name}</a>
-          ))}
-          {tierTwoCities.map(city => (
-            <a href={`/${city.slug}/`}>{city.name}</a>
-          ))}
-        </div>
-      </div>
-
-      <div class="mobile-nav-item" data-accordion>
-        <button class="mobile-nav-link" data-accordion-trigger>
-          Experiences
-          <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" class="accordion-icon">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-          </svg>
-        </button>
-        <div class="mobile-nav-submenu">
-          {categories.map(cat => (
-            <a href={`/${cat.crossCitySlug}/`}>{cat.name}</a>
-          ))}
-        </div>
-      </div>
-
-      <div class="mobile-nav-item">
-        <a href="/about/" class="mobile-nav-link">About</a>
-      </div>
-
-      <div class="mobile-nav-item">
-        <a href="/contact/" class="mobile-nav-link">Contact</a>
-      </div>
-
-      <div class="mobile-nav-item">
-        <a href="/journals/" class="mobile-nav-link">Journals</a>
-      </div>
+      {navLinks.map(link => (
+        <a href={link.href} class="mobile-nav-link">{link.name}</a>
+      ))}
     </nav>
   </div>
 </div>
@@ -70,7 +37,6 @@ const tierTwoCities = cities.filter(c => c.tier === 2);
     const menu = document.getElementById('mobile-menu');
     const toggleBtns = document.querySelectorAll('[data-menu-toggle]');
     const closeBtns = document.querySelectorAll('[data-menu-close]');
-    const accordionTriggers = document.querySelectorAll('[data-accordion-trigger]');
 
     toggleBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -85,13 +51,6 @@ const tierTwoCities = cities.filter(c => c.tier === 2);
         document.body.style.overflow = '';
       });
     });
-
-    accordionTriggers.forEach(trigger => {
-      trigger.addEventListener('click', () => {
-        const item = trigger.closest('[data-accordion]');
-        item?.classList.toggle('active');
-      });
-    });
   }
 
   document.addEventListener('astro:page-load', initMobileMenu);
@@ -99,23 +58,57 @@ const tierTwoCities = cities.filter(c => c.tier === 2);
 </script>
 
 <style>
-  .accordion-icon {
-    transition: transform var(--transition-base);
+  .mobile-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
   }
 
-  .mobile-nav-item.active .accordion-icon {
-    transform: rotate(180deg);
+  .mobile-menu-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .mobile-menu-logo {
+    font-family: 'Benton Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    color: #ffffff;
+  }
+
+  .mobile-menu-spacer {
+    width: 40px;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
   .mobile-nav-link {
-    width: 100%;
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-align: left;
+    display: block;
+    padding: 12px 0;
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: color 0.2s ease;
   }
 
-  .text-white {
-    color: var(--color-white);
+  .mobile-nav-link:hover {
+    color: #E9CDB0;
   }
 </style>
