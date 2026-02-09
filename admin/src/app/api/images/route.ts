@@ -1,8 +1,35 @@
 import { NextRequest, NextResponse } from "next/server";
-import { listDirectory, uploadBinaryFile } from "@/lib/github";
+import { listDirectory, uploadBinaryFile, readJSON, writeJSON } from "@/lib/github";
 import { processImage, imageSizes, getImageMetadata } from "@/lib/image-processor";
 
 const IMAGES_BASE = "india-experiences/public/images";
+const DATA_BASE = "india-experiences/src/data";
+
+interface CityData {
+  name: string;
+  slug: string;
+  heroImage: string;
+  cardImage: string;
+  [key: string]: unknown;
+}
+
+interface ExperienceData {
+  name: string;
+  slug: string;
+  cardImage: string;
+  listImage: string;
+  heroImage: string;
+  [key: string]: unknown;
+}
+
+interface StaycationData {
+  name: string;
+  slug: string;
+  portraitImage: string;
+  cardImage: string;
+  heroImage: string;
+  [key: string]: unknown;
+}
 
 export interface ImageInfo {
   name: string;
@@ -139,6 +166,53 @@ export async function POST(request: NextRequest) {
       });
     }
 
+    // Auto-update the JSON data file with new image paths
+    let jsonUpdated = false;
+    try {
+      if (category === "cities") {
+        const jsonPath = `${DATA_BASE}/cities.json`;
+        const cities = await readJSON<CityData[]>(jsonPath);
+        if (cities) {
+          const cityIndex = cities.findIndex(c => c.slug === name);
+          if (cityIndex !== -1) {
+            cities[cityIndex].heroImage = `/images/cities/${name}-hero.jpg`;
+            cities[cityIndex].cardImage = `/images/cities/${name}-card.jpg`;
+            await writeJSON(jsonPath, cities, `feat(data): update ${name} images [admin-tool]`);
+            jsonUpdated = true;
+          }
+        }
+      } else if (category === "experiences") {
+        const jsonPath = `${DATA_BASE}/experiences.json`;
+        const experiences = await readJSON<ExperienceData[]>(jsonPath);
+        if (experiences) {
+          const expIndex = experiences.findIndex(e => e.slug === name);
+          if (expIndex !== -1) {
+            experiences[expIndex].cardImage = `/images/experiences/${name}-card.jpg`;
+            experiences[expIndex].listImage = `/images/experiences/${name}-list.jpg`;
+            experiences[expIndex].heroImage = `/images/experiences/${name}-hero.jpg`;
+            await writeJSON(jsonPath, experiences, `feat(data): update ${name} images [admin-tool]`);
+            jsonUpdated = true;
+          }
+        }
+      } else if (category === "staycations") {
+        const jsonPath = `${DATA_BASE}/staycations.json`;
+        const staycations = await readJSON<StaycationData[]>(jsonPath);
+        if (staycations) {
+          const stayIndex = staycations.findIndex(s => s.slug === name);
+          if (stayIndex !== -1) {
+            staycations[stayIndex].portraitImage = `/images/staycations/${name}-portrait.jpg`;
+            staycations[stayIndex].cardImage = `/images/staycations/${name}-card.jpg`;
+            staycations[stayIndex].heroImage = `/images/staycations/${name}-hero.jpg`;
+            await writeJSON(jsonPath, staycations, `feat(data): update ${name} images [admin-tool]`);
+            jsonUpdated = true;
+          }
+        }
+      }
+    } catch (jsonError) {
+      console.error("Failed to update JSON:", jsonError);
+      // Don't fail the whole request if JSON update fails
+    }
+
     return NextResponse.json({
       status: "success",
       original: {
@@ -148,7 +222,8 @@ export async function POST(request: NextRequest) {
         size: metadata.size,
       },
       generated: uploadResults,
-      message: `Generated ${uploadResults.length} image sizes`,
+      jsonUpdated,
+      message: `Generated ${uploadResults.length} image sizes${jsonUpdated ? " and updated data file" : ""}`,
     });
   } catch (error) {
     console.error("Upload image error:", error);
