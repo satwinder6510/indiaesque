@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:27:25.262Z",
+  "updatedAt": "2026-02-09T00:28:18.065Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -244,9 +244,9 @@
       "title": "How To Visit Howrah Bridge",
       "slug": "howrah-bridge-kolkata",
       "contentDirection": "Cover access points (walk from either side), best photo spots, nearby Mullik Ghat flower market (visit 4-6 AM), ferry rides underneath, historical significance (built 1936-43), traffic restrictions, evening illumination, walking vs vehicle crossing, and safety precautions.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 982,
+      "generatedAt": "2026-02-09T00:28:18.065Z",
       "validationErrors": []
     },
     {
