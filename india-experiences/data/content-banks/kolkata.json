@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:35:01.608Z",
+  "updatedAt": "2026-02-09T00:35:43.776Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -364,9 +364,9 @@
       "title": "Kalighat Temple Kolkata Guide",
       "slug": "kalighat-temple-kolkata",
       "contentDirection": "Cover one of 51 Shakti Peethas, temple timings (5 AM-2 PM, 5-10:30 PM), crowd management, offerings, animal sacrifice traditions, scam awareness around temple, dress code, nearby Mother Teresa House connection, metro connectivity, and spiritual significance.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 877,
+      "generatedAt": "2026-02-09T00:35:43.776Z",
       "validationErrors": []
     },
     {
