@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { DESTINATIONS, searchProducts, getDestinationId, VIATOR_TAGS } from '../lib/viator';
+import citiesData from '../data/cities.json';
 
 export async function getStaticPaths() {
   return Object.keys(DESTINATIONS).map(city => ({
@@ -13,70 +14,65 @@ export async function getStaticPaths() {
 const { city } = Astro.params;
 const { cityData } = Astro.props;
 
-// City-specific content
+// Get hero image from cities.json data
+const cityFromData = citiesData.find(c => c.slug === city);
+
+// City-specific content (taglines and highlights - hero images come from data)
 const cityContent: Record<string, {
   tagline: string;
   description: string;
-  heroImage: string;
   highlights: string[];
 }> = {
   delhi: {
     tagline: 'WHERE HISTORY MEETS MODERNITY',
     description: 'From ancient monuments to bustling bazaars, Delhi offers a fascinating blend of old-world charm and contemporary culture. Explore Mughal architecture, taste legendary street food, and discover hidden gems in every corner.',
-    heroImage: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600&q=80',
     highlights: ['Red Fort & Jama Masjid', 'Chandni Chowk Food Trail', 'Humayun\'s Tomb', 'Qutub Minar'],
   },
   jaipur: {
     tagline: 'THE PINK CITY',
     description: 'Step into a world of royal grandeur in Jaipur. Marvel at magnificent palaces, explore vibrant markets filled with traditional crafts, and experience the warm hospitality of Rajasthan.',
-    heroImage: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?w=1600&q=80',
     highlights: ['Amber Fort', 'Hawa Mahal', 'City Palace', 'Jantar Mantar'],
   },
   mumbai: {
     tagline: 'THE CITY OF DREAMS',
     description: 'Experience the energy of India\'s most dynamic city. From colonial architecture to Bollywood glamour, street food to fine dining, Mumbai never stops surprising.',
-    heroImage: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=1600&q=80',
     highlights: ['Gateway of India', 'Dharavi Art Walk', 'Marine Drive', 'Elephanta Caves'],
   },
   goa: {
     tagline: 'SUN, SAND & SOUL',
     description: 'Discover the perfect blend of beach relaxation and cultural exploration. Portuguese heritage, pristine beaches, and a laid-back vibe make Goa unforgettable.',
-    heroImage: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=1600&q=80',
     highlights: ['Old Goa Churches', 'Spice Plantations', 'Beach Hopping', 'Sunset Cruises'],
   },
   agra: {
     tagline: 'HOME OF THE TAJ MAHAL',
     description: 'Witness one of the world\'s most iconic monuments and explore the rich Mughal heritage of this historic city on the banks of the Yamuna.',
-    heroImage: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1600&q=80',
     highlights: ['Taj Mahal', 'Agra Fort', 'Mehtab Bagh', 'Fatehpur Sikri'],
   },
   varanasi: {
     tagline: 'THE SPIRITUAL HEART OF INDIA',
     description: 'Experience the oldest living city in the world. Witness ancient rituals on the ghats of the Ganges and discover profound spiritual traditions.',
-    heroImage: 'https://images.unsplash.com/photo-1561361058-c24cecae35ca?w=1600&q=80',
     highlights: ['Ganga Aarti', 'Boat Ride at Dawn', 'Temple Walks', 'Silk Weaving'],
   },
   kolkata: {
     tagline: 'THE CITY OF JOY',
     description: 'Immerse yourself in art, literature, and culinary traditions in India\'s cultural capital. From colonial grandeur to artistic expression, Kolkata captivates.',
-    heroImage: 'https://images.unsplash.com/photo-1558431382-27e303142255?w=1600&q=80',
     highlights: ['Victoria Memorial', 'Kumartuli', 'College Street', 'Bengali Cuisine'],
   },
   udaipur: {
     tagline: 'THE CITY OF LAKES',
     description: 'Romance awaits in this enchanting city of shimmering lakes and fairy-tale palaces. Udaipur is Rajasthan at its most magical.',
-    heroImage: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1600&q=80',
     highlights: ['Lake Pichola', 'City Palace', 'Jagdish Temple', 'Sunset Boat Ride'],
   },
   kerala: {
     tagline: 'GOD\'S OWN COUNTRY',
     description: 'Discover lush backwaters, tranquil houseboats, and ancient traditions in Kerala. From Ayurvedic retreats to spice plantations, experience India\'s tropical paradise.',
-    heroImage: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1600&q=80',
     highlights: ['Alleppey Backwaters', 'Munnar Tea Gardens', 'Kathakali Dance', 'Ayurvedic Spa'],
   },
 };
 
 const content = cityContent[city as string] || cityContent.delhi;
+// Use heroImage from data file, fallback to Unsplash
+const heroImage = cityFromData?.heroImage || 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600&q=80';
 
 // Get curated experiences from content collection
 const allPages = await getCollection('pages');
@@ -103,7 +99,7 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
 >
   <!-- Hero -->
   <section class="hero">
-    <img src={content.heroImage} alt={cityData.name} class="hero-bg" />
+    <img src={heroImage} alt={cityData.name} class="hero-bg" />
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <span class="hero-tagline">{content.tagline}</span>
