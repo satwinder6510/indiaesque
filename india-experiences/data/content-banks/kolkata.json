@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:34:12.490Z",
+  "updatedAt": "2026-02-09T00:35:01.608Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -352,9 +352,9 @@
       "title": "Kumartuli Potters Quarter Guide",
       "slug": "kumartuli-kolkata",
       "contentDirection": "Cover traditional pottery area, idol-making process, best visiting times (morning light), photography permissions, interacting with artisans, seasonal variations (busy before Durga Puja), narrow lanes navigation, free exploration, nearby attractions, and cultural significance.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 975,
+      "generatedAt": "2026-02-09T00:35:01.608Z",
       "validationErrors": []
     },
     {
