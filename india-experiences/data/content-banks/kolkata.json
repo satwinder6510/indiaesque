@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:43:57.196Z",
+  "updatedAt": "2026-02-09T00:44:37.922Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -508,9 +508,9 @@
       "title": "Visiting Kolkata In Winter",
       "slug": "kolkata-winter-season",
       "contentDirection": "Cover best weather season (December-February), temperature range (10-25°C), perfect for walking tours, Christmas celebrations on Park Street, higher hotel rates, peak tourist season, advance booking required, cultural events, and ideal photography conditions.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 892,
+      "generatedAt": "2026-02-09T00:44:37.922Z",
       "validationErrors": []
     },
     {
