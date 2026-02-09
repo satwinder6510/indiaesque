@@ -134,8 +134,8 @@
     "lat": "27.1767",
     "lng": "78.0081",
     "description": "Home to the Taj Mahal, Agra Fort, and a street food scene centred around petha and chaat.",
-    "heroImage": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1200&q=80",
-    "cardImage": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&q=80",
+    "heroImage": "/images/cities/agra-hero.jpg",
+    "cardImage": "/images/cities/agra-card.jpg",
     "bestMonths": [
       10,
       11,
