@@ -425,7 +425,8 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
 
   .location-card {
     flex: 0 0 auto;
-    width: 280px;
+    width: calc(100vw - 48px);
+    max-width: 500px;
     position: relative;
     text-decoration: none;
     transition: transform 0.15s ease-out;
@@ -485,13 +486,7 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     }
 
     .location-card {
-      width: 320px;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .location-card {
-      width: 360px;
+      width: 500px;
     }
   }
 
