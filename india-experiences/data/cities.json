@@ -38,6 +38,19 @@
       "airport": "BOM",
       "nearestHub": null,
       "status": "content-bank-ready"
+    },
+    {
+      "name": "Kolkata",
+      "slug": "kolkata",
+      "state": "West Bengal",
+      "tier": 1,
+      "coordinates": {
+        "lat": 0,
+        "lng": 0
+      },
+      "airport": "CCU",
+      "nearestHub": null,
+      "status": "new"
     }
   ]
 }
