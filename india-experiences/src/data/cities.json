@@ -222,8 +222,8 @@
     "lat": "0",
     "lng": "0",
     "description": "",
-    "heroImage": "",
-    "cardImage": "",
+    "heroImage": "/images/cities/amritsar-hero.jpg",
+    "cardImage": "/images/cities/amritsar-card.jpg",
     "bestMonths": [],
     "goodMonths": []
   }
