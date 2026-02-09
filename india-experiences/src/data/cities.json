@@ -28,8 +28,8 @@
     "lat": "26.9124",
     "lng": "75.7873",
     "description": "The Pink City — Rajasthan's capital, known for its forts, palaces, textile traditions, and vibrant bazaars.",
-    "heroImage": "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=1200&q=80",
-    "cardImage": "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=500&q=80",
+    "heroImage": "/images/cities/jaipur-hero.jpg",
+    "cardImage": "/images/cities/jaipur-card.jpg",
     "bestMonths": [
       10,
       11,
