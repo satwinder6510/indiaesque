@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:40:53.307Z",
+  "updatedAt": "2026-02-09T00:41:33.066Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -460,9 +460,9 @@
       "title": "Kolkata Nightlife Guide",
       "slug": "kolkata-nightlife",
       "contentDirection": "Cover Park Street pubs and bars, Someplace Else (live music), entry fees (INR 500-1500), dress codes, age restrictions, closing times (1-2 AM), safety tips, popular venues: Shisha, Roxy, HHI, alcohol prices, and group booking advantages.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 834,
+      "generatedAt": "2026-02-09T00:41:33.066Z",
       "validationErrors": []
     },
     {
