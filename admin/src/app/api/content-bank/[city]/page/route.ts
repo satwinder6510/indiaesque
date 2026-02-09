@@ -2,6 +2,17 @@ import { NextRequest, NextResponse } from "next/server";
 import { readJSON, writeJSON } from "@/lib/github";
 import type { ContentBank, ContentBankPage } from "@/lib/types";
 
+// Helper to generate slug from title
+function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 60);
+}
+
 // Add a new page to the content bank
 export async function POST(
   request: NextRequest,
@@ -159,6 +170,99 @@ export async function DELETE(
     console.error("Error deleting page:", error);
     return NextResponse.json(
       { error: "Failed to delete page" },
+      { status: 500 }
+    );
+  }
+}
+
+// Bulk import pages
+export async function PATCH(
+  request: NextRequest,
+  { params }: { params: Promise<{ city: string }> }
+) {
+  try {
+    const { city } = await params;
+    const { pages, category, type } = await request.json() as {
+      pages: { title: string; contentDirection?: string }[];
+      category: string;
+      type: "paa" | "category" | "hub";
+    };
+
+    if (!pages || !Array.isArray(pages) || pages.length === 0) {
+      return NextResponse.json(
+        { error: "No pages provided" },
+        { status: 400 }
+      );
+    }
+
+    const contentBank = await readJSON<ContentBank>(
+      `india-experiences/data/content-banks/${city}.json`
+    );
+
+    if (!contentBank) {
+      return NextResponse.json(
+        { error: "Content bank not found" },
+        { status: 404 }
+      );
+    }
+
+    const existingSlugs = new Set(contentBank.pages.map((p) => p.slug));
+    const added: ContentBankPage[] = [];
+    const skipped: string[] = [];
+
+    for (const page of pages) {
+      if (!page.title || page.title.trim().length === 0) {
+        continue;
+      }
+
+      const title = page.title.trim();
+      const slug = generateSlug(title);
+      const id = `${city}-${slug}`;
+
+      // Skip if slug already exists
+      if (existingSlugs.has(slug)) {
+        skipped.push(title);
+        continue;
+      }
+
+      const newPage: ContentBankPage = {
+        id,
+        type: type || "paa",
+        category: category || "general",
+        title,
+        slug,
+        contentDirection: page.contentDirection || "",
+        status: "not-started",
+        wordCount: null,
+        generatedAt: null,
+        validationErrors: [],
+      };
+
+      contentBank.pages.push(newPage);
+      existingSlugs.add(slug);
+      added.push(newPage);
+    }
+
+    if (added.length > 0) {
+      contentBank.updatedAt = new Date().toISOString();
+
+      await writeJSON(
+        `india-experiences/data/content-banks/${city}.json`,
+        contentBank,
+        `feat(content-bank): bulk import ${added.length} pages to ${city} [admin-tool]`
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      added: added.length,
+      skipped: skipped.length,
+      skippedTitles: skipped,
+    });
+  } catch (error) {
+    console.error("Error bulk importing pages:", error);
+    return NextResponse.json(
+      { error: "Failed to bulk import pages" },
       { status: 500 }
     );
   }

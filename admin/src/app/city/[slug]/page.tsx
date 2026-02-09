@@ -188,6 +188,7 @@ function ContentBankTab({
 }) {
   const [filter, setFilter] = useState({ type: "", category: "", status: "" });
   const [showAddPage, setShowAddPage] = useState(false);
+  const [showBulkImport, setShowBulkImport] = useState(false);
 
   if (!contentBank) {
     return (
@@ -255,15 +256,26 @@ function ContentBankTab({
             {statuses.map((s) => <option key={s} value={s}>{s}</option>)}
           </select>
         </div>
-        <button
-          onClick={() => setShowAddPage(true)}
-          className="px-4 py-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold rounded-xl shadow-lg transition-all flex items-center gap-2"
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-          </svg>
-          Add Page
-        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={() => setShowBulkImport(true)}
+            className="px-4 py-2 bg-[var(--primary)] hover:bg-[var(--primary-light)] text-white text-sm font-semibold rounded-xl shadow-lg transition-all flex items-center gap-2"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+            </svg>
+            Bulk Import
+          </button>
+          <button
+            onClick={() => setShowAddPage(true)}
+            className="px-4 py-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white text-sm font-semibold rounded-xl shadow-lg transition-all flex items-center gap-2"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+            </svg>
+            Add Page
+          </button>
+        </div>
       </div>
 
       {/* Pages table */}
@@ -292,6 +304,167 @@ function ContentBankTab({
       {showAddPage && (
         <AddPageModal citySlug={citySlug} categories={categories} onClose={() => setShowAddPage(false)} onSuccess={() => { setShowAddPage(false); onRefresh(); }} />
       )}
+
+      {showBulkImport && (
+        <BulkImportModal citySlug={citySlug} categories={categories} onClose={() => setShowBulkImport(false)} onSuccess={() => { setShowBulkImport(false); onRefresh(); }} />
+      )}
+    </div>
+  );
+}
+
+function BulkImportModal({ citySlug, categories, onClose, onSuccess }: { citySlug: string; categories: string[]; onClose: () => void; onSuccess: () => void }) {
+  const [questionsText, setQuestionsText] = useState("");
+  const [category, setCategory] = useState(categories[0] || "general");
+  const [type, setType] = useState<"paa" | "category" | "hub">("paa");
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState<{ added: number; skipped: number; skippedTitles: string[] } | null>(null);
+
+  const handleImport = async () => {
+    const lines = questionsText.split("\n").filter((line) => line.trim().length > 0);
+    if (lines.length === 0) return;
+
+    setLoading(true);
+    try {
+      const response = await fetch(`/api/content-bank/${citySlug}/page`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          pages: lines.map((title) => ({ title: title.trim() })),
+          category,
+          type,
+        }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error);
+
+      setResult(data);
+
+      if (data.added > 0) {
+        setTimeout(() => onSuccess(), 2000);
+      }
+    } catch (err) {
+      console.error("Import failed:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const lineCount = questionsText.split("\n").filter((line) => line.trim().length > 0).length;
+
+  return (
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <div className="bg-[var(--background-card)] rounded-2xl shadow-2xl w-full max-w-2xl border border-[var(--border)] max-h-[90vh] overflow-hidden flex flex-col">
+        <div className="px-6 py-5 border-b border-[var(--border)] flex justify-between items-center shrink-0">
+          <div>
+            <h3 className="text-lg font-semibold">Bulk Import PAA Questions</h3>
+            <p className="text-sm text-[var(--foreground-muted)]">Paste one question per line</p>
+          </div>
+          <button onClick={onClose} className="p-1 hover:bg-[var(--border)] rounded-lg">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="p-6 space-y-4 overflow-y-auto flex-1">
+          {/* Source suggestions */}
+          <div className="bg-[var(--primary)]/5 rounded-xl p-4">
+            <h4 className="font-medium text-sm text-[var(--primary)] mb-2">Where to find PAA questions:</h4>
+            <ul className="text-sm text-[var(--foreground-muted)] space-y-1">
+              <li>• <strong>AlsoAsked.com</strong> — 3 free searches/day, shows question trees</li>
+              <li>• <strong>AnswerThePublic</strong> — Visual question discovery</li>
+              <li>• <strong>Google</strong> — Search and expand "People also ask" boxes</li>
+              <li>• <strong>Reddit/Quora</strong> — Real traveller questions</li>
+            </ul>
+          </div>
+
+          {/* Settings */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-1.5">Category</label>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="w-full px-4 py-2.5 bg-[var(--background)] border border-[var(--border)] rounded-xl"
+              >
+                {categories.map((c) => <option key={c} value={c}>{c}</option>)}
+                <option value="general">general</option>
+                <option value="food">food</option>
+                <option value="heritage">heritage</option>
+                <option value="markets">markets</option>
+                <option value="culture">culture</option>
+                <option value="nature">nature</option>
+                <option value="spiritual">spiritual</option>
+                <option value="nightlife">nightlife</option>
+                <option value="practical">practical</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1.5">Type</label>
+              <select
+                value={type}
+                onChange={(e) => setType(e.target.value as "paa" | "category" | "hub")}
+                className="w-full px-4 py-2.5 bg-[var(--background)] border border-[var(--border)] rounded-xl"
+              >
+                <option value="paa">PAA Question</option>
+                <option value="category">Category Page</option>
+                <option value="hub">Hub Page</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Questions input */}
+          <div>
+            <label className="block text-sm font-medium mb-1.5">
+              Questions <span className="text-[var(--foreground-muted)]">({lineCount} lines)</span>
+            </label>
+            <textarea
+              value={questionsText}
+              onChange={(e) => setQuestionsText(e.target.value)}
+              placeholder="Is Jaipur safe for solo female travellers?&#10;How many days do you need in Jaipur?&#10;What is the best time to visit Jaipur?&#10;Where to stay in Jaipur for first time visitors?"
+              className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-xl font-mono text-sm"
+              rows={10}
+            />
+          </div>
+
+          {/* Result */}
+          {result && (
+            <div className={`p-4 rounded-xl ${result.added > 0 ? "bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400" : "bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400"}`}>
+              <p className="font-medium">
+                {result.added > 0 ? `Added ${result.added} questions` : "No new questions added"}
+                {result.skipped > 0 && ` (${result.skipped} duplicates skipped)`}
+              </p>
+              {result.skippedTitles.length > 0 && (
+                <p className="text-sm mt-1 opacity-75">Skipped: {result.skippedTitles.slice(0, 3).join(", ")}{result.skippedTitles.length > 3 ? "..." : ""}</p>
+              )}
+            </div>
+          )}
+        </div>
+
+        <div className="px-6 py-4 border-t border-[var(--border)] flex justify-end gap-3 shrink-0">
+          <button type="button" onClick={onClose} className="px-4 py-2.5 hover:bg-[var(--border)] rounded-xl">
+            Cancel
+          </button>
+          <button
+            onClick={handleImport}
+            disabled={loading || lineCount === 0}
+            className="px-5 py-2.5 bg-[var(--primary)] hover:bg-[var(--primary-light)] disabled:opacity-50 text-white font-semibold rounded-xl flex items-center gap-2"
+          >
+            {loading ? (
+              <>
+                <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                </svg>
+                Importing...
+              </>
+            ) : (
+              `Import ${lineCount} Questions`
+            )}
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
