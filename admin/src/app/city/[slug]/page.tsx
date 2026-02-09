@@ -948,25 +948,34 @@ function FilesTab({ citySlug }: { citySlug: string }) {
   );
 }
 
-interface CityImage {
+interface ImageInfo {
   name: string;
   path: string;
   size: number;
-  type: "desktop" | "mobile";
+  variant: string;
   url: string;
 }
 
+interface RequiredSize {
+  variant: string;
+  width: number;
+  height: number;
+}
+
 function ImagesTab({ citySlug, cityName }: { citySlug: string; cityName: string }) {
-  const [images, setImages] = useState<CityImage[]>([]);
+  const [images, setImages] = useState<ImageInfo[]>([]);
+  const [requiredSizes, setRequiredSizes] = useState<RequiredSize[]>([]);
   const [loading, setLoading] = useState(true);
-  const [uploading, setUploading] = useState<"desktop" | "mobile" | null>(null);
+  const [uploading, setUploading] = useState(false);
+  const [uploadResult, setUploadResult] = useState<{ generated: { name: string; width: number; height: number; size: number }[] } | null>(null);
   const [error, setError] = useState("");
 
   const fetchImages = useCallback(async () => {
     try {
-      const response = await fetch(`/api/images?city=${citySlug}`);
+      const response = await fetch(`/api/images?category=cities&name=${citySlug}`);
       const data = await response.json();
       setImages(data.images || []);
+      setRequiredSizes(data.requiredSizes || []);
     } catch {
       setError("Failed to load images");
     } finally {
@@ -978,13 +987,14 @@ function ImagesTab({ citySlug, cityName }: { citySlug: string; cityName: string 
     fetchImages();
   }, [fetchImages]);
 
-  const handleUpload = async (type: "desktop" | "mobile", file: File) => {
-    setUploading(type);
+  const handleUpload = async (file: File) => {
+    setUploading(true);
     setError("");
+    setUploadResult(null);
 
     const formData = new FormData();
-    formData.append("city", citySlug);
-    formData.append("type", type);
+    formData.append("category", "cities");
+    formData.append("name", citySlug);
     formData.append("file", file);
 
     try {
@@ -999,16 +1009,14 @@ function ImagesTab({ citySlug, cityName }: { citySlug: string; cityName: string 
         throw new Error(result.error || "Upload failed");
       }
 
+      setUploadResult(result);
       await fetchImages();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Upload failed");
     } finally {
-      setUploading(null);
+      setUploading(false);
     }
   };
-
-  const desktopImage = images.find((i) => i.type === "desktop");
-  const mobileImage = images.find((i) => i.type === "mobile");
 
   if (loading) {
     return <div className="text-center py-12 text-[var(--foreground-muted)]">Loading images...</div>;
@@ -1016,23 +1024,22 @@ function ImagesTab({ citySlug, cityName }: { citySlug: string; cityName: string 
 
   return (
     <div className="max-w-2xl space-y-6">
-      {/* Size Guide */}
+      {/* Upload Section */}
       <div className="bg-[var(--background-card)] rounded-2xl shadow-lg border border-[var(--border)] p-6">
-        <h2 className="text-lg font-semibold mb-4">Hero Images for {cityName}</h2>
+        <h2 className="text-lg font-semibold mb-4">Upload Image for {cityName}</h2>
 
         <div className="bg-[var(--primary)]/5 rounded-xl p-4 mb-6">
-          <h3 className="font-medium text-sm text-[var(--primary)] mb-2">Recommended Sizes</h3>
-          <div className="grid grid-cols-2 gap-4 text-sm">
-            <div>
-              <span className="font-semibold">Desktop:</span>
-              <span className="text-[var(--foreground-muted)] ml-2">1920 × 800px</span>
-              <p className="text-xs text-[var(--foreground-muted)] mt-1">Wide landscape, hero banner</p>
-            </div>
-            <div>
-              <span className="font-semibold">Mobile:</span>
-              <span className="text-[var(--foreground-muted)] ml-2">800 × 500px</span>
-              <p className="text-xs text-[var(--foreground-muted)] mt-1">Cropped tighter on subject</p>
-            </div>
+          <h3 className="font-medium text-sm text-[var(--primary)] mb-2">Auto-Generated Sizes</h3>
+          <p className="text-sm text-[var(--foreground-muted)] mb-3">
+            Upload one high-quality image and we'll automatically generate all required sizes:
+          </p>
+          <div className="grid grid-cols-2 gap-2 text-sm">
+            {requiredSizes.map((size) => (
+              <div key={size.variant} className="flex justify-between">
+                <span className="font-medium">{size.variant}:</span>
+                <span className="text-[var(--foreground-muted)]">{size.width} × {size.height}px</span>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -1042,143 +1049,94 @@ function ImagesTab({ citySlug, cityName }: { citySlug: string; cityName: string 
           </div>
         )}
 
-        {/* Desktop Image */}
-        <div className="mb-6">
-          <div className="flex items-center justify-between mb-3">
-            <div>
-              <h3 className="font-medium">Desktop Hero</h3>
-              <p className="text-xs text-[var(--foreground-muted)]">{citySlug}-hero.jpg</p>
+        {uploadResult && (
+          <div className="mb-4 p-4 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400 rounded-xl">
+            <p className="font-medium mb-2">Generated {uploadResult.generated.length} images:</p>
+            <div className="space-y-1 text-sm">
+              {uploadResult.generated.map((img) => (
+                <div key={img.name} className="flex justify-between">
+                  <span>{img.name}</span>
+                  <span>{img.width}×{img.height} ({(img.size / 1024).toFixed(0)} KB)</span>
+                </div>
+              ))}
             </div>
-            {desktopImage && (
-              <span className="flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                {(desktopImage.size / 1024).toFixed(0)} KB
-              </span>
-            )}
           </div>
+        )}
 
-          <label className={`block border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-colors ${
-            desktopImage
-              ? "border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-900/10"
-              : "border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--primary)]/5"
-          }`}>
-            <input
-              type="file"
-              accept="image/jpeg,image/png,image/webp"
-              className="hidden"
-              onChange={(e) => {
-                const file = e.target.files?.[0];
-                if (file) handleUpload("desktop", file);
-              }}
-              disabled={uploading !== null}
-            />
-            {uploading === "desktop" ? (
-              <div className="flex items-center justify-center gap-2 text-[var(--foreground-muted)]">
-                <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                </svg>
-                Uploading...
-              </div>
-            ) : desktopImage ? (
-              <span className="text-sm text-[var(--foreground-muted)]">Click to replace</span>
-            ) : (
-              <div>
-                <svg className="w-8 h-8 mx-auto mb-2 text-[var(--foreground-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <span className="text-sm text-[var(--foreground-muted)]">Click to upload desktop image</span>
-              </div>
-            )}
-          </label>
-        </div>
-
-        {/* Mobile Image */}
-        <div>
-          <div className="flex items-center justify-between mb-3">
-            <div>
-              <h3 className="font-medium">Mobile Hero</h3>
-              <p className="text-xs text-[var(--foreground-muted)]">{citySlug}-hero-mobile.jpg</p>
+        <label className={`block border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-colors ${
+          images.length > 0
+            ? "border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-900/10"
+            : "border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--primary)]/5"
+        }`}>
+          <input
+            type="file"
+            accept="image/jpeg,image/png,image/webp"
+            className="hidden"
+            onChange={(e) => {
+              const file = e.target.files?.[0];
+              if (file) handleUpload(file);
+            }}
+            disabled={uploading}
+          />
+          {uploading ? (
+            <div className="flex flex-col items-center gap-3 text-[var(--foreground-muted)]">
+              <svg className="animate-spin w-8 h-8" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+              </svg>
+              <span>Processing & uploading to GitHub...</span>
             </div>
-            {mobileImage && (
-              <span className="flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                {(mobileImage.size / 1024).toFixed(0)} KB
-              </span>
-            )}
-          </div>
-
-          <label className={`block border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-colors ${
-            mobileImage
-              ? "border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-900/10"
-              : "border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--primary)]/5"
-          }`}>
-            <input
-              type="file"
-              accept="image/jpeg,image/png,image/webp"
-              className="hidden"
-              onChange={(e) => {
-                const file = e.target.files?.[0];
-                if (file) handleUpload("mobile", file);
-              }}
-              disabled={uploading !== null}
-            />
-            {uploading === "mobile" ? (
-              <div className="flex items-center justify-center gap-2 text-[var(--foreground-muted)]">
-                <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                </svg>
-                Uploading...
-              </div>
-            ) : mobileImage ? (
-              <span className="text-sm text-[var(--foreground-muted)]">Click to replace</span>
-            ) : (
-              <div>
-                <svg className="w-8 h-8 mx-auto mb-2 text-[var(--foreground-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-                <span className="text-sm text-[var(--foreground-muted)]">Click to upload mobile image</span>
-              </div>
-            )}
-          </label>
-        </div>
+          ) : (
+            <div>
+              <svg className="w-10 h-10 mx-auto mb-3 text-[var(--foreground-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <p className="text-[var(--foreground)] font-medium mb-1">
+                {images.length > 0 ? "Click to replace images" : "Click to upload image"}
+              </p>
+              <p className="text-sm text-[var(--foreground-muted)]">
+                Recommended: 1920×1080 or larger, JPG/PNG/WebP
+              </p>
+            </div>
+          )}
+        </label>
       </div>
 
-      {/* Status Summary */}
-      <div className="bg-[var(--background-card)] rounded-2xl shadow-lg border border-[var(--border)] p-6">
-        <h3 className="font-medium mb-3">Status</h3>
-        <div className="space-y-2 text-sm">
-          <div className="flex items-center gap-2">
-            {desktopImage ? (
-              <svg className="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-            ) : (
-              <svg className="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-              </svg>
-            )}
-            <span>Desktop: {desktopImage ? desktopImage.name : "Not uploaded"}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            {mobileImage ? (
-              <svg className="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-            ) : (
-              <svg className="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-              </svg>
-            )}
-            <span>Mobile: {mobileImage ? mobileImage.name : "Not uploaded"}</span>
+      {/* Current Images */}
+      {images.length > 0 && (
+        <div className="bg-[var(--background-card)] rounded-2xl shadow-lg border border-[var(--border)] p-6">
+          <h3 className="font-medium mb-4">Current Images</h3>
+          <div className="grid grid-cols-2 gap-4">
+            {images.map((img) => (
+              <div key={img.name} className="border border-[var(--border)] rounded-xl p-3">
+                <div className="flex items-center gap-2 mb-2">
+                  <svg className="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="font-medium text-sm">{img.variant}</span>
+                </div>
+                <p className="text-xs text-[var(--foreground-muted)] font-mono">{img.name}</p>
+                <p className="text-xs text-[var(--foreground-muted)]">{(img.size / 1024).toFixed(0)} KB</p>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
+      )}
+
+      {/* Missing Images Warning */}
+      {images.length === 0 && (
+        <div className="bg-amber-50 dark:bg-amber-900/20 rounded-2xl border border-amber-200 dark:border-amber-800 p-6">
+          <div className="flex items-center gap-2 text-amber-700 dark:text-amber-400">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            <span className="font-medium">No images uploaded yet</span>
+          </div>
+          <p className="text-sm text-amber-600 dark:text-amber-500 mt-2">
+            Upload an image to generate all required sizes for {cityName}.
+          </p>
+        </div>
+      )}
     </div>
   );
 }
