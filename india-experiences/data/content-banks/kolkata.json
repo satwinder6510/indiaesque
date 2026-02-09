@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:48:40.616Z",
+  "updatedAt": "2026-02-09T00:49:24.173Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -580,9 +580,9 @@
       "title": "Heritage Walks In Kolkata",
       "slug": "heritage-walks-kolkata",
       "contentDirection": "Cover organized walking tours (INR 300-800), self-guided routes, North Kolkata heritage trail, BBD Bagh colonial architecture walk, guided vs independent options, duration (2-4 hours), group bookings, photography permissions, and cultural context provided.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 829,
+      "generatedAt": "2026-02-09T00:49:24.173Z",
       "validationErrors": []
     }
   ],
