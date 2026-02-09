@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:29:06.295Z",
+  "updatedAt": "2026-02-09T00:29:49.842Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -268,9 +268,9 @@
       "title": "Dakshineswar Kali Temple Guide",
       "slug": "dakshineswar-temple-kolkata",
       "contentDirection": "Cover temple timings (5 AM-12:30 PM, 3 PM-8:30 PM), dress code, free entry, metro connectivity, river crossing to Belur Math, crowd patterns (less crowded weekday mornings), offerings, photography restrictions, nearby food stalls, and spiritual significance.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 866,
+      "generatedAt": "2026-02-09T00:29:49.842Z",
       "validationErrors": []
     },
     {
