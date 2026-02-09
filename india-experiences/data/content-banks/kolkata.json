@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:35:43.776Z",
+  "updatedAt": "2026-02-09T00:36:28.842Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -376,9 +376,9 @@
       "title": "Sundarbans Day Trip From Kolkata",
       "slug": "sundarbans-day-trip-kolkata",
       "contentDirection": "Cover 1-2 day tour packages (INR 3000-8000), tour operator recommendations, tiger sighting possibilities, best season (October-March), departure points, inclusions (meals, accommodation, boat rides, permits), advance booking required, and what to expect during visit.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 817,
+      "generatedAt": "2026-02-09T00:36:28.842Z",
       "validationErrors": []
     },
     {
