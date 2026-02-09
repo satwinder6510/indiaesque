@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:31:18.395Z",
+  "updatedAt": "2026-02-09T00:32:03.987Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -304,9 +304,9 @@
       "title": "Best Chinese Food In Kolkata",
       "slug": "chinese-food-kolkata",
       "contentDirection": "Cover Tangra China Town area, famous restaurants (Golden Joy, Beijing), Tiretta Bazaar morning Chinese breakfast, Indo-Chinese fusion dishes, Hakka noodles origin, price ranges (INR 150-400), best visiting times (morning for breakfast, evening for dinner), and cultural history of Chinese community.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 880,
+      "generatedAt": "2026-02-09T00:32:03.987Z",
       "validationErrors": []
     },
     {
