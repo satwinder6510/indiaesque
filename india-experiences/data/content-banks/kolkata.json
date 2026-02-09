@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:26:28.760Z",
+  "updatedAt": "2026-02-09T00:27:25.262Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -232,9 +232,9 @@
       "title": "Durga Puja In Kolkata Guide",
       "slug": "durga-puja-kolkata",
       "contentDirection": "Cover festival dates (September-October, varies yearly), best pandal areas (South Kolkata, North Kolkata traditional), Bonedi Bari pujas, crowds and safety during festival, accommodation booking (advance required), special food during festival, cultural significance, and viewing itinerary.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1097,
+      "generatedAt": "2026-02-09T00:27:25.262Z",
       "validationErrors": []
     },
     {
