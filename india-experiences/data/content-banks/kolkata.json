@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:45:25.650Z",
+  "updatedAt": "2026-02-09T00:46:10.194Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -532,9 +532,9 @@
       "title": "Luxury Travel In Kolkata",
       "slug": "luxury-travel-kolkata",
       "contentDirection": "Cover 5-star hotels (Oberoi Grand, ITC Sonar, Taj Bengal), fine dining restaurants, private guided tours, luxury shopping malls, spa services, chauffeur services, helicopter tours if available, premium experiences, and exclusive cultural programs.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 824,
+      "generatedAt": "2026-02-09T00:46:10.194Z",
       "validationErrors": []
     },
     {
