@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:44:37.922Z",
+  "updatedAt": "2026-02-09T00:45:25.650Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -520,9 +520,9 @@
       "title": "Budget Travel In Kolkata",
       "slug": "budget-travel-kolkata",
       "contentDirection": "Cover daily budget ranges (INR 1000-2000 backpacker, INR 2000-4000 mid-range), cheap accommodation options, street food vs restaurants, public transport costs, free attractions, budget shopping areas, hostel recommendations, and money-saving tips.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 881,
+      "generatedAt": "2026-02-09T00:45:25.650Z",
       "validationErrors": []
     },
     {
