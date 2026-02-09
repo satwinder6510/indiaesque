@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:41:33.066Z",
+  "updatedAt": "2026-02-09T00:42:18.413Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -472,9 +472,9 @@
       "title": "Best Photography Spots In Kolkata",
       "slug": "photography-spots-kolkata",
       "contentDirection": "Cover Victoria Memorial (golden hour), Howrah Bridge (early morning), Kumartuli (portrait photography), heritage buildings in BBD Bagh, Mullik Ghat flower market (4-6 AM), tram shots, street photography areas, permission requirements, and best times for lighting.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 988,
+      "generatedAt": "2026-02-09T00:42:18.413Z",
       "validationErrors": []
     },
     {
