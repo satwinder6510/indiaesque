@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:21:07.094Z",
+  "updatedAt": "2026-02-09T00:21:51.184Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -148,9 +148,9 @@
       "title": "What Is Kolkata Famous For?",
       "slug": "what-is-kolkata-famous-for",
       "contentDirection": "Cover cultural capital status, intellectual heritage (Rabindranath Tagore, Indian Museum), colonial architecture, street food, Bengali sweets (Rosogulla origin), Victoria Memorial, Howrah Bridge, being safest Indian city, Durga Puja celebrations, film industry (Tollywood), and literary tradition.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 881,
+      "generatedAt": "2026-02-09T00:21:51.184Z",
       "validationErrors": []
     },
     {
