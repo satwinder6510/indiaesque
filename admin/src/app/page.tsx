@@ -423,7 +423,7 @@ function ImagesSection({ cities }: { cities: CityDashboardItem[] }) {
             </svg>
           </div>
           <div className="text-left">
-            <h2 className="text-lg font-semibold text-[var(--foreground)]">City Images</h2>
+            <h2 className="text-lg font-semibold text-[var(--foreground)]">City Images (v2)</h2>
             <p className="text-sm text-[var(--foreground-muted)]">
               {citiesComplete}/{cities.length} cities complete • Auto-generates all sizes
             </p>
