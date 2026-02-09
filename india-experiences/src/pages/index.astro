@@ -1,567 +1,992 @@
 ---
-import Homepage from '../layouts/Homepage.astro';
-import TitleAccent from '../components/TitleAccent.astro';
-import SectionDivider from '../components/SectionDivider.astro';
-import cities from '../data/cities.json';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
 
-const tierOneCities = cities.filter(c => c.tier === 1);
-const tierTwoCities = cities.filter(c => c.tier === 2);
+// Get latest journal articles
+const allPages = await getCollection('pages');
+const latestJournals = allPages
+  .filter(page => page.data.type === 'paa')
+  .sort((a, b) => new Date(b.data.dateModified).getTime() - new Date(a.data.dateModified).getTime())
+  .slice(0, 1);
 
-const experiences = [
-  { name: 'Food Tours', slug: 'food', icon: 'food', desc: 'Street food walks, fine dining, and regional cuisine experiences' },
-  { name: 'Heritage Walks', slug: 'heritage', icon: 'heritage', desc: 'Historical monuments, architecture, and guided walking tours' },
-  { name: 'Markets & Shopping', slug: 'markets', icon: 'markets', desc: 'Bazaars, artisan markets, and shopping experiences' },
-  { name: 'Cultural Experiences', slug: 'culture', icon: 'culture', desc: 'Art workshops, craft classes, and cultural immersions' },
-  { name: 'Nature & Day Trips', slug: 'nature', icon: 'nature', desc: 'Day trips, parks, and outdoor adventures near the city' },
-  { name: 'Spiritual Journeys', slug: 'spiritual', icon: 'spiritual', desc: 'Temples, ashrams, and spiritual experiences' },
+const popularLocations = [
+  { name: 'DELHI', image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=400&q=80', href: '/delhi/' },
+  { name: 'JAIPUR', image: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?w=400&q=80', href: '/jaipur/' },
+  { name: 'MUMBAI', image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=400&q=80', href: '/mumbai/' },
+  { name: 'GOA', image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=400&q=80', href: '/goa/' },
 ];
 
-const schema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'Indiaesque',
-  url: 'https://indiaesque.com',
-  description: 'Curated travel experiences across India. Food tours, heritage walks, cooking classes, and authentic local experiences.',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: 'https://indiaesque.com/search?q={search_term_string}',
-    'query-input': 'required name=search_term_string'
-  }
-};
+const categories = [
+  { name: 'FOODIE', image: 'https://images.unsplash.com/photo-1505253758473-96b7015fcd40?w=400&q=80' },
+  { name: 'NATURE', image: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=400&q=80' },
+  { name: 'CULTURAL', image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=400&q=80' },
+  { name: 'ARTS AND CRAFTS', image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=400&q=80' },
+  { name: 'WALKING TOURS', image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=400&q=80' },
+  { name: 'ADVENTURE', image: 'https://images.unsplash.com/photo-1527631746610-bca00a040d60?w=400&q=80' },
+];
+
+const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') || '';
 ---
 
-<Homepage
+<BaseLayout
   title="Curated India Experiences"
-  description="Discover authentic India through curated food tours, heritage walks, cooking classes, and local experiences. Honest recommendations with prices in INR."
-  schema={[schema]}
+  description="Discover authentic India through curated experiences. Personalized journeys, heritage walks, and unforgettable adventures."
+  includeFooter={true}
 >
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
-    <div class="hero-bg"></div>
+    <img src="/images/hero.jpg" alt="Traditional Indian Theyyam performer" class="hero-bg" />
+    <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1 class="hero-title">Discover the Soul of India</h1>
-      <TitleAccent />
-      <p class="hero-subtitle">
-        Curated experiences that take you beyond the tourist trail. Food tours, heritage walks,
-        cooking classes, and authentic encounters across India's most captivating destinations.
-      </p>
-      <div class="hero-actions">
-        <a href="#destinations" class="btn btn-primary">Explore Destinations</a>
-        <a href="#experiences" class="btn btn-secondary">View Experiences</a>
-      </div>
+      <span class="hero-location">KERALA & CHERUTHURUTHY</span>
+      <h1 class="hero-title">DISCOVER A WORLD OF TRAVEL, UNIQUELY CURATED FOR YOU</h1>
     </div>
   </section>
 
-  <!-- Featured Destinations -->
-  <section class="section" id="destinations">
-    <div class="section-container">
-      <div class="section-header">
-        <h2>Explore India's Top Destinations</h2>
-        <p class="section-lead">
-          From the ancient streets of Delhi to the spiritual ghats of Varanasi, discover experiences that reveal India's true character.
-        </p>
+  <!-- Introduction -->
+  <section class="intro">
+    <p class="intro-text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+    </p>
+    <p class="intro-text">
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+      dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+          </svg>
+        </div>
+        <h3>RESPONSIBLE TOURISM</h3>
+        <p>Delectus alias doloribus cupiditate. Ratione culpa in fuga qui.</p>
       </div>
 
-      <div class="destinations-grid">
-        {tierOneCities.map(city => (
-          <a href={`/${city.slug}/`} class="destination-card">
-            <div class="destination-card-image">
-              <img src={`/images/cities/${city.slug}.jpg`} alt={city.name} loading="lazy" />
-            </div>
-            <div class="destination-card-content">
-              <h3>{city.name}</h3>
-              <span class="destination-card-cta">Explore experiences →</span>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+            <path d="M2 17l10 5 10-5"></path>
+            <path d="M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
+        <h3>INSIDER KNOWLEDGE</h3>
+        <p>Itaque nihil non eveniet cum optio. Quo facere ab labore.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </div>
+        <h3>SUSTAINABLE EXPERIENCES</h3>
+        <p>Iusto recusandae quo voluptas dicta. Vitae rerum at officiis.</p>
+      </div>
+    </div>
+
+    <a href="/about/" class="read-more">Read More</a>
+  </section>
+
+  <!-- Top Cities (Horizontal Scroll) -->
+  <section class="popular-locations">
+    <h2>Top Cities to Visit</h2>
+    <div class="locations-wrapper">
+      <button class="scroll-arrow scroll-left" aria-label="Scroll left" style="display: none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <div class="locations-scroll">
+        {popularLocations.map(loc => (
+          <a href={loc.href} class="location-card">
+            <img src={loc.image} alt={loc.name} />
+            <div class="location-info">
+              <span class="location-name">{loc.name}</span>
+              <span class="location-btn">DISCOVER</span>
             </div>
           </a>
         ))}
       </div>
-
-      {tierTwoCities.length > 0 && (
-        <div class="more-destinations">
-          <h3>More Destinations</h3>
-          <div class="destination-pills">
-            {tierTwoCities.map(city => (
-              <a href={`/${city.slug}/`} class="destination-pill">
-                {city.name}
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
+      <button class="scroll-arrow scroll-right" aria-label="Scroll right">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
     </div>
   </section>
 
-  <SectionDivider />
-
-  <!-- Experience Types -->
-  <section class="section section-warm" id="experiences">
-    <div class="section-container">
-      <div class="section-header">
-        <h2>Experiences Across India</h2>
-        <p class="section-lead">
-          Whether you're a foodie, history buff, or seeking authentic cultural encounters, we've curated the best experiences for you.
-        </p>
+  <!-- Featured Experience -->
+  <section class="featured-holidays">
+    <h2>Featured Experience</h2>
+    <a href="/delhi/" class="holiday-card">
+      <div class="holiday-image">
+        <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80" alt="India's Golden Triangle" />
       </div>
+      <div class="holiday-content">
+        <h3>INDIA'S GOLDEN TRIANGLE</h3>
+        <div class="holiday-rating">
+          <span class="stars">★★★★★</span>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+    </a>
+  </section>
 
-      <div class="experiences-grid">
-        {experiences.map(exp => (
-          <div class="experience-card">
-            <div class="experience-card-icon">
-              {exp.icon === 'food' && (
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                  <line x1="6" y1="1" x2="6" y2="4"></line>
-                  <line x1="10" y1="1" x2="10" y2="4"></line>
-                  <line x1="14" y1="1" x2="14" y2="4"></line>
+  <!-- Categories Grid -->
+  <section class="categories">
+    <h2>Experience Types</h2>
+    <div class="categories-grid">
+      {categories.map(cat => (
+        <a href="#" class="category-card">
+          <img src={cat.image} alt={cat.name} />
+          <div class="category-info">
+            <span class="category-name">{cat.name}</span>
+            <span class="category-btn">DISCOVER</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Latest Travel Journals -->
+  <section class="latest-journals">
+    <h2>Latest Travel Journals</h2>
+    {latestJournals.map(article => {
+      const cityName = article.data.city ? article.data.city.charAt(0).toUpperCase() + article.data.city.slice(1) : 'India';
+      return (
+        <a href={`/journal/${getSlug(article)}/`} class="journal-card">
+          <div class="journal-image">
+            <img src={article.data.cardImage || 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80'} alt={article.data.title} />
+          </div>
+          <div class="journal-content">
+            <h3>{article.data.title.toUpperCase()}</h3>
+            <div class="journal-meta">
+              <span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
                 </svg>
-              )}
-              {exp.icon === 'heritage' && (
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M3 21h18"></path>
-                  <path d="M5 21V7l8-4v18"></path>
-                  <path d="M19 21V11l-6-4"></path>
-                </svg>
-              )}
-              {exp.icon === 'markets' && (
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                  <line x1="3" y1="6" x2="21" y2="6"></line>
-                  <path d="M16 10a4 4 0 0 1-8 0"></path>
-                </svg>
-              )}
-              {exp.icon === 'culture' && (
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-                  <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-                  <circle cx="11" cy="11" r="2"></circle>
-                </svg>
-              )}
-              {exp.icon === 'nature' && (
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
-                </svg>
-              )}
-              {exp.icon === 'spiritual' && (
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                  <path d="M2 17l10 5 10-5"></path>
-                  <path d="M2 12l10 5 10-5"></path>
-                </svg>
-              )}
+                Indiaesque
+              </span>
             </div>
-            <h3>{exp.name}</h3>
-            <p>{exp.desc}</p>
+            <span class="read-more-link">READ MORE</span>
           </div>
-        ))}
-      </div>
-    </div>
+        </a>
+      );
+    })}
   </section>
 
-  <SectionDivider />
-
-  <!-- Why Indiaesque -->
-  <section class="section">
-    <div class="section-container">
-      <div class="section-header">
-        <h2>Why Travel With Indiaesque</h2>
-        <p class="section-lead">
-          We're not just another travel guide. We're your insider connection to India's best experiences.
-        </p>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              <path d="M9 12l2 2 4-4"></path>
-            </svg>
-          </div>
-          <h3>Curated Quality</h3>
-          <p>Every experience is personally vetted. We visit, taste, and explore before recommending.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <line x1="12" y1="1" x2="12" y2="23"></line>
-              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-            </svg>
-          </div>
-          <h3>Honest Pricing</h3>
-          <p>All prices in INR with no hidden fees. Know exactly what you'll pay before you go.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="9" cy="7" r="4"></circle>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-            </svg>
-          </div>
-          <h3>Local Experts</h3>
-          <p>Connect with guides and hosts who know their cities inside out.</p>
-        </div>
-      </div>
-    </div>
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <h2>STAY UP TO DATE BY SUBSCRIBING<br/>TO OUR NEWSLETTER</h2>
+    <form class="newsletter-form">
+      <input type="text" placeholder="FORENAME" required />
+      <input type="text" placeholder="SURNAME" required />
+      <input type="email" placeholder="EMAIL ADDRESS" required />
+      <button type="submit">SUBSCRIBE</button>
+    </form>
   </section>
-</Homepage>
+
+  <!-- Contact -->
+  <section class="contact-section">
+    <h2>CONTACT</h2>
+    <p class="contact-phone">0000 00000 000</p>
+    <p class="contact-address">
+      TRAVEL CURATED • ADDRESS LINE 1<br/>
+      ADDRESS LINE 2 • AA1 1AA
+    </p>
+  </section>
+</BaseLayout>
 
 <style>
   /* Hero */
   .hero {
     position: relative;
-    min-height: 90vh;
+    height: 100vh;
+    min-height: 500px;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    background: var(--navy-900);
     overflow: hidden;
+    padding-bottom: 60px;
   }
 
   .hero-bg {
     position: absolute;
     inset: 0;
-    background-image: url('/images/hero-india.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.4;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
   }
 
-  .hero-bg::after {
-    content: '';
+  .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(15, 27, 45, 0.3), rgba(15, 27, 45, 0.8));
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%);
   }
 
   .hero-content {
     position: relative;
     z-index: 1;
-    max-width: 720px;
-    padding: 48px 24px;
     text-align: center;
+    color: #ffffff;
+    padding: 0 24px;
+    max-width: 500px;
+  }
+
+  .hero-location {
+    display: inline-block;
+    font-family: 'Muli', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    margin-bottom: 16px;
+    opacity: 0.9;
   }
 
   .hero-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 42px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
     font-weight: 400;
-    color: #fff;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    margin-bottom: 0;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+    margin: 0;
   }
 
   @media (min-width: 768px) {
     .hero-title {
-      font-size: 56px;
+      font-size: 36px;
     }
   }
 
-  .hero-content :global(.title-accent) {
-    margin: 20px auto 28px;
+  /* Introduction */
+  .intro {
+    padding: 64px 24px;
+    background-color: #ffffff;
+    text-align: center;
   }
 
-  .hero-subtitle {
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.85);
-    line-height: 1.7;
-    margin-bottom: 32px;
+  .intro-text {
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #6b7280;
+    max-width: 500px;
+    margin: 0 auto 20px;
+  }
+
+  .features {
+    margin: 48px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .feature {
+    text-align: center;
+  }
+
+  .feature-icon {
+    color: #111827;
+    margin-bottom: 16px;
+  }
+
+  .feature h3 {
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: #111827;
+    margin: 0 0 8px 0;
+  }
+
+  .feature p {
+    font-family: 'Muli', sans-serif;
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .read-more {
+    display: inline-block;
+    font-family: 'Muli', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #0d9488;
+    text-decoration: none;
+    text-decoration: underline;
   }
 
   @media (min-width: 768px) {
-    .hero-subtitle {
+    .intro {
+      padding: 80px 48px;
+    }
+
+    .intro-text {
+      font-size: 15px;
+      max-width: 700px;
+    }
+
+    .features {
+      flex-direction: row;
+      max-width: 900px;
+      gap: 48px;
+      margin: 64px auto;
+    }
+
+    .feature {
+      flex: 1;
+    }
+  }
+
+  /* Popular Locations (Horizontal Scroll) */
+  .popular-locations {
+    padding: 48px 0 48px 24px;
+    background-color: #f9fafb;
+  }
+
+  .popular-locations h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #111827;
+    margin: 0 0 24px 0;
+  }
+
+  .locations-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .scroll-arrow {
+    position: absolute;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    color: #111827;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .scroll-arrow:hover {
+    background: #f3f4f6;
+  }
+
+  .scroll-left {
+    left: 0;
+  }
+
+  .scroll-right {
+    right: 24px;
+  }
+
+  .locations-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-right: 24px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+  }
+
+  .locations-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .location-card {
+    flex: 0 0 auto;
+    width: 280px;
+    position: relative;
+    text-decoration: none;
+    transition: transform 0.15s ease-out;
+  }
+
+  .location-card img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+  }
+
+  .location-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .location-name {
+    font-family: 'Muli', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+  }
+
+  .location-btn {
+    font-family: 'Muli', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background: rgba(107, 114, 128, 0.7);
+    padding: 5px 10px;
+  }
+
+  @media (min-width: 768px) {
+    .popular-locations {
+      padding: 64px 48px;
+    }
+
+    .popular-locations h2 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 32px;
+    }
+
+    .locations-scroll {
+      gap: 24px;
+    }
+
+    .location-card {
+      width: 320px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .location-card {
+      width: 360px;
+    }
+  }
+
+  /* Featured Holidays */
+  .featured-holidays {
+    padding: 48px 24px;
+    background-color: #ffffff;
+  }
+
+  .featured-holidays h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #111827;
+    margin: 0 0 24px 0;
+  }
+
+  .holiday-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    max-width: 500px;
+  }
+
+  .holiday-image {
+    width: 100%;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  .holiday-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .holiday-card:hover .holiday-image img {
+    transform: scale(1.03);
+  }
+
+  .holiday-content h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #111827;
+    margin: 0 0 8px 0;
+  }
+
+  .holiday-rating {
+    margin-bottom: 12px;
+  }
+
+  .stars {
+    color: #E9CDB0;
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  .holiday-content p {
+    font-family: 'Muli', sans-serif;
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    .featured-holidays {
+      padding: 64px 48px;
+    }
+
+    .featured-holidays h2 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 32px;
+    }
+
+    .holiday-card {
+      display: flex;
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    .holiday-image {
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+    .holiday-content {
+      flex: 1;
+    }
+
+    .holiday-content h3 {
+      font-size: 20px;
+    }
+
+    .holiday-content p {
+      font-size: 14px;
+    }
+  }
+
+  /* Categories Grid */
+  .categories {
+    padding: 48px 24px;
+    background-color: #f9fafb;
+  }
+
+  .categories h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #111827;
+    margin: 0 0 24px 0;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 500px;
+  }
+
+  .category-card {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  .category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .category-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .category-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .category-name {
+    font-family: 'Muli', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+  }
+
+  .category-btn {
+    font-family: 'Muli', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background: rgba(107, 114, 128, 0.7);
+    padding: 5px 10px;
+  }
+
+  @media (min-width: 768px) {
+    .categories {
+      padding: 64px 48px;
+    }
+
+    .categories h2 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 32px;
+    }
+
+    .categories-grid {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 900px;
+      margin: 0 auto;
+      gap: 24px;
+    }
+
+    .category-name {
+      font-size: 12px;
+    }
+  }
+
+  /* Latest Journals */
+  .latest-journals {
+    padding: 48px 24px;
+    background-color: #ffffff;
+  }
+
+  .latest-journals h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #111827;
+    margin: 0 0 24px 0;
+  }
+
+  .journal-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    max-width: 500px;
+  }
+
+  .journal-image {
+    width: 100%;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  .journal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .journal-card:hover .journal-image img {
+    transform: scale(1.03);
+  }
+
+  .journal-content h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+    color: #111827;
+    margin: 0 0 12px 0;
+  }
+
+  .journal-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 12px;
+  }
+
+  .journal-meta svg {
+    opacity: 0.7;
+  }
+
+  .journal-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .read-more-link {
+    font-family: 'Muli', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #0d9488;
+  }
+
+  @media (min-width: 768px) {
+    .latest-journals {
+      padding: 64px 48px;
+    }
+
+    .latest-journals h2 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 32px;
+    }
+
+    .journal-card {
+      display: flex;
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    .journal-image {
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+    .journal-content {
+      flex: 1;
+    }
+
+    .journal-content h3 {
       font-size: 20px;
     }
   }
 
-  .hero-actions {
+  /* Newsletter */
+  .newsletter {
+    padding: 64px 24px;
+    background-color: #f9fafb;
+    text-align: center;
+  }
+
+  .newsletter h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: #111827;
+    margin: 0 0 32px 0;
+    line-height: 1.5;
+  }
+
+  .newsletter-form {
+    max-width: 320px;
+    margin: 0 auto;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
     gap: 16px;
   }
 
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 14px 28px;
-    font-size: 15px;
+  .newsletter-form input {
+    padding: 14px 16px;
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    border: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    color: #111827;
+  }
+
+  .newsletter-form input::placeholder {
+    color: #9ca3af;
+  }
+
+  .newsletter-form button {
+    padding: 14px 16px;
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
     font-weight: 600;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: all 0.2s;
+    letter-spacing: 0.1em;
+    border: none;
+    background-color: #0d9488;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
   }
 
-  .btn-primary {
-    background: var(--teal-500);
-    color: #fff;
-  }
-
-  .btn-primary:hover {
-    background: var(--teal-400);
-  }
-
-  .btn-secondary {
-    background: transparent;
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-
-  .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.5);
-  }
-
-  /* Sections */
-  .section {
-    padding: 80px 24px;
-  }
-
-  .section-warm {
-    background: var(--warm-50);
-  }
-
-  .section-container {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: 48px;
-  }
-
-  .section-header h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 32px;
-    font-weight: 400;
-    color: var(--navy-800);
-    margin-bottom: 16px;
+  .newsletter-form button:hover {
+    background-color: #0f766e;
   }
 
   @media (min-width: 768px) {
-    .section-header h2 {
-      font-size: 38px;
+    .newsletter {
+      padding: 80px 48px;
+    }
+
+    .newsletter h2 {
+      font-size: 22px;
+    }
+
+    .newsletter-form {
+      flex-direction: row;
+      max-width: 700px;
+      gap: 12px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+    }
+
+    .newsletter-form button {
+      flex: 0 0 auto;
+      padding: 14px 32px;
     }
   }
 
-  .section-lead {
-    font-size: 18px;
-    color: var(--text-secondary);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
-
-  /* Destinations */
-  .destinations-grid {
-    display: grid;
-    gap: 24px;
-  }
-
-  @media (min-width: 640px) {
-    .destinations-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .destinations-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .destination-card {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    text-decoration: none;
-    aspect-ratio: 4 / 5;
-  }
-
-  .destination-card-image {
-    position: absolute;
-    inset: 0;
-  }
-
-  .destination-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s;
-  }
-
-  .destination-card:hover .destination-card-image img {
-    transform: scale(1.05);
-  }
-
-  .destination-card-content {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(15, 27, 45, 0.85) 0%, transparent 60%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 24px;
-    color: #fff;
-  }
-
-  .destination-card-content h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 28px;
-    font-weight: 400;
-    color: #fff;
-    margin-bottom: 4px;
-  }
-
-  .destination-card-cta {
-    font-size: 14px;
-    color: var(--teal-400);
-    font-weight: 600;
-  }
-
-  .more-destinations {
-    margin-top: 48px;
+  /* Contact */
+  .contact-section {
+    padding: 48px 24px;
+    background-color: #ffffff;
     text-align: center;
   }
 
-  .more-destinations h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 24px;
-    font-weight: 400;
-    color: var(--navy-800);
-    margin-bottom: 20px;
-  }
-
-  .destination-pills {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .destination-pill {
-    display: inline-block;
-    padding: 10px 20px;
-    background: var(--navy-50);
-    border: 1px solid var(--navy-100);
-    border-radius: 6px;
-    color: var(--navy-800);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    transition: all 0.2s;
-  }
-
-  .destination-pill:hover {
-    background: var(--teal-50);
-    border-color: var(--teal-100);
-    color: var(--teal-600);
-  }
-
-  /* Experiences */
-  .experiences-grid {
-    display: grid;
-    gap: 24px;
-  }
-
-  @media (min-width: 640px) {
-    .experiences-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .experiences-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .experience-card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-
-  .experience-card:hover {
-    border-color: var(--teal-400);
-    box-shadow: 0 4px 20px rgba(42, 157, 161, 0.1);
-  }
-
-  .experience-card-icon {
-    width: 56px;
-    height: 56px;
-    background: var(--teal-50);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--teal-600);
-    margin-bottom: 20px;
-  }
-
-  .experience-card h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--navy-800);
-    margin-bottom: 8px;
-  }
-
-  .experience-card p {
-    font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* Features */
-  .features-grid {
-    display: grid;
-    gap: 32px;
-  }
-
-  @media (min-width: 768px) {
-    .features-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .feature-card {
-    text-align: center;
-    padding: 24px;
-  }
-
-  .feature-icon {
-    width: 72px;
-    height: 72px;
-    background: var(--navy-50);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--teal-500);
-    margin: 0 auto 20px;
-  }
-
-  .feature-card h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--navy-800);
-    margin-bottom: 12px;
-  }
-
-  .feature-card p {
+  .contact-section h2 {
+    font-family: 'Oswald', sans-serif;
     font-size: 16px;
-    color: var(--text-secondary);
-    line-height: 1.6;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: #111827;
+    margin: 0 0 16px 0;
+  }
+
+  .contact-phone {
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    color: #111827;
+    margin: 0 0 12px 0;
+  }
+
+  .contact-address {
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: #6b7280;
+    line-height: 1.8;
     margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    .contact-section {
+      padding: 64px 48px;
+    }
+
+    .contact-section h2 {
+      font-size: 18px;
+    }
+
+    .contact-phone {
+      font-size: 16px;
+    }
+
+    .contact-address {
+      font-size: 13px;
+    }
   }
 </style>
+
+<script>
+  const scrollContainer = document.querySelector('.locations-scroll');
+  const leftArrow = document.querySelector('.scroll-left');
+  const rightArrow = document.querySelector('.scroll-right');
+  const cards = document.querySelectorAll('.location-card');
+
+  function updateArrows() {
+    if (!scrollContainer || !leftArrow || !rightArrow) return;
+
+    const scrollLeft = scrollContainer.scrollLeft;
+    const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+    // Show/hide left arrow
+    leftArrow.style.display = scrollLeft <= 0 ? 'none' : 'flex';
+
+    // Show/hide right arrow
+    rightArrow.style.display = scrollLeft >= maxScroll - 1 ? 'none' : 'flex';
+  }
+
+  function updateCenterCard() {
+    if (!scrollContainer || !cards.length) return;
+
+    const containerRect = scrollContainer.getBoundingClientRect();
+    const containerCenter = containerRect.left + containerRect.width / 2;
+    const maxDistance = containerRect.width / 2;
+
+    cards.forEach(card => {
+      const cardRect = card.getBoundingClientRect();
+      const cardCenter = cardRect.left + cardRect.width / 2;
+      const distance = Math.abs(containerCenter - cardCenter);
+
+      // Scale from 0.85 (far) to 1.1 (center)
+      const normalizedDistance = Math.min(distance / maxDistance, 1);
+      const scale = 1.1 - (normalizedDistance * 0.25);
+
+      card.style.transform = `scale(${scale})`;
+      card.style.zIndex = Math.round((1 - normalizedDistance) * 10);
+    });
+  }
+
+  if (scrollContainer && leftArrow && rightArrow) {
+    // Scroll on arrow click
+    leftArrow.addEventListener('click', () => {
+      scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+
+    rightArrow.addEventListener('click', () => {
+      scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+
+    // Update arrows and center card on scroll
+    scrollContainer.addEventListener('scroll', () => {
+      updateArrows();
+      updateCenterCard();
+    });
+
+    // Initial check
+    updateArrows();
+    updateCenterCard();
+  }
+</script>

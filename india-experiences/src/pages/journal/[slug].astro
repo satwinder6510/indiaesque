@@ -1,0 +1,590 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allPages = await getCollection('pages');
+  const paaPages = allPages.filter(page => page.data.type === 'paa');
+
+  return paaPages.map(entry => {
+    const slug = entry.id.split('/').pop()?.replace('.md', '') || '';
+    return {
+      params: { slug },
+      props: { entry, allPages: paaPages },
+    };
+  });
+}
+
+const { entry, allPages } = Astro.props;
+const { Content } = await render(entry);
+
+const {
+  title,
+  description,
+  city,
+  datePublished,
+  dateModified,
+  faq,
+  relatedPages,
+} = entry.data;
+
+const cityName = city ? city.charAt(0).toUpperCase() + city.slice(1) : 'India';
+
+// Get recent journals (excluding current)
+const currentSlug = Astro.params.slug;
+const recentJournals = allPages
+  .filter(p => {
+    const pSlug = p.id.split('/').pop()?.replace('.md', '');
+    return pSlug !== currentSlug;
+  })
+  .sort((a, b) => new Date(b.data.dateModified).getTime() - new Date(a.data.dateModified).getTime())
+  .slice(0, 5);
+
+// Get current index for prev/next navigation
+const sortedPages = allPages.sort((a, b) => new Date(b.data.dateModified).getTime() - new Date(a.data.dateModified).getTime());
+const currentIndex = sortedPages.findIndex(p => {
+  const pSlug = p.id.split('/').pop()?.replace('.md', '');
+  return pSlug === currentSlug;
+});
+const prevArticle = currentIndex > 0 ? sortedPages[currentIndex - 1] : null;
+const nextArticle = currentIndex < sortedPages.length - 1 ? sortedPages[currentIndex + 1] : null;
+
+const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') || '';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+>
+  <!-- Hero -->
+  <section class="article-hero">
+    <img
+      src={entry.data.heroImage || `https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1200&q=80`}
+      alt={title}
+      class="hero-bg"
+    />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-location">{cityName.toUpperCase()}</span>
+      <h1 class="hero-title">{title.toUpperCase()}</h1>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <article class="article-content">
+    <div class="article-inner">
+      <div class="prose">
+        <Content />
+      </div>
+
+      <!-- Author/Date -->
+      <div class="article-meta">
+        <span class="meta-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          Indiaesque
+        </span>
+        <span class="meta-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          {datePublished}
+        </span>
+      </div>
+
+      <!-- Recent Journals -->
+      <div class="recent-journals">
+        <h3>Recent Journals</h3>
+        <ul>
+          {recentJournals.map(journal => (
+            <li>
+              <a href={`/journal/${getSlug(journal)}/`}>{journal.data.title}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Share -->
+      <div class="share-section">
+        <p class="share-text">Why Not?<br/><strong>Share with your friends</strong></p>
+        <div class="share-icons">
+          <a href="#" aria-label="Facebook">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Prev/Next Navigation -->
+      <div class="article-nav">
+        {prevArticle ? (
+          <a href={`/journal/${getSlug(prevArticle)}/`} class="nav-link nav-prev">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Previous
+          </a>
+        ) : <span></span>}
+        {nextArticle ? (
+          <a href={`/journal/${getSlug(nextArticle)}/`} class="nav-link nav-next">
+            Next
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </a>
+        ) : <span></span>}
+      </div>
+    </div>
+  </article>
+
+  <!-- Related Holidays (CTA to commercial pages) -->
+  <section class="related-holidays">
+    <h2>RELATED HOLIDAYS</h2>
+    <p class="related-intro">
+      Explore our curated experiences in {cityName} and discover unforgettable journeys.
+    </p>
+    <a href={`/${city}/`} class="holiday-card">
+      <div class="holiday-image">
+        <img
+          src={`https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80`}
+          alt={`${cityName} Experiences`}
+        />
+      </div>
+      <div class="holiday-content">
+        <span class="holiday-location">{cityName.toUpperCase()}</span>
+        <p class="holiday-desc">
+          Discover authentic experiences, food tours, heritage walks, and more in {cityName}.
+        </p>
+        <div class="holiday-details">
+          <span>Various durations</span>
+          <span>Curated Experiences</span>
+        </div>
+        <div class="holiday-cta">
+          <span>Explore {cityName}</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <h2>STAY UP TO DATE BY SUBSCRIBING<br/>TO OUR NEWSLETTER</h2>
+    <form class="newsletter-form">
+      <input type="text" placeholder="FORENAME" required />
+      <input type="text" placeholder="SURNAME" required />
+      <input type="email" placeholder="EMAIL ADDRESS" required />
+      <button type="submit">SUBSCRIBE</button>
+    </form>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .article-hero {
+    position: relative;
+    height: 350px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    padding-bottom: 40px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 24px;
+    max-width: 600px;
+  }
+
+  .hero-location {
+    display: inline-block;
+    font-family: 'Muli', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    margin-bottom: 12px;
+    opacity: 0.9;
+  }
+
+  .hero-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 36px;
+    }
+  }
+
+  /* Article Content */
+  .article-content {
+    padding: 48px 24px;
+    background-color: #ffffff;
+  }
+
+  .article-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Prose styling */
+  .prose {
+    font-family: 'Muli', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #374151;
+  }
+
+  .prose :global(h2) {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color: #111827;
+    margin: 40px 0 16px 0;
+  }
+
+  .prose :global(h3) {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color: #111827;
+    margin: 32px 0 12px 0;
+  }
+
+  .prose :global(p) {
+    margin: 0 0 20px 0;
+  }
+
+  .prose :global(strong) {
+    font-weight: 600;
+    color: #111827;
+  }
+
+  .prose :global(a) {
+    color: #0d9488;
+    text-decoration: none;
+  }
+
+  .prose :global(a:hover) {
+    text-decoration: underline;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin: 0 0 20px 0;
+    padding-left: 24px;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 8px;
+  }
+
+  .prose :global(ul) {
+    list-style-type: disc;
+  }
+
+  .prose :global(ol) {
+    list-style-type: decimal;
+  }
+
+  /* Article Meta */
+  .article-meta {
+    display: flex;
+    gap: 24px;
+    padding: 24px 0;
+    margin-top: 40px;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Muli', sans-serif;
+    font-size: 13px;
+    color: #6b7280;
+  }
+
+  /* Recent Journals */
+  .recent-journals {
+    padding: 32px 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .recent-journals h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #111827;
+    margin: 0 0 16px 0;
+  }
+
+  .recent-journals ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 0;
+  }
+
+  .recent-journals li {
+    margin-bottom: 10px;
+  }
+
+  .recent-journals a {
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    color: #374151;
+    text-decoration: none;
+  }
+
+  .recent-journals a:hover {
+    color: #0d9488;
+  }
+
+  /* Share */
+  .share-section {
+    padding: 24px 0;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .share-text {
+    font-family: 'Muli', sans-serif;
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .share-text strong {
+    color: #111827;
+  }
+
+  .share-icons {
+    display: flex;
+    gap: 16px;
+  }
+
+  .share-icons a {
+    color: #111827;
+    transition: color 0.2s ease;
+  }
+
+  .share-icons a:hover {
+    color: #0d9488;
+  }
+
+  /* Article Nav */
+  .article-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Muli', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: #111827;
+  }
+
+  /* Related Holidays */
+  .related-holidays {
+    padding: 48px 24px;
+    background-color: #f9fafb;
+  }
+
+  .related-holidays h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-align: center;
+    color: #111827;
+    margin: 0 0 12px 0;
+  }
+
+  .related-intro {
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    color: #6b7280;
+    text-align: center;
+    margin: 0 0 32px 0;
+  }
+
+  .holiday-card {
+    display: block;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .holiday-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+
+  .holiday-image {
+    aspect-ratio: 16/10;
+    overflow: hidden;
+  }
+
+  .holiday-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .holiday-card:hover .holiday-image img {
+    transform: scale(1.03);
+  }
+
+  .holiday-content {
+    padding: 20px;
+  }
+
+  .holiday-location {
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #0d9488;
+  }
+
+  .holiday-desc {
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 12px 0;
+  }
+
+  .holiday-details {
+    display: flex;
+    gap: 16px;
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    color: #9ca3af;
+    margin-bottom: 16px;
+  }
+
+  .holiday-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  /* Newsletter */
+  .newsletter {
+    padding: 64px 24px;
+    background-color: #ffffff;
+    text-align: center;
+  }
+
+  .newsletter h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: #111827;
+    margin: 0 0 32px 0;
+    line-height: 1.5;
+  }
+
+  .newsletter-form {
+    max-width: 320px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .newsletter-form input {
+    padding: 14px 16px;
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    border: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    color: #111827;
+  }
+
+  .newsletter-form input::placeholder {
+    color: #9ca3af;
+  }
+
+  .newsletter-form button {
+    padding: 14px 16px;
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    border: none;
+    background-color: #0d9488;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .newsletter-form button:hover {
+    background-color: #0f766e;
+  }
+</style>

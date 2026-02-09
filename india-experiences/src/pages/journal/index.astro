@@ -1,0 +1,442 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all PAA articles from all cities
+const allPages = await getCollection('pages');
+const articles = allPages
+  .filter(page => page.data.type === 'paa')
+  .sort((a, b) => new Date(b.data.dateModified).getTime() - new Date(a.data.dateModified).getTime());
+
+const totalArticles = articles.length;
+const articlesPerPage = 10;
+const displayedArticles = articles.slice(0, articlesPerPage);
+---
+
+<BaseLayout
+  title="Journals"
+  description="Travel guides, tips, and insights for exploring India. Discover the best food, culture, and experiences across Delhi, Jaipur, Mumbai, and more."
+>
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="/">Home</a>
+    <span class="separator">/</span>
+    <span>Journals</span>
+  </nav>
+
+  <!-- Hero -->
+  <section class="journal-hero">
+    <img
+      src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80"
+      alt="Journals"
+      class="hero-bg"
+    />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tagline">BE INQUISITIVE</p>
+      <h1 class="hero-title">JOURNALS</h1>
+    </div>
+  </section>
+
+  <!-- Articles List -->
+  <section class="articles-section">
+    <div class="articles-list">
+      {displayedArticles.map(article => {
+        const slug = article.id.split('/').pop()?.replace('.md', '') || '';
+        const cityName = article.data.city ? article.data.city.charAt(0).toUpperCase() + article.data.city.slice(1) : 'India';
+        return (
+          <article class="article-card">
+            <a href={`/journal/${slug}/`} class="article-image">
+              <img
+                src={article.data.cardImage || `https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80`}
+                alt={article.data.title}
+                loading="lazy"
+              />
+            </a>
+            <div class="article-content">
+              <h2 class="article-title">
+                <a href={`/journal/${slug}/`}>{article.data.title.toUpperCase()}</a>
+              </h2>
+              <div class="article-meta">
+                <span class="meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  {article.data.datePublished}
+                </span>
+                <span class="meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  {cityName} Guide
+                </span>
+              </div>
+              <p class="article-desc">{article.data.description}</p>
+              <a href={`/journal/${slug}/`} class="read-more">READ MORE</a>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+    <!-- Share -->
+    <div class="share-section">
+      <p class="share-text">Why Not?<br/><strong>Share with your friends</strong></p>
+      <div class="share-icons">
+        <a href="#" aria-label="Facebook">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+          </svg>
+        </a>
+        <a href="#" aria-label="Twitter">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <button class="page-arrow" disabled aria-label="Previous">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <span class="page-number active">01</span>
+      <span class="page-number">02</span>
+      <span class="page-number">03</span>
+      <button class="page-arrow" aria-label="Next">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <h2>STAY UP TO DATE BY SUBSCRIBING<br/>TO OUR NEWSLETTER</h2>
+    <form class="newsletter-form">
+      <input type="text" placeholder="FORENAME" required />
+      <input type="text" placeholder="SURNAME" required />
+      <input type="email" placeholder="EMAIL ADDRESS" required />
+      <button type="submit">SUBSCRIBE</button>
+    </form>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: 16px 24px;
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: #6b7280;
+    background-color: #ffffff;
+  }
+
+  .breadcrumb a {
+    color: #6b7280;
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: #111827;
+  }
+
+  .breadcrumb .separator {
+    margin: 0 8px;
+  }
+
+  /* Hero */
+  .journal-hero {
+    position: relative;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 80, 80, 0.6);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .hero-tagline {
+    font-family: 'Muli', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    margin: 0 0 12px 0;
+    opacity: 0.9;
+  }
+
+  .hero-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 42px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    margin: 0;
+  }
+
+  /* Articles */
+  .articles-section {
+    padding: 40px 24px;
+    background-color: #ffffff;
+  }
+
+  .articles-list {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .article-card {
+    display: block;
+  }
+
+  .article-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .article-card:hover .article-image img {
+    transform: scale(1.03);
+  }
+
+  .article-content {
+    padding: 0;
+  }
+
+  .article-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+    margin: 0 0 12px 0;
+  }
+
+  .article-title a {
+    color: #111827;
+    text-decoration: none;
+  }
+
+  .article-title a:hover {
+    color: #0d9488;
+  }
+
+  .article-meta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 12px;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    color: #6b7280;
+  }
+
+  .meta-item svg {
+    opacity: 0.7;
+  }
+
+  .article-desc {
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+  }
+
+  .read-more {
+    font-family: 'Muli', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #0d9488;
+    text-decoration: none;
+  }
+
+  .read-more:hover {
+    text-decoration: underline;
+  }
+
+  /* Share */
+  .share-section {
+    max-width: 600px;
+    margin: 48px auto;
+    padding: 24px 0;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .share-text {
+    font-family: 'Muli', sans-serif;
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .share-text strong {
+    color: #111827;
+  }
+
+  .share-icons {
+    display: flex;
+    gap: 16px;
+  }
+
+  .share-icons a {
+    color: #111827;
+    transition: color 0.2s ease;
+  }
+
+  .share-icons a:hover {
+    color: #0d9488;
+  }
+
+  /* Pagination */
+  .pagination {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .page-arrow {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: 1px solid #e5e7eb;
+    color: #111827;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .page-arrow:hover:not(:disabled) {
+    border-color: #111827;
+  }
+
+  .page-arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .page-number {
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .page-number.active {
+    color: #111827;
+    font-weight: 600;
+  }
+
+  /* Newsletter */
+  .newsletter {
+    padding: 64px 24px;
+    background-color: #f9fafb;
+    text-align: center;
+  }
+
+  .newsletter h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: #111827;
+    margin: 0 0 32px 0;
+    line-height: 1.5;
+  }
+
+  .newsletter-form {
+    max-width: 320px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .newsletter-form input {
+    padding: 14px 16px;
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    border: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    color: #111827;
+  }
+
+  .newsletter-form input::placeholder {
+    color: #9ca3af;
+  }
+
+  .newsletter-form button {
+    padding: 14px 16px;
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    border: none;
+    background-color: #0d9488;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .newsletter-form button:hover {
+    background-color: #0f766e;
+  }
+</style>
