@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:20:23.471Z",
+  "updatedAt": "2026-02-09T00:21:07.094Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -136,9 +136,9 @@
       "title": "How Many Days Do You Need In Kolkata?",
       "slug": "how-many-days-visit-kolkata",
       "contentDirection": "Answer: 3-5 days ideal for comprehensive visit. 1 day (major highlights), 2 days (heritage + culture), 3-4 days (include food tours, markets, day trips), 5+ days (add Sundarbans, Shantiniketan). Include sample itineraries by duration, must-see vs. optional attractions, and tips for extending stay.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 825,
+      "generatedAt": "2026-02-09T00:21:07.094Z",
       "validationErrors": []
     },
     {
