@@ -108,7 +108,7 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
   </section>
 
   <!-- Staycations -->
-  <section class="staycations">
+  <section class="staycations" id="staycations">
     <h2>Staycations</h2>
     <div class="staycations-wrapper">
       <button class="staycation-arrow staycation-arrow-left" aria-label="Scroll left" style="display: none;">
@@ -137,7 +137,7 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
   </section>
 
   <!-- Top Cities (Horizontal Scroll) -->
-  <section class="popular-locations">
+  <section class="popular-locations" id="destinations">
     <h2>Top Cities to Visit</h2>
     <div class="locations-wrapper">
       <button class="scroll-arrow scroll-left" aria-label="Scroll left" style="display: none;">
@@ -182,7 +182,7 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
   </section>
 
   <!-- Categories Grid -->
-  <section class="categories">
+  <section class="categories" id="experiences">
     <h2>Experience Types</h2>
     <div class="categories-grid">
       {categories.map(cat => (
