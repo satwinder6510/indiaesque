@@ -1,0 +1,625 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { DESTINATIONS, searchProducts, getDestinationId, VIATOR_TAGS } from '../lib/viator';
+
+export async function getStaticPaths() {
+  return Object.keys(DESTINATIONS).map(city => ({
+    params: { city },
+    props: { cityData: DESTINATIONS[city as keyof typeof DESTINATIONS] }
+  }));
+}
+
+const { city } = Astro.params;
+const { cityData } = Astro.props;
+
+// City-specific content
+const cityContent: Record<string, {
+  tagline: string;
+  description: string;
+  heroImage: string;
+  highlights: string[];
+}> = {
+  delhi: {
+    tagline: 'WHERE HISTORY MEETS MODERNITY',
+    description: 'From ancient monuments to bustling bazaars, Delhi offers a fascinating blend of old-world charm and contemporary culture. Explore Mughal architecture, taste legendary street food, and discover hidden gems in every corner.',
+    heroImage: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600&q=80',
+    highlights: ['Red Fort & Jama Masjid', 'Chandni Chowk Food Trail', 'Humayun\'s Tomb', 'Qutub Minar'],
+  },
+  jaipur: {
+    tagline: 'THE PINK CITY',
+    description: 'Step into a world of royal grandeur in Jaipur. Marvel at magnificent palaces, explore vibrant markets filled with traditional crafts, and experience the warm hospitality of Rajasthan.',
+    heroImage: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?w=1600&q=80',
+    highlights: ['Amber Fort', 'Hawa Mahal', 'City Palace', 'Jantar Mantar'],
+  },
+  mumbai: {
+    tagline: 'THE CITY OF DREAMS',
+    description: 'Experience the energy of India\'s most dynamic city. From colonial architecture to Bollywood glamour, street food to fine dining, Mumbai never stops surprising.',
+    heroImage: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=1600&q=80',
+    highlights: ['Gateway of India', 'Dharavi Art Walk', 'Marine Drive', 'Elephanta Caves'],
+  },
+  goa: {
+    tagline: 'SUN, SAND & SOUL',
+    description: 'Discover the perfect blend of beach relaxation and cultural exploration. Portuguese heritage, pristine beaches, and a laid-back vibe make Goa unforgettable.',
+    heroImage: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=1600&q=80',
+    highlights: ['Old Goa Churches', 'Spice Plantations', 'Beach Hopping', 'Sunset Cruises'],
+  },
+  agra: {
+    tagline: 'HOME OF THE TAJ MAHAL',
+    description: 'Witness one of the world\'s most iconic monuments and explore the rich Mughal heritage of this historic city on the banks of the Yamuna.',
+    heroImage: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1600&q=80',
+    highlights: ['Taj Mahal', 'Agra Fort', 'Mehtab Bagh', 'Fatehpur Sikri'],
+  },
+  varanasi: {
+    tagline: 'THE SPIRITUAL HEART OF INDIA',
+    description: 'Experience the oldest living city in the world. Witness ancient rituals on the ghats of the Ganges and discover profound spiritual traditions.',
+    heroImage: 'https://images.unsplash.com/photo-1561361058-c24cecae35ca?w=1600&q=80',
+    highlights: ['Ganga Aarti', 'Boat Ride at Dawn', 'Temple Walks', 'Silk Weaving'],
+  },
+  kolkata: {
+    tagline: 'THE CITY OF JOY',
+    description: 'Immerse yourself in art, literature, and culinary traditions in India\'s cultural capital. From colonial grandeur to artistic expression, Kolkata captivates.',
+    heroImage: 'https://images.unsplash.com/photo-1558431382-27e303142255?w=1600&q=80',
+    highlights: ['Victoria Memorial', 'Kumartuli', 'College Street', 'Bengali Cuisine'],
+  },
+  udaipur: {
+    tagline: 'THE CITY OF LAKES',
+    description: 'Romance awaits in this enchanting city of shimmering lakes and fairy-tale palaces. Udaipur is Rajasthan at its most magical.',
+    heroImage: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1600&q=80',
+    highlights: ['Lake Pichola', 'City Palace', 'Jagdish Temple', 'Sunset Boat Ride'],
+  },
+};
+
+const content = cityContent[city as string] || cityContent.delhi;
+
+// Get curated experiences from content collection
+const allPages = await getCollection('pages');
+const curatedExperiences = allPages
+  .filter(page => page.data.type === 'experience' && page.data.city === city)
+  .slice(0, 3);
+
+// Get more experiences from Viator (or mock data)
+const destId = getDestinationId(city as string);
+const viatorExperiences = destId ? await searchProducts({ destId, limit: 6 }) : [];
+
+// Get related journal articles for SEO funnel
+const journalArticles = allPages
+  .filter(page => page.data.type === 'paa' && page.data.city === city)
+  .sort((a, b) => new Date(b.data.dateModified).getTime() - new Date(a.data.dateModified).getTime())
+  .slice(0, 3);
+
+const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') || '';
+---
+
+<BaseLayout
+  title={`${cityData.name} Experiences | Indiaesque`}
+  description={content.description}
+>
+  <!-- Hero -->
+  <section class="hero">
+    <img src={content.heroImage} alt={cityData.name} class="hero-bg" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-tagline">{content.tagline}</span>
+      <h1 class="hero-title">{cityData.name.toUpperCase()}</h1>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="/">Home</a>
+    <span class="separator">/</span>
+    <span>{cityData.name}</span>
+  </nav>
+
+  <!-- Introduction -->
+  <section class="intro">
+    <p class="intro-text">{content.description}</p>
+    <div class="highlights">
+      <h3>HIGHLIGHTS</h3>
+      <ul>
+        {content.highlights.map(h => <li>{h}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Curated Experiences (Your Hand-Picked Content) -->
+  {curatedExperiences.length > 0 && (
+    <section class="curated-section">
+      <h2>Our Curated Experiences</h2>
+      <p class="section-desc">Hand-picked journeys designed by our local experts</p>
+      <div class="curated-grid">
+        {curatedExperiences.map(exp => (
+          <a href={`/experiences/${getSlug(exp)}/`} class="curated-card">
+            <div class="card-image">
+              <img src={exp.data.cardImage || 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80'} alt={exp.data.title} />
+            </div>
+            <div class="card-content">
+              <h3>{exp.data.title}</h3>
+              <p>{exp.data.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- More Experiences (Viator API) -->
+  <section class="viator-section">
+    <h2>More Experiences in {cityData.name}</h2>
+    <p class="section-desc">Popular tours and activities from our partners</p>
+    <div class="experiences-grid">
+      {viatorExperiences.map(exp => (
+        <a href={exp.bookingLink} target="_blank" rel="noopener" class="experience-card">
+          <div class="card-image">
+            <img src={exp.images[0]?.url || 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80'} alt={exp.title} loading="lazy" />
+            <div class="card-info">
+              <span class="card-duration">{exp.duration}</span>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3>{exp.title}</h3>
+            <div class="card-meta">
+              <span class="rating">{'★'.repeat(Math.round(exp.rating))} {exp.rating.toFixed(1)}</span>
+              <span class="reviews">({exp.reviewCount} reviews)</span>
+            </div>
+            <p class="card-desc">{exp.description}</p>
+            <div class="card-footer">
+              <span class="price">From ${exp.price.amount}</span>
+              <span class="book-btn">BOOK NOW</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Related Journals (SEO Funnel) -->
+  {journalArticles.length > 0 && (
+    <section class="journals-section">
+      <h2>Travel Guides for {cityData.name}</h2>
+      <div class="journals-list">
+        {journalArticles.map(article => (
+          <a href={`/journal/${getSlug(article)}/`} class="journal-link">
+            <span class="journal-title">{article.data.title}</span>
+            <span class="arrow">→</span>
+          </a>
+        ))}
+      </div>
+      <a href="/journal/" class="view-all">View All Journals</a>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>PLAN YOUR {cityData.name.toUpperCase()} JOURNEY</h2>
+    <p>Let us help you create your perfect itinerary</p>
+    <a href="/contact/" class="cta-btn">GET IN TOUCH</a>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .hero {
+    position: relative;
+    height: 70vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 24px;
+  }
+
+  .hero-tagline {
+    display: block;
+    font-family: 'Muli', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    margin-bottom: 16px;
+    opacity: 0.9;
+  }
+
+  .hero-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    margin: 0;
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: 16px 24px;
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: #6b7280;
+    background-color: #ffffff;
+  }
+
+  .breadcrumb a {
+    color: #6b7280;
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: #111827;
+  }
+
+  .breadcrumb .separator {
+    margin: 0 8px;
+  }
+
+  /* Introduction */
+  .intro {
+    padding: 48px 24px;
+    background-color: #ffffff;
+  }
+
+  .intro-text {
+    font-family: 'Muli', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #4b5563;
+    max-width: 700px;
+    margin: 0 0 32px 0;
+  }
+
+  .highlights h3 {
+    font-family: 'Muli', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: #111827;
+    margin: 0 0 16px 0;
+  }
+
+  .highlights ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .highlights li {
+    font-family: 'Muli', sans-serif;
+    font-size: 13px;
+    color: #6b7280;
+    padding: 8px 16px;
+    border: 1px solid #e5e7eb;
+  }
+
+  /* Section Styles */
+  .curated-section,
+  .viator-section,
+  .journals-section {
+    padding: 48px 24px;
+  }
+
+  .curated-section {
+    background-color: #f9fafb;
+  }
+
+  .viator-section {
+    background-color: #ffffff;
+  }
+
+  .journals-section {
+    background-color: #f9fafb;
+  }
+
+  .curated-section h2,
+  .viator-section h2,
+  .journals-section h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #111827;
+    margin: 0 0 8px 0;
+  }
+
+  .section-desc {
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0 0 32px 0;
+  }
+
+  /* Experience Cards Grid */
+  .curated-grid,
+  .experiences-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .curated-card,
+  .experience-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: #ffffff;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+
+  .curated-card:hover,
+  .experience-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .card-image {
+    position: relative;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .curated-card:hover .card-image img,
+  .experience-card:hover .card-image img {
+    transform: scale(1.05);
+  }
+
+  .card-info {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+
+  .card-duration {
+    font-family: 'Muli', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    background: rgba(0,0,0,0.6);
+    padding: 4px 10px;
+  }
+
+  .card-content {
+    padding: 16px;
+  }
+
+  .card-content h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color: #111827;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .rating {
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    color: #E9CDB0;
+  }
+
+  .reviews {
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    color: #9ca3af;
+  }
+
+  .card-desc {
+    font-family: 'Muli', sans-serif;
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.5;
+    margin: 0 0 12px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid #f3f4f6;
+  }
+
+  .price {
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  .book-btn {
+    font-family: 'Muli', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #0d9488;
+  }
+
+  /* Journals Section */
+  .journals-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .journal-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: #ffffff;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .journal-link:hover {
+    background: #f3f4f6;
+  }
+
+  .journal-title {
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    color: #111827;
+  }
+
+  .arrow {
+    color: #0d9488;
+    font-size: 18px;
+  }
+
+  .view-all {
+    display: inline-block;
+    font-family: 'Muli', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #0d9488;
+    text-decoration: underline;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 64px 24px;
+    background-color: #111827;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+  }
+
+  .cta-section p {
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    color: #9ca3af;
+    margin: 0 0 32px 0;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #111827;
+    background: #E9CDB0;
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .cta-btn:hover {
+    background: #d4b896;
+  }
+
+  /* Desktop Styles */
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 64px;
+    }
+
+    .intro {
+      padding: 64px 48px;
+    }
+
+    .intro-text {
+      font-size: 16px;
+    }
+
+    .curated-section,
+    .viator-section,
+    .journals-section {
+      padding: 64px 48px;
+    }
+
+    .curated-section h2,
+    .viator-section h2,
+    .journals-section h2 {
+      text-align: center;
+      font-size: 26px;
+    }
+
+    .section-desc {
+      text-align: center;
+    }
+
+    .curated-grid {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .experiences-grid {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .journals-list {
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+
+    .cta-section {
+      padding: 80px 48px;
+    }
+
+    .cta-section h2 {
+      font-size: 28px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .experiences-grid {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1100px;
+    }
+  }
+</style>
