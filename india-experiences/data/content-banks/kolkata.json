@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:18:36.333Z",
+  "updatedAt": "2026-02-09T00:19:35.100Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -112,9 +112,9 @@
       "title": "Best Markets In Kolkata — 2026 Guide",
       "slug": "markets-shopping",
       "contentDirection": "Cover New Market (Sir Stuart Hogg Market), College Street book market (world's largest secondhand), Gariahat market, Hatibagan market. Include bargaining tips, price ranges, opening hours (usually 10 AM - 8 PM), what to buy (textiles, books, spices), and safety tips for crowded areas.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1267,
+      "generatedAt": "2026-02-09T00:19:35.100Z",
       "validationErrors": []
     },
     {
