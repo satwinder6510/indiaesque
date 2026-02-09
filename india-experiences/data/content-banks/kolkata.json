@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:19:35.100Z",
+  "updatedAt": "2026-02-09T00:20:23.471Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -124,9 +124,9 @@
       "title": "Is Kolkata Safe For Tourists?",
       "slug": "is-kolkata-safe-for-tourists",
       "contentDirection": "Answer directly: Yes, Kolkata is India's safest city for 3rd consecutive year with 86.5 crime cases per lakh. Cover safety by area (avoid Sealdah/parts of Howrah, safer areas: Ballygunge, New Alipore, Park Street), common petty crimes, taxi scams, solo female travel tips, emergency numbers (tourist helpline: 1800-11-1363).",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1046,
+      "generatedAt": "2026-02-09T00:20:23.471Z",
       "validationErrors": []
     },
     {
