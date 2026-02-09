@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City - Indiaesque Admin</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Indiaesque Admin</h1>
+    <nav>
+      <a href="/">Dashboard</a>
+      <span>/</span>
+      <span id="city-name">City</span>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab active" data-tab="content-bank">Content Bank</button>
+      <button class="tab" data-tab="research">Research</button>
+      <button class="tab" data-tab="generation">Generation</button>
+      <button class="tab" data-tab="validation">Validation</button>
+      <button class="tab" data-tab="files">Files</button>
+    </div>
+
+    <!-- Content Bank Tab -->
+    <div id="tab-content-bank" class="tab-content active">
+      <div class="card">
+        <h2>Content Bank</h2>
+        <div id="content-bank-pages">
+          <div class="empty-state">Loading...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Research Tab -->
+    <div id="tab-research" class="tab-content">
+      <div class="card">
+        <h2>Research</h2>
+        <p style="margin-bottom: 1rem; color: var(--text-muted)">
+          Run research to discover PAA questions and generate content direction briefs using Claude with web search.
+        </p>
+        <button id="btn-research" class="btn btn-primary" onclick="runResearch()">Run Research</button>
+        <div class="log-output" id="research-log" style="margin-top: 1rem; min-height: 200px;">
+          Ready to run research...
+        </div>
+      </div>
+    </div>
+
+    <!-- Generation Tab -->
+    <div id="tab-generation" class="tab-content">
+      <div class="card">
+        <h2>Generate Content</h2>
+        <p style="margin-bottom: 1rem; color: var(--text-muted)">
+          Select pages from the content bank to generate. Pages are generated sequentially.
+        </p>
+        <div id="generate-pages" style="margin-bottom: 1rem;">
+          <p>Load content bank first to select pages...</p>
+        </div>
+        <button id="btn-generate" class="btn btn-primary" onclick="runGeneration()">Generate Selected</button>
+        <div class="log-output" id="generate-log" style="margin-top: 1rem; min-height: 200px;">
+          Ready to generate...
+        </div>
+      </div>
+    </div>
+
+    <!-- Validation Tab -->
+    <div id="tab-validation" class="tab-content">
+      <div class="card">
+        <h2>Validation</h2>
+        <p style="margin-bottom: 1rem; color: var(--text-muted)">
+          Validate generated content against the technical architecture requirements.
+        </p>
+        <button id="btn-validate" class="btn btn-primary" onclick="runValidation()">Run Validation</button>
+        <div id="validation-results" style="margin-top: 1rem;">
+          Click to run validation...
+        </div>
+      </div>
+    </div>
+
+    <!-- Files Tab -->
+    <div id="tab-files" class="tab-content">
+      <div class="card">
+        <h2>Content Files</h2>
+        <div id="files-list">
+          <div class="empty-state">Loading...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

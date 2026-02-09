@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indiaesque Admin</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Indiaesque Admin</h1>
+    <nav>
+      <a href="/">Dashboard</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Summary Stats -->
+    <div class="stats-grid" id="stats">
+      <div class="stat-card">
+        <div class="value" id="stat-cities">--</div>
+        <div class="label">Cities</div>
+      </div>
+      <div class="stat-card">
+        <div class="value" id="stat-started">--</div>
+        <div class="label">Cities Started</div>
+      </div>
+      <div class="stat-card">
+        <div class="value" id="stat-pages">--</div>
+        <div class="label">Total Pages</div>
+      </div>
+      <div class="stat-card">
+        <div class="value" id="stat-generated">--</div>
+        <div class="label">Generated</div>
+      </div>
+    </div>
+
+    <!-- Cities Table -->
+    <div class="card">
+      <h2>Cities</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>City</th>
+            <th>Tier</th>
+            <th>Status</th>
+            <th>Content Bank</th>
+            <th>Generated</th>
+            <th>Validated</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="cities-table">
+          <tr>
+            <td colspan="7" class="empty-state">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Categories Reference -->
+    <div class="card">
+      <h2>Experience Categories</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Slug</th>
+            <th>Cross-City Slug</th>
+          </tr>
+        </thead>
+        <tbody id="categories-table">
+          <tr>
+            <td colspan="3" class="empty-state">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
