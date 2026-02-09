@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:38:02.760Z",
+  "updatedAt": "2026-02-09T00:38:48.352Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -412,9 +412,9 @@
       "title": "Maidan Kolkata Guide",
       "slug": "maidan-kolkata",
       "contentDirection": "Cover largest urban park in India, morning activities (horse riding, jogging), cricket grounds, Eden Gardens stadium, Victoria Memorial location, free entry, evening gatherings, food stalls, safety (well-lit areas), and central location accessibility.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 978,
+      "generatedAt": "2026-02-09T00:38:48.352Z",
       "validationErrors": []
     },
     {
