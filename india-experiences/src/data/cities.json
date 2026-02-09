@@ -6,8 +6,8 @@
     "lat": "28.6139",
     "lng": "77.2090",
     "description": "India's capital city, home to Mughal architecture, world-class street food, and 174 protected heritage monuments.",
-    "heroImage": "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1200&q=80",
-    "cardImage": "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&q=80",
+    "heroImage": "/images/cities/delhi-hero.jpg",
+    "cardImage": "/images/cities/delhi-card.jpg",
     "bestMonths": [10, 11, 12, 1, 2, 3],
     "goodMonths": [4, 9]
   },
