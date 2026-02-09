@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:40:09.190Z",
+  "updatedAt": "2026-02-09T00:40:53.307Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -448,9 +448,9 @@
       "title": "Shantiniketan Day Trip From Kolkata",
       "slug": "shantiniketan-day-trip-kolkata",
       "contentDirection": "Cover Rabindranath Tagore's university town, distance (165km, 3-4 hours), train connections, Visva Bharati University, handicraft shopping, local art, best visiting season, day trip vs overnight stay options, cultural significance, and Tagore museum.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 857,
+      "generatedAt": "2026-02-09T00:40:53.307Z",
       "validationErrors": []
     },
     {
