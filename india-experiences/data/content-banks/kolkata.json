@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:39:27.835Z",
+  "updatedAt": "2026-02-09T00:40:09.190Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -436,9 +436,9 @@
       "title": "Mother Teresa House Kolkata Guide",
       "slug": "mother-teresa-house-kolkata",
       "contentDirection": "Cover Motherhouse location, visiting hours (8-11:45 AM, 3-6 PM), Mother Teresa's tomb, museum, volunteers welcome, dress code requirements, free entry, photography restrictions, nearby Kalighat Temple, and respectful visiting guidelines.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 951,
+      "generatedAt": "2026-02-09T00:40:09.190Z",
       "validationErrors": []
     },
     {
