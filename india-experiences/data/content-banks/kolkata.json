@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:13:42.638Z",
+  "updatedAt": "2026-02-09T00:16:24.191Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -76,9 +76,9 @@
       "title": "Things To Do In Kolkata — 2026 Guide",
       "slug": "_index",
       "contentDirection": "Comprehensive hub linking to all categories. Cover top 15-20 experiences, best time to visit (October-February), 3-5 day itinerary suggestions, safety overview (India's safest city), transport options, and practical info. Include sections for first-time visitors, cultural significance as Bengal's intellectual capital, and city overview. 2,500-3,000 words.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 2297,
+      "generatedAt": "2026-02-09T00:16:24.191Z",
       "validationErrors": []
     },
     {
