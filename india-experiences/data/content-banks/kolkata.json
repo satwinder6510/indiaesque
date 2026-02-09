@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:46:10.194Z",
+  "updatedAt": "2026-02-09T00:47:02.007Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -544,9 +544,9 @@
       "title": "Visiting Kolkata With Kids",
       "slug": "kolkata-with-kids",
       "contentDirection": "Cover family-friendly attractions (Science City, Zoo, Eco Park), child-friendly restaurants, stroller accessibility challenges, safety considerations, entertainment options, educational value, suitable accommodation, transport with children, and age-appropriate activities.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1084,
+      "generatedAt": "2026-02-09T00:47:02.007Z",
       "validationErrors": []
     },
     {
