@@ -90,8 +90,8 @@
     "lat": "25.3176",
     "lng": "83.0064",
     "description": "One of the world's oldest continuously inhabited cities, the spiritual heart of Hinduism on the banks of the Ganges.",
-    "heroImage": "https://images.unsplash.com/photo-1561361058-c24cecae35ca?w=1200&q=80",
-    "cardImage": "https://images.unsplash.com/photo-1561361058-c24cecae35ca?w=500&q=80",
+    "heroImage": "/images/cities/varanasi-hero.jpg",
+    "cardImage": "/images/cities/varanasi-card.jpg",
     "bestMonths": [
       10,
       11,
