@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:25:44.416Z",
+  "updatedAt": "2026-02-09T00:26:28.760Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -220,9 +220,9 @@
       "title": "Victoria Memorial Kolkata Guide",
       "slug": "victoria-memorial-kolkata",
       "contentDirection": "Cover entry fee (INR 30 Indians, INR 200 foreigners), timings (10 AM-5 PM, closed Mondays), laser show (evening), museum collections, photography allowed in gardens only, best visiting times (early morning), nearby attractions within walking distance, parking availability.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 966,
+      "generatedAt": "2026-02-09T00:26:28.760Z",
       "validationErrors": []
     },
     {
