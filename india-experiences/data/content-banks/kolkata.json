@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:24:01.180Z",
+  "updatedAt": "2026-02-09T00:24:55.774Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -196,9 +196,9 @@
       "title": "Kolkata Travel Tips",
       "slug": "kolkata-travel-tips",
       "contentDirection": "Cover currency (Indian Rupee), language (Bengali, Hindi, English widely spoken), dress code for temples, bargaining in markets, food safety, avoiding monsoon season, booking heritage walk permits, photography restrictions, cultural etiquette, tipping practices (10-15%), and local customs.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1013,
+      "generatedAt": "2026-02-09T00:24:55.774Z",
       "validationErrors": []
     },
     {
