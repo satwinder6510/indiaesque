@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:32:03.987Z",
+  "updatedAt": "2026-02-09T00:32:44.828Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -316,9 +316,9 @@
       "title": "College Street Book Market Guide",
       "slug": "college-street-book-market",
       "contentDirection": "Cover world's largest secondhand book market claim, bargaining tips, rare book finds, academic books availability, Coffee House nearby, browsing time needed (2-3 hours), price ranges (INR 20-500), best sections for different interests, transport connectivity.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 854,
+      "generatedAt": "2026-02-09T00:32:44.828Z",
       "validationErrors": []
     },
     {
