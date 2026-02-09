@@ -214,5 +214,17 @@
       2,
       6
     ]
+  },
+  {
+    "name": "Amritsar",
+    "slug": "amritsar",
+    "tier": 2,
+    "lat": "0",
+    "lng": "0",
+    "description": "",
+    "heroImage": "",
+    "cardImage": "",
+    "bestMonths": [],
+    "goodMonths": []
   }
 ]
