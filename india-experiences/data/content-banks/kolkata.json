@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:47:02.007Z",
+  "updatedAt": "2026-02-09T00:47:49.969Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -556,9 +556,9 @@
       "title": "Solo Female Travel In Kolkata",
       "slug": "solo-female-travel-kolkata",
       "contentDirection": "Cover safety aspects (safest Indian city), recommended areas to stay, precautions after dark, women-only metro coaches, cultural sensitivities, appropriate dressing, connecting with other travelers, emergency contacts, and confidence tips for navigating the city.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1040,
+      "generatedAt": "2026-02-09T00:47:49.969Z",
       "validationErrors": []
     },
     {
