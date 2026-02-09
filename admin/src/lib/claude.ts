@@ -47,7 +47,6 @@ export async function researchCity(
 
   // Use agentic loop to handle tool use
   const messages: Anthropic.MessageParam[] = [{ role: "user", content: prompt }];
-  let finalText = "";
   let iterations = 0;
   const maxIterations = 20; // Prevent infinite loops
 
@@ -66,16 +65,21 @@ export async function researchCity(
       messages,
     });
 
-    // Collect all text from this response
-    for (const block of response.content) {
-      if (block.type === "text") {
-        finalText += block.text;
-      }
-    }
-
-    // If Claude is done (end_turn), we have our final response
+    // If Claude is done (end_turn), extract text from THIS response only
     if (response.stop_reason === "end_turn") {
-      break;
+      let finalText = "";
+      for (const block of response.content) {
+        if (block.type === "text") {
+          finalText += block.text;
+        }
+      }
+
+      if (!finalText) {
+        throw new Error("No text content in final response");
+      }
+
+      // Parse the JSON response
+      return parseResearchJSON(finalText);
     }
 
     // If Claude wants to use tools, add this response and continue
@@ -95,12 +99,7 @@ export async function researchCity(
     }
   }
 
-  if (!finalText) {
-    throw new Error("No text content in response after research");
-  }
-
-  // Parse the JSON response - try multiple patterns
-  return parseResearchJSON(finalText);
+  throw new Error("Research did not complete within maximum iterations");
 }
 
 /**
