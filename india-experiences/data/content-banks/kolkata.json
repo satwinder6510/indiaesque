@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:28:18.065Z",
+  "updatedAt": "2026-02-09T00:29:06.295Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -256,9 +256,9 @@
       "title": "Best Bengali Sweets In Kolkata",
       "slug": "bengali-sweets-kolkata",
       "contentDirection": "Cover famous sweet shops: KC Das (original Rosogulla), Bhim Nag, Girish Chandra Dey, Nakur. Include must-try sweets: Rosogulla (INR 120/kg), Sandesh, Mishti Doi, Rasamalai, prices, shelf life, best shops by area, and sweet-making process tours available.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 866,
+      "generatedAt": "2026-02-09T00:29:06.295Z",
       "validationErrors": []
     },
     {
