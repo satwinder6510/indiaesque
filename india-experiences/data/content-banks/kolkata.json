@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:47:49.969Z",
+  "updatedAt": "2026-02-09T00:48:40.616Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -568,9 +568,9 @@
       "title": "Kolkata Airport Guide",
       "slug": "kolkata-airport-guide",
       "contentDirection": "Cover Netaji Subhas Chandra Bose International Airport, distance from city (17km), transport options (prepaid taxi INR 300-400, metro connection), facilities, currency exchange, food options, nearby hotels, parking, and arrival/departure procedures.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 972,
+      "generatedAt": "2026-02-09T00:48:40.616Z",
       "validationErrors": []
     },
     {
