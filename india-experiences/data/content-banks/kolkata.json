@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:16:24.191Z",
+  "updatedAt": "2026-02-09T00:17:34.362Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -88,9 +88,9 @@
       "title": "Best Food Tours In Kolkata — 2026 Guide",
       "slug": "food-tours",
       "contentDirection": "Overview of food tour options including Kolkata Food Walk (volunteer-run), private tours, and self-guided routes. Cover Park Street restaurants, street food areas like New Market and North Kolkata, price ranges (INR 50-500 per dish), famous eateries like Arsalan, Peter Cat, Mocambo. Include Bengali cuisine specialties and Chinese quarter in Tangra.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1391,
+      "generatedAt": "2026-02-09T00:17:34.362Z",
       "validationErrors": []
     },
     {
