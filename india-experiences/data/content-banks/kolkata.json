@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:37:22.852Z",
+  "updatedAt": "2026-02-09T00:38:02.760Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -400,9 +400,9 @@
       "title": "Science City Kolkata Guide",
       "slug": "science-city-kolkata",
       "contentDirection": "Cover largest science center in subcontinent, entry fees (different sections INR 30-200), Space Odyssey, 3D theaters, Dynamotion Hall, time needed (full day), advance booking online, parking availability, food courts, and ideal for families with children.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 853,
+      "generatedAt": "2026-02-09T00:38:02.760Z",
       "validationErrors": []
     },
     {
