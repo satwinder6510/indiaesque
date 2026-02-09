@@ -13,10 +13,7 @@ schema:
   - FAQPage
 relatedPages:
   - /kolkata/
-  - /kolkata/heritage-sites/
-  - /kolkata/food-tours/
-  - /kolkata/is-kolkata-safe-for-tourists/
-  - /kolkata/best-time-visit-kolkata/
+  - /journal/bengali-sweets-kolkata/
 parentPage: "/kolkata/"
 faq:
   - question: "Is Kolkata really the safest city in India?"
@@ -45,7 +42,7 @@ The British left Kolkata with architectural treasures that define the city's sky
 
 Howrah Bridge, officially called Rabindra Setu, carries 100,000 vehicles and 150,000 pedestrians daily. This cantilever bridge spans 705 meters across the Hooghly River without a single pillar in the water. The best views come from Millennium Park on the opposite bank.
 
-Other colonial structures include Writers' Building (former government secretariat), General Post Office with its iconic dome, and the High Court building. [Exploring these heritage sites](https://example.com/kolkata/heritage-sites/) requires 2-3 days to appreciate fully.
+Other colonial structures include Writers' Building (former government secretariat), General Post Office with its iconic dome, and the High Court building. Exploring these heritage sites requires 2-3 days to appreciate fully.
 
 ## Street Food and Bengali Sweets
 
@@ -55,13 +52,13 @@ Park Street offers late-night food crawls, while areas like Decker's Lane and Co
 
 Bengali sweets hold special significance. KC Das at Esplanade claims to have invented rosogulla in 1868, though Odisha disputes this. A box of assorted sweets costs ₹400-800 ($5-10) from established shops like Balaram Mullick & Radharaman Mullick.
 
-[Food tours](https://example.com/kolkata/food-tours/) typically cost ₹1,500-3,000 ($18-36) and cover 8-12 food stops across different neighborhoods.
+Food tours typically cost ₹1,500-3,000 ($18-36) and cover 8-12 food stops across different neighborhoods.
 
 ## Safety Record
 
 Kolkata consistently ranks as India's safest major city according to National Crime Records Bureau data. The crime rate per 100,000 people is significantly lower than Delhi or Mumbai. Women travelers report feeling safer walking alone here, even at night in well-lit areas.
 
-The city's safety reputation comes from strong community bonds, active local police presence, and cultural values that emphasize respect for visitors. [Safety for tourists](https://example.com/kolkata/is-kolkata-safe-for-tourists/) remains high across all major tourist areas.
+The city's safety reputation comes from strong community bonds, active local police presence, and cultural values that emphasize respect for visitors. Safety for tourists remains high across all major tourist areas.
 
 ## Durga Puja - The Grand Festival
 

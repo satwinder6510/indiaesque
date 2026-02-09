@@ -71,19 +71,19 @@ Hotel staff expect ₹50-100 per service - bellhops, room service, housekeeping.
 
 Taxi drivers using meters don't expect tips, but round up the fare for convenience. Airport transfer drivers usually get ₹50-100 depending on distance and luggage handling.
 
-## [Food Safety and Local Dining](https://www.example.com/jaipur/food/)
+## Food Safety and Local Dining
 
 Stick to busy restaurants with high turnover for the freshest food. Street food from popular stalls stays safer than empty vendors with old ingredients. Drink bottled water - even locals avoid tap water in many areas.
 
 Popular breakfast spots like Tapri Central and Anokhi Café maintain good hygiene standards. For dinner, restaurants in major hotels or well-reviewed places on MI Road offer safer options for sensitive stomachs.
 
-[Local street food](https://www.example.com/jaipur/best-street-food-jaipur/) like pyaaz kachori and dal baati churma taste amazing, but build up tolerance gradually if you're not used to spicy Indian food.
+Local street food like pyaaz kachori and dal baati churma taste amazing, but build up tolerance gradually if you're not used to spicy Indian food.
 
 ## Transportation Tips
 
 Pre-paid taxi counters at the airport and railway station offer fixed rates - always use these instead of random taxi touts. Auto-rickshaw meters often "don't work" - negotiate fixed prices before starting your journey.
 
-Download ride-hailing apps like Ola and Uber for transparent pricing within the city. [Getting around Jaipur](https://www.example.com/jaipur/getting-around-jaipur/) becomes easier with these apps, especially during peak hours when rickshaw drivers inflate prices.
+Download ride-hailing apps like Ola and Uber for transparent pricing within the city. Getting around Jaipur becomes easier with these apps, especially during peak hours when rickshaw drivers inflate prices.
 
 The Jaipur Metro connects major areas efficiently for ₹5-15 per trip. Buy a smart card for ₹50 plus balance to avoid token queues.
 

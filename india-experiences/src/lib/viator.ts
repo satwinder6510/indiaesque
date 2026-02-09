@@ -26,7 +26,14 @@ export const DESTINATIONS = {
   varanasi: { id: 960, name: 'Varanasi' },
   kolkata: { id: 951, name: 'Kolkata' },
   udaipur: { id: 959, name: 'Udaipur' },
+  kerala: { id: 949, name: 'Kerala' },
 };
+
+export interface ViatorImage {
+  url: string;
+  width: number;
+  height: number;
+}
 
 export interface ViatorProduct {
   productCode: string;
@@ -39,7 +46,8 @@ export interface ViatorProduct {
   };
   rating: number;
   reviewCount: number;
-  images: { url: string }[];
+  imageUrl: string; // Best-fit image for our cards
+  imageLarge: string; // Larger image for hero/detail views
   bookingLink: string;
 }
 
@@ -88,6 +96,29 @@ export async function searchProducts(params: SearchParams): Promise<ViatorProduc
   }
 }
 
+// Select best image variant for a target width
+function selectBestImage(images: any[], targetWidth: number): string {
+  if (!images || images.length === 0) {
+    return 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80';
+  }
+
+  // Find cover image first, or use first image
+  const coverImage = images.find((img: any) => img.isCover) || images[0];
+
+  if (!coverImage.variants || coverImage.variants.length === 0) {
+    return coverImage.url || 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80';
+  }
+
+  // Sort variants by width and find the best fit
+  const variants = coverImage.variants.sort((a: any, b: any) => a.width - b.width);
+
+  // Find the smallest variant that's at least as wide as target
+  const bestFit = variants.find((v: any) => v.width >= targetWidth);
+
+  // If no variant is large enough, use the largest available
+  return bestFit?.url || variants[variants.length - 1]?.url || coverImage.url;
+}
+
 function transformProducts(products: any[]): ViatorProduct[] {
   return products.map(p => ({
     productCode: p.productCode,
@@ -102,7 +133,8 @@ function transformProducts(products: any[]): ViatorProduct[] {
     },
     rating: p.reviews?.combinedAverageRating || 0,
     reviewCount: p.reviews?.totalReviews || 0,
-    images: p.images || [],
+    imageUrl: selectBestImage(p.images, 600), // Card size ~600px
+    imageLarge: selectBestImage(p.images, 1200), // Hero/detail ~1200px
     bookingLink: `https://www.viator.com/tours/${p.productCode}?pid=YOURPID`,
   }));
 }
@@ -111,7 +143,7 @@ function transformProducts(products: any[]): ViatorProduct[] {
 function getMockProducts(params: SearchParams): ViatorProduct[] {
   const cityName = Object.entries(DESTINATIONS).find(([_, v]) => v.id === params.destId)?.[1]?.name || 'Delhi';
 
-  const mockExperiences = [
+  const mockExperiences: ViatorProduct[] = [
     {
       productCode: 'MOCK001',
       title: `Old ${cityName} Street Food Walk`,
@@ -120,7 +152,8 @@ function getMockProducts(params: SearchParams): ViatorProduct[] {
       price: { amount: 45, currency: 'USD' },
       rating: 4.8,
       reviewCount: 342,
-      images: [{ url: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80' }],
+      imageUrl: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&q=80',
+      imageLarge: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=1200&q=80',
       bookingLink: '#',
     },
     {
@@ -131,7 +164,8 @@ function getMockProducts(params: SearchParams): ViatorProduct[] {
       price: { amount: 35, currency: 'USD' },
       rating: 4.9,
       reviewCount: 567,
-      images: [{ url: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80' }],
+      imageUrl: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80',
+      imageLarge: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1200&q=80',
       bookingLink: '#',
     },
     {
@@ -142,7 +176,8 @@ function getMockProducts(params: SearchParams): ViatorProduct[] {
       price: { amount: 55, currency: 'USD' },
       rating: 4.7,
       reviewCount: 189,
-      images: [{ url: 'https://images.unsplash.com/photo-1545126922-8f56b5a07e9e?w=600&q=80' }],
+      imageUrl: 'https://images.unsplash.com/photo-1545126922-8f56b5a07e9e?w=600&q=80',
+      imageLarge: 'https://images.unsplash.com/photo-1545126922-8f56b5a07e9e?w=1200&q=80',
       bookingLink: '#',
     },
     {
@@ -153,7 +188,8 @@ function getMockProducts(params: SearchParams): ViatorProduct[] {
       price: { amount: 40, currency: 'USD' },
       rating: 4.6,
       reviewCount: 98,
-      images: [{ url: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600&q=80' }],
+      imageUrl: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600&q=80',
+      imageLarge: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=1200&q=80',
       bookingLink: '#',
     },
     {
@@ -164,7 +200,8 @@ function getMockProducts(params: SearchParams): ViatorProduct[] {
       price: { amount: 50, currency: 'USD' },
       rating: 4.8,
       reviewCount: 234,
-      images: [{ url: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=600&q=80' }],
+      imageUrl: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=600&q=80',
+      imageLarge: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=1200&q=80',
       bookingLink: '#',
     },
     {
@@ -175,7 +212,8 @@ function getMockProducts(params: SearchParams): ViatorProduct[] {
       price: { amount: 65, currency: 'USD' },
       rating: 4.9,
       reviewCount: 412,
-      images: [{ url: 'https://images.unsplash.com/photo-1505253758473-96b7015fcd40?w=600&q=80' }],
+      imageUrl: 'https://images.unsplash.com/photo-1505253758473-96b7015fcd40?w=600&q=80',
+      imageLarge: 'https://images.unsplash.com/photo-1505253758473-96b7015fcd40?w=1200&q=80',
       bookingLink: '#',
     },
   ];

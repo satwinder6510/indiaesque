@@ -95,7 +95,7 @@ All guided tours include bottled water and heritage walk maps. Meeting points ar
 
 **Bombay Heritage Walks Book**: Purchase this ₹450 ($5.40) guidebook for detailed architectural descriptions and historical photos. Available at Crossword Bookstore or Strand Book Stall.
 
-For [getting around Mumbai](https://example.com/mumbai/getting-around-mumbai/) between heritage sites, use local trains to reach CST, Marine Lines, or Churchgate stations. Auto-rickshaws aren't allowed in South Mumbai, so walk or take taxis between locations.
+For getting around Mumbai between heritage sites, use local trains to reach CST, Marine Lines, or Churchgate stations. Auto-rickshaws aren't allowed in South Mumbai, so walk or take taxis between locations.
 
 ## Heritage Architecture Photography Guidelines
 
@@ -117,9 +117,9 @@ Use wide-angle lenses to capture full building facades from narrow streets. The 
 
 **Starting points**: CST station connects to all heritage areas via short walks. Churchgate station provides easy access to Marine Drive Art Deco buildings.
 
-Combine heritage walks with [food tours in Mumbai](https://example.com/mumbai/food-tours/) to experience local Parsi cafes and Irani restaurants housed in heritage buildings. Many colonial-era establishments serve traditional dishes in original settings.
+Combine heritage walks with food tours in Mumbai to experience local Parsi cafes and Irani restaurants housed in heritage buildings. Many colonial-era establishments serve traditional dishes in original settings.
 
-Consider extending your heritage exploration by planning [how many days you need in Mumbai](https://example.com/mumbai/how-many-days-mumbai/) to cover architectural sites plus other attractions. Most visitors need 3-4 days to see major heritage areas without rushing.
+Consider extending your heritage exploration by planning how many days you need in Mumbai to cover architectural sites plus other attractions. Most visitors need 3-4 days to see major heritage areas without rushing.
 
 ## Heritage Walk Add-On Activities
 

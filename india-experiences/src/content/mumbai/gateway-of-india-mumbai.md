@@ -35,7 +35,7 @@ The 26-meter tall archway commemorates the visit of King George V and Queen Mary
 
 Take the Blue Line metro to Churchgate Station, then catch bus number 106 or 123 to Colaba. The journey costs ₹15 ($0.18) by bus from Churchgate. Alternatively, taxis from South Mumbai areas like Marine Drive cost ₹50-80 ($0.60-0.96).
 
-The monument sits at the southern tip of Apollo Bunder in the Colaba district. You can easily combine this visit with other [heritage walks in Mumbai](https://www.example.com/mumbai/heritage-walks/) that cover Fort and Colaba areas.
+The monument sits at the southern tip of Apollo Bunder in the Colaba district. You can easily combine this visit with other heritage walks in Mumbai that cover Fort and Colaba areas.
 
 ## Ferry Services to Elephanta Caves
 
@@ -71,7 +71,7 @@ This monument witnessed the departure of the last British troops from India on F
 
 **Prince of Wales Museum** (now Chhatrapati Shivaji Maharaj Vastu Sangrahalaya) houses one of India's premier art collections, including Mughal paintings and ancient sculptures, a 10-minute walk through the Colaba streets.
 
-Consider combining your Gateway of India visit with [Mumbai's food tours](https://www.example.com/mumbai/food-tours/) that start from this area, or check out the [best markets in Mumbai](https://www.example.com/mumbai/markets/) including nearby Crawford Market.
+Consider combining your Gateway of India visit with Mumbai's food tours that start from this area, or check out the best markets in Mumbai including nearby Crawford Market.
 
 ## Practical Tips
 
@@ -81,7 +81,7 @@ The area has numerous food stalls selling bhel puri (₹30-50), vada pav (₹15-
 
 Public restrooms are available near the monument (₹5 entry fee). Clean paid facilities are also available at nearby cafes and the Taj Hotel lobby.
 
-For more detailed planning, check our [Mumbai transport guide](https://www.example.com/mumbai/transport/) to navigate the city efficiently and learn about [how many days you need in Mumbai](https://www.example.com/mumbai/how-many-days-mumbai/) to cover major attractions.
+For more detailed planning, navigate the city efficiently and plan how many days you need in Mumbai to cover major attractions.
 
 ## Frequently Asked Questions
 

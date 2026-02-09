@@ -68,6 +68,12 @@ const cityContent: Record<string, {
     heroImage: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1600&q=80',
     highlights: ['Lake Pichola', 'City Palace', 'Jagdish Temple', 'Sunset Boat Ride'],
   },
+  kerala: {
+    tagline: 'GOD\'S OWN COUNTRY',
+    description: 'Discover lush backwaters, tranquil houseboats, and ancient traditions in Kerala. From Ayurvedic retreats to spice plantations, experience India\'s tropical paradise.',
+    heroImage: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=1600&q=80',
+    highlights: ['Alleppey Backwaters', 'Munnar Tea Gardens', 'Kathakali Dance', 'Ayurvedic Spa'],
+  },
 };
 
 const content = cityContent[city as string] || cityContent.delhi;
@@ -152,7 +158,7 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
       {viatorExperiences.map(exp => (
         <a href={exp.bookingLink} target="_blank" rel="noopener" class="experience-card">
           <div class="card-image">
-            <img src={exp.images[0]?.url || 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80'} alt={exp.title} loading="lazy" />
+            <img src={exp.imageUrl} alt={exp.title} loading="lazy" />
             <div class="card-info">
               <span class="card-duration">{exp.duration}</span>
             </div>

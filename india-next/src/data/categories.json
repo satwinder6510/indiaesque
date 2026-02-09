@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Food Tours",
+    "slug": "food-tours",
+    "crossCitySlug": "food-tours-india",
+    "description": "Guided food walks and tasting tours across India's cities."
+  },
+  {
+    "name": "Cooking Classes",
+    "slug": "cooking-classes",
+    "crossCitySlug": "cooking-classes-india",
+    "description": "Hands-on Indian cooking experiences from home kitchens to professional schools."
+  },
+  {
+    "name": "Heritage Walks",
+    "slug": "heritage-walks",
+    "crossCitySlug": "heritage-walks-india",
+    "description": "Walking tours through India's historic neighbourhoods, monuments, and old cities."
+  },
+  {
+    "name": "Markets & Shopping",
+    "slug": "markets-shopping",
+    "crossCitySlug": "markets-shopping-india",
+    "description": "Guided market tours and shopping experiences across India."
+  },
+  {
+    "name": "Day Trips",
+    "slug": "day-trips",
+    "crossCitySlug": "day-trips-india",
+    "description": "Day excursions from major Indian cities to nearby attractions."
+  },
+  {
+    "name": "Art & Craft Workshops",
+    "slug": "art-craft-workshops",
+    "crossCitySlug": "art-craft-workshops-india",
+    "description": "Hands-on workshops in traditional Indian arts and crafts."
+  }
+]
