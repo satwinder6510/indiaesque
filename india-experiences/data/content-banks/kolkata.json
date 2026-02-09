@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:29:49.842Z",
+  "updatedAt": "2026-02-09T00:30:34.778Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -280,9 +280,9 @@
       "title": "Indian Museum Kolkata Guide",
       "slug": "indian-museum-kolkata",
       "contentDirection": "Cover entry fee (INR 20 Indians, INR 500 foreigners), timings (10 AM-5 PM, closed Mondays), must-see collections (Egyptian mummy, Buddhist galleries, natural history), time needed (3-4 hours), photography charges (INR 300), guided tours, nearby attractions.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 988,
+      "generatedAt": "2026-02-09T00:30:34.778Z",
       "validationErrors": []
     },
     {
