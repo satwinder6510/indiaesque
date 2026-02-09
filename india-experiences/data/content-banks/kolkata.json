@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:38:48.352Z",
+  "updatedAt": "2026-02-09T00:39:27.835Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -424,9 +424,9 @@
       "title": "Eco Park New Town Guide",
       "slug": "eco-park-new-town-kolkata",
       "contentDirection": "Cover 480-acre recreational space, entry fees (INR 30 weekdays, INR 50 weekends), various zones, boating, cycling, time needed (half day), food courts, parking, distance from city center (21km), best visiting times, and family-friendly activities.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 823,
+      "generatedAt": "2026-02-09T00:39:27.835Z",
       "validationErrors": []
     },
     {
