@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:33:28.406Z",
+  "updatedAt": "2026-02-09T00:34:12.490Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -340,9 +340,9 @@
       "title": "New Market Kolkata Shopping Guide",
       "slug": "new-market-kolkata",
       "contentDirection": "Cover Sir Stuart Hogg Market official name, sections (clothing, spices, electronics), bargaining strategies, fake goods awareness, price ranges, timings (10 AM-8 PM), parking, nearby food options, safety tips, and best buys for tourists.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 891,
+      "generatedAt": "2026-02-09T00:34:12.490Z",
       "validationErrors": []
     },
     {
