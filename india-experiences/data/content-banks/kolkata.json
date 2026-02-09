@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:32:44.828Z",
+  "updatedAt": "2026-02-09T00:33:28.406Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -328,9 +328,9 @@
       "title": "Belur Math Kolkata Guide",
       "slug": "belur-math-kolkata",
       "contentDirection": "Cover Ramakrishna Mission headquarters, ferry access from Dakshineswar, free entry, timings (6 AM-12 PM, 4:30-7:30 PM), architectural significance (Hindu-Islamic-Christian fusion), meditation halls, library, museum, peaceful gardens, and connection to Swami Vivekananda.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 930,
+      "generatedAt": "2026-02-09T00:33:28.406Z",
       "validationErrors": []
     },
     {
