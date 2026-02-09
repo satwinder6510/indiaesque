@@ -29,6 +29,14 @@ const categories = [
   { name: 'ADVENTURE', image: 'https://images.unsplash.com/photo-1527631746610-bca00a040d60?w=400&q=80' },
 ];
 
+const staycations = [
+  { name: 'RAJASTHAN PALACE', location: 'Udaipur', image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80', href: '/staycations/rajasthan-palace/' },
+  { name: 'KERALA HOUSEBOAT', location: 'Alleppey', image: 'https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=400&q=80', href: '/staycations/kerala-houseboat/' },
+  { name: 'HIMALAYAN RETREAT', location: 'Shimla', image: 'https://images.unsplash.com/photo-1586375300773-8384e3e4916f?w=400&q=80', href: '/staycations/himalayan-retreat/' },
+  { name: 'GOA BEACH VILLA', location: 'South Goa', image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&q=80', href: '/staycations/goa-beach-villa/' },
+  { name: 'JUNGLE LODGE', location: 'Coorg', image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=400&q=80', href: '/staycations/jungle-lodge/' },
+];
+
 const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') || '';
 ---
 
@@ -97,6 +105,35 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     </div>
 
     <a href="/about/" class="read-more">Read More</a>
+  </section>
+
+  <!-- Staycations -->
+  <section class="staycations">
+    <h2>Staycations</h2>
+    <div class="staycations-wrapper">
+      <button class="staycation-arrow staycation-arrow-left" aria-label="Scroll left" style="display: none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <div class="staycations-scroll">
+        {staycations.map(stay => (
+          <a href={stay.href} class="staycation-card">
+            <img src={stay.image} alt={stay.name} />
+            <div class="staycation-overlay"></div>
+            <div class="staycation-info">
+              <span class="staycation-name">{stay.name}</span>
+              <span class="staycation-location">{stay.location}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+      <button class="staycation-arrow staycation-arrow-right" aria-label="Scroll right">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
   </section>
 
   <!-- Top Cities (Horizontal Scroll) -->
@@ -358,6 +395,149 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
 
     .feature {
       flex: 1;
+    }
+  }
+
+  /* Staycations */
+  .staycations {
+    padding: 48px 0 48px 24px;
+    background-color: #111111;
+  }
+
+  .staycations h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    margin: 0 0 24px 0;
+  }
+
+  .staycations-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .staycation-arrow {
+    position: absolute;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .staycation-arrow:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .staycation-arrow-left {
+    left: 0;
+  }
+
+  .staycation-arrow-right {
+    right: 24px;
+  }
+
+  .staycations-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-right: 24px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+  }
+
+  .staycations-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .staycation-card {
+    flex: 0 0 auto;
+    width: 200px;
+    position: relative;
+    text-decoration: none;
+    overflow: hidden;
+  }
+
+  .staycation-card img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .staycation-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .staycation-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);
+  }
+
+  .staycation-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .staycation-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+  }
+
+  .staycation-location {
+    font-family: 'Muli', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  @media (min-width: 768px) {
+    .staycations {
+      padding: 64px 48px;
+    }
+
+    .staycations h2 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 32px;
+    }
+
+    .staycations-scroll {
+      justify-content: center;
+      gap: 24px;
+      padding-right: 0;
+    }
+
+    .staycation-card {
+      width: 240px;
+    }
+
+    .staycation-name {
+      font-size: 16px;
+    }
+
+    .staycation-location {
+      font-size: 12px;
     }
   }
 
@@ -955,6 +1135,35 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
 </style>
 
 <script>
+  // Staycations scroll
+  const staycationsContainer = document.querySelector('.staycations-scroll');
+  const staycationsLeft = document.querySelector('.staycation-arrow-left');
+  const staycationsRight = document.querySelector('.staycation-arrow-right');
+
+  function updateStaycationArrows() {
+    if (!staycationsContainer || !staycationsLeft || !staycationsRight) return;
+
+    const scrollLeft = staycationsContainer.scrollLeft;
+    const maxScroll = staycationsContainer.scrollWidth - staycationsContainer.clientWidth;
+
+    staycationsLeft.style.display = scrollLeft <= 0 ? 'none' : 'flex';
+    staycationsRight.style.display = scrollLeft >= maxScroll - 1 ? 'none' : 'flex';
+  }
+
+  if (staycationsContainer && staycationsLeft && staycationsRight) {
+    staycationsLeft.addEventListener('click', () => {
+      staycationsContainer.scrollBy({ left: -250, behavior: 'smooth' });
+    });
+
+    staycationsRight.addEventListener('click', () => {
+      staycationsContainer.scrollBy({ left: 250, behavior: 'smooth' });
+    });
+
+    staycationsContainer.addEventListener('scroll', updateStaycationArrows);
+    updateStaycationArrows();
+  }
+
+  // Top Cities scroll
   const scrollContainer = document.querySelector('.locations-scroll');
   const leftArrow = document.querySelector('.scroll-left');
   const rightArrow = document.querySelector('.scroll-right');
