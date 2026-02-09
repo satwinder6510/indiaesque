@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-02-09T00:02:18.328Z",
+  "lastUpdated": "2026-02-09T00:13:44.859Z",
   "apiCalls": {
     "research": {
-      "total": 2,
-      "today": 2
+      "total": 3,
+      "today": 3
     },
     "generation": {
       "total": 100,
@@ -26,6 +26,14 @@
       "startedAt": "2026-02-08T21:21:36.944Z",
       "completedAt": "2026-02-08T21:21:36.944Z",
       "pagesDiscovered": 51,
+      "status": "completed"
+    },
+    {
+      "type": "research",
+      "city": "kolkata",
+      "startedAt": "2026-02-09T00:13:44.859Z",
+      "completedAt": "2026-02-09T00:13:44.859Z",
+      "pagesDiscovered": 43,
       "status": "completed"
     }
   ]
