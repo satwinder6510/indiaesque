@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:17:34.362Z",
+  "updatedAt": "2026-02-09T00:18:36.333Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -100,9 +100,9 @@
       "title": "Best Heritage Sites In Kolkata — 2026 Guide",
       "slug": "heritage-sites",
       "contentDirection": "Comprehensive guide to Victoria Memorial (INR 30 entry), Indian Museum, colonial architecture in BBD Bagh, heritage houses in North Kolkata, Marble Palace (free with permit). Include opening hours, best photography spots, guided tour options, and heritage walk routes through different areas.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1294,
+      "generatedAt": "2026-02-09T00:18:36.333Z",
       "validationErrors": []
     },
     {
