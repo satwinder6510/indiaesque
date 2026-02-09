@@ -70,8 +70,8 @@
     "lat": "15.2993",
     "lng": "74.1240",
     "description": "India's smallest state, known for Portuguese heritage, beaches, spice plantations, and seafood.",
-    "heroImage": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=1200&q=80",
-    "cardImage": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=500&q=80",
+    "heroImage": "/images/cities/goa-hero.jpg",
+    "cardImage": "/images/cities/goa-card.jpg",
     "bestMonths": [
       11,
       12,
