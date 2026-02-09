@@ -24,6 +24,7 @@ export default function CitiesPage() {
   const [deleting, setDeleting] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [showAddModal, setShowAddModal] = useState(false);
+  const [editingCity, setEditingCity] = useState<CityData | null>(null);
   const router = useRouter();
 
   const fetchCities = async () => {
@@ -249,6 +250,15 @@ export default function CitiesPage() {
                             />
                           </label>
                           <button
+                            onClick={() => setEditingCity(city)}
+                            className="inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium rounded-lg text-[var(--foreground-muted)] hover:bg-[var(--border)] transition-colors"
+                          >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            </svg>
+                            Edit
+                          </button>
+                          <button
                             onClick={() => handleDelete(city.slug, city.name)}
                             disabled={isDeleting}
                             className="inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors disabled:opacity-50"
@@ -303,6 +313,18 @@ export default function CitiesPage() {
           }}
         />
       )}
+
+      {/* Edit City Modal */}
+      {editingCity && (
+        <EditCityModal
+          city={editingCity}
+          onClose={() => setEditingCity(null)}
+          onSuccess={() => {
+            setEditingCity(null);
+            fetchCities();
+          }}
+        />
+      )}
     </div>
   );
 }
@@ -319,6 +341,126 @@ function ImageBadge({ exists }: { exists: boolean }) {
     <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">
       Missing
     </span>
+  );
+}
+
+function EditCityModal({ city, onClose, onSuccess }: { city: CityData; onClose: () => void; onSuccess: () => void }) {
+  const [name, setName] = useState(city.name);
+  const [tier, setTier] = useState(city.tier);
+  const [description, setDescription] = useState(city.description || "");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim()) return;
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/data", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slug: city.slug, name: name.trim(), tier, description: description.trim() }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to update city");
+      }
+
+      onSuccess();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to update city");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <div className="bg-[var(--background-card)] rounded-2xl shadow-2xl w-full max-w-md border border-[var(--border)]">
+        <div className="px-6 py-4 border-b border-[var(--border)] flex items-center justify-between">
+          <h3 className="text-lg font-semibold text-[var(--foreground)]">Edit {city.name}</h3>
+          <button
+            onClick={onClose}
+            className="p-1 text-[var(--foreground-muted)] hover:text-[var(--foreground)] rounded-lg hover:bg-[var(--border)] transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <form onSubmit={handleSubmit} className="p-6 space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-[var(--foreground)] mb-1.5">
+              City Name *
+            </label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full px-4 py-2.5 bg-[var(--background)] border border-[var(--border)] rounded-xl focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent text-[var(--foreground)]"
+              required
+              autoFocus
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-[var(--foreground)] mb-1.5">
+              Tier
+            </label>
+            <select
+              value={tier}
+              onChange={(e) => setTier(Number(e.target.value))}
+              className="w-full px-4 py-2.5 bg-[var(--background)] border border-[var(--border)] rounded-xl focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent text-[var(--foreground)]"
+            >
+              <option value={1}>Tier 1 (Major destination)</option>
+              <option value={2}>Tier 2 (Secondary destination)</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-[var(--foreground)] mb-1.5">
+              Description
+            </label>
+            <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              rows={3}
+              className="w-full px-4 py-2.5 bg-[var(--background)] border border-[var(--border)] rounded-xl focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent text-[var(--foreground)] resize-none"
+              placeholder="Brief description of the city..."
+            />
+          </div>
+
+          {error && (
+            <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 rounded-xl text-sm">
+              {error}
+            </div>
+          )}
+
+          <div className="flex justify-end gap-3 pt-2">
+            <button
+              type="button"
+              onClick={onClose}
+              className="px-4 py-2.5 text-[var(--foreground-muted)] hover:text-[var(--foreground)] hover:bg-[var(--border)] rounded-xl transition-colors font-medium"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              disabled={loading || !name.trim()}
+              className="px-5 py-2.5 bg-[var(--primary)] hover:bg-[var(--primary-light)] disabled:opacity-50 text-white font-semibold rounded-xl shadow-lg transition-all"
+            >
+              {loading ? "Saving..." : "Save Changes"}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }
 

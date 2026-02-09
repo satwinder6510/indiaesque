@@ -140,6 +140,43 @@ export async function POST(request: NextRequest) {
 }
 
 /**
+ * PUT /api/data
+ * Update an existing city
+ */
+export async function PUT(request: NextRequest) {
+  try {
+    const body = await request.json();
+    const { slug, name, tier, description } = body;
+
+    if (!slug) {
+      return NextResponse.json({ error: "Slug is required" }, { status: 400 });
+    }
+
+    const cities = await getCities();
+    const cityIndex = cities.findIndex(c => c.slug === slug);
+
+    if (cityIndex === -1) {
+      return NextResponse.json({ error: "City not found" }, { status: 404 });
+    }
+
+    // Update fields if provided
+    if (name) cities[cityIndex].name = name;
+    if (tier) cities[cityIndex].tier = tier;
+    if (description !== undefined) cities[cityIndex].description = description;
+
+    await saveCities(cities, `feat(data): update ${cities[cityIndex].name} [admin]`);
+
+    return NextResponse.json({ success: true, city: cities[cityIndex] });
+  } catch (error) {
+    console.error("Update city error:", error);
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Failed to update city" },
+      { status: 500 }
+    );
+  }
+}
+
+/**
  * DELETE /api/data?slug=city-slug
  * Remove a city
  */
