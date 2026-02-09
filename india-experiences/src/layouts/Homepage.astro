@@ -17,190 +17,262 @@ const { title, description, schema = [] } = Astro.props;
   <!-- NEWSLETTER -->
   <section class="newsletter">
     <div class="newsletter-inner">
-      <h2 class="newsletter-title">Stay Up To Date By Subscribing<br/>To Our Newsletter</h2>
+      <h2 class="newsletter-title">Stay Up To Date</h2>
+      <p class="newsletter-desc">Subscribe for travel tips, new destinations, and exclusive experiences.</p>
       <form class="newsletter-form">
-        <input type="text" placeholder="FORENAME" />
-        <input type="text" placeholder="SURNAME" />
-        <input type="email" placeholder="EMAIL ADDRESS" required />
+        <input type="email" placeholder="Your email address" required />
         <button type="submit">Subscribe</button>
       </form>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="contact">
-    <h3 class="contact-title">Contact</h3>
-    <p class="contact-phone">+91 00000 00000</p>
-    <p class="contact-address">Indiaesque &bull; Address Line 1<br/>Address Line 2 &bull; 110001</p>
-  </section>
+  <!-- FOOTER -->
+  <div class="footer-band"></div>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">india<span>esque</span></a>
+        <p class="footer-tagline">Curated travel experiences across India</p>
+      </div>
 
-  <!-- FOOTER LINKS -->
-  <section class="foot-links">
-    <div class="foot-col">
-      <h4>Destinations</h4>
-      <ul>
-        <li><a href="/delhi/">Delhi</a></li>
-        <li><a href="/jaipur/">Jaipur</a></li>
-        <li><a href="/mumbai/">Mumbai</a></li>
-        <li><a href="/goa/">Goa</a></li>
-        <li><a href="/varanasi/">Varanasi</a></li>
-        <li><a href="/kerala/">Kerala</a></li>
-      </ul>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Destinations</h4>
+          <ul>
+            <li><a href="/delhi/">Delhi</a></li>
+            <li><a href="/jaipur/">Jaipur</a></li>
+            <li><a href="/mumbai/">Mumbai</a></li>
+            <li><a href="/goa/">Goa</a></li>
+            <li><a href="/varanasi/">Varanasi</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Experiences</h4>
+          <ul>
+            <li><a href="#">Food Tours</a></li>
+            <li><a href="#">Heritage Walks</a></li>
+            <li><a href="#">Markets</a></li>
+            <li><a href="#">Cultural</a></li>
+            <li><a href="#">Day Trips</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about/">About Us</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="foot-col">
-      <h4>Collections</h4>
-      <ul>
-        <li><a href="#">Food Tours</a></li>
-        <li><a href="#">Heritage</a></li>
-        <li><a href="#">Cooking</a></li>
-        <li><a href="#">Markets</a></li>
-        <li><a href="#">Day Trips</a></li>
-        <li><a href="#">Art & Craft</a></li>
-      </ul>
-    </div>
-  </section>
 
-  <!-- COPYRIGHT -->
-  <footer class="copyright">
-    <p>&copy; Indiaesque {new Date().getFullYear()}</p>
-    <p class="credit">Designed & Built in India</p>
+    <div class="footer-bottom">
+      <p>&copy; {new Date().getFullYear()} Indiaesque. All rights reserved.</p>
+      <p class="footer-credit">Designed & Built in India</p>
+    </div>
   </footer>
 </BaseLayout>
 
 <style>
-  /* NEWSLETTER */
+  /* Newsletter */
   .newsletter {
-    background: #2a9d8f;
-    padding: 50px 20px;
+    background: var(--teal-500);
+    padding: 64px 24px;
     text-align: center;
   }
+
   .newsletter-inner {
-    max-width: 320px;
+    max-width: 480px;
     margin: 0 auto;
   }
+
   .newsletter-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 14px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
     font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    line-height: 1.6;
     color: #fff;
-    margin: 0 0 30px;
+    margin-bottom: 12px;
   }
+
+  .newsletter-desc {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 24px;
+  }
+
   .newsletter-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
   }
+
+  @media (min-width: 480px) {
+    .newsletter-form {
+      flex-direction: row;
+    }
+  }
+
   .newsletter-form input {
-    width: 100%;
-    padding: 14px;
-    font-size: 12px;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    flex: 1;
+    padding: 14px 18px;
+    font-size: 15px;
     border: none;
+    border-radius: 6px;
     background: #fff;
-    color: #333;
+    color: var(--text-primary);
   }
+
   .newsletter-form input::placeholder {
-    color: #aaa;
+    color: var(--text-muted);
   }
+
   .newsletter-form button {
-    padding: 14px;
-    font-size: 12px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 600;
     border: none;
-    background: #e07060;
+    border-radius: 6px;
+    background: var(--navy-900);
     color: #fff;
     cursor: pointer;
+    transition: background 0.2s;
   }
+
   .newsletter-form button:hover {
-    background: #c85a4a;
+    background: var(--navy-800);
   }
 
-  /* CONTACT */
-  .contact {
-    padding: 40px 20px;
-    text-align: center;
-    border-bottom: 1px solid #e5e5e5;
-  }
-  .contact-title {
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: #333;
-    margin: 0 0 15px;
-  }
-  .contact-phone {
-    font-size: 13px;
-    color: #666;
-    margin: 0 0 8px;
-  }
-  .contact-address {
-    font-size: 13px;
-    color: #666;
-    line-height: 1.6;
-    margin: 0;
+  /* Footer band */
+  .footer-band {
+    height: 4px;
+    background: linear-gradient(to right, var(--teal-500), var(--teal-400) 40%, var(--navy-700) 100%);
+    opacity: 0.7;
   }
 
-  /* FOOTER LINKS */
-  .foot-links {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    padding: 30px 20px;
-    max-width: 400px;
+  /* Footer */
+  .site-footer {
+    background: var(--navy-900);
+    padding: 48px 24px 32px;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  @media (min-width: 768px) {
+    .footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  .footer-brand {
     text-align: center;
   }
-  .foot-col {
+
+  @media (min-width: 768px) {
+    .footer-brand {
+      text-align: left;
+    }
+  }
+
+  .footer-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .footer-logo span {
+    color: var(--teal-400);
+  }
+
+  .footer-tagline {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 8px;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
     text-align: center;
   }
-  .foot-col h4 {
-    font-size: 11px;
-    font-weight: 500;
+
+  @media (min-width: 768px) {
+    .footer-links {
+      text-align: left;
+      gap: 48px;
+    }
+  }
+
+  .footer-col h4 {
+    font-size: 12px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: #333;
-    margin: 0 0 15px;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 16px;
   }
-  .foot-col ul {
+
+  .footer-col ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  .foot-col li {
-    margin-bottom: 8px;
-  }
-  .foot-col a {
-    font-size: 12px;
-    color: #666;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .foot-col a:hover {
-    color: #e07060;
+
+  .footer-col li {
+    margin-bottom: 10px;
   }
 
-  /* COPYRIGHT */
-  .copyright {
-    padding: 30px 20px;
+  .footer-col a {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-col a:hover {
+    color: var(--teal-400);
+  }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 32px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
     text-align: center;
-    border-top: 1px solid #e5e5e5;
   }
-  .copyright p {
-    font-size: 11px;
-    color: #999;
-    margin: 0 0 5px;
+
+  @media (min-width: 768px) {
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
-  .credit {
+
+  .footer-bottom p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+  }
+
+  .footer-credit {
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
+    font-size: 11px !important;
   }
 </style>

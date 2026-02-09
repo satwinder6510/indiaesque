@@ -1,12 +1,20 @@
 ---
 import Homepage from '../layouts/Homepage.astro';
-import Hero from '../components/Hero.astro';
-import HolidayCard from '../components/HolidayCard.astro';
+import TitleAccent from '../components/TitleAccent.astro';
+import SectionDivider from '../components/SectionDivider.astro';
 import cities from '../data/cities.json';
-import categories from '../data/categories.json';
 
 const tierOneCities = cities.filter(c => c.tier === 1);
 const tierTwoCities = cities.filter(c => c.tier === 2);
+
+const experiences = [
+  { name: 'Food Tours', slug: 'food', icon: 'food', desc: 'Street food walks, fine dining, and regional cuisine experiences' },
+  { name: 'Heritage Walks', slug: 'heritage', icon: 'heritage', desc: 'Historical monuments, architecture, and guided walking tours' },
+  { name: 'Markets & Shopping', slug: 'markets', icon: 'markets', desc: 'Bazaars, artisan markets, and shopping experiences' },
+  { name: 'Cultural Experiences', slug: 'culture', icon: 'culture', desc: 'Art workshops, craft classes, and cultural immersions' },
+  { name: 'Nature & Day Trips', slug: 'nature', icon: 'nature', desc: 'Day trips, parks, and outdoor adventures near the city' },
+  { name: 'Spiritual Journeys', slug: 'spiritual', icon: 'spiritual', desc: 'Temples, ashrams, and spiritual experiences' },
+];
 
 const schema = {
   '@context': 'https://schema.org',
@@ -27,49 +35,54 @@ const schema = {
   description="Discover authentic India through curated food tours, heritage walks, cooking classes, and local experiences. Honest recommendations with prices in INR."
   schema={[schema]}
 >
-  <Fragment slot="hero">
-    <Hero
-      title="Discover the Soul of India"
-      subtitle="Curated experiences that take you beyond the tourist trail. Food tours, heritage walks, cooking classes, and authentic encounters across India's most captivating destinations."
-      size="full"
-      backgroundImage="/images/hero-india.jpg"
-      cta={{ text: 'Explore Destinations', href: '#destinations' }}
-      secondaryCta={{ text: 'View Experiences', href: '#experiences' }}
-    />
-  </Fragment>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Discover the Soul of India</h1>
+      <TitleAccent />
+      <p class="hero-subtitle">
+        Curated experiences that take you beyond the tourist trail. Food tours, heritage walks,
+        cooking classes, and authentic encounters across India's most captivating destinations.
+      </p>
+      <div class="hero-actions">
+        <a href="#destinations" class="btn btn-primary">Explore Destinations</a>
+        <a href="#experiences" class="btn btn-secondary">View Experiences</a>
+      </div>
+    </div>
+  </section>
 
   <!-- Featured Destinations -->
-  <section class="section bg-white" id="destinations">
-    <div class="container">
-      <div class="section-header text-center">
-        <h2 class="section-title">Explore India's Top Destinations</h2>
-        <p class="section-subtitle">
+  <section class="section" id="destinations">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Explore India's Top Destinations</h2>
+        <p class="section-lead">
           From the ancient streets of Delhi to the spiritual ghats of Varanasi, discover experiences that reveal India's true character.
         </p>
       </div>
 
-      <div class="featured-grid">
+      <div class="destinations-grid">
         {tierOneCities.map(city => (
           <a href={`/${city.slug}/`} class="destination-card">
-            <img src={`/images/cities/${city.slug}.jpg`} alt={city.name} loading="lazy" />
-            <div class="destination-card-overlay">
-              <h3 class="destination-card-title">{city.name}</h3>
-              <p class="destination-card-count">Explore experiences</p>
+            <div class="destination-card-image">
+              <img src={`/images/cities/${city.slug}.jpg`} alt={city.name} loading="lazy" />
+            </div>
+            <div class="destination-card-content">
+              <h3>{city.name}</h3>
+              <span class="destination-card-cta">Explore experiences →</span>
             </div>
           </a>
         ))}
       </div>
 
       {tierTwoCities.length > 0 && (
-        <div class="mt-8">
-          <h3 class="text-center mb-6" style="font-family: var(--font-heading); font-size: var(--font-size-2xl);">
-            More Destinations
-          </h3>
-          <div class="grid grid-4">
+        <div class="more-destinations">
+          <h3>More Destinations</h3>
+          <div class="destination-pills">
             {tierTwoCities.map(city => (
-              <a href={`/${city.slug}/`} class="destination-link">
-                <span class="destination-link-name">{city.name}</span>
-                <span class="destination-link-arrow">&rarr;</span>
+              <a href={`/${city.slug}/`} class="destination-pill">
+                {city.name}
               </a>
             ))}
           </div>
@@ -78,22 +91,24 @@ const schema = {
     </div>
   </section>
 
+  <SectionDivider />
+
   <!-- Experience Types -->
-  <section class="section bg-cream" id="experiences">
-    <div class="container">
-      <div class="section-header text-center">
-        <h2 class="section-title">Experiences Across India</h2>
-        <p class="section-subtitle">
+  <section class="section section-warm" id="experiences">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Experiences Across India</h2>
+        <p class="section-lead">
           Whether you're a foodie, history buff, or seeking authentic cultural encounters, we've curated the best experiences for you.
         </p>
       </div>
 
-      <div class="grid grid-3">
-        {categories.map(cat => (
-          <a href={`/${cat.crossCitySlug}/`} class="experience-card">
+      <div class="experiences-grid">
+        {experiences.map(exp => (
+          <div class="experience-card">
             <div class="experience-card-icon">
-              {cat.slug === 'food-tours' && (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              {exp.icon === 'food' && (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                   <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
                   <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
                   <line x1="6" y1="1" x2="6" y2="4"></line>
@@ -101,96 +116,93 @@ const schema = {
                   <line x1="14" y1="1" x2="14" y2="4"></line>
                 </svg>
               )}
-              {cat.slug === 'cooking-classes' && (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6V13.87Z"></path>
-                  <line x1="6" y1="17" x2="18" y2="17"></line>
-                </svg>
-              )}
-              {cat.slug === 'heritage-walks' && (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              {exp.icon === 'heritage' && (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                   <path d="M3 21h18"></path>
                   <path d="M5 21V7l8-4v18"></path>
                   <path d="M19 21V11l-6-4"></path>
-                  <path d="M9 9v.01"></path>
-                  <path d="M9 12v.01"></path>
-                  <path d="M9 15v.01"></path>
-                  <path d="M9 18v.01"></path>
                 </svg>
               )}
-              {cat.slug === 'markets-shopping' && (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              {exp.icon === 'markets' && (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                   <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
                   <line x1="3" y1="6" x2="21" y2="6"></line>
                   <path d="M16 10a4 4 0 0 1-8 0"></path>
                 </svg>
               )}
-              {cat.slug === 'day-trips' && (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              {exp.icon === 'culture' && (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                  <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                  <circle cx="11" cy="11" r="2"></circle>
+                </svg>
+              )}
+              {exp.icon === 'nature' && (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                   <circle cx="12" cy="12" r="10"></circle>
                   <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
                 </svg>
               )}
-              {cat.slug === 'art-craft-workshops' && (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-                  <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-                  <path d="M2 2l7.586 7.586"></path>
-                  <circle cx="11" cy="11" r="2"></circle>
+              {exp.icon === 'spiritual' && (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                  <path d="M2 17l10 5 10-5"></path>
+                  <path d="M2 12l10 5 10-5"></path>
                 </svg>
               )}
             </div>
-            <h3 class="experience-card-title">{cat.name}</h3>
-            <p class="experience-card-desc">{cat.description}</p>
-            <span class="experience-card-link">Explore &rarr;</span>
-          </a>
+            <h3>{exp.name}</h3>
+            <p>{exp.desc}</p>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
+  <SectionDivider />
+
   <!-- Why Indiaesque -->
-  <section class="section bg-white">
-    <div class="container">
-      <div class="section-header text-center">
-        <h2 class="section-title">Why Travel With Indiaesque</h2>
-        <p class="section-subtitle">
+  <section class="section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Why Travel With Indiaesque</h2>
+        <p class="section-lead">
           We're not just another travel guide. We're your insider connection to India's best experiences.
         </p>
       </div>
 
-      <div class="grid grid-3">
+      <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
               <path d="M9 12l2 2 4-4"></path>
             </svg>
           </div>
-          <h3 class="feature-title">Curated Quality</h3>
-          <p class="feature-desc">Every experience is personally vetted. We visit, taste, and explore before recommending.</p>
+          <h3>Curated Quality</h3>
+          <p>Every experience is personally vetted. We visit, taste, and explore before recommending.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <line x1="12" y1="1" x2="12" y2="23"></line>
               <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
             </svg>
           </div>
-          <h3 class="feature-title">Honest Pricing</h3>
-          <p class="feature-desc">All prices in INR with no hidden fees. Know exactly what you'll pay before you go.</p>
+          <h3>Honest Pricing</h3>
+          <p>All prices in INR with no hidden fees. Know exactly what you'll pay before you go.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
               <circle cx="9" cy="7" r="4"></circle>
               <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
               <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             </svg>
           </div>
-          <h3 class="feature-title">Local Experts</h3>
-          <p class="feature-desc">Connect with guides and hosts who know their cities inside out.</p>
+          <h3>Local Experts</h3>
+          <p>Connect with guides and hosts who know their cities inside out.</p>
         </div>
       </div>
     </div>
@@ -198,108 +210,358 @@ const schema = {
 </Homepage>
 
 <style>
-  .destination-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--space-4);
-    background-color: var(--color-white);
-    border: 1px solid var(--color-gray-200);
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    color: var(--color-text);
-    transition: all var(--transition-fast);
-  }
-
-  .destination-link:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
-  }
-
-  .destination-link-name {
-    font-weight: var(--font-weight-medium);
-  }
-
-  .destination-link-arrow {
-    color: var(--color-accent);
-  }
-
-  .experience-card {
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-6);
-    background-color: var(--color-white);
-    border-radius: var(--radius-lg);
-    text-decoration: none;
-    color: inherit;
-    transition: box-shadow var(--transition-base), transform var(--transition-base);
-  }
-
-  .experience-card:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-4px);
-  }
-
-  .experience-card-icon {
+  /* Hero */
+  .hero {
+    position: relative;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 64px;
-    height: 64px;
-    background-color: var(--color-cream);
-    border-radius: var(--radius-full);
-    color: var(--color-accent);
-    margin-bottom: var(--space-4);
+    background: var(--navy-900);
+    overflow: hidden;
   }
 
-  .experience-card-title {
-    font-family: var(--font-heading);
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-dark);
-    margin-bottom: var(--space-2);
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/hero-india.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
   }
 
-  .experience-card-desc {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-light);
-    margin-bottom: var(--space-4);
-    flex: 1;
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(15, 27, 45, 0.3), rgba(15, 27, 45, 0.8));
   }
 
-  .experience-card-link {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-primary);
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    padding: 48px 24px;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 56px;
+    }
+  }
+
+  .hero-content :global(.title-accent) {
+    margin: 20px auto 28px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  @media (min-width: 768px) {
+    .hero-subtitle {
+      font-size: 20px;
+    }
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: var(--teal-500);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background: var(--teal-400);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* Sections */
+  .section {
+    padding: 80px 24px;
+  }
+
+  .section-warm {
+    background: var(--warm-50);
+  }
+
+  .section-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .section-header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--navy-800);
+    margin-bottom: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .section-header h2 {
+      font-size: 38px;
+    }
+  }
+
+  .section-lead {
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Destinations */
+  .destinations-grid {
+    display: grid;
+    gap: 24px;
+  }
+
+  @media (min-width: 640px) {
+    .destinations-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .destinations-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .destination-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    aspect-ratio: 4 / 5;
+  }
+
+  .destination-card-image {
+    position: absolute;
+    inset: 0;
+  }
+
+  .destination-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+
+  .destination-card:hover .destination-card-image img {
+    transform: scale(1.05);
+  }
+
+  .destination-card-content {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 27, 45, 0.85) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    color: #fff;
+  }
+
+  .destination-card-content h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .destination-card-cta {
+    font-size: 14px;
+    color: var(--teal-400);
+    font-weight: 600;
+  }
+
+  .more-destinations {
+    margin-top: 48px;
+    text-align: center;
+  }
+
+  .more-destinations h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--navy-800);
+    margin-bottom: 20px;
+  }
+
+  .destination-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .destination-pill {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--navy-50);
+    border: 1px solid var(--navy-100);
+    border-radius: 6px;
+    color: var(--navy-800);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+
+  .destination-pill:hover {
+    background: var(--teal-50);
+    border-color: var(--teal-100);
+    color: var(--teal-600);
+  }
+
+  /* Experiences */
+  .experiences-grid {
+    display: grid;
+    gap: 24px;
+  }
+
+  @media (min-width: 640px) {
+    .experiences-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .experiences-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .experience-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .experience-card:hover {
+    border-color: var(--teal-400);
+    box-shadow: 0 4px 20px rgba(42, 157, 161, 0.1);
+  }
+
+  .experience-card-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--teal-50);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--teal-600);
+    margin-bottom: 20px;
+  }
+
+  .experience-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--navy-800);
+    margin-bottom: 8px;
+  }
+
+  .experience-card p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Features */
+  .features-grid {
+    display: grid;
+    gap: 32px;
+  }
+
+  @media (min-width: 768px) {
+    .features-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   .feature-card {
     text-align: center;
-    padding: var(--space-6);
+    padding: 24px;
   }
 
   .feature-icon {
-    display: inline-flex;
+    width: 72px;
+    height: 72px;
+    background: var(--navy-50);
+    border-radius: 50%;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 80px;
-    height: 80px;
-    background-color: var(--color-cream);
-    border-radius: var(--radius-full);
-    color: var(--color-accent);
-    margin-bottom: var(--space-4);
+    color: var(--teal-500);
+    margin: 0 auto 20px;
   }
 
-  .feature-title {
-    font-family: var(--font-heading);
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-dark);
-    margin-bottom: var(--space-2);
+  .feature-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--navy-800);
+    margin-bottom: 12px;
   }
 
-  .feature-desc {
-    font-size: var(--font-size-base);
-    color: var(--color-text-light);
+  .feature-card p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
   }
 </style>

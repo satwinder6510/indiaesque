@@ -3,6 +3,15 @@
 
 <header class="site-header">
   <div class="header-container">
+    <a href="/" class="header-logo">india<span class="logo-accent">esque</span></a>
+
+    <nav class="header-nav">
+      <a href="/delhi/">Delhi</a>
+      <a href="/jaipur/">Jaipur</a>
+      <a href="/mumbai/">Mumbai</a>
+      <a href="/about/">About</a>
+    </nav>
+
     <button class="header-menu" aria-label="Open menu" data-menu-toggle>
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="3" y1="6" x2="21" y2="6" />
@@ -10,32 +19,61 @@
         <line x1="3" y1="18" x2="21" y2="18" />
       </svg>
     </button>
-
-    <a href="/" class="header-logo">
-      <span class="header-logo-text">Indiaesque</span>
-    </a>
-
-    <div class="header-spacer"></div>
   </div>
 </header>
+<div class="header-band"></div>
 
 <style>
   .site-header {
     position: sticky;
     top: 0;
     z-index: var(--z-sticky);
-    background-color: var(--color-white);
-    border-bottom: 1px solid var(--color-gray-200);
+    background: var(--navy-900);
   }
 
   .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 60px;
-    padding: 0 var(--space-4);
-    max-width: 700px;
+    height: 56px;
+    padding: 0 32px;
+    max-width: 1280px;
     margin: 0 auto;
+  }
+
+  .header-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 21px;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .logo-accent {
+    color: var(--teal-400);
+  }
+
+  .header-nav {
+    display: none;
+    gap: 28px;
+  }
+
+  @media (min-width: 768px) {
+    .header-nav {
+      display: flex;
+    }
+  }
+
+  .header-nav a {
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.15s;
+  }
+
+  .header-nav a:hover {
+    color: #fff;
   }
 
   .header-menu {
@@ -47,37 +85,24 @@
     padding: 0;
     background: none;
     border: none;
-    color: var(--color-text);
+    color: rgba(255, 255, 255, 0.8);
     cursor: pointer;
     transition: color var(--transition-fast);
   }
 
+  @media (min-width: 768px) {
+    .header-menu {
+      display: none;
+    }
+  }
+
   .header-menu:hover {
-    color: var(--color-primary);
+    color: #fff;
   }
 
-  .header-logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    text-decoration: none;
-  }
-
-  .header-logo-text {
-    font-family: var(--font-body);
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-medium);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--color-text);
-    transition: color var(--transition-fast);
-  }
-
-  .header-logo:hover .header-logo-text {
-    color: var(--color-primary);
-  }
-
-  .header-spacer {
-    width: 40px;
+  .header-band {
+    height: 4px;
+    background: linear-gradient(to right, var(--teal-500), var(--teal-400) 40%, var(--navy-700) 100%);
+    opacity: 0.7;
   }
 </style>
