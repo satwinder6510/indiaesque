@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:21:51.184Z",
+  "updatedAt": "2026-02-09T00:22:35.918Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -160,9 +160,9 @@
       "title": "Best Time To Visit Kolkata",
       "slug": "best-time-visit-kolkata",
       "contentDirection": "Answer: October-February is ideal (15-25°C). Cover seasonal details: Winter (Dec-Feb) best weather, Durga Puja season (Sep-Oct) cultural peak but crowded, Summer (Mar-Jun) hot & humid to avoid, Monsoon (Jul-Sep) heavy rains. Include temperature ranges, rainfall data, festival calendar.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 889,
+      "generatedAt": "2026-02-09T00:22:35.918Z",
       "validationErrors": []
     },
     {
