@@ -340,23 +340,21 @@ function CityRow({ city, isEven }: { city: CityDashboardItem; isEven: boolean })
   );
 }
 
-interface CityImage {
+interface CityImageInfo {
   name: string;
   size: number;
-  type: "desktop" | "mobile";
+  variant: string;
 }
 
 interface CityImagesData {
-  city: string;
-  images: CityImage[];
-  hasDesktop: boolean;
-  hasMobile: boolean;
+  images: CityImageInfo[];
 }
 
 function ImagesSection({ cities }: { cities: CityDashboardItem[] }) {
+  const router = useRouter();
   const [imagesData, setImagesData] = useState<Record<string, CityImagesData>>({});
   const [loading, setLoading] = useState(true);
-  const [uploading, setUploading] = useState<{ city: string; type: string } | null>(null);
+  const [uploading, setUploading] = useState<string | null>(null);
   const [expanded, setExpanded] = useState(true);
 
   const fetchAllImages = useCallback(async () => {
@@ -366,7 +364,7 @@ function ImagesSection({ cities }: { cities: CityDashboardItem[] }) {
     await Promise.all(
       cities.map(async (city) => {
         try {
-          const response = await fetch(`/api/images?city=${city.slug}`);
+          const response = await fetch(`/api/images?category=cities&name=${city.slug}`);
           if (response.ok) {
             results[city.slug] = await response.json();
           }
@@ -386,12 +384,12 @@ function ImagesSection({ cities }: { cities: CityDashboardItem[] }) {
     }
   }, [cities, fetchAllImages]);
 
-  const handleUpload = async (citySlug: string, type: "desktop" | "mobile", file: File) => {
-    setUploading({ city: citySlug, type });
+  const handleUpload = async (citySlug: string, file: File) => {
+    setUploading(citySlug);
 
     const formData = new FormData();
-    formData.append("city", citySlug);
-    formData.append("type", type);
+    formData.append("category", "cities");
+    formData.append("name", citySlug);
     formData.append("file", file);
 
     try {
@@ -410,8 +408,7 @@ function ImagesSection({ cities }: { cities: CityDashboardItem[] }) {
     }
   };
 
-  const citiesWithImages = cities.filter((c) => imagesData[c.slug]?.hasDesktop || imagesData[c.slug]?.hasMobile).length;
-  const citiesComplete = cities.filter((c) => imagesData[c.slug]?.hasDesktop && imagesData[c.slug]?.hasMobile).length;
+  const citiesComplete = cities.filter((c) => (imagesData[c.slug]?.images?.length || 0) >= 4).length;
 
   return (
     <div className="bg-[var(--background-card)] rounded-2xl shadow-xl border border-[var(--border)] overflow-hidden mb-8">
@@ -426,22 +423,15 @@ function ImagesSection({ cities }: { cities: CityDashboardItem[] }) {
             </svg>
           </div>
           <div className="text-left">
-            <h2 className="text-lg font-semibold text-[var(--foreground)]">Hero Images</h2>
+            <h2 className="text-lg font-semibold text-[var(--foreground)]">City Images</h2>
             <p className="text-sm text-[var(--foreground-muted)]">
-              {citiesComplete}/{cities.length} cities complete
+              {citiesComplete}/{cities.length} cities complete • Auto-generates all sizes
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-4">
-          <div className="text-right text-sm">
-            <span className="text-[var(--foreground-muted)]">Desktop: 1920×800 </span>
-            <span className="text-[var(--foreground-muted)] mx-2">|</span>
-            <span className="text-[var(--foreground-muted)]">Mobile: 800×500</span>
-          </div>
-          <svg className={`w-5 h-5 text-[var(--foreground-muted)] transition-transform ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </div>
+        <svg className={`w-5 h-5 text-[var(--foreground-muted)] transition-transform ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
       </button>
 
       {expanded && (
@@ -459,149 +449,91 @@ function ImagesSection({ cities }: { cities: CityDashboardItem[] }) {
               <thead>
                 <tr className="bg-[var(--background)] border-b border-[var(--border)]">
                   <th className="px-6 py-3 text-left text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-wider">City</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-wider">Desktop (1920×800)</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-wider">Mobile (800×500)</th>
-                  <th className="px-6 py-3 text-right text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-wider">Status</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-wider">Images</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-wider">Status</th>
+                  <th className="px-6 py-3 text-right text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-wider">Action</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[var(--border)]">
                 {cities.map((city, index) => {
-                  const cityImages = imagesData[city.slug];
-                  const desktopImage = cityImages?.images.find((i) => i.type === "desktop");
-                  const mobileImage = cityImages?.images.find((i) => i.type === "mobile");
+                  const cityImages = imagesData[city.slug]?.images || [];
+                  const imageCount = cityImages.length;
+                  const isComplete = imageCount >= 4;
 
                   return (
                     <tr key={city.slug} className={`hover:bg-[var(--primary)]/5 transition-colors ${index % 2 === 0 ? "bg-[var(--background)]/50" : ""}`}>
-                      <td className="px-6 py-4 font-medium text-[var(--foreground)]">{city.name}</td>
                       <td className="px-6 py-4">
-                        {desktopImage ? (
-                          <div className="flex items-center gap-2">
-                            <svg className="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span className="text-sm text-[var(--foreground-muted)]">{(desktopImage.size / 1024).toFixed(0)} KB</span>
-                            <label className="text-xs text-[var(--primary)] hover:underline cursor-pointer ml-2">
-                              Replace
-                              <input
-                                type="file"
-                                accept="image/jpeg,image/png,image/webp"
-                                className="hidden"
-                                onChange={(e) => {
-                                  const file = e.target.files?.[0];
-                                  if (file) handleUpload(city.slug, "desktop", file);
-                                }}
-                                disabled={uploading !== null}
-                              />
-                            </label>
+                        <button
+                          onClick={() => router.push(`/city/${city.slug}?tab=images`)}
+                          className="font-medium text-[var(--foreground)] hover:text-[var(--primary)] transition-colors"
+                        >
+                          {city.name}
+                        </button>
+                      </td>
+                      <td className="px-6 py-4">
+                        {imageCount > 0 ? (
+                          <div className="flex flex-wrap gap-1">
+                            {cityImages.map((img) => (
+                              <span key={img.name} className="text-xs px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded">
+                                {img.variant}
+                              </span>
+                            ))}
                           </div>
                         ) : (
-                          <label className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg cursor-pointer transition-colors ${
-                            uploading?.city === city.slug && uploading?.type === "desktop"
-                              ? "bg-[var(--primary)]/20 text-[var(--primary)]"
-                              : "bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 hover:bg-amber-200 dark:hover:bg-amber-900/50"
-                          }`}>
-                            {uploading?.city === city.slug && uploading?.type === "desktop" ? (
-                              <>
-                                <svg className="animate-spin w-3.5 h-3.5" fill="none" viewBox="0 0 24 24">
-                                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                                </svg>
-                                Uploading...
-                              </>
-                            ) : (
-                              <>
-                                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                                </svg>
-                                Upload
-                              </>
-                            )}
-                            <input
-                              type="file"
-                              accept="image/jpeg,image/png,image/webp"
-                              className="hidden"
-                              onChange={(e) => {
-                                const file = e.target.files?.[0];
-                                if (file) handleUpload(city.slug, "desktop", file);
-                              }}
-                              disabled={uploading !== null}
-                            />
-                          </label>
+                          <span className="text-sm text-[var(--foreground-muted)]">No images</span>
                         )}
                       </td>
                       <td className="px-6 py-4">
-                        {mobileImage ? (
-                          <div className="flex items-center gap-2">
-                            <svg className="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span className="text-sm text-[var(--foreground-muted)]">{(mobileImage.size / 1024).toFixed(0)} KB</span>
-                            <label className="text-xs text-[var(--primary)] hover:underline cursor-pointer ml-2">
-                              Replace
-                              <input
-                                type="file"
-                                accept="image/jpeg,image/png,image/webp"
-                                className="hidden"
-                                onChange={(e) => {
-                                  const file = e.target.files?.[0];
-                                  if (file) handleUpload(city.slug, "mobile", file);
-                                }}
-                                disabled={uploading !== null}
-                              />
-                            </label>
-                          </div>
-                        ) : (
-                          <label className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg cursor-pointer transition-colors ${
-                            uploading?.city === city.slug && uploading?.type === "mobile"
-                              ? "bg-[var(--primary)]/20 text-[var(--primary)]"
-                              : "bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 hover:bg-amber-200 dark:hover:bg-amber-900/50"
-                          }`}>
-                            {uploading?.city === city.slug && uploading?.type === "mobile" ? (
-                              <>
-                                <svg className="animate-spin w-3.5 h-3.5" fill="none" viewBox="0 0 24 24">
-                                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                                </svg>
-                                Uploading...
-                              </>
-                            ) : (
-                              <>
-                                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                                </svg>
-                                Upload
-                              </>
-                            )}
-                            <input
-                              type="file"
-                              accept="image/jpeg,image/png,image/webp"
-                              className="hidden"
-                              onChange={(e) => {
-                                const file = e.target.files?.[0];
-                                if (file) handleUpload(city.slug, "mobile", file);
-                              }}
-                              disabled={uploading !== null}
-                            />
-                          </label>
-                        )}
-                      </td>
-                      <td className="px-6 py-4 text-right">
-                        {desktopImage && mobileImage ? (
+                        {isComplete ? (
                           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">
                             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                             </svg>
                             Complete
                           </span>
-                        ) : desktopImage || mobileImage ? (
+                        ) : imageCount > 0 ? (
                           <span className="inline-flex px-2.5 py-1 text-xs font-semibold rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300">
-                            Partial
+                            {imageCount}/4
                           </span>
                         ) : (
                           <span className="inline-flex px-2.5 py-1 text-xs font-semibold rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
                             Missing
                           </span>
                         )}
+                      </td>
+                      <td className="px-6 py-4 text-right">
+                        <label className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg cursor-pointer transition-colors ${
+                          uploading === city.slug
+                            ? "bg-[var(--primary)]/20 text-[var(--primary)]"
+                            : "bg-[var(--primary)] text-white hover:bg-[var(--primary-light)]"
+                        }`}>
+                          {uploading === city.slug ? (
+                            <>
+                              <svg className="animate-spin w-3.5 h-3.5" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                              </svg>
+                              Uploading...
+                            </>
+                          ) : (
+                            <>
+                              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                              </svg>
+                              {isComplete ? "Replace" : "Upload"}
+                            </>
+                          )}
+                          <input
+                            type="file"
+                            accept="image/jpeg,image/png,image/webp"
+                            className="hidden"
+                            onChange={(e) => {
+                              const file = e.target.files?.[0];
+                              if (file) handleUpload(city.slug, file);
+                            }}
+                            disabled={uploading !== null}
+                          />
+                        </label>
                       </td>
                     </tr>
                   );
