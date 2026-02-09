@@ -172,12 +172,12 @@
     ]
   },
   {
-    "name": "Kerala",
-    "slug": "kerala",
+    "name": "Kochi",
+    "slug": "kochi",
     "tier": 2,
-    "lat": "10.8505",
-    "lng": "76.2711",
-    "description": "God's Own Country — backwaters, Ayurveda, spice gardens, and Kerala cuisine.",
+    "lat": "9.9312",
+    "lng": "76.2673",
+    "description": "Kerala's port city — backwaters, Chinese fishing nets, spice markets, and a blend of Portuguese, Dutch and British heritage.",
     "heroImage": "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=1200&q=80",
     "cardImage": "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=500&q=80",
     "bestMonths": [
