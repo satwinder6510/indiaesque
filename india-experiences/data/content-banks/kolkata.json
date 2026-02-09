@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:36:28.842Z",
+  "updatedAt": "2026-02-09T00:37:22.852Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -388,9 +388,9 @@
       "title": "Rabindra Sarovar Lake Guide",
       "slug": "rabindra-sarovar-lake-kolkata",
       "contentDirection": "Cover peaceful retreat location, walking track around lake, boating facilities, early morning joggers, evening crowds, nearby Japanese Buddhist Temple, free entry, best photography times (sunset), food stalls nearby, and local's favorite spot for relaxation.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 1156,
+      "generatedAt": "2026-02-09T00:37:22.852Z",
       "validationErrors": []
     },
     {
