@@ -2,7 +2,7 @@
   "city": "kolkata",
   "cityName": "Kolkata",
   "createdAt": "2026-02-09T00:13:42.638Z",
-  "updatedAt": "2026-02-09T00:23:18.932Z",
+  "updatedAt": "2026-02-09T00:24:01.180Z",
   "researchSources": [
     "things to do in Kolkata",
     "Kolkata travel guide",
@@ -184,9 +184,9 @@
       "title": "Getting Around Kolkata",
       "slug": "kolkata-transport-guide",
       "contentDirection": "Cover Metro (INR 5-20, operates till 9:30 PM), yellow taxis (Ambassador cars, negotiate fare), Uber/Ola, buses (complex routes), trams (historic, limited routes), auto-rickshaws. Include airport transfers (prepaid taxi INR 300-400), traffic patterns, women-only coach timings.",
-      "status": "not-started",
-      "wordCount": null,
-      "generatedAt": null,
+      "status": "generated",
+      "wordCount": 759,
+      "generatedAt": "2026-02-09T00:24:01.180Z",
       "validationErrors": []
     },
     {
