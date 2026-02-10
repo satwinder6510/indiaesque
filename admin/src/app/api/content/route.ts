@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
+import { readJSON, writeJSON, listDirectory } from "@/lib/github";
 
-const CONTENT_BASE = path.join(process.cwd(), "..", "india-experiences", "src", "data", "content");
+const CONTENT_BASE = "india-experiences/src/data/content";
 
 export interface HubSection {
   id: string;
@@ -40,52 +39,57 @@ export interface SubPage {
   updatedAt: string;
 }
 
-function ensureDir(dir: string) {
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
-}
-
-function getCityHubs(): { slug: string; name: string; pageCount: number }[] {
-  ensureDir(CONTENT_BASE);
+async function getCityHubs(): Promise<{ slug: string; name: string; pageCount: number }[]> {
   const cities: { slug: string; name: string; pageCount: number }[] = [];
 
-  if (!fs.existsSync(CONTENT_BASE)) return cities;
+  try {
+    const dirs = await listDirectory(CONTENT_BASE);
 
-  const dirs = fs.readdirSync(CONTENT_BASE, { withFileTypes: true });
-  for (const dir of dirs) {
-    if (dir.isDirectory()) {
-      const hubPath = path.join(CONTENT_BASE, dir.name, "hub.json");
-      if (fs.existsSync(hubPath)) {
-        const hub = JSON.parse(fs.readFileSync(hubPath, "utf-8")) as CityHub;
-        const pagesDir = path.join(CONTENT_BASE, dir.name, "pages");
-        let pageCount = 0;
-        if (fs.existsSync(pagesDir)) {
-          pageCount = fs.readdirSync(pagesDir).filter(f => f.endsWith(".json")).length;
+    for (const dir of dirs) {
+      if (dir.type === "dir") {
+        const hubPath = `${CONTENT_BASE}/${dir.name}/hub.json`;
+        const hub = await readJSON<CityHub>(hubPath);
+
+        if (hub) {
+          // Count pages
+          let pageCount = 0;
+          try {
+            const pagesDir = await listDirectory(`${CONTENT_BASE}/${dir.name}/pages`);
+            pageCount = pagesDir.filter(f => f.name.endsWith(".json")).length;
+          } catch {
+            // Pages dir might not exist
+          }
+          cities.push({ slug: hub.slug, name: hub.name, pageCount });
         }
-        cities.push({ slug: hub.slug, name: hub.name, pageCount });
       }
     }
+  } catch {
+    // Content base might not exist yet
   }
+
   return cities;
 }
 
-function getCityHub(citySlug: string): CityHub | null {
-  const hubPath = path.join(CONTENT_BASE, citySlug, "hub.json");
-  if (!fs.existsSync(hubPath)) return null;
-  return JSON.parse(fs.readFileSync(hubPath, "utf-8"));
+async function getCityHub(citySlug: string): Promise<CityHub | null> {
+  const hubPath = `${CONTENT_BASE}/${citySlug}/hub.json`;
+  return await readJSON<CityHub>(hubPath);
 }
 
-function getSubPages(citySlug: string): SubPage[] {
-  const pagesDir = path.join(CONTENT_BASE, citySlug, "pages");
-  if (!fs.existsSync(pagesDir)) return [];
-
+async function getSubPages(citySlug: string): Promise<SubPage[]> {
   const pages: SubPage[] = [];
-  const files = fs.readdirSync(pagesDir).filter(f => f.endsWith(".json"));
-  for (const file of files) {
-    const page = JSON.parse(fs.readFileSync(path.join(pagesDir, file), "utf-8"));
-    pages.push(page);
+
+  try {
+    const pagesDir = await listDirectory(`${CONTENT_BASE}/${citySlug}/pages`);
+    const jsonFiles = pagesDir.filter(f => f.name.endsWith(".json"));
+
+    for (const file of jsonFiles) {
+      const page = await readJSON<SubPage>(`${CONTENT_BASE}/${citySlug}/pages/${file.name}`);
+      if (page) pages.push(page);
+    }
+  } catch {
+    // Pages dir might not exist
   }
+
   return pages;
 }
 
@@ -98,15 +102,15 @@ export async function GET(request: NextRequest) {
     const citySlug = request.nextUrl.searchParams.get("city");
 
     if (citySlug) {
-      const hub = getCityHub(citySlug);
+      const hub = await getCityHub(citySlug);
       if (!hub) {
         return NextResponse.json({ error: "City not found" }, { status: 404 });
       }
-      const pages = getSubPages(citySlug);
+      const pages = await getSubPages(citySlug);
       return NextResponse.json({ hub, pages });
     }
 
-    const cities = getCityHubs();
+    const cities = await getCityHubs();
     return NextResponse.json({ cities });
   } catch (error) {
     console.error("Content fetch error:", error);
@@ -130,15 +134,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "slug and name required" }, { status: 400 });
     }
 
-    const cityDir = path.join(CONTENT_BASE, slug);
-    const hubPath = path.join(cityDir, "hub.json");
+    const hubPath = `${CONTENT_BASE}/${slug}/hub.json`;
+    const existing = await readJSON<CityHub>(hubPath);
 
-    if (fs.existsSync(hubPath)) {
+    if (existing) {
       return NextResponse.json({ error: "City hub already exists" }, { status: 409 });
     }
-
-    ensureDir(cityDir);
-    ensureDir(path.join(cityDir, "pages"));
 
     const hub: CityHub = {
       slug,
@@ -159,7 +160,7 @@ export async function POST(request: NextRequest) {
       updatedAt: new Date().toISOString()
     };
 
-    fs.writeFileSync(hubPath, JSON.stringify(hub, null, 2));
+    await writeJSON(hubPath, hub, `feat(content): create ${name} hub [admin]`);
 
     return NextResponse.json({ success: true, hub });
   } catch (error) {
@@ -184,17 +185,17 @@ export async function PUT(request: NextRequest) {
       return NextResponse.json({ error: "slug required" }, { status: 400 });
     }
 
-    const hubPath = path.join(CONTENT_BASE, slug, "hub.json");
-    if (!fs.existsSync(hubPath)) {
+    const hubPath = `${CONTENT_BASE}/${slug}/hub.json`;
+    const hub = await readJSON<CityHub>(hubPath);
+
+    if (!hub) {
       return NextResponse.json({ error: "City hub not found" }, { status: 404 });
     }
 
-    const hub = JSON.parse(fs.readFileSync(hubPath, "utf-8")) as CityHub;
-    Object.assign(hub, updates, { updatedAt: new Date().toISOString() });
+    const updatedHub = { ...hub, ...updates, updatedAt: new Date().toISOString() };
+    await writeJSON(hubPath, updatedHub, `feat(content): update ${hub.name} hub [admin]`);
 
-    fs.writeFileSync(hubPath, JSON.stringify(hub, null, 2));
-
-    return NextResponse.json({ success: true, hub });
+    return NextResponse.json({ success: true, hub: updatedHub });
   } catch (error) {
     console.error("Content update error:", error);
     return NextResponse.json(

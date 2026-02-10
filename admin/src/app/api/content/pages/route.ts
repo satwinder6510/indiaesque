@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
+import { readJSON, writeJSON, deleteFile } from "@/lib/github";
 
-const CONTENT_BASE = path.join(process.cwd(), "..", "india-experiences", "src", "data", "content");
+const CONTENT_BASE = "india-experiences/src/data/content";
 
 export interface ViatorConfig {
   destinationId: number;
@@ -23,10 +22,8 @@ export interface SubPage {
   updatedAt: string;
 }
 
-function ensureDir(dir: string) {
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
+interface CityHub {
+  viator?: ViatorConfig;
 }
 
 /**
@@ -42,12 +39,13 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: "city and page required" }, { status: 400 });
     }
 
-    const pagePath = path.join(CONTENT_BASE, citySlug, "pages", `${pageSlug}.json`);
-    if (!fs.existsSync(pagePath)) {
+    const pagePath = `${CONTENT_BASE}/${citySlug}/pages/${pageSlug}.json`;
+    const page = await readJSON<SubPage>(pagePath);
+
+    if (!page) {
       return NextResponse.json({ error: "Page not found" }, { status: 404 });
     }
 
-    const page = JSON.parse(fs.readFileSync(pagePath, "utf-8"));
     return NextResponse.json({ page });
   } catch (error) {
     console.error("Page fetch error:", error);
@@ -71,21 +69,17 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "citySlug, slug, title, and type required" }, { status: 400 });
     }
 
-    const pagesDir = path.join(CONTENT_BASE, citySlug, "pages");
-    ensureDir(pagesDir);
+    const pagePath = `${CONTENT_BASE}/${citySlug}/pages/${slug}.json`;
+    const existing = await readJSON<SubPage>(pagePath);
 
-    const pagePath = path.join(pagesDir, `${slug}.json`);
-    if (fs.existsSync(pagePath)) {
+    if (existing) {
       return NextResponse.json({ error: "Page already exists" }, { status: 409 });
     }
 
     // Get hub's viator config as default
-    const hubPath = path.join(CONTENT_BASE, citySlug, "hub.json");
-    let destinationId = 0;
-    if (fs.existsSync(hubPath)) {
-      const hub = JSON.parse(fs.readFileSync(hubPath, "utf-8"));
-      destinationId = hub.viator?.destinationId || 0;
-    }
+    const hubPath = `${CONTENT_BASE}/${citySlug}/hub.json`;
+    const hub = await readJSON<CityHub>(hubPath);
+    const destinationId = hub?.viator?.destinationId || 0;
 
     const page: SubPage = {
       slug,
@@ -104,7 +98,7 @@ export async function POST(request: NextRequest) {
       updatedAt: new Date().toISOString()
     };
 
-    fs.writeFileSync(pagePath, JSON.stringify(page, null, 2));
+    await writeJSON(pagePath, page, `feat(content): create ${title} page [admin]`);
 
     return NextResponse.json({ success: true, page });
   } catch (error) {
@@ -129,17 +123,17 @@ export async function PUT(request: NextRequest) {
       return NextResponse.json({ error: "citySlug and slug required" }, { status: 400 });
     }
 
-    const pagePath = path.join(CONTENT_BASE, citySlug, "pages", `${slug}.json`);
-    if (!fs.existsSync(pagePath)) {
+    const pagePath = `${CONTENT_BASE}/${citySlug}/pages/${slug}.json`;
+    const page = await readJSON<SubPage>(pagePath);
+
+    if (!page) {
       return NextResponse.json({ error: "Page not found" }, { status: 404 });
     }
 
-    const page = JSON.parse(fs.readFileSync(pagePath, "utf-8")) as SubPage;
-    Object.assign(page, updates, { updatedAt: new Date().toISOString() });
+    const updatedPage = { ...page, ...updates, updatedAt: new Date().toISOString() };
+    await writeJSON(pagePath, updatedPage, `feat(content): update ${page.title} [admin]`);
 
-    fs.writeFileSync(pagePath, JSON.stringify(page, null, 2));
-
-    return NextResponse.json({ success: true, page });
+    return NextResponse.json({ success: true, page: updatedPage });
   } catch (error) {
     console.error("Page update error:", error);
     return NextResponse.json(
@@ -162,12 +156,12 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: "city and page required" }, { status: 400 });
     }
 
-    const pagePath = path.join(CONTENT_BASE, citySlug, "pages", `${pageSlug}.json`);
-    if (!fs.existsSync(pagePath)) {
+    const pagePath = `${CONTENT_BASE}/${citySlug}/pages/${pageSlug}.json`;
+    const deleted = await deleteFile(pagePath, `feat(content): delete ${pageSlug} page [admin]`);
+
+    if (!deleted) {
       return NextResponse.json({ error: "Page not found" }, { status: 404 });
     }
-
-    fs.unlinkSync(pagePath);
 
     return NextResponse.json({ success: true });
   } catch (error) {

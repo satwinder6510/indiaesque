@@ -1,13 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { writeFile, mkdir } from "fs/promises";
-import path from "path";
 import sharp from "sharp";
+import { uploadBinaryFile } from "@/lib/github";
 
-const UPLOAD_DIR = path.join(process.cwd(), "public", "uploads");
+const IMAGES_BASE = "india-experiences/public/images/content";
 
 /**
  * POST /api/upload
- * Simple local image upload for content blocks
+ * Upload content block images to GitHub
  */
 export async function POST(request: NextRequest) {
   try {
@@ -18,9 +17,6 @@ export async function POST(request: NextRequest) {
     if (!file) {
       return NextResponse.json({ error: "file is required" }, { status: 400 });
     }
-
-    // Ensure upload directory exists
-    await mkdir(UPLOAD_DIR, { recursive: true });
 
     // Get file buffer
     const arrayBuffer = await file.arrayBuffer();
@@ -34,14 +30,19 @@ export async function POST(request: NextRequest) {
 
     // Generate filename
     const filename = `${name || Date.now()}.jpg`;
-    const filepath = path.join(UPLOAD_DIR, filename);
+    const filepath = `${IMAGES_BASE}/${filename}`;
 
-    // Write file
-    await writeFile(filepath, processed);
+    // Upload to GitHub
+    const base64Content = processed.toString("base64");
+    await uploadBinaryFile(
+      filepath,
+      base64Content,
+      `feat(images): add content image ${filename} [admin]`
+    );
 
     return NextResponse.json({
       success: true,
-      url: `/uploads/${filename}`,
+      url: `/images/content/${filename}`,
       filename,
     });
   } catch (error) {

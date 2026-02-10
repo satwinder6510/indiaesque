@@ -1,5 +1,17 @@
 import { Octokit } from "octokit";
 
+// Validate GitHub configuration
+function validateConfig() {
+  const missing: string[] = [];
+  if (!process.env.GITHUB_TOKEN) missing.push("GITHUB_TOKEN");
+  if (!process.env.GITHUB_OWNER) missing.push("GITHUB_OWNER");
+  if (!process.env.GITHUB_REPO) missing.push("GITHUB_REPO");
+
+  if (missing.length > 0) {
+    throw new Error(`GitHub not configured. Missing: ${missing.join(", ")}. Add these to .env.local`);
+  }
+}
+
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 });
@@ -28,6 +40,7 @@ export interface GitHubFileInfo {
  * Read a file from the GitHub repository
  */
 export async function readFile(path: string): Promise<string | null> {
+  validateConfig();
   try {
     const response = await octokit.rest.repos.getContent({
       owner,
@@ -51,6 +64,7 @@ export async function readFile(path: string): Promise<string | null> {
  * Get file info including SHA (needed for updates)
  */
 export async function getFileInfo(path: string): Promise<{ sha: string; content: string } | null> {
+  validateConfig();
   try {
     const response = await octokit.rest.repos.getContent({
       owner,
@@ -128,6 +142,7 @@ export async function deleteFile(path: string, message: string): Promise<boolean
  * List files in a directory
  */
 export async function listDirectory(path: string): Promise<GitHubFileInfo[]> {
+  validateConfig();
   try {
     const response = await octokit.rest.repos.getContent({
       owner,
@@ -264,6 +279,7 @@ export async function uploadBinaryFile(
   base64Content: string,
   message: string
 ): Promise<{ sha: string; committed: boolean }> {
+  validateConfig();
   // Get existing file SHA if it exists (for updates)
   let sha: string | undefined;
   const existing = await getFileInfo(path);
