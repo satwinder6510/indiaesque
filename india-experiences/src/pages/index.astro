@@ -29,7 +29,7 @@ const categories = experiencesData.map(exp => ({
 const staycations = staycationsData.map(stay => ({
   name: stay.name.toUpperCase(),
   location: stay.location,
-  image: stay.portraitImage,
+  image: stay.homePageImage,
   href: stay.href
 }));
 
@@ -116,7 +116,6 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
         {staycations.map(stay => (
           <a href={stay.href} class="staycation-card">
             <img src={stay.image} alt={stay.name} />
-            <div class="staycation-overlay"></div>
             <div class="staycation-info">
               <span class="staycation-name">{stay.name}</span>
               <span class="staycation-location">{stay.location}</span>
@@ -459,14 +458,15 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
   .staycation-card {
     flex: 0 0 auto;
     width: 200px;
-    position: relative;
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
   }
 
   .staycation-card img {
     width: 100%;
-    aspect-ratio: 3/4;
+    aspect-ratio: 2/3;
     object-fit: cover;
     transition: transform 0.3s ease;
   }
@@ -475,18 +475,8 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     transform: scale(1.05);
   }
 
-  .staycation-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);
-  }
-
   .staycation-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 16px;
+    padding: 12px 0;
     display: flex;
     flex-direction: column;
     gap: 4px;

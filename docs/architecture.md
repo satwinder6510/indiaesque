@@ -2,7 +2,7 @@
 
 **Reference document. Consult before making any structural changes.**
 
-Last updated: 2026-02-08
+Last updated: 2026-02-10
 
 ---
 
@@ -11,17 +11,19 @@ Last updated: 2026-02-08
 1. Architecture Overview
 2. Static Site Generator
 3. URL Structure
-4. Page Templates & HTML Structure
-5. Schema Markup (JSON-LD)
-6. Internal Linking Architecture
-7. Sitemap Strategy
-8. AI Crawler Optimization
-9. SEO Meta Tags
-10. Performance Requirements
-11. Hosting & Deployment
-12. Analytics & Search Console
-13. Content Injection Workflow
-14. File & Folder Structure
+4. Staycations System
+5. Viator Tours Integration
+6. Page Templates & HTML Structure
+7. Schema Markup (JSON-LD)
+8. Internal Linking Architecture
+9. Sitemap Strategy
+10. AI Crawler Optimization
+11. SEO Meta Tags
+12. Performance Requirements
+13. Hosting & Deployment
+14. Analytics & Search Console
+15. Content Injection Workflow
+16. File & Folder Structure
 
 ---
 
@@ -132,9 +134,202 @@ Every page must have a canonical tag pointing to itself. This prevents duplicate
 
 ---
 
-## 4. Page Templates & HTML Structure
+## 4. Staycations System
 
-### 4.1 Base HTML Template (every page)
+**Boutique hotel recommendations with rich content, managed via admin panel.**
+
+### URL Structure
+
+```
+https://domain.com/staycations/                    ← Staycations index
+https://domain.com/staycations/haveli-dharampura/  ← Individual staycation page
+https://domain.com/staycations/neemrana-fort/      ← Individual staycation page
+```
+
+### Data Model
+
+Staycations are stored as JSON in `india-experiences/src/data/staycations.json`:
+
+```json
+{
+  "slug": "haveli-dharampura",
+  "href": "/staycations/haveli-dharampura",
+  "name": "Haveli Dharampura",
+  "location": "Delhi",
+  "description": "",
+  "homePageImage": "/images/staycations/haveli-dharampura-homePageImage-homepage.jpg",
+  "cardImage": "/images/staycations/haveli-dharampura-cardImage-card.jpg",
+  "heroImage": "/images/staycations/haveli-dharampura-heroImage-hero.jpg",
+  "whoItSuits": "Description of ideal guests...",
+  "gallery": [],
+  "overview": {
+    "description": "Multi-paragraph property description...",
+    "highlights": ["Highlight 1", "Highlight 2"],
+    "checkIn": "14:00",
+    "checkOut": "11:00"
+  },
+  "rooms": [
+    {
+      "name": "Heritage Room",
+      "description": "Room description...",
+      "amenities": ["AC", "WiFi"],
+      "priceRange": "₹8,000-12,000"
+    }
+  ],
+  "dining": {
+    "description": "Dining options...",
+    "restaurants": [
+      { "name": "Lakhori", "cuisine": "North Indian" }
+    ]
+  },
+  "destination": {
+    "name": "Old Delhi",
+    "description": "Area description...",
+    "nearbyAttractions": ["Red Fort", "Jama Masjid"]
+  },
+  "booking": {
+    "directBooking": true,
+    "externalUrl": "https://..."
+  },
+  "tours": {
+    "enabled": true,
+    "source": "viator",
+    "viatorDestinationId": 804,
+    "viatorTagIds": [11940, 21074]
+  }
+}
+```
+
+### Image Sizes
+
+| Image Type | Dimensions | Aspect Ratio | Usage |
+|------------|------------|--------------|-------|
+| homePageImage | 640×960 | 2:3 | Homepage staycation cards |
+| heroImage | 1400×600 | 7:3 | Detail page banner |
+| cardImage | 800×500 | 8:5 | Listing thumbnails |
+
+Images stored locally at `/public/images/staycations/` with naming convention:
+`{slug}-{imageType}-{size}.jpg`
+
+### Admin Panel Integration
+
+Staycations are managed via the Next.js admin panel at `localhost:3000`:
+
+- **Overview tab**: Name, location, description, highlights, who it suits
+- **Images tab**: Upload/manage images with automatic resizing
+- **Rooms tab**: Add/edit room types with amenities
+- **Dining tab**: Restaurant information
+- **Tours tab**: Viator integration settings
+
+Changes saved via API commit directly to the GitHub repository, triggering automatic rebuild.
+
+---
+
+## 5. Viator Tours Integration
+
+**Affiliate tours displayed on staycation pages via Viator Partner API.**
+
+### Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     STAYCATION PAGE (Build Time)                 │
+│                                                                  │
+│   1. Read staycation data from JSON                              │
+│   2. Check if tours.enabled === true                             │
+│   3. Call Viator API with destination ID                         │
+│   4. Render tours in HTML (static, no client JS)                 │
+└──────────────────────────────────────────────────────────────────┘
+         │
+         │ Viator Partner API v2
+         ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      VIATOR API                                  │
+│                                                                  │
+│   POST /products/search                                          │
+│   - filtering.destination: 804 (New Delhi)                       │
+│   - pagination.count: 6                                          │
+│   - currency: INR                                                │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+### Known Destination IDs
+
+```typescript
+const VIATOR_DEST_IDS: Record<string, number> = {
+  'Delhi': 804,      // New Delhi
+  'Jaipur': 1469,
+  'Mumbai': 953,
+  'Goa': 4704,
+  'Agra': 4282,
+};
+```
+
+### API Configuration
+
+Environment variable: `VIATOR_API_KEY` (exp-api-key header)
+
+Base URL: `https://api.viator.com/partner`
+
+### viator.ts Module
+
+Located at `india-experiences/src/lib/viator.ts`:
+
+```typescript
+export interface SearchParams {
+  destId: number;
+  tagIds?: number[];
+  limit?: number;
+}
+
+export interface ViatorProduct {
+  productCode: string;
+  title: string;
+  description: string;
+  duration: string;
+  price: { amount: number; currency: string };
+  rating: number;
+  reviewCount: number;
+  bookingLink: string;
+  thumbnailUrl: string;
+}
+
+export async function searchProducts(params: SearchParams): Promise<ViatorProduct[]>
+export async function lookupDestination(searchTerm: string): Promise<any[]>
+```
+
+### Tours Display
+
+Tours rendered at build time in `[slug].astro`:
+
+```html
+<section class="tours-section">
+  <h2>EXPERIENCES & TOURS</h2>
+  <div class="tours-list">
+    {viatorTours.map(tour => (
+      <a href={tour.webURL} class="tour-item">
+        <h3>{tour.title}</h3>
+        <p>{tour.description}</p>
+        <span class="tour-duration">{tour.duration}</span>
+        <span class="tour-price">From ₹{tour.price}</span>
+      </a>
+    ))}
+  </div>
+</section>
+```
+
+### Affiliate Revenue
+
+Viator Partner Program:
+- Commission: 8% of booking value
+- Cookie duration: 30 days
+- Payment: Monthly via PayPal
+
+---
+
+## 6. Page Templates & HTML Structure
+
+### 6.1 Base HTML Template (every page)
 
 ```html
 <!DOCTYPE html>
@@ -197,7 +392,7 @@ Every page must have a canonical tag pointing to itself. This prevents duplicate
 </html>
 ```
 
-### 4.2 Breadcrumbs (every page except homepage)
+### 6.2 Breadcrumbs (every page except homepage)
 
 Always in HTML, always visible, always with schema markup.
 
@@ -220,7 +415,7 @@ Always in HTML, always visible, always with schema markup.
 </nav>
 ```
 
-### 4.3 City Hub Page Template
+### 6.3 City Hub Page Template
 
 ```html
 <main>
@@ -287,7 +482,7 @@ Always in HTML, always visible, always with schema markup.
 </main>
 ```
 
-### 4.4 Category Page Template
+### 6.4 Category Page Template
 
 ```html
 <main>
@@ -354,7 +549,7 @@ Always in HTML, always visible, always with schema markup.
 </main>
 ```
 
-### 4.5 PAA Answer Page Template
+### 6.5 PAA Answer Page Template
 
 ```html
 <main>
@@ -418,11 +613,11 @@ Always in HTML, always visible, always with schema markup.
 
 ---
 
-## 5. Schema Markup (JSON-LD)
+## 7. Schema Markup (JSON-LD)
 
 **All schema goes in `<head>` as JSON-LD. Not microdata, not RDFa. JSON-LD is what Google recommends and is cleanest to maintain at scale.**
 
-### 5.1 FAQPage Schema (every page with FAQ section)
+### 7.1 FAQPage Schema (every page with FAQ section)
 
 ```json
 {
@@ -449,7 +644,7 @@ Always in HTML, always visible, always with schema markup.
 }
 ```
 
-### 5.2 TouristDestination Schema (city hub pages)
+### 7.2 TouristDestination Schema (city hub pages)
 
 ```json
 {
@@ -470,7 +665,7 @@ Always in HTML, always visible, always with schema markup.
 }
 ```
 
-### 5.3 Article Schema (every content page)
+### 7.3 Article Schema (every content page)
 
 ```json
 {
@@ -500,7 +695,7 @@ Always in HTML, always visible, always with schema markup.
 }
 ```
 
-### 5.4 BreadcrumbList Schema (every page)
+### 7.4 BreadcrumbList Schema (every page)
 
 ```json
 {
@@ -529,7 +724,7 @@ Always in HTML, always visible, always with schema markup.
 }
 ```
 
-### 5.5 Schema Rules
+### 7.5 Schema Rules
 
 - **Combine multiple schemas on one page** by wrapping in an array:
 ```json
@@ -546,7 +741,7 @@ Always in HTML, always visible, always with schema markup.
 
 ---
 
-## 6. Internal Linking Architecture
+## 8. Internal Linking Architecture
 
 **Internal links are the single most important technical SEO factor for a content-heavy site. They distribute page authority and tell Google which pages matter most.**
 
@@ -637,7 +832,7 @@ Build these into templates so they're automatic:
 
 ---
 
-## 7. Sitemap Strategy
+## 9. Sitemap Strategy
 
 ### XML Sitemap
 
@@ -670,11 +865,11 @@ Also create a human-readable sitemap page at `/sitemap/` listing all cities and 
 
 ---
 
-## 8. AI Crawler Optimization
+## 10. AI Crawler Optimization
 
 **AI search (Perplexity, ChatGPT search, Google AI Overviews) is a growing traffic source. Optimize for it explicitly.**
 
-### 8.1 robots.txt
+### 10.1 robots.txt
 
 ```
 User-agent: *
@@ -712,7 +907,7 @@ Crawl-delay: 10
 Sitemap: https://domain.com/sitemap-index.xml
 ```
 
-### 8.2 llms.txt
+### 10.2 llms.txt
 
 **New standard for helping AI systems understand your site.** Place at root: `https://domain.com/llms.txt`
 
@@ -748,11 +943,11 @@ This site covers experiences and activities across 30+ Indian cities. Every page
 - /heritage-walks-india/ — Heritage walks across India
 ```
 
-### 8.3 llms-full.txt
+### 10.3 llms-full.txt
 
 Extended version at `https://domain.com/llms-full.txt` — can contain the full sitemap with page descriptions. AI systems may use this to understand the entire site.
 
-### 8.4 Content Structure For AI Readability
+### 10.4 Content Structure For AI Readability
 
 AI systems extract information best from:
 
@@ -764,7 +959,7 @@ AI systems extract information best from:
 
 ---
 
-## 9. SEO Meta Tags
+## 11. SEO Meta Tags
 
 ### Title Tag Formula
 
@@ -818,7 +1013,7 @@ Compare Delhi's best food tours from ₹1,500. Old Delhi street food walks, cook
 
 ---
 
-## 10. Performance Requirements
+## 12. Performance Requirements
 
 **Target: PageSpeed Insights score 90+ on mobile.**
 
@@ -862,7 +1057,7 @@ Two Google Fonts loaded via `<link rel="preload">` to avoid render-blocking. Sys
 
 ---
 
-## 11. Hosting & Deployment
+## 13. Hosting & Deployment
 
 ### Platform: Vercel
 
@@ -928,7 +1123,7 @@ The admin tool (`admin.indiaesque.com`) also commits to this repo via GitHub API
 
 ---
 
-## 12. Analytics & Search Console
+## 14. Analytics & Search Console
 
 ### Google Search Console
 
@@ -969,7 +1164,7 @@ The admin tool (`admin.indiaesque.com`) also commits to this repo via GitHub API
 
 ---
 
-## 13. Content Injection Workflow
+## 15. Content Injection Workflow
 
 **How content gets from generation to published page.**
 
@@ -1049,71 +1244,89 @@ Before any content file is committed, run automated checks:
 
 ---
 
-## 14. File & Folder Structure
+## 16. File & Folder Structure
 
 ```
-indiaesque/
-├── astro.config.mjs              ← Astro configuration
-├── package.json
-├── public/
-│   ├── favicon.ico
-│   ├── robots.txt
-│   ├── llms.txt
-│   ├── llms-full.txt
-│   └── images/
-│       ├── delhi/
-│       ├── jaipur/
-│       └── ...
-├── src/
-│   ├── layouts/
-│   │   ├── BaseLayout.astro      ← HTML shell (head, nav, footer)
-│   │   ├── CityHub.astro         ← City hub template
-│   │   ├── CategoryPage.astro    ← Category page template
-│   │   └── PAAPage.astro         ← PAA answer page template
-│   ├── components/
-│   │   ├── Breadcrumbs.astro
-│   │   ├── FAQ.astro             ← Renders FAQ section + generates schema
-│   │   ├── RelatedPages.astro
-│   │   ├── OperatorListing.astro ← Reusable operator card
-│   │   ├── Header.astro
-│   │   └── Footer.astro
-│   ├── content/
-│   │   ├── config.ts             ← Content collection schema (TypeScript)
-│   │   ├── delhi/
-│   │   │   ├── _index.md         ← City hub content
-│   │   │   ├── food-tours.md
-│   │   │   ├── heritage-walks.md
-│   │   │   ├── cooking-classes.md
-│   │   │   ├── is-delhi-safe-for-tourists.md
-│   │   │   ├── best-street-food-old-delhi.md
-│   │   │   ├── how-many-days-in-delhi.md
-│   │   │   └── ... (101 more PAA files)
-│   │   ├── jaipur/
-│   │   │   ├── _index.md
-│   │   │   └── ...
-│   │   ├── mumbai/
-│   │   │   └── ...
-│   │   ├── categories/           ← Cross-city category hubs
-│   │   │   ├── food-tours-india.md
-│   │   │   ├── cooking-classes-india.md
-│   │   │   └── ...
-│   │   └── blog/
-│   │       ├── i-was-born-in-india.md
+indiaesque/                           ← Monorepo root
+├── docs/
+│   └── architecture.md               ← This file
+│
+├── india-experiences/                ← Astro static site (port 4321)
+│   ├── astro.config.mjs
+│   ├── package.json
+│   ├── tsconfig.json
+│   ├── .env                          ← VIATOR_API_KEY
+│   ├── public/
+│   │   ├── favicon.ico
+│   │   ├── robots.txt
+│   │   ├── llms.txt
+│   │   └── images/
+│   │       ├── staycations/          ← Staycation images (local)
+│   │       ├── delhi/
 │   │       └── ...
-│   ├── pages/
-│   │   ├── index.astro           ← Homepage
-│   │   ├── sitemap.astro         ← HTML sitemap page
-│   │   └── [...slug].astro       ← Dynamic route that renders content files
-│   └── styles/
-│       └── main.css              ← Single CSS file, no framework needed
-├── scripts/
-│   ├── validate-content.ts       ← Pre-commit content validation
-│   ├── generate-sitemap.ts       ← Custom sitemap logic if needed
-│   └── ping-google.ts            ← Post-deploy indexing ping
-└── data/
-    ├── cities.json               ← City metadata (name, slug, coords, tier)
-    ├── categories.json           ← Category metadata (name, slug, description)
-    └── operators.json            ← Operator data (name, city, contact, status)
+│   ├── src/
+│   │   ├── layouts/
+│   │   │   └── BaseLayout.astro
+│   │   ├── components/
+│   │   │   ├── Header.astro
+│   │   │   └── Footer.astro
+│   │   ├── lib/
+│   │   │   └── viator.ts             ← Viator API client
+│   │   ├── data/
+│   │   │   ├── staycations.json      ← Staycation data (managed by admin)
+│   │   │   └── experiences.json
+│   │   ├── content/
+│   │   │   ├── config.ts
+│   │   │   ├── delhi/
+│   │   │   │   ├── _index.md
+│   │   │   │   └── ...
+│   │   │   ├── jaipur/
+│   │   │   ├── mumbai/
+│   │   │   └── blog/
+│   │   ├── pages/
+│   │   │   ├── index.astro           ← Homepage
+│   │   │   ├── staycations/
+│   │   │   │   └── [slug].astro      ← Staycation detail page
+│   │   │   └── [...slug].astro
+│   │   └── styles/
+│   │       └── main.css
+│   └── scripts/
+│       └── validate-content.ts
+│
+├── admin/                            ← Next.js admin panel (port 3000)
+│   ├── package.json
+│   ├── next.config.ts
+│   ├── .env.local                    ← ANTHROPIC_API_KEY, GITHUB_TOKEN, etc.
+│   ├── public/
+│   │   └── uploads/                  ← Temporary image uploads
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── page.tsx              ← Dashboard
+│   │   │   ├── login/page.tsx
+│   │   │   ├── staycations/
+│   │   │   │   ├── page.tsx          ← Staycations list
+│   │   │   │   └── [slug]/page.tsx   ← Staycation editor (5 tabs)
+│   │   │   ├── city/[slug]/page.tsx
+│   │   │   └── api/
+│   │   │       ├── auth/
+│   │   │       ├── staycations/
+│   │   │       │   ├── route.ts      ← List/create staycations
+│   │   │       │   ├── [slug]/route.ts
+│   │   │       │   └── [slug]/images/route.ts
+│   │   │       ├── cities/
+│   │   │       └── generate-page/
+│   │   ├── lib/
+│   │   │   ├── github.ts
+│   │   │   ├── claude.ts
+│   │   │   └── auth.ts
+│   │   └── middleware.ts
+│   └── prompts/
+│       ├── research.md
+│       └── paa.md
+│
+└── data/                             ← Shared data (in repo root)
+    ├── cities.json
+    └── content-banks/
 ```
 
 ### Content Schema (TypeScript)

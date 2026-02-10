@@ -16,18 +16,60 @@ export const VIATOR_TAGS = {
   WORKSHOPS: 11770,
 };
 
-// Destination IDs for Indian cities
+// Destination IDs for Indian cities - NEED TO VERIFY THESE!
+// 684 was Las Vegas - these IDs need to be looked up from Viator's destinations endpoint
 export const DESTINATIONS = {
-  delhi: { id: 684, name: 'Delhi' },
-  jaipur: { id: 953, name: 'Jaipur' },
-  mumbai: { id: 955, name: 'Mumbai' },
-  goa: { id: 947, name: 'Goa' },
-  agra: { id: 930, name: 'Agra' },
-  varanasi: { id: 960, name: 'Varanasi' },
-  kolkata: { id: 951, name: 'Kolkata' },
-  udaipur: { id: 959, name: 'Udaipur' },
-  kerala: { id: 949, name: 'Kerala' },
+  delhi: { id: 0, name: 'Delhi' },  // TODO: Look up correct ID
+  jaipur: { id: 0, name: 'Jaipur' },
+  mumbai: { id: 0, name: 'Mumbai' },
+  goa: { id: 0, name: 'Goa' },
+  agra: { id: 0, name: 'Agra' },
+  varanasi: { id: 0, name: 'Varanasi' },
+  kolkata: { id: 0, name: 'Kolkata' },
+  udaipur: { id: 0, name: 'Udaipur' },
+  kerala: { id: 0, name: 'Kerala' },
 };
+
+// Function to look up destinations from Viator
+export async function lookupDestination(searchTerm: string): Promise<any[]> {
+  if (!VIATOR_API_KEY) {
+    console.warn('Viator API key not configured');
+    return [];
+  }
+
+  try {
+    // Try the destinations endpoint (v1 style)
+    const response = await fetch(`${VIATOR_BASE_URL}/v1/taxonomy/destinations`, {
+      method: 'GET',
+      headers: {
+        'exp-api-key': VIATOR_API_KEY,
+        'Accept': 'application/json;version=2.0',
+        'Accept-Language': 'en-US',
+      },
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Viator destinations error:', response.status, errorText);
+      return [];
+    }
+
+    const data = await response.json();
+    // Filter destinations matching our search term
+    const allDests = data.data || data.destinations || data || [];
+    const matches = allDests.filter((d: any) =>
+      (d.destinationName || d.name || '').toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    console.log('Found', matches.length, 'destinations matching', searchTerm);
+    if (matches.length > 0) {
+      console.log('First match:', JSON.stringify(matches[0]));
+    }
+    return matches;
+  } catch (error) {
+    console.error('Viator destinations error:', error);
+    return [];
+  }
+}
 
 export interface ViatorImage {
   url: string;
@@ -64,6 +106,30 @@ export async function searchProducts(params: SearchParams): Promise<ViatorProduc
   }
 
   try {
+    // Build request body for Viator API v2
+    const requestBody: any = {
+      filtering: {
+        destination: params.destId,
+      },
+      pagination: {
+        start: 1,
+        count: params.limit || 6,
+      },
+      currency: 'INR',
+    };
+
+    // Add tag filtering if provided and valid
+    // Note: Tag IDs must be valid Viator tag IDs - invalid tags return 0 results
+    // Disable for now until we have valid tag IDs
+    if (params.tagIds && params.tagIds.length > 0) {
+      console.log('Tags configured but skipping (need valid IDs):', params.tagIds);
+    }
+
+    console.log('Viator API request:', JSON.stringify(requestBody));
+
+    // First, let's try to find the right destination - log what we're searching for
+    console.log('Searching for destination ID:', params.destId);
+
     const response = await fetch(`${VIATOR_BASE_URL}/products/search`, {
       method: 'POST',
       headers: {
@@ -71,26 +137,19 @@ export async function searchProducts(params: SearchParams): Promise<ViatorProduc
         'Accept': 'application/json;version=2.0',
         'Content-Type': 'application/json',
         'Accept-Language': 'en-US',
-        'Accept-Currency': 'INR',
       },
-      body: JSON.stringify({
-        filtering: {
-          destination: params.destId.toString(),
-          tags: params.tagIds,
-        },
-        pagination: {
-          offset: 0,
-          limit: params.limit || 6,
-        },
-      }),
+      body: JSON.stringify(requestBody),
     });
 
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Viator API response:', response.status, errorText);
       throw new Error(`Viator API error: ${response.status}`);
     }
 
     const data = await response.json();
-    return transformProducts(data.products);
+    console.log('Viator API success, products:', data.products?.length || 0);
+    return transformProducts(data.products || []);
   } catch (error) {
     console.error('Viator API error:', error);
     return getMockProducts(params);

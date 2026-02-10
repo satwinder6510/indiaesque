@@ -4,10 +4,9 @@
     "name": "Haveli Dharampura",
     "location": "Delhi",
     "description": "",
-    "homePageImage": "https://raw.githubusercontent.com/satwinder6510/indiaesque/main/india-experiences/public/images/staycations/haveli-dharampura-homePageImage-homepage.jpg",
-    "portraitImage": "https://raw.githubusercontent.com/satwinder6510/indiaesque/main/india-experiences/public/images/staycations/haveli-dharampura-portrait.jpg",
-    "cardImage": "https://raw.githubusercontent.com/satwinder6510/indiaesque/main/india-experiences/public/images/staycations/haveli-dharampura-cardImage-card.jpg",
-    "heroImage": "https://raw.githubusercontent.com/satwinder6510/indiaesque/main/india-experiences/public/images/staycations/haveli-dharampura-heroImage-hero.jpg",
+    "homePageImage": "/images/staycations/haveli-dharampura-homePageImage-homepage.jpg",
+    "cardImage": "/images/staycations/haveli-dharampura-cardImage-card.jpg",
+    "heroImage": "/images/staycations/haveli-dharampura-heroImage-hero.jpg",
     "gallery": [],
     "overview": {
       "description": "Overview\n\nHaveli Dharampura is one of Old Delhi’s most evocative boutique heritage stays, housed in a painstakingly restored 19th-century mansion located deep within the atmospheric lanes of Chandni Chowk. The property blends traditional Mughal craftsmanship with restrained contemporary design to deliver an immersive Old Delhi experience rarely found in modern hotels.\n\nUnlike large luxury hotels in New Delhi, Haveli Dharampura offers a historically rooted, intimate stay where architecture, hospitality, and cultural elements come together to reflect the living heritage of the old city.\n\nArchitecture & Heritage\n\nThe haveli dates back to the late 1800s and showcases an architectural style typical of the Mughal-influenced merchant homes of Shahjahanabad:\nOrnate jaali (lattice) work and carved brackets\n\nTraditional courtyards that form the heart of the building\n\nRestored arched doorways and stone balconies\n\nHand-painted decorative motifs and restored fresco fragments\n\nOriginal interior proportions preserved wherever possible\n\nThe careful restoration has earned the hotel recognition for heritage conservation, and the ambience retains the character and charm of a bygone era while remaining functional for the modern traveller.",
@@ -48,7 +47,7 @@
     "tours": {
       "enabled": true,
       "source": "viator",
-      "viatorDestinationId": 684,
+      "viatorDestinationId": 804,
       "viatorTagIds": [
         21911,
         11866

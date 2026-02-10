@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import staycationsData from '../../data/staycations.json';
+import { searchProducts } from '../../lib/viator';
 
 export const prerender = true;
 
@@ -12,6 +13,45 @@ export function getStaticPaths() {
 }
 
 const { staycation } = Astro.props;
+
+// Load tours from Viator API
+const toursConfig = staycation.tours || { enabled: false };
+
+// Known Viator destination IDs (from viator.com URLs like /New-Delhi/d804-ttd)
+const VIATOR_DEST_IDS: Record<string, number> = {
+  'Delhi': 804,      // New Delhi
+  'Jaipur': 1469,
+  'Mumbai': 953,
+  'Goa': 4704,
+  'Agra': 4282,
+};
+
+let viatorTours: any[] = [];
+if (toursConfig.enabled) {
+  try {
+    // Use known destination ID or fall back to configured ID
+    const cityName = staycation.location || 'Delhi';
+    const destId = VIATOR_DEST_IDS[cityName] || toursConfig.viatorDestinationId || 804;
+    console.log('Using Viator destination ID:', destId, 'for', cityName);
+
+    const products = await searchProducts({
+      destId: destId,
+      tagIds: toursConfig.viatorTagIds,
+      limit: 6,
+    });
+    viatorTours = products.map(p => ({
+      title: p.title,
+      description: p.description,
+      duration: p.duration,
+      webURL: p.bookingLink,
+      price: p.price.amount,
+      rating: p.rating,
+      reviewCount: p.reviewCount,
+    }));
+  } catch (error) {
+    console.error('Failed to load tours:', error);
+  }
+}
 
 // Default values for extended data
 const overview = staycation.overview || {
@@ -41,6 +81,7 @@ const booking = staycation.booking || {
   externalUrl: ''
 };
 const gallery = staycation.gallery || [];
+const whoItSuits = staycation.whoItSuits || '';
 const tours = staycation.tours || {
   enabled: false,
   source: 'viator',
@@ -130,7 +171,17 @@ const tours = staycation.tours || {
     <!-- Hotel Overview -->
     <section class="overview-section">
       <h2 class="section-title">ABOUT THE PROPERTY</h2>
-      <p class="overview-text">{overview.description || staycation.description}</p>
+      <div class="overview-content">
+        {(overview.description || staycation.description || '').split('\n\n').map((block) => {
+          const trimmed = block.trim();
+          const isHeading = trimmed.length < 50 && !trimmed.endsWith('.') && !trimmed.endsWith(':') && !trimmed.includes('\n');
+          return isHeading ? (
+            <h3 class="overview-heading">{trimmed}</h3>
+          ) : (
+            <p class="overview-text">{trimmed}</p>
+          );
+        })}
+      </div>
 
       {overview.highlights?.length > 0 && (
         <div class="highlights">
@@ -154,6 +205,24 @@ const tours = staycation.tours || {
         </div>
       )}
     </section>
+
+    <!-- Who it Suits -->
+    {whoItSuits && (
+      <section class="suits-section">
+        <h2 class="section-title">WHO IT SUITS</h2>
+        <div class="suits-content">
+          {whoItSuits.split('\n\n').map((block) => {
+            const trimmed = block.trim();
+            const isHeading = trimmed.length < 50 && !trimmed.endsWith('.') && !trimmed.endsWith(':') && !trimmed.includes('\n');
+            return isHeading ? (
+              <h3 class="suits-heading">{trimmed}</h3>
+            ) : (
+              <p class="suits-text">{trimmed}</p>
+            );
+          })}
+        </div>
+      </section>
+    )}
 
     <!-- Room Types -->
     {rooms.length > 0 && (
@@ -189,7 +258,7 @@ const tours = staycation.tours || {
     <!-- Destination -->
     {(destination.name || destination.description) && (
       <section class="destination-section">
-        <h2 class="section-title">ABOUT {destination.name?.toUpperCase() || staycation.location?.toUpperCase()}</h2>
+        <h2 class="section-title">LOCAL AREA</h2>
         {destination.description && (
           <p class="destination-text">{destination.description}</p>
         )}
@@ -235,22 +304,29 @@ const tours = staycation.tours || {
     )}
 
     <!-- Tours Section -->
-    {tours.enabled && (
+    {tours.enabled && viatorTours.length > 0 && (
       <section class="tours-section">
         <h2 class="section-title">EXPERIENCES & TOURS</h2>
         <p class="tours-intro">Discover amazing experiences near {staycation.name}</p>
 
-        {tours.source === 'viator' && tours.viatorDestinationId > 0 && (
-          <div class="tours-grid" id="viator-tours" data-destination={tours.viatorDestinationId} data-tags={tours.viatorTagIds?.join(',') || ''}>
-            <div class="tours-loading">Loading tours...</div>
-          </div>
-        )}
-
-        {tours.source === 'custom' && (
-          <div class="tours-grid">
-            <p class="text-gray-500">Custom tours coming soon.</p>
-          </div>
-        )}
+        <div class="tours-list">
+          {viatorTours.map(tour => (
+            <a href={tour.webURL} class="tour-item" target="_blank" rel="noopener">
+              <div class="tour-item-main">
+                <h3 class="tour-title">{tour.title}</h3>
+                <p class="tour-description">{tour.description}</p>
+                <div class="tour-meta">
+                  <span class="tour-duration">{tour.duration}</span>
+                  {tour.rating > 0 && <span class="tour-rating">★ {tour.rating} ({tour.reviewCount} reviews)</span>}
+                </div>
+              </div>
+              <div class="tour-price-col">
+                <span class="tour-price-label">From</span>
+                <span class="tour-price">₹{tour.price?.toLocaleString('en-IN')}</span>
+              </div>
+            </a>
+          ))}
+        </div>
       </section>
     )}
 
@@ -472,7 +548,59 @@ const tours = staycation.tours || {
     border-bottom: 1px solid #e5e7eb;
   }
 
+  .overview-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .overview-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #111827;
+    margin: 16px 0 0 0;
+  }
+
+  .overview-heading:first-child {
+    margin-top: 0;
+  }
+
   .overview-text {
+    font-family: 'Muli', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #4b5563;
+    margin: 0;
+  }
+
+  /* Who it Suits */
+  .suits-section {
+    padding: 48px 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .suits-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .suits-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #111827;
+    margin: 16px 0 0 0;
+  }
+
+  .suits-heading:first-child {
+    margin-top: 0;
+  }
+
+  .suits-text {
     font-family: 'Muli', sans-serif;
     font-size: 16px;
     line-height: 1.8;
@@ -761,76 +889,91 @@ const tours = staycation.tours || {
     margin: 0 0 24px 0;
   }
 
-  .tours-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 24px;
+  .tours-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
-  .tours-loading {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 40px;
-    color: #6b7280;
-  }
-
-  .tour-card {
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: box-shadow 0.2s ease;
-  }
-
-  .tour-card:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-
-  .tour-card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-  }
-
-  .tour-card-content {
-    padding: 16px;
-  }
-
-  .tour-card h3 {
-    font-family: 'Muli', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    color: #111827;
-    margin: 0 0 8px 0;
-    line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .tour-card-meta {
+  .tour-item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .tour-price {
-    font-family: 'Muli', sans-serif;
+  .tour-item:hover {
+    border-color: #0d9488;
+    box-shadow: 0 2px 8px rgba(13, 148, 136, 0.1);
+  }
+
+  .tour-item-main {
+    flex: 1;
+  }
+
+  .tour-title {
+    font-family: 'Oswald', sans-serif;
     font-size: 16px;
-    font-weight: 700;
-    color: #0d9488;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color: #111827;
+    margin: 0 0 8px 0;
   }
 
-  .tour-rating {
+  .tour-description {
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #6b7280;
+    margin: 0 0 12px 0;
+  }
+
+  .tour-meta {
+    display: flex;
+    gap: 16px;
     font-family: 'Muli', sans-serif;
     font-size: 12px;
     color: #6b7280;
   }
 
-  .tour-card a {
+  .tour-duration {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .tour-duration::before {
+    content: '⏱';
+  }
+
+  .tour-rating {
+    color: #f59e0b;
+  }
+
+  .tour-price-col {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .tour-price-label {
     display: block;
-    text-decoration: none;
-    color: inherit;
+    font-family: 'Muli', sans-serif;
+    font-size: 11px;
+    color: #6b7280;
+    margin-bottom: 2px;
+  }
+
+  .tour-price {
+    font-family: 'Muli', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0d9488;
   }
 
   /* Mobile */
@@ -865,56 +1008,14 @@ const tours = staycation.tours || {
       justify-content: center;
     }
 
-    .tours-grid {
-      grid-template-columns: 1fr;
+    .tour-item {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tour-price-col {
+      text-align: left;
     }
   }
 </style>
 
-<script>
-  // Load Viator tours if container exists
-  document.addEventListener('DOMContentLoaded', async () => {
-    const container = document.getElementById('viator-tours');
-    if (!container) return;
-
-    const destinationId = container.dataset.destination;
-    const tagIds = container.dataset.tags;
-
-    if (!destinationId || destinationId === '0') {
-      container.innerHTML = '<p class="text-gray-500">No tours configured.</p>';
-      return;
-    }
-
-    try {
-      // Fetch tours from our API
-      const params = new URLSearchParams({ destinationId });
-      if (tagIds) params.append('tagIds', tagIds);
-
-      const res = await fetch(`/api/viator/tours?${params}`);
-      const data = await res.json();
-
-      if (!data.tours || data.tours.length === 0) {
-        container.innerHTML = '<p class="text-gray-500">No tours available at this time.</p>';
-        return;
-      }
-
-      container.innerHTML = data.tours.slice(0, 6).map(tour => `
-        <div class="tour-card">
-          <a href="${tour.webURL}" target="_blank" rel="noopener">
-            <img src="${tour.thumbnailURL}" alt="${tour.title}" loading="lazy" />
-            <div class="tour-card-content">
-              <h3>${tour.title}</h3>
-              <div class="tour-card-meta">
-                <span class="tour-price">₹${tour.price?.toLocaleString('en-IN') || 'N/A'}</span>
-                ${tour.rating ? `<span class="tour-rating">★ ${tour.rating}</span>` : ''}
-              </div>
-            </div>
-          </a>
-        </div>
-      `).join('');
-    } catch (error) {
-      console.error('Failed to load tours:', error);
-      container.innerHTML = '<p class="text-gray-500">Unable to load tours.</p>';
-    }
-  });
-</script>
