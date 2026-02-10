@@ -19,10 +19,10 @@
     "rooms": [],
     "destination": {
       "name": "Delhi",
-      "description": "",
+      "description": "The property is situated close to many of Old Delhi’s most important attractions:\n\nJama Masjid – walking distance\n\nRed Fort – nearby\n\nChandni Chowk bazaars – immediately accessible\n\nHistoric alleys leading to culinary hotspots, temples, and artisan markets\n\nGuests should expect an authentic old-city environment: lively, narrow lanes; vibrant markets; and limited vehicle access. This is part of the neighbourhood’s charm and historical context.",
       "attractions": [],
-      "distanceFromAirport": "",
-      "distanceFromRailway": ""
+      "distanceFromAirport": "22km ",
+      "distanceFromRailway": "3km"
     },
     "transfers": {
       "airportPickup": {
