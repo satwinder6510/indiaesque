@@ -1,15 +1,5 @@
 [
   {
-    "name": "Himalayan Retreat",
-    "slug": "himalayan-retreat",
-    "location": "Shimla",
-    "description": "Escape to colonial-era cottages nestled in pine forests. Crisp mountain air and panoramic valley views await.",
-    "portraitImage": "https://images.unsplash.com/photo-1586375300773-8384e3e4916f?w=400&h=533&q=80",
-    "cardImage": "https://images.unsplash.com/photo-1586375300773-8384e3e4916f?w=800&q=80",
-    "heroImage": "https://images.unsplash.com/photo-1586375300773-8384e3e4916f?w=1200&q=80",
-    "href": "/staycations/himalayan-retreat/"
-  },
-  {
     "name": "Goa Beach Villa",
     "slug": "goa-beach-villa",
     "location": "South Goa",
