@@ -16,9 +16,12 @@ export const imageSizes: Record<string, ImageSize[]> = {
     { name: 'list', width: 800, height: 500, fit: 'cover' },
   ],
   staycation: [
-    { name: 'portrait', width: 400, height: 533, fit: 'cover' },
-    { name: 'card', width: 800, height: 500, fit: 'cover' },
-    { name: 'hero', width: 1200, height: 600, fit: 'cover' },
+    { name: 'homepage', width: 600, height: 400, fit: 'cover' },   // Home page slot
+    { name: 'hero', width: 1400, height: 600, fit: 'cover' },      // Detail page hero
+    { name: 'card', width: 800, height: 500, fit: 'cover' },       // Listing card
+    { name: 'portrait', width: 400, height: 533, fit: 'cover' },   // Vertical format
+    { name: 'gallery', width: 600, height: 400, fit: 'cover' },    // Gallery images
+    { name: 'room', width: 500, height: 350, fit: 'cover' },       // Room images
   ],
   experience: [
     { name: 'card', width: 400, height: 400, fit: 'cover' },

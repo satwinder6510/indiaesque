@@ -5,6 +5,13 @@ import { processImage, imageSizes, getImageMetadata } from "@/lib/image-processo
 const IMAGES_BASE = "india-experiences/public/images";
 const DATA_BASE = "india-experiences/src/data";
 
+// GitHub raw content URL for displaying images in admin
+const getGitHubRawUrl = (path: string) => {
+  const owner = process.env.GITHUB_OWNER;
+  const repo = process.env.GITHUB_REPO;
+  return `https://raw.githubusercontent.com/${owner}/${repo}/main/${path}`;
+};
+
 interface CityData {
   name: string;
   slug: string;
@@ -63,7 +70,8 @@ export async function GET(request: NextRequest) {
           path: f.path,
           size: f.size,
           variant,
-          url: `/images/${category}/${f.name}`,
+          // Use raw GitHub URL for admin display, relative path for public site
+          url: getGitHubRawUrl(`${IMAGES_BASE}/${category}/${f.name}`),
         };
       });
 
@@ -162,7 +170,10 @@ export async function POST(request: NextRequest) {
         width: img.width,
         height: img.height,
         size: img.size,
-        url: `/images/${category}/${img.name}`,
+        // Use raw GitHub URL for admin display
+        url: getGitHubRawUrl(path),
+        // Keep relative path for storing in JSON (used by public site)
+        publicUrl: `/images/${category}/${img.name}`,
         sha: result.sha,
       });
     }
