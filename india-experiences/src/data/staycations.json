@@ -1,15 +1,5 @@
 [
   {
-    "name": "Kerala Houseboat",
-    "slug": "kerala-houseboat",
-    "location": "Alleppey",
-    "description": "Drift through the serene backwaters on a traditional kettuvallam. Watch village life unfold from your floating bedroom.",
-    "portraitImage": "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=400&h=533&q=80",
-    "cardImage": "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=800&q=80",
-    "heroImage": "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=1200&q=80",
-    "href": "/staycations/kerala-houseboat/"
-  },
-  {
     "name": "Himalayan Retreat",
     "slug": "himalayan-retreat",
     "location": "Shimla",
