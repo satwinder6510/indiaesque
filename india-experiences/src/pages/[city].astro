@@ -20,7 +20,8 @@ const { cityData } = Astro.props;
 const cityFromData = citiesData.find(c => c.slug === city);
 
 // Load hub content from _index.md in the city's content folder
-const hubEntry = await getEntry(city as any, '_index');
+// All content is in the 'pages' collection, with IDs like 'delhi/_index'
+const hubEntry = await getEntry('pages', `${city}/_index`);
 const { Content: HubContent } = hubEntry ? await render(hubEntry) : { Content: null };
 
 // Use description from the markdown frontmatter or cities.json
