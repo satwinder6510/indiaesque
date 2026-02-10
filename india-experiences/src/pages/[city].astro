@@ -6,6 +6,44 @@ import citiesData from '../data/cities.json';
 
 export const prerender = true;
 
+// Simple markdown to HTML converter
+function markdownToHtml(md: string): string {
+  if (!md) return '';
+
+  return md
+    // Remove the main h1 title (first line starting with single #)
+    .replace(/^#\s+[^\n]+\n*/m, '')
+    // Convert headers
+    .replace(/^#### (.+)$/gm, '<h4>$1</h4>')
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    // Convert bold
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    // Convert italic
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+    // Convert unordered lists
+    .replace(/^- (.+)$/gm, '<li>$1</li>')
+    // Wrap consecutive li tags in ul
+    .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
+    // Convert horizontal rules
+    .replace(/^---$/gm, '<hr/>')
+    // Convert paragraphs (double newline)
+    .replace(/\n\n+/g, '</p><p>')
+    // Convert single newlines in content
+    .replace(/\n/g, '<br/>')
+    // Wrap in paragraph
+    .replace(/^(.+)$/s, '<p>$1</p>')
+    // Clean up empty paragraphs
+    .replace(/<p><\/p>/g, '')
+    .replace(/<p><br\/><\/p>/g, '')
+    // Fix headers that got wrapped in p tags
+    .replace(/<p>(<h[2-4]>)/g, '$1')
+    .replace(/(<\/h[2-4]>)<\/p>/g, '$1')
+    // Fix ul that got wrapped in p tags
+    .replace(/<p>(<ul>)/g, '$1')
+    .replace(/(<\/ul>)<\/p>/g, '$1');
+}
+
 // Load hub.json files for each city
 async function loadHubData(citySlug: string) {
   try {
@@ -27,75 +65,36 @@ export async function getStaticPaths() {
 const { city } = Astro.params;
 const { cityData } = Astro.props;
 
-// Get hero image from cities.json data
+// Get city data from cities.json
 const cityFromData = citiesData.find(c => c.slug === city);
 
 // Load hub data from JSON file (created by admin)
 const hubData = await loadHubData(city as string);
 
-// Fallback content if hub.json doesn't exist or is empty
-const fallbackContent: Record<string, {
-  tagline: string;
-  description: string;
-  highlights: string[];
-}> = {
-  delhi: {
-    tagline: 'WHERE HISTORY MEETS MODERNITY',
-    description: 'From ancient monuments to bustling bazaars, Delhi offers a fascinating blend of old-world charm and contemporary culture.',
-    highlights: ['Red Fort & Jama Masjid', 'Chandni Chowk Food Trail', 'Humayun\'s Tomb', 'Qutub Minar'],
-  },
-  jaipur: {
-    tagline: 'THE PINK CITY',
-    description: 'Step into a world of royal grandeur in Jaipur. Marvel at magnificent palaces and explore vibrant markets.',
-    highlights: ['Amber Fort', 'Hawa Mahal', 'City Palace', 'Jantar Mantar'],
-  },
-  mumbai: {
-    tagline: 'THE CITY OF DREAMS',
-    description: 'Experience the energy of India\'s most dynamic city. From colonial architecture to Bollywood glamour.',
-    highlights: ['Gateway of India', 'Dharavi Art Walk', 'Marine Drive', 'Elephanta Caves'],
-  },
-  goa: {
-    tagline: 'SUN, SAND & SOUL',
-    description: 'Discover the perfect blend of beach relaxation and cultural exploration.',
-    highlights: ['Old Goa Churches', 'Spice Plantations', 'Beach Hopping', 'Sunset Cruises'],
-  },
-  agra: {
-    tagline: 'HOME OF THE TAJ MAHAL',
-    description: 'Witness one of the world\'s most iconic monuments and explore the rich Mughal heritage.',
-    highlights: ['Taj Mahal', 'Agra Fort', 'Mehtab Bagh', 'Fatehpur Sikri'],
-  },
-  varanasi: {
-    tagline: 'THE SPIRITUAL HEART OF INDIA',
-    description: 'Experience the oldest living city in the world. Witness ancient rituals on the ghats.',
-    highlights: ['Ganga Aarti', 'Boat Ride at Dawn', 'Temple Walks', 'Silk Weaving'],
-  },
-  kolkata: {
-    tagline: 'THE CITY OF JOY',
-    description: 'Immerse yourself in art, literature, and culinary traditions in India\'s cultural capital.',
-    highlights: ['Victoria Memorial', 'Kumartuli', 'College Street', 'Bengali Cuisine'],
-  },
-  udaipur: {
-    tagline: 'THE CITY OF LAKES',
-    description: 'Romance awaits in this enchanting city of shimmering lakes and fairy-tale palaces.',
-    highlights: ['Lake Pichola', 'City Palace', 'Jagdish Temple', 'Sunset Boat Ride'],
-  },
-  kerala: {
-    tagline: 'GOD\'S OWN COUNTRY',
-    description: 'Discover lush backwaters, tranquil houseboats, and ancient traditions.',
-    highlights: ['Alleppey Backwaters', 'Munnar Tea Gardens', 'Kathakali Dance', 'Ayurvedic Spa'],
-  },
-};
+// Check if we have generated content
+const hasGeneratedContent = hubData?.generatedContent && hubData.generatedContent.length > 100;
 
-// Use hub data if available, otherwise fallback
-const fallback = fallbackContent[city as string] || fallbackContent.delhi;
-const content = {
-  tagline: fallback.tagline,
-  description: hubData?.description || fallback.description,
-  highlights: fallback.highlights,
-  generatedContent: hubData?.generatedContent || null,
-};
+// Convert markdown to HTML if we have generated content
+const generatedHtml = hasGeneratedContent ? markdownToHtml(hubData.generatedContent) : null;
+
+// Use description from cities.json or hub.json
+const description = hubData?.description || cityFromData?.description || `Discover ${cityData.name}, India.`;
 // Use heroImage from data file, fallback to Unsplash
 const heroImage = cityFromData?.heroImage || 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600&q=80';
+
+// Tagline for hero (only used if no generated content)
+const taglines: Record<string, string> = {
+  delhi: 'WHERE HISTORY MEETS MODERNITY',
+  jaipur: 'THE PINK CITY',
+  mumbai: 'THE CITY OF DREAMS',
+  goa: 'SUN, SAND & SOUL',
+  agra: 'HOME OF THE TAJ MAHAL',
+  varanasi: 'THE SPIRITUAL HEART OF INDIA',
+  kolkata: 'THE CITY OF JOY',
+  udaipur: 'THE CITY OF LAKES',
+  kerala: 'GOD\'S OWN COUNTRY',
+};
+const tagline = taglines[city as string] || 'DISCOVER INDIA';
 
 // Get curated experiences from content collection
 const allPages = await getCollection('pages');
@@ -117,15 +116,15 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
 ---
 
 <BaseLayout
-  title={`${cityData.name} Experiences | Indiaesque`}
-  description={content.description}
+  title={`${cityData.name} Travel Guide | Indiaesque`}
+  description={description}
 >
   <!-- Hero -->
   <section class="hero">
     <img src={heroImage} alt={cityData.name} class="hero-bg" />
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <span class="hero-tagline">{content.tagline}</span>
+      <span class="hero-tagline">{tagline}</span>
       <h1 class="hero-title">{cityData.name.toUpperCase()}</h1>
     </div>
   </section>
@@ -137,21 +136,14 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     <span>{cityData.name}</span>
   </nav>
 
-  <!-- Introduction -->
-  <section class="intro">
-    <p class="intro-text">{content.description}</p>
-    <div class="highlights">
-      <h3>HIGHLIGHTS</h3>
-      <ul>
-        {content.highlights.map(h => <li>{h}</li>)}
-      </ul>
-    </div>
-  </section>
-
-  <!-- Generated Hub Content -->
-  {content.generatedContent && (
+  <!-- Generated Hub Content (from admin) -->
+  {generatedHtml ? (
     <section class="hub-content">
-      <div class="hub-content-inner" set:html={content.generatedContent.replace(/^#[^#].*$/gm, '').replace(/\n/g, '<br/>')} />
+      <div class="hub-content-inner" set:html={generatedHtml} />
+    </section>
+  ) : (
+    <section class="intro">
+      <p class="intro-text">{description}</p>
     </section>
   )}
 
