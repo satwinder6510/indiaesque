@@ -336,38 +336,44 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     margin: 0;
   }
 
-  /* Flow spacing: consistent space between all elements */
-  .hub-content-inner > * + * {
-    margin-top: 1em;
+  /* Flow spacing: consistent space between paragraphs */
+  .hub-content-inner > p + p {
+    margin-top: 0.75em;
   }
 
-  /* Headings: tighter spacing above, minimal below */
-  .hub-content-inner > h2 {
-    margin-top: 2em;
-    padding-top: 1.5em;
+  /* Headings: space above only, content sits tight below */
+  .hub-content-inner h2 {
+    margin-top: 1.75em;
+    margin-bottom: 0.4em;
+    padding-top: 1em;
     border-top: 1px solid #e5e7eb;
   }
 
-  .hub-content-inner > h3 {
-    margin-top: 1.5em;
-  }
-
-  .hub-content-inner > h4 {
+  .hub-content-inner h3 {
     margin-top: 1.25em;
+    margin-bottom: 0.3em;
   }
 
-  /* First element and elements right after headings: no extra space */
-  .hub-content-inner > :first-child,
-  .hub-content-inner > h2:first-child,
-  .hub-content-inner > h2 + *,
-  .hub-content-inner > h3 + *,
-  .hub-content-inner > h4 + * {
+  .hub-content-inner h4 {
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+  }
+
+  /* First heading: no top spacing */
+  .hub-content-inner > :first-child {
     margin-top: 0;
-  }
-
-  .hub-content-inner > h2:first-child {
     padding-top: 0;
     border-top: none;
+  }
+
+  /* Lists/blocks after headings: tight */
+  .hub-content-inner h2 + ul,
+  .hub-content-inner h2 + ol,
+  .hub-content-inner h3 + ul,
+  .hub-content-inner h3 + ol,
+  .hub-content-inner h4 + ul,
+  .hub-content-inner h4 + ol {
+    margin-top: 0;
   }
 
   /* Typography styles */
