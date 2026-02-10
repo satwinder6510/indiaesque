@@ -1,36 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry, render } from 'astro:content';
 import { DESTINATIONS, searchProducts, getDestinationId, VIATOR_TAGS } from '../lib/viator';
 import citiesData from '../data/cities.json';
-import { marked } from 'marked';
 
 export const prerender = true;
-
-// Configure marked for clean output
-marked.setOptions({
-  gfm: true,
-  breaks: false,
-});
-
-// Convert markdown to HTML, removing the main H1 title
-function markdownToHtml(md: string): string {
-  if (!md) return '';
-  // Remove the first H1 heading
-  const withoutH1 = md.replace(/^#\s+[^\n]+\n*/m, '');
-  return marked.parse(withoutH1) as string;
-}
-
-// Load hub.json files for each city
-async function loadHubData(citySlug: string) {
-  try {
-    const hubFiles = import.meta.glob('../data/content/*/hub.json', { eager: true });
-    const hubPath = `../data/content/${citySlug}/hub.json`;
-    return hubFiles[hubPath] as any;
-  } catch {
-    return null;
-  }
-}
 
 export async function getStaticPaths() {
   return Object.keys(DESTINATIONS).map(city => ({
@@ -45,17 +19,12 @@ const { cityData } = Astro.props;
 // Get city data from cities.json
 const cityFromData = citiesData.find(c => c.slug === city);
 
-// Load hub data from JSON file (created by admin)
-const hubData = await loadHubData(city as string);
+// Load hub content from _index.md in the city's content folder
+const hubEntry = await getEntry(city as any, '_index');
+const hubContent = hubEntry ? await render(hubEntry) : null;
 
-// Check if we have generated content
-const hasGeneratedContent = hubData?.generatedContent && hubData.generatedContent.length > 100;
-
-// Convert markdown to HTML if we have generated content
-const generatedHtml = hasGeneratedContent ? markdownToHtml(hubData.generatedContent) : null;
-
-// Use description from cities.json or hub.json
-const description = hubData?.description || cityFromData?.description || `Discover ${cityData.name}, India.`;
+// Use description from the markdown frontmatter or cities.json
+const description = hubEntry?.data?.description || cityFromData?.description || `Discover ${cityData.name}, India.`;
 // Use heroImage from data file, fallback to Unsplash
 const heroImage = cityFromData?.heroImage || 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600&q=80';
 
@@ -113,10 +82,12 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     <span>{cityData.name}</span>
   </nav>
 
-  <!-- Generated Hub Content (from admin) -->
-  {generatedHtml ? (
+  <!-- Hub Content from CMS (_index.md) -->
+  {hubContent ? (
     <section class="hub-content">
-      <div class="hub-content-inner" set:html={generatedHtml} />
+      <div class="hub-content-inner">
+        <hubContent.Content />
+      </div>
     </section>
   ) : (
     <section class="intro">
