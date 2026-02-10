@@ -3,45 +3,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { DESTINATIONS, searchProducts, getDestinationId, VIATOR_TAGS } from '../lib/viator';
 import citiesData from '../data/cities.json';
+import { marked } from 'marked';
 
 export const prerender = true;
 
-// Simple markdown to HTML converter
+// Configure marked for clean output
+marked.setOptions({
+  gfm: true,
+  breaks: false,
+});
+
+// Convert markdown to HTML, removing the main H1 title
 function markdownToHtml(md: string): string {
   if (!md) return '';
-
-  return md
-    // Remove the main h1 title (first line starting with single #)
-    .replace(/^#\s+[^\n]+\n*/m, '')
-    // Convert headers
-    .replace(/^#### (.+)$/gm, '<h4>$1</h4>')
-    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
-    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
-    // Convert bold
-    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-    // Convert italic
-    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
-    // Convert unordered lists
-    .replace(/^- (.+)$/gm, '<li>$1</li>')
-    // Wrap consecutive li tags in ul
-    .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
-    // Convert horizontal rules
-    .replace(/^---$/gm, '<hr/>')
-    // Convert paragraphs (double newline)
-    .replace(/\n\n+/g, '</p><p>')
-    // Convert single newlines in content
-    .replace(/\n/g, '<br/>')
-    // Wrap in paragraph
-    .replace(/^(.+)$/s, '<p>$1</p>')
-    // Clean up empty paragraphs
-    .replace(/<p><\/p>/g, '')
-    .replace(/<p><br\/><\/p>/g, '')
-    // Fix headers that got wrapped in p tags
-    .replace(/<p>(<h[2-4]>)/g, '$1')
-    .replace(/(<\/h[2-4]>)<\/p>/g, '$1')
-    // Fix ul that got wrapped in p tags
-    .replace(/<p>(<ul>)/g, '$1')
-    .replace(/(<\/ul>)<\/p>/g, '$1');
+  // Remove the first H1 heading
+  const withoutH1 = md.replace(/^#\s+[^\n]+\n*/m, '');
+  return marked.parse(withoutH1) as string;
 }
 
 // Load hub.json files for each city
