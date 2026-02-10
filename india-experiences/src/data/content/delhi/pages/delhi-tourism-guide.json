@@ -1,0 +1,16 @@
+{
+  "slug": "delhi-tourism-guide",
+  "citySlug": "delhi",
+  "title": "Delhi Tourism Guide",
+  "type": "topic",
+  "description": "",
+  "content": "",
+  "viator": {
+    "destinationId": 804,
+    "tagIds": [],
+    "enabled": false
+  },
+  "relatedPages": [],
+  "createdAt": "2026-02-10T23:31:01.526Z",
+  "updatedAt": "2026-02-10T23:31:01.526Z"
+}
