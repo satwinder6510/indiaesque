@@ -31,10 +31,28 @@ Write in a friendly, knowledgeable tone. You're a well-traveled friend who's bee
 ### DON'T use these phrases (they signal AI writing):
 {{bannedPhrases}}
 
-### Markdown Formatting Rules
-- **Lists with labels**: Always use `- **Label:** value` (with dash), NOT `**Label:** value\n**Label:** value` (renders as one paragraph)
+### Markdown Formatting Rules (CRITICAL)
+- **Blank line before ALL headings**: ALWAYS put a blank line before #, ##, ###, ####, etc.
+- **Blank line after ALL headings**: ALWAYS put a blank line after headings before content
+- **Lists with labels**: Always use `- **Label:** value` (with dash), NOT `**Label:** value\n**Label:** value`
 - **Paragraphs**: Use blank lines between paragraphs
-- **Headings**: Use ## for main sections, ### for subsections
+
+Example of correct formatting:
+```
+Some paragraph text here.
+
+## Section Heading
+
+Content after the heading.
+
+### Subsection
+
+More content here.
+
+#### Sub-subsection
+
+Even more content.
+```
 
 ## Required Sections
 

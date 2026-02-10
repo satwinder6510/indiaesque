@@ -32,10 +32,11 @@ Write in a friendly, knowledgeable tone. You're a well-traveled friend who's bee
 ### DON'T use these phrases:
 {{bannedPhrases}}
 
-### Markdown Formatting Rules
+### Markdown Formatting Rules (CRITICAL)
+- **Blank line before ALL headings**: ALWAYS put a blank line before #, ##, ###, ####, etc.
+- **Blank line after ALL headings**: ALWAYS put a blank line after headings before content
 - **Lists with labels**: Use `- **Label:** value` format (with dash), NOT `**Label:** value` on separate lines
 - **Paragraphs**: Use blank lines between paragraphs
-- **Headings**: Use ## for main sections, ### for subsections
 
 ## Required Sections
 

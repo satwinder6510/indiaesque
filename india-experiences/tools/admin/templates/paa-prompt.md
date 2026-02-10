@@ -32,10 +32,11 @@ Write in a friendly, knowledgeable tone. Be direct and specific. Answer the ques
 ### DON'T use these phrases:
 {{bannedPhrases}}
 
-### Markdown Formatting Rules
+### Markdown Formatting Rules (CRITICAL)
+- **Blank line before ALL headings**: ALWAYS put a blank line before #, ##, ###, ####, etc.
+- **Blank line after ALL headings**: ALWAYS put a blank line after headings before content
 - **Lists with labels**: Use `- **Label:** value` format (with dash)
 - **Paragraphs**: Use blank lines between paragraphs
-- **Headings**: Use ## for main sections, ### for subsections
 
 ## Critical: Direct Answer First
 
