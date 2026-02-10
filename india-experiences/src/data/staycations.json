@@ -46,7 +46,7 @@
       "externalUrl": ""
     },
     "tours": {
-      "enabled": false,
+      "enabled": true,
       "source": "viator",
       "viatorDestinationId": 684,
       "viatorTagIds": [
