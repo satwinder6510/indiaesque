@@ -411,6 +411,13 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     color: #4b5563;
   }
 
+  /* CRITICAL: Remove paragraph margins inside list items */
+  .hub-content-inner li p {
+    margin: 0;
+    padding: 0;
+    display: inline;
+  }
+
   .hub-content-inner li::marker {
     color: #0d9488;
   }
