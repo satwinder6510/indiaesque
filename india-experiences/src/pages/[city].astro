@@ -341,42 +341,7 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     margin-top: 0.75em;
   }
 
-  /* Headings: clear space above, tight below */
-  .hub-content-inner h2 {
-    margin-top: 2em;
-    margin-bottom: 0.5em;
-    padding-top: 1.25em;
-    border-top: 1px solid #e5e7eb;
-  }
-
-  .hub-content-inner h3 {
-    margin-top: 1.75em;
-    margin-bottom: 0.35em;
-  }
-
-  .hub-content-inner h4 {
-    margin-top: 1.5em;
-    margin-bottom: 0.25em;
-  }
-
-  /* First heading: no top spacing */
-  .hub-content-inner > :first-child {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-
-  /* Lists/blocks after headings: tight */
-  .hub-content-inner h2 + ul,
-  .hub-content-inner h2 + ol,
-  .hub-content-inner h3 + ul,
-  .hub-content-inner h3 + ol,
-  .hub-content-inner h4 + ul,
-  .hub-content-inner h4 + ol {
-    margin-top: 0;
-  }
-
-  /* Typography styles */
+  /* H2 - Major sections */
   .hub-content-inner h2 {
     font-family: 'Oswald', sans-serif;
     font-size: 22px;
@@ -384,21 +349,45 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #111827;
+    margin: 2em 0 0.5em 0;
+    padding-top: 1.25em;
+    border-top: 1px solid #e5e7eb;
   }
 
+  /* H3 - Subsections */
   .hub-content-inner h3 {
     font-family: 'Oswald', sans-serif;
     font-size: 17px;
     font-weight: 400;
     letter-spacing: 0.03em;
     color: #0d9488;
+    margin: 1.75em 0 0.35em 0;
   }
 
+  /* H4 - Sub-subsections */
   .hub-content-inner h4 {
     font-family: 'Muli', sans-serif;
     font-size: 14px;
     font-weight: 700;
     color: #374151;
+    margin: 1.5em 0 0.25em 0;
+  }
+
+  /* First element: no top spacing */
+  .hub-content-inner > :first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  /* Lists after headings: no extra top margin */
+  .hub-content-inner h2 + ul,
+  .hub-content-inner h2 + ol,
+  .hub-content-inner h3 + ul,
+  .hub-content-inner h3 + ol,
+  .hub-content-inner h4 + ul,
+  .hub-content-inner h4 + ol {
+    margin-top: 0;
   }
 
   .hub-content-inner strong {
