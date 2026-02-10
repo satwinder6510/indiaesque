@@ -1,3 +1,443 @@
 {
-  "cities": []
+  "cities": [
+    {
+      "citySlug": "amritsar",
+      "cityName": "Amritsar",
+      "questions": [
+        {
+          "id": "amritsar-1770682963270-0",
+          "question": "What is the best time to visit Amritsar?",
+          "cluster": "practical",
+          "contentDirection": "Cover monsoon vs winter vs summer. Best months are Oct-Mar with temperatures 10-25°C. Include festival dates (Diwali, Baisakhi in April, Guru Nanak Jayanti). Mention crowd levels during peak season and hotel price variations.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-1",
+          "question": "How many days do you need in Amritsar?",
+          "cluster": "practical",
+          "contentDirection": "Recommend 2-3 days minimum. Day 1: Golden Temple, Jallianwala Bagh. Day 2: Wagah Border, local markets. Day 3: Durgiana Temple, Ram Tirath. Include half-day options for quick visits.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-2",
+          "question": "What are the entry timings for Golden Temple?",
+          "cluster": "spiritual",
+          "contentDirection": "24/7 open access. Best times: early morning 4-6 AM for peaceful darshan, evening 7-9 PM for illumination. Include Guru ka Langar meal timings, accommodation booking process for Guru Ram Das Niwas.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-3",
+          "question": "How to reach Amritsar from Delhi by train?",
+          "cluster": "practical",
+          "contentDirection": "Cover Shatabdi Express (6 hours, ₹1500-2500), Golden Temple Mail (7 hours, ₹500-1200). Include booking tips, departure times from New Delhi station, advance reservation requirements.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-4",
+          "question": "What to eat in Amritsar besides kulcha?",
+          "cluster": "food",
+          "contentDirection": "Highlight Amritsari fish, lassi at Gian Di Lassi, chole bhature at Brahma Baba ka Dhaba, jalebi at Jalebiwala. Include Kanha Sweets, Bharawan Da Dhaba locations and average meal costs ₹200-500.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-5",
+          "question": "Where is the famous kulcha in Amritsar?",
+          "cluster": "food",
+          "contentDirection": "Top spots: Kulcha Land, Amritsari Kulcha Hub near Golden Temple, Monu Kulcha Shop in Majitha Road. Include varieties (aloo, gobi, paneer), prices ₹60-120, and eating etiquette with white butter.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-6",
+          "question": "How much does Wagah Border ceremony cost?",
+          "cluster": "practical",
+          "contentDirection": "Free entry to general stands. VIP seating ₹100-300. Include timing (summer 6:15 PM, winter 5:15 PM), advance booking for premium seats, travel time from city center (45 minutes).",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-7",
+          "question": "What to buy in Hall Bazaar Amritsar?",
+          "cluster": "markets",
+          "contentDirection": "Cover Phulkari dupattas (₹800-3000), leather juttis (₹300-1500), dry fruits, traditional suits. Include bargaining tips, shop timings, and walking route from Golden Temple (15 minutes).",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-8",
+          "question": "Is Amritsar safe for solo female travelers?",
+          "cluster": "practical",
+          "contentDirection": "Generally safe around Golden Temple complex. Include precautions for late evening markets, recommended areas to stay (Heritage Walk area), local transport safety, and emergency numbers for tourists.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-9",
+          "question": "What is the dress code for Golden Temple?",
+          "cluster": "spiritual",
+          "contentDirection": "Cover head covering requirement (scarves available free), no shoes policy, modest clothing guidelines. Include where to deposit shoes (free cloak room), washing feet at entrance, tobacco/alcohol restrictions.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-10",
+          "question": "How far is Jallianwala Bagh from Golden Temple?",
+          "cluster": "heritage",
+          "contentDirection": "5-minute walk (400 meters). Include entry fee ₹30 for Indians, ₹500 foreigners. Visiting hours 10 AM-6 PM. Cover key memorial spots, bullet marks on walls, martyrs' well.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-11",
+          "question": "Where to stay near Golden Temple Amritsar?",
+          "cluster": "practical",
+          "contentDirection": "Budget: Hotel Grace (₹1500-2500), Mid-range: Hotel Hong Kong Inn (₹3000-5000), Luxury: Taj Swarna (₹8000+). Include walking distance to temple, parking availability, advance booking needs during festivals.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-12",
+          "question": "What is special about Guru ka Langar at Golden Temple?",
+          "cluster": "spiritual",
+          "contentDirection": "Free community kitchen serving 100,000+ daily. Include meal timings, volunteering opportunities, dining hall (capacity 5000), donation process. Cover simple dal-roti menu and community service philosophy.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-13",
+          "question": "How to book accommodation at Golden Temple?",
+          "cluster": "spiritual",
+          "contentDirection": "Online booking at sgpc.net for Guru Ram Das Niwas and Guru Arjan Dev Niwas. Include rates ₹500-1500, advance booking (30 days), required documents, check-in process near Ghanta Ghar.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-14",
+          "question": "What are the famous gates of Amritsar?",
+          "cluster": "heritage",
+          "contentDirection": "Cover Hall Gate (shopping), Lahori Gate (historic significance), Hakiman Gate area. Include historical background from Sikh period, current landmarks near each gate, local transportation hubs.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-15",
+          "question": "Where to experience Amritsari nightlife?",
+          "cluster": "nightlife",
+          "contentDirection": "Limited nightlife - focus on evening activities: Golden Temple illumination, rooftop restaurants like Sher-e-Punjab, Café Coffee Day outlets, late-night food streets near Guru Bazaar until 11 PM.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-16",
+          "question": "What is the cost of Amritsar food tour?",
+          "cluster": "food",
+          "contentDirection": "Organized tours ₹2000-4000 per person. DIY food crawl ₹500-800. Include stops: Kulcha Land, Kesar Da Dhaba, Gurdas Ram Jalebi Wala, Ahuja Milk Bhandar for lassi. Duration 4-5 hours.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-17",
+          "question": "How to reach Durgiana Temple from railway station?",
+          "cluster": "spiritual",
+          "contentDirection": "3 km distance, auto-rickshaw ₹80-120, bus route from platform. Temple timings 4 AM-11 PM. Include architectural similarity to Golden Temple, Lakshmi Narayan temple complex, free entry.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-18",
+          "question": "What are the best rooftop restaurants in Amritsar?",
+          "cluster": "food",
+          "contentDirection": "Sher-e-Punjab with Golden Temple view, Bhrawan da Dhaba rooftop, Hotel CJ International terrace dining. Include average meal costs ₹800-1500, reservation requirements, sunset timing views.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-19",
+          "question": "Where to buy authentic Phulkari in Amritsar?",
+          "cluster": "markets",
+          "contentDirection": "Hall Bazaar shops, Katra Jaimal Singh market. Include authentic vs machine-made identification, price ranges ₹1500-8000, bargaining from 40-50% quoted price, export quality certificates.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-20",
+          "question": "What is the Partition Museum Amritsar entry fee?",
+          "cluster": "heritage",
+          "contentDirection": "Entry ₹250 for Indians, ₹500 foreigners. Located in Town Hall building. Include audio guide ₹100, photography charges, 2-3 hours duration, emotional content warning for sensitive visitors.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-21",
+          "question": "How to witness Golden Temple morning prayers?",
+          "cluster": "spiritual",
+          "contentDirection": "Early morning Asa di Var kirtan starts 3 AM. Include Prakash ceremony timing, best viewing spots around sarovar, proper etiquette during prayers, photography restrictions during ceremonies.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-22",
+          "question": "What vegetables are used in Amritsari kulcha?",
+          "cluster": "food",
+          "contentDirection": "Popular varieties: aloo (potato), gobi (cauliflower), paneer, mixed vegetables, keema (non-veg). Include preparation method, accompaniments (chole, white butter, pickled onions), calorie content.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-23",
+          "question": "Where to learn about Sikh history in Amritsar?",
+          "cluster": "culture",
+          "contentDirection": "Central Sikh Museum inside Golden Temple (free), Partition Museum, Maharaja Ranjit Singh Museum. Include guided tour options ₹500-1500, historical timeline displays, artifact collections.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-24",
+          "question": "What is the parking situation near Golden Temple?",
+          "cluster": "practical",
+          "contentDirection": "Paid parking ₹20-50. Main parking areas: Heritage Street, Ghanta Ghar area. Include walking distance (5-10 minutes), security arrangements, two-wheeler separate parking, peak hours congestion.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-25",
+          "question": "How much money do I need for 3 days in Amritsar?",
+          "cluster": "practical",
+          "contentDirection": "Budget: ₹3000-5000, Mid-range: ₹8000-12000, Luxury: ₹20000+. Breakdown accommodation, food (₹500-1500 daily), local transport, shopping, attraction entries. Include ATM availability.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-26",
+          "question": "What is the weather like in Amritsar during winter?",
+          "cluster": "practical",
+          "contentDirection": "Dec-Feb temperatures 5-20°C. Include fog conditions affecting flights/trains, warm clothing requirements, best photography light conditions, festival celebrations during winter months.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-27",
+          "question": "Where to experience traditional Punjabi culture in Amritsar?",
+          "cluster": "culture",
+          "contentDirection": "Sadda Pind cultural village (₹800 entry), Gobindgarh Fort cultural shows, Heritage Street evening performances. Include folk dance shows, traditional games, cultural workshops timings.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-28",
+          "question": "What are the airport connectivity options from Amritsar?",
+          "cluster": "practical",
+          "contentDirection": "Sri Guru Ram Dass Jee International Airport. Direct flights to Delhi, Mumbai, Bangalore. Airport to city 11 km, taxi ₹400-600, bus service ₹50-100. Include international connections via Dubai, UK.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-29",
+          "question": "Where to buy traditional juttis in Amritsar?",
+          "cluster": "markets",
+          "contentDirection": "Guru Bazaar, Katra Jaimal Singh. Varieties: Punjabi jutti (₹500-2000), Rajasthani style (₹300-1500). Include leather quality, sizing tips, custom embroidery options, bulk purchase discounts.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-30",
+          "question": "What is Ram Tirath and how to visit?",
+          "cluster": "spiritual",
+          "contentDirection": "12 km from city center, birthplace of Luv-Kush (Ramayana). Include bus service ₹30-50, temple timings, annual fair in November, boating facilities, picnic spot amenities.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-31",
+          "question": "Where to see the making of Golden Temple?",
+          "cluster": "heritage",
+          "contentDirection": "Information Center inside complex, Central Sikh Museum displays. Include historical timeline from 1577, architectural details, gold plating process, reconstruction history, Maharaja Ranjit Singh contributions.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-32",
+          "question": "What street food is famous in Amritsar?",
+          "cluster": "food",
+          "contentDirection": "Kulcha-chole, Amritsari fish, papdi chaat near Hall Gate, samosa at Lawrence Road. Include hygiene tips, best eating hours (evening 5-9 PM), average costs ₹50-200 per item.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-33",
+          "question": "How to attend the palki sahib ceremony at Golden Temple?",
+          "cluster": "spiritual",
+          "contentDirection": "Evening ceremony around 9:30 PM when Guru Granth Sahib is taken to rest. Include viewing positions, duration 30-45 minutes, photography etiquette, crowding during peak seasons.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-34",
+          "question": "What are the nearby attractions to Amritsar within 100 km?",
+          "cluster": "practical",
+          "contentDirection": "Goindwal Sahib (30 km), Tarn Taran Sahib (25 km), Harike Wetland (60 km), Kapurthala (50 km). Include day trip options, bus connectivity, gurudwara accommodation facilities.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-35",
+          "question": "Where to buy dry fruits in Amritsar?",
+          "cluster": "markets",
+          "contentDirection": "Hall Bazaar dry fruit shops, Katra Ahluwalia market. Include Kashmiri walnuts, Afghan almonds, dates varieties. Price comparison with other cities, packaging for travel, quality identification tips.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-36",
+          "question": "What is the significance of the four gates of Golden Temple?",
+          "cluster": "spiritual",
+          "contentDirection": "Four entrances representing openness to all directions and communities. Include names of gates, architectural features, symbolic meaning in Sikh philosophy, crowd management during peak hours.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-37",
+          "question": "How to volunteer at Golden Temple langar?",
+          "cluster": "spiritual",
+          "contentDirection": "Direct registration at langar hall, various tasks (cooking, serving, cleaning). Include time commitments, dress code requirements, donation of ingredients, community service values, volunteer coordination.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-38",
+          "question": "What photography rules apply at Golden Temple?",
+          "cluster": "practical",
+          "contentDirection": "Photography allowed in complex but restricted during prayers. Include dos and don'ts, best spots for shots, golden hour timing, commercial photography permissions, respectful photo practices.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-39",
+          "question": "Where to experience Amritsar's textile heritage?",
+          "cluster": "culture",
+          "contentDirection": "Textile markets in Hall Bazaar, Phulkari workshops in old city, handloom centers. Include traditional weaving techniques, fabric varieties, pricing ₹200-2000 per meter, export quality options.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-40",
+          "question": "What medical facilities are available for tourists in Amritsar?",
+          "cluster": "practical",
+          "contentDirection": "Government hospitals: Civil Hospital, Private: Fortis Escorts. Include 24-hour pharmacies near Golden Temple, emergency numbers, travel insurance acceptance, common health issues in the region.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-41",
+          "question": "How to experience Baisakhi festival in Amritsar?",
+          "cluster": "culture",
+          "contentDirection": "April 13-14 celebrations at Golden Temple, nagar kirtan processions, cultural programs. Include accommodation booking (2 months advance), crowd management, special langar preparations, folk performances.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-42",
+          "question": "What is the mobile connectivity and internet situation in Amritsar?",
+          "cluster": "practical",
+          "contentDirection": "Good 4G coverage by all major operators. Include WiFi availability at hotels, cafes, Golden Temple complex. SIM card purchase for tourists, data plan recommendations, international roaming costs.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-43",
+          "question": "Where to buy religious books and items in Amritsar?",
+          "cluster": "spiritual",
+          "contentDirection": "Book shops near Golden Temple complex, SGPC publication center. Include Guru Granth Sahib copies, religious artifacts, price ranges ₹100-5000, authenticity certificates for religious items.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-44",
+          "question": "What are the lesser-known temples worth visiting in Amritsar?",
+          "cluster": "spiritual",
+          "contentDirection": "Mata Lal Devi Temple, Shiv Mandir near Railway Station, Hanuman Mandir at Hall Gate. Include unique features, local legends, visiting hours, special prayer timings, community celebrations.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-45",
+          "question": "How to plan a heritage walk in Amritsar old city?",
+          "cluster": "heritage",
+          "contentDirection": "Self-guided route: Golden Temple → Jallianwala Bagh → Hall Bazaar → Partition Museum. Include 4-6 hour duration, heritage building identifications, local guide hiring ₹1000-2000, rest stops.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-46",
+          "question": "What traditional games and sports can tourists experience in Amritsar?",
+          "cluster": "culture",
+          "contentDirection": "Kabaddi at local grounds, wrestling at akharas, traditional Punjabi games at Sadda Pind. Include participation opportunities, viewing local competitions, sports equipment shopping, cultural significance.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        },
+        {
+          "id": "amritsar-1770682963270-47",
+          "question": "Where to find the best lassi varieties in Amritsar?",
+          "cluster": "food",
+          "contentDirection": "Gian Di Lassi (famous), Ahuja Milk Bhandar, Bharawan Da Dhaba. Include flavors (plain, sweet, salted, fruit), prices ₹60-150, serving sizes, best consumption hours, health benefits.",
+          "answered": false,
+          "source": "ai",
+          "createdAt": "2026-02-10T00:22:43.270Z"
+        }
+      ],
+      "lastResearched": "2026-02-10T00:22:53.590Z"
+    }
+  ]
 }
