@@ -338,45 +338,120 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     border: 1px solid #e5e7eb;
   }
 
-  /* Hub Content */
+  /* Hub Content - Main article styling */
   .hub-content {
-    padding: 48px 24px;
+    padding: 64px 24px;
     background-color: #ffffff;
   }
 
   .hub-content-inner {
-    max-width: 800px;
+    max-width: 720px;
     margin: 0 auto;
     font-family: 'Muli', sans-serif;
-    font-size: 15px;
-    line-height: 1.8;
-    color: #4b5563;
+    font-size: 16px;
+    line-height: 1.9;
+    color: #374151;
+  }
+
+  .hub-content-inner p {
+    margin: 0 0 24px 0;
   }
 
   .hub-content-inner h2 {
     font-family: 'Oswald', sans-serif;
-    font-size: 22px;
+    font-size: 28px;
     font-weight: 400;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.03em;
     color: #111827;
-    margin: 32px 0 16px 0;
+    margin: 56px 0 24px 0;
+    padding-top: 32px;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .hub-content-inner h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
   }
 
   .hub-content-inner h3 {
     font-family: 'Oswald', sans-serif;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #1f2937;
+    margin: 40px 0 16px 0;
+  }
+
+  .hub-content-inner h4 {
+    font-family: 'Muli', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 32px 0 12px 0;
+  }
+
+  .hub-content-inner strong {
+    font-weight: 600;
     color: #111827;
-    margin: 24px 0 12px 0;
   }
 
   .hub-content-inner ul, .hub-content-inner ol {
-    margin: 16px 0;
-    padding-left: 24px;
+    margin: 20px 0 28px 0;
+    padding-left: 28px;
+  }
+
+  .hub-content-inner ul {
+    list-style-type: disc;
+  }
+
+  .hub-content-inner ol {
+    list-style-type: decimal;
   }
 
   .hub-content-inner li {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    padding-left: 8px;
+  }
+
+  .hub-content-inner li::marker {
+    color: #0d9488;
+  }
+
+  .hub-content-inner hr {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin: 48px 0;
+  }
+
+  .hub-content-inner a {
+    color: #0d9488;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .hub-content-inner a:hover {
+    color: #0f766e;
+  }
+
+  /* Desktop hub content */
+  @media (min-width: 768px) {
+    .hub-content {
+      padding: 80px 48px;
+    }
+
+    .hub-content-inner {
+      font-size: 17px;
+    }
+
+    .hub-content-inner h2 {
+      font-size: 32px;
+      margin: 64px 0 28px 0;
+    }
+
+    .hub-content-inner h3 {
+      font-size: 24px;
+    }
   }
 
   /* Section Styles */
