@@ -10,6 +10,10 @@ interface PAAQuestion {
   cluster: string;
   contentDirection?: string;
   answered: boolean;
+  answer?: string;
+  wordCount?: number;
+  slug?: string;
+  publishedAt?: string;
   source: "ai" | "manual";
   createdAt: string;
 }
@@ -37,6 +41,8 @@ export default function CityPAAPage() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [selectedCluster, setSelectedCluster] = useState<string | null>(null);
   const [pendingQuestions, setPendingQuestions] = useState<PAAQuestion[]>([]);
+  const [selectedQuestion, setSelectedQuestion] = useState<PAAQuestion | null>(null);
+  const [showAnswerModal, setShowAnswerModal] = useState(false);
 
   useEffect(() => {
     Promise.all([
@@ -338,20 +344,47 @@ export default function CityPAAPage() {
                               manual
                             </span>
                           )}
+                          {q.answered ? (
+                            <span className="text-xs px-2 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded flex items-center gap-1">
+                              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                              </svg>
+                              {q.wordCount} words
+                            </span>
+                          ) : (
+                            <span className="text-xs px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">
+                              draft
+                            </span>
+                          )}
                         </div>
                         <p className="font-medium text-[var(--foreground)]">{q.question}</p>
                         {q.contentDirection && (
-                          <p className="text-sm text-[var(--foreground-muted)] mt-1">{q.contentDirection}</p>
+                          <p className="text-sm text-[var(--foreground-muted)] mt-1 line-clamp-2">{q.contentDirection}</p>
                         )}
                       </div>
-                      <button
-                        onClick={() => handleDeleteQuestion(q.id)}
-                        className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
-                      >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                        </svg>
-                      </button>
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => {
+                            setSelectedQuestion(q);
+                            setShowAnswerModal(true);
+                          }}
+                          className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
+                            q.answered
+                              ? "bg-[var(--background)] text-[var(--foreground)] hover:bg-[var(--border)]"
+                              : "bg-[var(--accent)] text-white hover:bg-[var(--accent-light)]"
+                          }`}
+                        >
+                          {q.answered ? "View" : "Generate"}
+                        </button>
+                        <button
+                          onClick={() => handleDeleteQuestion(q.id)}
+                          className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                          </svg>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -373,6 +406,27 @@ export default function CityPAAPage() {
               questions: [...prev.questions, ...newQuestions],
             } : null);
             setShowAddModal(false);
+          }}
+        />
+      )}
+
+      {/* Answer Modal */}
+      {showAnswerModal && selectedQuestion && (
+        <AnswerModal
+          citySlug={citySlug}
+          cityName={cityName}
+          question={selectedQuestion}
+          onClose={() => {
+            setShowAnswerModal(false);
+            setSelectedQuestion(null);
+          }}
+          onSave={(updatedQuestion) => {
+            setData(prev => prev ? {
+              ...prev,
+              questions: prev.questions.map(q => q.id === updatedQuestion.id ? updatedQuestion : q),
+            } : null);
+            setShowAnswerModal(false);
+            setSelectedQuestion(null);
           }}
         />
       )}
@@ -507,6 +561,219 @@ function AddQuestionsModal({
             </button>
           </div>
         </form>
+      </div>
+    </div>
+  );
+}
+
+function AnswerModal({
+  citySlug,
+  cityName,
+  question,
+  onClose,
+  onSave,
+}: {
+  citySlug: string;
+  cityName: string;
+  question: PAAQuestion;
+  onClose: () => void;
+  onSave: (question: PAAQuestion) => void;
+}) {
+  const [answer, setAnswer] = useState(question.answer || "");
+  const [generating, setGenerating] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
+
+  const wordCount = answer.trim().split(/\s+/).filter(w => w).length;
+  const isValidLength = wordCount >= 300 && wordCount <= 800;
+
+  const handleGenerate = async () => {
+    setGenerating(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/paa/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          cityName,
+          question: question.question,
+          contentDirection: question.contentDirection,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+
+      setAnswer(data.answer);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Generation failed");
+    } finally {
+      setGenerating(false);
+    }
+  };
+
+  const handleSave = async () => {
+    if (wordCount < 300) {
+      setError("Content is too thin. Minimum 300 words required.");
+      return;
+    }
+
+    setSaving(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/paa", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          citySlug,
+          questionId: question.id,
+          updates: {
+            answer,
+            wordCount,
+            answered: true,
+            slug: question.question
+              .toLowerCase()
+              .replace(/[^a-z0-9\s]/g, "")
+              .replace(/\s+/g, "-")
+              .slice(0, 60),
+          },
+        }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error);
+      }
+
+      onSave({
+        ...question,
+        answer,
+        wordCount,
+        answered: true,
+      });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Save failed");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <div className="bg-[var(--background-card)] rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col border border-[var(--border)]">
+        {/* Header */}
+        <div className="px-6 py-4 border-b border-[var(--border)] flex items-start justify-between gap-4">
+          <div className="flex-1">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-xs px-2 py-0.5 bg-[var(--primary)]/10 text-[var(--primary)] rounded font-medium">
+                {question.cluster}
+              </span>
+              <span className={`text-xs px-2 py-0.5 rounded ${
+                wordCount < 300
+                  ? "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300"
+                  : wordCount > 800
+                  ? "bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300"
+                  : "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300"
+              }`}>
+                {wordCount} words {wordCount < 300 ? "(too short)" : wordCount > 800 ? "(long)" : ""}
+              </span>
+            </div>
+            <h3 className="text-lg font-semibold text-[var(--foreground)]">{question.question}</h3>
+            {question.contentDirection && (
+              <p className="text-sm text-[var(--foreground-muted)] mt-1">{question.contentDirection}</p>
+            )}
+          </div>
+          <button
+            onClick={onClose}
+            className="p-1 text-[var(--foreground-muted)] hover:text-[var(--foreground)] rounded-lg hover:bg-[var(--border)] transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Content */}
+        <div className="flex-1 overflow-y-auto p-6">
+          {!answer && !generating && (
+            <div className="text-center py-12">
+              <svg className="w-16 h-16 mx-auto mb-4 text-[var(--foreground-muted)] opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+              <h4 className="text-lg font-medium text-[var(--foreground)] mb-2">Generate Answer</h4>
+              <p className="text-[var(--foreground-muted)] mb-6">
+                AI will write a 400-600 word answer based on the question and content direction.
+              </p>
+              <button
+                onClick={handleGenerate}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white font-medium rounded-xl shadow-lg transition-all"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                Generate with AI
+              </button>
+            </div>
+          )}
+
+          {generating && (
+            <div className="text-center py-12">
+              <svg className="animate-spin w-8 h-8 mx-auto mb-4 text-[var(--accent)]" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+              </svg>
+              <p className="text-[var(--foreground-muted)]">Generating answer...</p>
+            </div>
+          )}
+
+          {answer && !generating && (
+            <textarea
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+              className="w-full h-[400px] px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-xl focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent text-[var(--foreground)] font-mono text-sm resize-none"
+              placeholder="Write your answer here..."
+            />
+          )}
+
+          {error && (
+            <div className="mt-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 rounded-xl text-sm">
+              {error}
+            </div>
+          )}
+        </div>
+
+        {/* Footer */}
+        <div className="px-6 py-4 border-t border-[var(--border)] flex items-center justify-between">
+          <div className="text-sm text-[var(--foreground-muted)]">
+            Target: 300-800 words
+          </div>
+          <div className="flex gap-3">
+            {answer && (
+              <button
+                onClick={handleGenerate}
+                disabled={generating}
+                className="px-4 py-2.5 text-[var(--foreground-muted)] hover:text-[var(--foreground)] hover:bg-[var(--border)] rounded-xl transition-colors font-medium"
+              >
+                Regenerate
+              </button>
+            )}
+            <button
+              onClick={onClose}
+              className="px-4 py-2.5 text-[var(--foreground-muted)] hover:text-[var(--foreground)] hover:bg-[var(--border)] rounded-xl transition-colors font-medium"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={handleSave}
+              disabled={saving || !answer || wordCount < 300}
+              className="px-5 py-2.5 bg-[var(--primary)] hover:bg-[var(--primary-light)] disabled:opacity-50 text-white font-semibold rounded-xl shadow-lg transition-all"
+            >
+              {saving ? "Saving..." : "Save Answer"}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

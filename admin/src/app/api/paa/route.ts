@@ -11,7 +11,10 @@ export interface PAAQuestion {
   cluster: string;
   contentDirection?: string;
   answered: boolean;
-  url?: string;
+  answer?: string;
+  wordCount?: number;
+  slug?: string;
+  publishedAt?: string;
   source: "ai" | "manual";
   createdAt: string;
 }
