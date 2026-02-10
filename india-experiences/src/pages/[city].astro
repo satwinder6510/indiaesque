@@ -6,6 +6,17 @@ import citiesData from '../data/cities.json';
 
 export const prerender = true;
 
+// Load hub.json files for each city
+async function loadHubData(citySlug: string) {
+  try {
+    const hubFiles = import.meta.glob('../data/content/*/hub.json', { eager: true });
+    const hubPath = `../data/content/${citySlug}/hub.json`;
+    return hubFiles[hubPath] as any;
+  } catch {
+    return null;
+  }
+}
+
 export async function getStaticPaths() {
   return Object.keys(DESTINATIONS).map(city => ({
     params: { city },
@@ -19,60 +30,70 @@ const { cityData } = Astro.props;
 // Get hero image from cities.json data
 const cityFromData = citiesData.find(c => c.slug === city);
 
-// City-specific content (taglines and highlights - hero images come from data)
-const cityContent: Record<string, {
+// Load hub data from JSON file (created by admin)
+const hubData = await loadHubData(city as string);
+
+// Fallback content if hub.json doesn't exist or is empty
+const fallbackContent: Record<string, {
   tagline: string;
   description: string;
   highlights: string[];
 }> = {
   delhi: {
     tagline: 'WHERE HISTORY MEETS MODERNITY',
-    description: 'From ancient monuments to bustling bazaars, Delhi offers a fascinating blend of old-world charm and contemporary culture. Explore Mughal architecture, taste legendary street food, and discover hidden gems in every corner.',
+    description: 'From ancient monuments to bustling bazaars, Delhi offers a fascinating blend of old-world charm and contemporary culture.',
     highlights: ['Red Fort & Jama Masjid', 'Chandni Chowk Food Trail', 'Humayun\'s Tomb', 'Qutub Minar'],
   },
   jaipur: {
     tagline: 'THE PINK CITY',
-    description: 'Step into a world of royal grandeur in Jaipur. Marvel at magnificent palaces, explore vibrant markets filled with traditional crafts, and experience the warm hospitality of Rajasthan.',
+    description: 'Step into a world of royal grandeur in Jaipur. Marvel at magnificent palaces and explore vibrant markets.',
     highlights: ['Amber Fort', 'Hawa Mahal', 'City Palace', 'Jantar Mantar'],
   },
   mumbai: {
     tagline: 'THE CITY OF DREAMS',
-    description: 'Experience the energy of India\'s most dynamic city. From colonial architecture to Bollywood glamour, street food to fine dining, Mumbai never stops surprising.',
+    description: 'Experience the energy of India\'s most dynamic city. From colonial architecture to Bollywood glamour.',
     highlights: ['Gateway of India', 'Dharavi Art Walk', 'Marine Drive', 'Elephanta Caves'],
   },
   goa: {
     tagline: 'SUN, SAND & SOUL',
-    description: 'Discover the perfect blend of beach relaxation and cultural exploration. Portuguese heritage, pristine beaches, and a laid-back vibe make Goa unforgettable.',
+    description: 'Discover the perfect blend of beach relaxation and cultural exploration.',
     highlights: ['Old Goa Churches', 'Spice Plantations', 'Beach Hopping', 'Sunset Cruises'],
   },
   agra: {
     tagline: 'HOME OF THE TAJ MAHAL',
-    description: 'Witness one of the world\'s most iconic monuments and explore the rich Mughal heritage of this historic city on the banks of the Yamuna.',
+    description: 'Witness one of the world\'s most iconic monuments and explore the rich Mughal heritage.',
     highlights: ['Taj Mahal', 'Agra Fort', 'Mehtab Bagh', 'Fatehpur Sikri'],
   },
   varanasi: {
     tagline: 'THE SPIRITUAL HEART OF INDIA',
-    description: 'Experience the oldest living city in the world. Witness ancient rituals on the ghats of the Ganges and discover profound spiritual traditions.',
+    description: 'Experience the oldest living city in the world. Witness ancient rituals on the ghats.',
     highlights: ['Ganga Aarti', 'Boat Ride at Dawn', 'Temple Walks', 'Silk Weaving'],
   },
   kolkata: {
     tagline: 'THE CITY OF JOY',
-    description: 'Immerse yourself in art, literature, and culinary traditions in India\'s cultural capital. From colonial grandeur to artistic expression, Kolkata captivates.',
+    description: 'Immerse yourself in art, literature, and culinary traditions in India\'s cultural capital.',
     highlights: ['Victoria Memorial', 'Kumartuli', 'College Street', 'Bengali Cuisine'],
   },
   udaipur: {
     tagline: 'THE CITY OF LAKES',
-    description: 'Romance awaits in this enchanting city of shimmering lakes and fairy-tale palaces. Udaipur is Rajasthan at its most magical.',
+    description: 'Romance awaits in this enchanting city of shimmering lakes and fairy-tale palaces.',
     highlights: ['Lake Pichola', 'City Palace', 'Jagdish Temple', 'Sunset Boat Ride'],
   },
   kerala: {
     tagline: 'GOD\'S OWN COUNTRY',
-    description: 'Discover lush backwaters, tranquil houseboats, and ancient traditions in Kerala. From Ayurvedic retreats to spice plantations, experience India\'s tropical paradise.',
+    description: 'Discover lush backwaters, tranquil houseboats, and ancient traditions.',
     highlights: ['Alleppey Backwaters', 'Munnar Tea Gardens', 'Kathakali Dance', 'Ayurvedic Spa'],
   },
 };
 
-const content = cityContent[city as string] || cityContent.delhi;
+// Use hub data if available, otherwise fallback
+const fallback = fallbackContent[city as string] || fallbackContent.delhi;
+const content = {
+  tagline: fallback.tagline,
+  description: hubData?.description || fallback.description,
+  highlights: fallback.highlights,
+  generatedContent: hubData?.generatedContent || null,
+};
 // Use heroImage from data file, fallback to Unsplash
 const heroImage = cityFromData?.heroImage || 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600&q=80';
 
@@ -126,6 +147,13 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
       </ul>
     </div>
   </section>
+
+  <!-- Generated Hub Content -->
+  {content.generatedContent && (
+    <section class="hub-content">
+      <div class="hub-content-inner" set:html={content.generatedContent.replace(/^#[^#].*$/gm, '').replace(/\n/g, '<br/>')} />
+    </section>
+  )}
 
   <!-- Curated Experiences (Your Hand-Picked Content) -->
   {curatedExperiences.length > 0 && (
@@ -316,6 +344,47 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     color: #6b7280;
     padding: 8px 16px;
     border: 1px solid #e5e7eb;
+  }
+
+  /* Hub Content */
+  .hub-content {
+    padding: 48px 24px;
+    background-color: #ffffff;
+  }
+
+  .hub-content-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Muli', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #4b5563;
+  }
+
+  .hub-content-inner h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #111827;
+    margin: 32px 0 16px 0;
+  }
+
+  .hub-content-inner h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #111827;
+    margin: 24px 0 12px 0;
+  }
+
+  .hub-content-inner ul, .hub-content-inner ol {
+    margin: 16px 0;
+    padding-left: 24px;
+  }
+
+  .hub-content-inner li {
+    margin-bottom: 8px;
   }
 
   /* Section Styles */
