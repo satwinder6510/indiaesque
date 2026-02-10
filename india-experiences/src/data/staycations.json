@@ -46,15 +46,10 @@
       "externalUrl": ""
     },
     "tours": {
-      "enabled": true,
+      "enabled": false,
       "source": "viator",
       "viatorDestinationId": 684,
-      "viatorTagIds": [
-        11940,
-        21074,
-        11866,
-        12716
-      ],
+      "viatorTagIds": [],
       "customTourIds": []
     },
     "href": "/staycations/haveli-dharampura/",
