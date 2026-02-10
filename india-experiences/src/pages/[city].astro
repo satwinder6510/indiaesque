@@ -331,12 +331,30 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     padding: 32px 20px 48px;
   }
 
-  /* Paragraphs */
-  .hub-content-inner p {
-    margin: 0 0 0.75em 0;
+  /* Reset all margins */
+  .hub-content-inner h1,
+  .hub-content-inner h2,
+  .hub-content-inner h3,
+  .hub-content-inner h4,
+  .hub-content-inner h5,
+  .hub-content-inner h6,
+  .hub-content-inner p,
+  .hub-content-inner ul,
+  .hub-content-inner ol,
+  .hub-content-inner li,
+  .hub-content-inner blockquote,
+  .hub-content-inner pre,
+  .hub-content-inner hr {
+    margin: 0;
+    padding: 0;
   }
 
-  /* H2 - Major sections */
+  /* Base spacing: everything gets small top margin */
+  .hub-content-inner > * + * {
+    margin-top: 0.75em;
+  }
+
+  /* H2 - Major sections: more space above */
   .hub-content-inner h2 {
     font-family: 'Oswald', sans-serif;
     font-size: 22px;
@@ -344,8 +362,8 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #111827;
-    margin: 2em 0 0.5em 0;
-    padding-top: 1.25em;
+    margin-top: 2em;
+    padding-top: 1em;
     border-top: 1px solid #e5e7eb;
   }
 
@@ -356,7 +374,7 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     font-weight: 400;
     letter-spacing: 0.03em;
     color: #0d9488;
-    margin: 1.75em 0 0.35em 0;
+    margin-top: 1.5em;
   }
 
   /* H4 - Sub-subsections */
@@ -365,24 +383,21 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     font-size: 14px;
     font-weight: 700;
     color: #374151;
-    margin: 1.5em 0 0.25em 0;
+    margin-top: 1.25em;
   }
 
-  /* First element: no top spacing */
+  /* First child: no top margin */
   .hub-content-inner > :first-child {
     margin-top: 0;
     padding-top: 0;
     border-top: none;
   }
 
-  /* Lists after headings: no extra top margin */
-  .hub-content-inner h2 + ul,
-  .hub-content-inner h2 + ol,
-  .hub-content-inner h3 + ul,
-  .hub-content-inner h3 + ol,
-  .hub-content-inner h4 + ul,
-  .hub-content-inner h4 + ol {
-    margin-top: 0;
+  /* Tight spacing after headings */
+  .hub-content-inner h2 + *,
+  .hub-content-inner h3 + *,
+  .hub-content-inner h4 + * {
+    margin-top: 0.4em;
   }
 
   .hub-content-inner strong {
