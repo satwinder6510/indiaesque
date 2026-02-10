@@ -329,9 +329,9 @@ function ImagesTab({ staycation, setStaycation }: { staycation: Staycation; setS
                   />
                 </label>
               </div>
-              {(staycation as Record<string, string>)[key] ? (
+              {staycation[key as keyof Staycation] ? (
                 <img
-                  src={(staycation as Record<string, string>)[key]}
+                  src={staycation[key as keyof Staycation] as string}
                   alt={label}
                   className="w-full h-32 object-cover rounded"
                 />
