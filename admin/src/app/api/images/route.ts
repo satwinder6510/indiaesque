@@ -131,7 +131,8 @@ export async function POST(request: NextRequest) {
     // Map category to processor key
     const categoryKey = category === "cities" ? "city" :
                         category === "staycations" ? "staycation" :
-                        category === "experiences" ? "experience" : "general";
+                        category === "experiences" ? "experience" :
+                        category === "content" ? "content" : "general";
 
     // Get image buffer
     const arrayBuffer = await file.arrayBuffer();

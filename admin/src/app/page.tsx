@@ -15,10 +15,9 @@ interface CityData {
   images: { hero: ImageStatus; card: ImageStatus };
 }
 
-interface PAAStats {
-  totalQuestions: number;
-  answeredQuestions: number;
-  citiesWithPAA: number;
+interface ContentStats {
+  hubCount: number;
+  pageCount: number;
 }
 
 interface DataResponse {
@@ -27,22 +26,21 @@ interface DataResponse {
 
 export default function Dashboard() {
   const [data, setData] = useState<DataResponse | null>(null);
-  const [paaStats, setPAAStats] = useState<PAAStats>({ totalQuestions: 0, answeredQuestions: 0, citiesWithPAA: 0 });
+  const [contentStats, setContentStats] = useState<ContentStats>({ hubCount: 0, pageCount: 0 });
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
     Promise.all([
       fetch("/api/data").then(res => res.json()),
-      fetch("/api/paa").then(res => res.json()),
+      fetch("/api/content").then(res => res.json()),
     ])
-      .then(([cityData, paaData]) => {
+      .then(([cityData, contentData]) => {
         setData(cityData);
-        const cities = paaData.cities || [];
-        setPAAStats({
-          totalQuestions: cities.reduce((sum: number, c: { questionCount: number }) => sum + c.questionCount, 0),
-          answeredQuestions: cities.reduce((sum: number, c: { answeredCount: number }) => sum + c.answeredCount, 0),
-          citiesWithPAA: cities.filter((c: { questionCount: number }) => c.questionCount > 0).length,
+        const hubs = contentData.cities || [];
+        setContentStats({
+          hubCount: hubs.length,
+          pageCount: hubs.reduce((sum: number, h: { pageCount: number }) => sum + h.pageCount, 0),
         });
       })
       .catch(console.error)
@@ -59,7 +57,7 @@ export default function Dashboard() {
     let uploaded = 0;
     let total = 0;
     data.cities.forEach((city) => {
-      total += 2; // hero + card
+      total += 2;
       if (city.images.hero.exists) uploaded++;
       if (city.images.card.exists) uploaded++;
     });
@@ -70,7 +68,6 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-[var(--background)]">
-      {/* Header */}
       <header className="bg-[var(--background-card)] border-b border-[var(--border)]">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -79,7 +76,7 @@ export default function Dashboard() {
             </div>
             <div>
               <h1 className="font-semibold text-[var(--foreground)]">Indiaesque Admin</h1>
-              <p className="text-sm text-[var(--foreground-muted)]">Image Management</p>
+              <p className="text-sm text-[var(--foreground-muted)]">Content Management</p>
             </div>
           </div>
           <button
@@ -91,12 +88,11 @@ export default function Dashboard() {
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="max-w-5xl mx-auto px-6 py-8">
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-[var(--foreground)]">Dashboard</h2>
           <p className="text-[var(--foreground-muted)] mt-1">
-            Upload and manage images for your travel content
+            Manage your travel content and images
           </p>
         </div>
 
@@ -115,6 +111,45 @@ export default function Dashboard() {
           </div>
         ) : (
           <div className="grid gap-6 md:grid-cols-2">
+            {/* Content Hubs Card */}
+            <Link
+              href="/content"
+              className="block bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)] hover:border-[var(--primary)] hover:shadow-lg transition-all group"
+            >
+              <div className="flex items-start justify-between">
+                <div>
+                  <div className="text-[var(--primary)] mb-4 group-hover:scale-110 transition-transform inline-block">
+                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-[var(--foreground)] mb-1">
+                    Content Hubs
+                  </h3>
+                  <p className="text-[var(--foreground-muted)] text-sm mb-4">
+                    City guides, sub-pages & Viator tours
+                  </p>
+                </div>
+                <div className="text-right">
+                  <div className="text-3xl font-bold text-[var(--foreground)]">
+                    {contentStats.hubCount}
+                  </div>
+                  <div className="text-sm text-[var(--foreground-muted)]">hubs</div>
+                </div>
+              </div>
+              <div className="flex items-center justify-between text-sm pt-4 border-t border-[var(--border)]">
+                <span className="text-[var(--foreground-muted)]">
+                  {contentStats.pageCount} sub-pages
+                </span>
+                <span className="text-[var(--primary)] font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                  Manage
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </div>
+            </Link>
+
             {/* Cities Card */}
             <Link
               href="/cities"
@@ -124,14 +159,14 @@ export default function Dashboard() {
                 <div>
                   <div className="text-[var(--primary)] mb-4 group-hover:scale-110 transition-transform inline-block">
                     <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                   </div>
                   <h3 className="text-xl font-semibold text-[var(--foreground)] mb-1">
-                    Cities
+                    Images
                   </h3>
                   <p className="text-[var(--foreground-muted)] text-sm mb-4">
-                    Upload hero and card images for each city
+                    Upload hero and card images
                   </p>
                 </div>
                 <div className="text-right">
@@ -143,49 +178,10 @@ export default function Dashboard() {
               </div>
               <div className="flex items-center justify-between text-sm pt-4 border-t border-[var(--border)]">
                 <span className={imageStats.uploaded === imageStats.total ? "text-[var(--success)]" : "text-[var(--warning)]"}>
-                  {imageStats.uploaded}/{imageStats.total} images uploaded
+                  {imageStats.uploaded}/{imageStats.total} uploaded
                 </span>
                 <span className="text-[var(--primary)] font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
                   Manage
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </span>
-              </div>
-            </Link>
-
-            {/* PAA Research Card */}
-            <Link
-              href="/paa"
-              className="block bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)] hover:border-[var(--primary)] hover:shadow-lg transition-all group"
-            >
-              <div className="flex items-start justify-between">
-                <div>
-                  <div className="text-[var(--primary)] mb-4 group-hover:scale-110 transition-transform inline-block">
-                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold text-[var(--foreground)] mb-1">
-                    PAA Research
-                  </h3>
-                  <p className="text-[var(--foreground-muted)] text-sm mb-4">
-                    People Also Ask questions for SEO
-                  </p>
-                </div>
-                <div className="text-right">
-                  <div className="text-3xl font-bold text-[var(--foreground)]">
-                    {paaStats.totalQuestions}
-                  </div>
-                  <div className="text-sm text-[var(--foreground-muted)]">questions</div>
-                </div>
-              </div>
-              <div className="flex items-center justify-between text-sm pt-4 border-t border-[var(--border)]">
-                <span className="text-[var(--foreground-muted)]">
-                  {paaStats.citiesWithPAA} cities researched
-                </span>
-                <span className="text-[var(--primary)] font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
-                  Research
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>

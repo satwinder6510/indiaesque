@@ -1,0 +1,16 @@
+{
+  "slug": "south-delhi-guide",
+  "citySlug": "delhi",
+  "title": "South Delhi Guide",
+  "type": "area-guide",
+  "description": "Explore the upscale neighborhoods of South Delhi",
+  "content": "",
+  "viator": {
+    "destinationId": 804,
+    "tagIds": [21911],
+    "enabled": true
+  },
+  "relatedPages": ["khan-market-guide", "hauz-khas-guide"],
+  "createdAt": "2026-02-10T00:00:00.000Z",
+  "updatedAt": "2026-02-10T00:00:00.000Z"
+}

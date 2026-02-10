@@ -29,6 +29,9 @@ export const imageSizes: Record<string, ImageSize[]> = {
     { name: 'hero', width: 1920, height: 1080, fit: 'cover' },
     { name: 'featured', width: 800, height: 500, fit: 'cover' },
   ],
+  content: [
+    { name: 'thumb', width: 400, height: 300, fit: 'cover' },
+  ],
 };
 
 export interface ProcessedImage {
