@@ -1,64 +1,32 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import citiesData from '../../data/cities.json';
 
-const destinations = [
-  {
-    name: 'Delhi',
-    region: 'North India',
-    description: 'The capital city where ancient monuments stand alongside modern marvels. Explore Mughal architecture, vibrant markets, and world-class street food.',
-    image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80',
-    href: '/delhi/'
-  },
-  {
-    name: 'Jaipur',
-    region: 'Rajasthan',
-    description: 'The Pink City of palaces and forts. Discover royal heritage, artisan crafts, and the warmth of Rajasthani hospitality.',
-    image: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&q=80',
-    href: '/jaipur/'
-  },
-  {
-    name: 'Mumbai',
-    region: 'Maharashtra',
-    description: 'India\'s city of dreams where Bollywood glamour meets colonial grandeur. Experience the energy of the financial capital.',
-    image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=800&q=80',
-    href: '/mumbai/'
-  },
-  {
-    name: 'Goa',
-    region: 'West Coast',
-    description: 'Sun-kissed beaches and Portuguese heritage. From party hotspots to serene villages, Goa offers the perfect coastal escape.',
-    image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&q=80',
-    href: '/goa/'
-  },
-  {
-    name: 'Agra',
-    region: 'Uttar Pradesh',
-    description: 'Home to the Taj Mahal and Mughal masterpieces. Witness the pinnacle of architectural beauty and timeless love stories.',
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&q=80',
-    href: '/agra/'
-  },
-  {
-    name: 'Varanasi',
-    region: 'Uttar Pradesh',
-    description: 'The spiritual heart of India on the banks of the Ganges. Experience ancient rituals, temple ceremonies, and profound spirituality.',
-    image: 'https://images.unsplash.com/photo-1561361058-c24cecae35ca?w=800&q=80',
-    href: '/varanasi/'
-  },
-  {
-    name: 'Kolkata',
-    region: 'West Bengal',
-    description: 'The cultural capital with colonial architecture and intellectual heritage. Discover art, literature, and the sweetest desserts in India.',
-    image: 'https://images.unsplash.com/photo-1558431382-27e303142255?w=800&q=80',
-    href: '/kolkata/'
-  },
-  {
-    name: 'Udaipur',
-    region: 'Rajasthan',
-    description: 'The City of Lakes where romance meets royalty. Float past palaces on mirror-still waters and lose yourself in timeless elegance.',
-    image: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800&q=80',
-    href: '/udaipur/'
-  },
-];
+// Region lookup for cities
+const regionMap: Record<string, string> = {
+  delhi: 'North India',
+  jaipur: 'Rajasthan',
+  mumbai: 'Maharashtra',
+  goa: 'West Coast',
+  agra: 'Uttar Pradesh',
+  varanasi: 'Uttar Pradesh',
+  kolkata: 'West Bengal',
+  udaipur: 'Rajasthan',
+  kochi: 'Kerala',
+  rishikesh: 'Uttarakhand',
+  amritsar: 'Punjab',
+};
+
+// Build destinations from cities.json
+const destinations = citiesData
+  .filter(city => city.description) // Only show cities with descriptions
+  .map(city => ({
+    name: city.name,
+    region: regionMap[city.slug] || 'India',
+    description: city.description,
+    image: city.cardImage || `https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80`,
+    href: `/${city.slug}/`
+  }));
 ---
 
 <BaseLayout

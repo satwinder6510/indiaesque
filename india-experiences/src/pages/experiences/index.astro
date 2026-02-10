@@ -1,50 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import experiencesData from '../../data/experiences.json';
 
-const experiences = [
-  {
-    name: 'Food Tours',
-    category: 'Culinary',
-    description: 'Discover India through its flavours. Join guided food walks through bustling markets, sample street food with locals, and learn the stories behind iconic dishes.',
-    image: 'https://images.unsplash.com/photo-1505253758473-96b7015fcd40?w=800&q=80',
-    href: '/experiences/food-tours/'
-  },
-  {
-    name: 'Cooking Classes',
-    category: 'Culinary',
-    description: 'Learn authentic recipes from home cooks and professional chefs. Master the art of Indian spices in hands-on sessions you\'ll never forget.',
-    image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80',
-    href: '/experiences/cooking-classes/'
-  },
-  {
-    name: 'Heritage Walks',
-    category: 'Cultural',
-    description: 'Walk through centuries of history with expert guides. Explore ancient monuments, hidden alleyways, and architectural wonders on foot.',
-    image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80',
-    href: '/experiences/heritage-walks/'
-  },
-  {
-    name: 'Art & Craft Workshops',
-    category: 'Creative',
-    description: 'Create with your hands in traditional craft workshops. Learn block printing, pottery, weaving, and other artisan skills passed down through generations.',
-    image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&q=80',
-    href: '/experiences/art-craft-workshops/'
-  },
-  {
-    name: 'Nature & Wildlife',
-    category: 'Adventure',
-    description: 'Encounter India\'s incredible biodiversity. Safari through national parks, trek in the Himalayas, and witness wildlife in their natural habitats.',
-    image: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80',
-    href: '/experiences/nature-wildlife/'
-  },
-  {
-    name: 'Adventure Activities',
-    category: 'Adventure',
-    description: 'Push your boundaries with thrilling experiences. From white-water rafting to paragliding, find your adrenaline rush across India\'s diverse landscapes.',
-    image: 'https://images.unsplash.com/photo-1527631746610-bca00a040d60?w=800&q=80',
-    href: '/experiences/adventure/'
-  },
-];
+// Build experiences from JSON file
+const experiences = experiencesData.map(exp => ({
+  name: exp.name,
+  category: exp.category,
+  description: exp.description,
+  image: exp.listImage || exp.cardImage,
+  href: exp.href
+}));
 ---
 
 <BaseLayout
