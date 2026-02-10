@@ -121,6 +121,14 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+/* Reset margins/padding only on specific elements, not * which breaks component styles */
+body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+ul, ol {
   margin: 0;
   padding: 0;
 }
