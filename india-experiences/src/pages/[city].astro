@@ -315,7 +315,7 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     border: 1px solid #e5e7eb;
   }
 
-  /* Hub Content - Clean Editorial Design with Tight Spacing */
+  /* Hub Content - Flow Spacing System */
   .hub-content {
     padding: 0;
     background: #ffffff;
@@ -331,19 +331,46 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     padding: 32px 20px 48px;
   }
 
-  /* Lead paragraph */
-  .hub-content-inner > p:first-of-type {
-    font-size: 16px;
-    line-height: 1.7;
-    color: #1f2937;
-    margin-bottom: 24px;
+  /* Reset all margins inside hub content */
+  .hub-content-inner > * {
+    margin: 0;
   }
 
-  .hub-content-inner p {
-    margin: 0 0 16px 0;
+  /* Flow spacing: consistent space between all elements */
+  .hub-content-inner > * + * {
+    margin-top: 1em;
   }
 
-  /* H2 - Major sections */
+  /* Headings: tighter spacing above, minimal below */
+  .hub-content-inner > h2 {
+    margin-top: 2em;
+    padding-top: 1.5em;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .hub-content-inner > h3 {
+    margin-top: 1.5em;
+  }
+
+  .hub-content-inner > h4 {
+    margin-top: 1.25em;
+  }
+
+  /* First element and elements right after headings: no extra space */
+  .hub-content-inner > :first-child,
+  .hub-content-inner > h2:first-child,
+  .hub-content-inner > h2 + *,
+  .hub-content-inner > h3 + *,
+  .hub-content-inner > h4 + * {
+    margin-top: 0;
+  }
+
+  .hub-content-inner > h2:first-child {
+    padding-top: 0;
+    border-top: none;
+  }
+
+  /* Typography styles */
   .hub-content-inner h2 {
     font-family: 'Oswald', sans-serif;
     font-size: 22px;
@@ -351,70 +378,50 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #111827;
-    margin: 32px 0 16px 0;
-    padding-top: 24px;
-    border-top: 1px solid #e5e7eb;
   }
 
-  .hub-content-inner > h2:first-child,
-  .hub-content-inner > p:first-of-type + h2 {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-  }
-
-  /* H3 - Subsections */
   .hub-content-inner h3 {
     font-family: 'Oswald', sans-serif;
     font-size: 17px;
     font-weight: 400;
     letter-spacing: 0.03em;
     color: #0d9488;
-    margin: 24px 0 12px 0;
   }
 
-  /* H4 - Sub-subsections */
   .hub-content-inner h4 {
     font-family: 'Muli', sans-serif;
     font-size: 14px;
     font-weight: 700;
     color: #374151;
-    margin: 20px 0 8px 0;
   }
 
-  /* Bold text */
   .hub-content-inner strong {
     font-weight: 600;
     color: #111827;
   }
 
-  /* Lists - Very compact styling */
+  /* Lists */
   .hub-content-inner ul,
   .hub-content-inner ol {
-    margin: 8px 0 16px 0;
-    padding-left: 20px;
+    padding-left: 1.25em;
   }
 
-  .hub-content-inner ul {
-    list-style: disc;
-  }
-
-  .hub-content-inner ol {
-    list-style: decimal;
-  }
+  .hub-content-inner ul { list-style: disc; }
+  .hub-content-inner ol { list-style: decimal; }
 
   .hub-content-inner li {
     font-size: 14px;
-    margin-bottom: 2px;
-    padding: 0;
-    line-height: 1.5;
+    line-height: 1.6;
     color: #4b5563;
+    margin-top: 0.25em;
   }
 
-  /* CRITICAL: Remove paragraph margins inside list items */
+  .hub-content-inner li:first-child {
+    margin-top: 0;
+  }
+
   .hub-content-inner li p {
     margin: 0;
-    padding: 0;
     display: inline;
   }
 
@@ -422,21 +429,9 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     color: #0d9488;
   }
 
-  /* Nested list items */
   .hub-content-inner li ul,
   .hub-content-inner li ol {
-    margin: 4px 0 4px 0;
-  }
-
-  .hub-content-inner li li {
-    margin-bottom: 1px;
-  }
-
-  /* Horizontal rule */
-  .hub-content-inner hr {
-    border: none;
-    border-top: 1px solid #e5e7eb;
-    margin: 28px 0;
+    margin-top: 0.25em;
   }
 
   /* Links */
@@ -444,7 +439,6 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     color: #0d9488;
     text-decoration: underline;
     text-underline-offset: 2px;
-    text-decoration-thickness: 1px;
   }
 
   .hub-content-inner a:hover {
@@ -453,7 +447,6 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
 
   /* Blockquotes */
   .hub-content-inner blockquote {
-    margin: 20px 0;
     padding: 12px 20px;
     background: #f9fafb;
     border-left: 3px solid #0d9488;
@@ -465,7 +458,7 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     margin: 0;
   }
 
-  /* Code/pre blocks */
+  /* Code */
   .hub-content-inner code {
     font-family: 'Consolas', monospace;
     font-size: 13px;
@@ -480,7 +473,6 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     color: #e5e7eb;
     padding: 16px;
     overflow-x: auto;
-    margin: 20px 0;
     border-radius: 4px;
     font-size: 13px;
   }
@@ -495,7 +487,6 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
   .hub-content-inner table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
     font-size: 13px;
   }
 
@@ -512,7 +503,13 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     background: #f9fafb;
   }
 
-  /* Desktop hub content */
+  /* HR */
+  .hub-content-inner hr {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  /* Desktop */
   @media (min-width: 768px) {
     .hub-content {
       padding: 32px 24px 48px;
@@ -526,24 +523,9 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
       box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
 
-    .hub-content-inner > p:first-of-type {
-      font-size: 17px;
-    }
-
-    .hub-content-inner h2 {
-      font-size: 24px;
-      margin: 40px 0 18px 0;
-      padding-top: 32px;
-    }
-
-    .hub-content-inner h3 {
-      font-size: 18px;
-      margin: 28px 0 14px 0;
-    }
-
-    .hub-content-inner h4 {
-      font-size: 15px;
-    }
+    .hub-content-inner h2 { font-size: 24px; }
+    .hub-content-inner h3 { font-size: 18px; }
+    .hub-content-inner h4 { font-size: 15px; }
   }
 
   @media (min-width: 1024px) {
