@@ -21,7 +21,7 @@ const cityFromData = citiesData.find(c => c.slug === city);
 
 // Load hub content from _index.md in the city's content folder
 const hubEntry = await getEntry(city as any, '_index');
-const hubContent = hubEntry ? await render(hubEntry) : null;
+const { Content: HubContent } = hubEntry ? await render(hubEntry) : { Content: null };
 
 // Use description from the markdown frontmatter or cities.json
 const description = hubEntry?.data?.description || cityFromData?.description || `Discover ${cityData.name}, India.`;
@@ -83,10 +83,10 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
   </nav>
 
   <!-- Hub Content from CMS (_index.md) -->
-  {hubContent ? (
+  {HubContent ? (
     <section class="hub-content">
       <div class="hub-content-inner">
-        <hubContent.Content />
+        <HubContent />
       </div>
     </section>
   ) : (
