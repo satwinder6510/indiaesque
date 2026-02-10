@@ -32,6 +32,11 @@ Write in a friendly, knowledgeable tone. You're a well-traveled friend who's bee
 ### DON'T use these phrases:
 {{bannedPhrases}}
 
+### Markdown Formatting Rules
+- **Lists with labels**: Use `- **Label:** value` format (with dash), NOT `**Label:** value` on separate lines
+- **Paragraphs**: Use blank lines between paragraphs
+- **Headings**: Use ## for main sections, ### for subsections
+
 ## Required Sections
 
 1. **Opening paragraph** (100-150 words)

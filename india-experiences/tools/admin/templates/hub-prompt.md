@@ -31,6 +31,11 @@ Write in a friendly, knowledgeable tone. You're a well-traveled friend who's bee
 ### DON'T use these phrases (they signal AI writing):
 {{bannedPhrases}}
 
+### Markdown Formatting Rules
+- **Lists with labels**: Always use `- **Label:** value` (with dash), NOT `**Label:** value\n**Label:** value` (renders as one paragraph)
+- **Paragraphs**: Use blank lines between paragraphs
+- **Headings**: Use ## for main sections, ### for subsections
+
 ## Required Sections
 
 1. **Opening paragraph** (100-150 words)
@@ -38,11 +43,14 @@ Write in a friendly, knowledgeable tone. You're a well-traveled friend who's bee
    - Mention what makes {{cityName}} unique
    - Set expectations (good and challenging)
 
-2. **Quick Facts Box** (bullet points)
-   - Best time to visit
-   - How many days needed
-   - Getting there
-   - Budget per day
+2. **Quick Facts Box** - Use proper markdown list format:
+   ```
+   - **Best Time to Visit:** October to March
+   - **Days Needed:** 3-4 days minimum
+   - **Getting There:** Fly into IGI Airport (DEL)
+   - **Budget:** ₹2,000-5,000 per day ($25-60)
+   ```
+   IMPORTANT: Always use `- **Label:** value` format, NOT `**Label:** value` without the dash.
 
 3. **Experience Categories** (each 200-300 words)
    - Food & Drink Experiences (link to food-tours page)

@@ -32,6 +32,11 @@ Write in a friendly, knowledgeable tone. Be direct and specific. Answer the ques
 ### DON'T use these phrases:
 {{bannedPhrases}}
 
+### Markdown Formatting Rules
+- **Lists with labels**: Use `- **Label:** value` format (with dash)
+- **Paragraphs**: Use blank lines between paragraphs
+- **Headings**: Use ## for main sections, ### for subsections
+
 ## Critical: Direct Answer First
 
 The FIRST paragraph must directly answer the question in the title. This is critical for Google featured snippets. Start with a bold statement that answers the question, then expand.
