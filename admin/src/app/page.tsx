@@ -20,6 +20,10 @@ interface ContentStats {
   pageCount: number;
 }
 
+interface StaycationStats {
+  count: number;
+}
+
 interface DataResponse {
   cities?: CityData[];
 }
@@ -27,6 +31,7 @@ interface DataResponse {
 export default function Dashboard() {
   const [data, setData] = useState<DataResponse | null>(null);
   const [contentStats, setContentStats] = useState<ContentStats>({ hubCount: 0, pageCount: 0 });
+  const [staycationStats, setStaycationStats] = useState<StaycationStats>({ count: 0 });
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
@@ -34,14 +39,16 @@ export default function Dashboard() {
     Promise.all([
       fetch("/api/data").then(res => res.json()),
       fetch("/api/content").then(res => res.json()),
+      fetch("/api/staycations").then(res => res.json()),
     ])
-      .then(([cityData, contentData]) => {
+      .then(([cityData, contentData, staycationData]) => {
         setData(cityData);
         const hubs = contentData.cities || [];
         setContentStats({
           hubCount: hubs.length,
           pageCount: hubs.reduce((sum: number, h: { pageCount: number }) => sum + h.pageCount, 0),
         });
+        setStaycationStats({ count: staycationData.staycations?.length || 0 });
       })
       .catch(console.error)
       .finally(() => setLoading(false));
@@ -110,7 +117,7 @@ export default function Dashboard() {
             </div>
           </div>
         ) : (
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-3">
             {/* Content Hubs Card */}
             <Link
               href="/content"
@@ -179,6 +186,45 @@ export default function Dashboard() {
               <div className="flex items-center justify-between text-sm pt-4 border-t border-[var(--border)]">
                 <span className={imageStats.uploaded === imageStats.total ? "text-[var(--success)]" : "text-[var(--warning)]"}>
                   {imageStats.uploaded}/{imageStats.total} uploaded
+                </span>
+                <span className="text-[var(--primary)] font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                  Manage
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </div>
+            </Link>
+
+            {/* Staycations Card */}
+            <Link
+              href="/staycations"
+              className="block bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)] hover:border-[var(--primary)] hover:shadow-lg transition-all group"
+            >
+              <div className="flex items-start justify-between">
+                <div>
+                  <div className="text-[var(--primary)] mb-4 group-hover:scale-110 transition-transform inline-block">
+                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-[var(--foreground)] mb-1">
+                    Staycations
+                  </h3>
+                  <p className="text-[var(--foreground-muted)] text-sm mb-4">
+                    Hotels, rooms & bookings
+                  </p>
+                </div>
+                <div className="text-right">
+                  <div className="text-3xl font-bold text-[var(--foreground)]">
+                    {staycationStats.count}
+                  </div>
+                  <div className="text-sm text-[var(--foreground-muted)]">properties</div>
+                </div>
+              </div>
+              <div className="flex items-center justify-between text-sm pt-4 border-t border-[var(--border)]">
+                <span className="text-[var(--foreground-muted)]">
+                  Galleries, rooms, transfers
                 </span>
                 <span className="text-[var(--primary)] font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
                   Manage

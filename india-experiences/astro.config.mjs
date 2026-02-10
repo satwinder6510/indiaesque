@@ -6,7 +6,7 @@ import node from '@astrojs/node';
 export default defineConfig({
   site: 'https://indiaesque.com',
   trailingSlash: 'always',
-  output: 'static',
+  output: 'server',
   adapter: node({
     mode: 'standalone',
   }),

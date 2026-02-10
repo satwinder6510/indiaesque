@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const allPages = await getCollection('pages');
   const paaPages = allPages.filter(page => page.data.type === 'paa');

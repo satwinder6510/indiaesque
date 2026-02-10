@@ -6,6 +6,8 @@ import PAAPage from '../layouts/PAAPage.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import cities from '../data/cities.json';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const allPages = await getCollection('pages');
 
