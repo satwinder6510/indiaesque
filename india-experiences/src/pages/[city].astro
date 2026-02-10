@@ -331,30 +331,30 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     padding: 32px 20px 48px;
   }
 
-  /* Reset all margins */
-  .hub-content-inner h1,
-  .hub-content-inner h2,
-  .hub-content-inner h3,
-  .hub-content-inner h4,
-  .hub-content-inner h5,
-  .hub-content-inner h6,
-  .hub-content-inner p,
-  .hub-content-inner ul,
-  .hub-content-inner ol,
-  .hub-content-inner li,
-  .hub-content-inner blockquote,
-  .hub-content-inner pre,
-  .hub-content-inner hr {
+  /* ===========================
+     HUB CONTENT: Tight spacing system
+     =========================== */
+
+  /* 1) Reset all spacing inside the hub */
+  .hub-content-inner :where(h1,h2,h3,h4,h5,h6,p,ul,ol,li,blockquote,hr) {
     margin: 0;
-    padding: 0;
   }
 
-  /* Base spacing: everything gets small top margin */
+  /* 2) A single base vertical rhythm */
   .hub-content-inner > * + * {
-    margin-top: 0.75em;
+    margin-top: 10px;
   }
 
-  /* H2 - Major sections: more space above */
+  /* 3) Lead paragraph (first paragraph) */
+  .hub-content-inner > p:first-of-type {
+    margin-top: 0;
+    margin-bottom: 14px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #1f2937;
+  }
+
+  /* 4) Headings: reduce top spacing, keep very tight bottom spacing */
   .hub-content-inner h2 {
     font-family: 'Oswald', sans-serif;
     font-size: 22px;
@@ -362,42 +362,71 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #111827;
-    margin-top: 2em;
-    padding-top: 1em;
+    margin-top: 18px;
+    margin-bottom: 6px;
+    padding-top: 12px;
     border-top: 1px solid #e5e7eb;
   }
 
-  /* H3 - Subsections */
   .hub-content-inner h3 {
     font-family: 'Oswald', sans-serif;
     font-size: 17px;
     font-weight: 400;
     letter-spacing: 0.03em;
     color: #0d9488;
-    margin-top: 1.5em;
+    margin-top: 12px;
+    margin-bottom: 4px;
   }
 
-  /* H4 - Sub-subsections */
   .hub-content-inner h4 {
     font-family: 'Muli', sans-serif;
     font-size: 14px;
     font-weight: 700;
     color: #374151;
-    margin-top: 1.25em;
+    margin-top: 10px;
+    margin-bottom: 3px;
   }
 
-  /* First child: no top margin */
+  /* 5) Reduce extra gap when a heading follows common blocks */
+  .hub-content-inner :where(p,ul,ol) + h2 { margin-top: 16px; }
+  .hub-content-inner :where(p,ul,ol) + h3 { margin-top: 10px; }
+  .hub-content-inner :where(p,ul,ol) + h4 { margin-top: 8px; }
+
+  /* 6) Lists: tighter and consistent */
+  .hub-content-inner ul,
+  .hub-content-inner ol {
+    padding-left: 20px;
+    margin-top: 6px;
+  }
+
+  .hub-content-inner ul { list-style: disc; }
+  .hub-content-inner ol { list-style: decimal; }
+
+  .hub-content-inner li {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #4b5563;
+  }
+
+  .hub-content-inner li + li {
+    margin-top: 4px;
+  }
+
+  /* Fix CMS-style list markup: <li><p>...</p></li> */
+  .hub-content-inner li > p {
+    display: inline;
+  }
+
+  /* Marker styling */
+  .hub-content-inner li::marker {
+    color: #0d9488;
+  }
+
+  /* First child: no top margin/border */
   .hub-content-inner > :first-child {
     margin-top: 0;
     padding-top: 0;
     border-top: none;
-  }
-
-  /* Tight spacing after headings */
-  .hub-content-inner h2 + *,
-  .hub-content-inner h3 + *,
-  .hub-content-inner h4 + * {
-    margin-top: 0.4em;
   }
 
   /* Facts list - compact key-value pairs */
@@ -407,14 +436,19 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     padding: 0;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0.25em;
+    gap: 4px;
+    margin-top: 6px;
   }
 
   .hub-content-inner .facts li {
     font-size: 14px;
     line-height: 1.5;
-    padding: 0.35em 0;
+    padding: 6px 0;
     border-bottom: 1px solid #f0f0f0;
+  }
+
+  .hub-content-inner .facts li + li {
+    margin-top: 0;
   }
 
   .hub-content-inner .facts li:last-child {
@@ -428,42 +462,13 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
   @media (min-width: 640px) {
     .hub-content-inner .facts {
       grid-template-columns: 1fr 1fr;
-      gap: 0.25em 1.5em;
+      gap: 4px 24px;
     }
   }
 
   .hub-content-inner strong {
     font-weight: 600;
     color: #111827;
-  }
-
-  /* Lists */
-  .hub-content-inner ul,
-  .hub-content-inner ol {
-    padding-left: 1.25em;
-  }
-
-  .hub-content-inner ul { list-style: disc; }
-  .hub-content-inner ol { list-style: decimal; }
-
-  .hub-content-inner li {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #4b5563;
-    margin-top: 0.25em;
-  }
-
-  .hub-content-inner li:first-child {
-    margin-top: 0;
-  }
-
-  .hub-content-inner li p {
-    margin: 0;
-    display: inline;
-  }
-
-  .hub-content-inner li::marker {
-    color: #0d9488;
   }
 
   .hub-content-inner li ul,
