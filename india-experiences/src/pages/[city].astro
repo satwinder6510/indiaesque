@@ -354,7 +354,7 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     color: #1f2937;
   }
 
-  /* 4) Headings: reduce top spacing, keep very tight bottom spacing */
+  /* 4) Headings: H2 gets more space for section breaks */
   .hub-content-inner h2 {
     font-family: 'Oswald', sans-serif;
     font-size: 22px;
@@ -362,9 +362,9 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #111827;
-    margin-top: 18px;
+    margin-top: 32px;
     margin-bottom: 6px;
-    padding-top: 12px;
+    padding-top: 20px;
     border-top: 1px solid #e5e7eb;
   }
 
@@ -387,8 +387,8 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     margin-bottom: 3px;
   }
 
-  /* 5) Reduce extra gap when a heading follows common blocks */
-  .hub-content-inner :where(p,ul,ol) + h2 { margin-top: 16px; }
+  /* 5) Spacing when headings follow content */
+  .hub-content-inner :where(p,ul,ol) + h2 { margin-top: 28px; }
   .hub-content-inner :where(p,ul,ol) + h3 { margin-top: 10px; }
   .hub-content-inner :where(p,ul,ol) + h4 { margin-top: 8px; }
 
