@@ -35,12 +35,9 @@ export default function CityPAAPage() {
   const [data, setData] = useState<CityPAA | null>(null);
   const [cityName, setCityName] = useState("");
   const [loading, setLoading] = useState(true);
-  const [researching, setResearching] = useState(false);
-  const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showAddModal, setShowAddModal] = useState(false);
   const [selectedCluster, setSelectedCluster] = useState<string | null>(null);
-  const [pendingQuestions, setPendingQuestions] = useState<PAAQuestion[]>([]);
   const [selectedQuestion, setSelectedQuestion] = useState<PAAQuestion | null>(null);
   const [showAnswerModal, setShowAnswerModal] = useState(false);
 
@@ -58,62 +55,6 @@ export default function CityPAAPage() {
       .finally(() => setLoading(false));
   }, [citySlug]);
 
-  const handleResearch = async () => {
-    if (!confirm("Run AI research? This will generate new questions (existing ones will be kept).")) return;
-
-    setResearching(true);
-    setError(null);
-
-    try {
-      const res = await fetch("/api/paa/research", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ citySlug, cityName }),
-      });
-
-      const result = await res.json();
-      if (!res.ok) throw new Error(result.error);
-
-      // Show pending questions for review
-      setPendingQuestions(result.questions);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Research failed");
-    } finally {
-      setResearching(false);
-    }
-  };
-
-  const handleSavePending = async (replace: boolean) => {
-    setSaving(true);
-    setError(null);
-
-    try {
-      const res = await fetch("/api/paa", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          citySlug,
-          cityName,
-          questions: replace ? pendingQuestions : [...(data?.questions || []), ...pendingQuestions],
-          replace: true,
-        }),
-      });
-
-      if (!res.ok) {
-        const result = await res.json();
-        throw new Error(result.error);
-      }
-
-      // Refresh data
-      const newData = await fetch(`/api/paa?city=${citySlug}`).then(r => r.json());
-      setData(newData);
-      setPendingQuestions([]);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Save failed");
-    } finally {
-      setSaving(false);
-    }
-  };
 
   const handleDeleteQuestion = async (questionId: string) => {
     if (!confirm("Delete this question?")) return;
@@ -186,96 +127,21 @@ export default function CityPAAPage() {
 
         {/* Action Bar */}
         <div className="flex items-center justify-between mb-6">
-          <div>
-            <h2 className="text-2xl font-bold text-[var(--foreground)]">{cityName}</h2>
-            {data?.lastResearched && (
-              <p className="text-[var(--foreground-muted)] text-sm">
-                Last researched: {new Date(data.lastResearched).toLocaleDateString()}
-              </p>
-            )}
-          </div>
-          <div className="flex gap-3">
-            <button
-              onClick={() => setShowAddModal(true)}
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] font-medium rounded-xl hover:bg-[var(--border)] transition-colors"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-              </svg>
-              Add Questions
-            </button>
-            <button
-              onClick={handleResearch}
-              disabled={researching}
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white font-medium rounded-xl shadow-lg transition-all disabled:opacity-50"
-            >
-              {researching ? (
-                <>
-                  <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                  </svg>
-                  Researching...
-                </>
-              ) : (
-                <>
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                  AI Research
-                </>
-              )}
-            </button>
-          </div>
+          <h2 className="text-2xl font-bold text-[var(--foreground)]">{cityName}</h2>
+          <button
+            onClick={() => setShowAddModal(true)}
+            className="inline-flex items-center gap-2 px-4 py-2.5 bg-[var(--primary)] hover:bg-[var(--primary-light)] text-white font-medium rounded-xl shadow-lg transition-all"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+            </svg>
+            Add Questions
+          </button>
         </div>
 
         {error && (
           <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 rounded-xl text-sm">
             {error}
-          </div>
-        )}
-
-        {/* Pending Questions Review */}
-        {pendingQuestions.length > 0 && (
-          <div className="mb-6 p-6 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-2xl">
-            <h3 className="font-semibold text-amber-800 dark:text-amber-300 mb-2">
-              Review {pendingQuestions.length} AI-generated questions
-            </h3>
-            <p className="text-sm text-amber-700 dark:text-amber-400 mb-4">
-              These questions were generated by AI. Review and choose how to save them.
-            </p>
-            <div className="max-h-64 overflow-y-auto mb-4 space-y-2">
-              {pendingQuestions.map((q, i) => (
-                <div key={i} className="text-sm p-2 bg-white dark:bg-[var(--background-card)] rounded border border-amber-200 dark:border-amber-800">
-                  <span className="text-xs px-1.5 py-0.5 bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-300 rounded mr-2">
-                    {q.cluster}
-                  </span>
-                  {q.question}
-                </div>
-              ))}
-            </div>
-            <div className="flex gap-3">
-              <button
-                onClick={() => handleSavePending(false)}
-                disabled={saving}
-                className="px-4 py-2 bg-[var(--primary)] text-white font-medium rounded-lg hover:bg-[var(--primary-light)] disabled:opacity-50"
-              >
-                {saving ? "Saving..." : "Add to Existing"}
-              </button>
-              <button
-                onClick={() => handleSavePending(true)}
-                disabled={saving}
-                className="px-4 py-2 bg-amber-600 text-white font-medium rounded-lg hover:bg-amber-500 disabled:opacity-50"
-              >
-                Replace All
-              </button>
-              <button
-                onClick={() => setPendingQuestions([])}
-                className="px-4 py-2 text-[var(--foreground-muted)] hover:text-[var(--foreground)] font-medium rounded-lg hover:bg-[var(--border)]"
-              >
-                Discard
-              </button>
-            </div>
           </div>
         )}
 
