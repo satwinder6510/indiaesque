@@ -1,3 +1,34 @@
 {
-  "cities": []
+  "cities": [
+    {
+      "citySlug": "amritsar",
+      "cityName": "Amritsar",
+      "questions": [
+        {
+          "id": "amritsar-manual-1770683636183-0",
+          "question": "Best travel apps for planning an Amritsar sightseeing tour",
+          "cluster": "practical",
+          "answered": false,
+          "source": "manual",
+          "createdAt": "2026-02-10T00:33:56.183Z"
+        },
+        {
+          "id": "amritsar-manual-1770683636183-1",
+          "question": "Amritsar sightseeing itinerary for three days",
+          "cluster": "practical",
+          "answered": false,
+          "source": "manual",
+          "createdAt": "2026-02-10T00:33:56.184Z"
+        },
+        {
+          "id": "amritsar-manual-1770683636184-2",
+          "question": "Top-rated guided tour services for Golden Temple visits in Amritsar",
+          "cluster": "practical",
+          "answered": false,
+          "source": "manual",
+          "createdAt": "2026-02-10T00:33:56.184Z"
+        }
+      ]
+    }
+  ]
 }
