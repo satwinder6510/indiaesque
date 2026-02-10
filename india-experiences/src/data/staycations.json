@@ -50,7 +50,11 @@
       "source": "viator",
       "viatorDestinationId": 684,
       "viatorTagIds": [
-        21972
+        21911,
+        11866,
+        12716,
+        11940,
+        21074
       ],
       "customTourIds": []
     },
