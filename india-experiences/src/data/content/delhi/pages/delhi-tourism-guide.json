@@ -3,7 +3,7 @@
   "citySlug": "delhi",
   "title": "Delhi Tourism Guide",
   "type": "topic",
-  "description": "",
+  "description": "A Comprehensive Guide to Tourist Attractions in Delhi NCR",
   "content": "",
   "viator": {
     "destinationId": 804,
@@ -12,5 +12,18 @@
   },
   "relatedPages": [],
   "createdAt": "2026-02-10T23:31:01.526Z",
-  "updatedAt": "2026-02-10T23:31:01.526Z"
+  "updatedAt": "2026-02-10T23:32:01.594Z",
+  "blocks": [
+    {
+      "id": "mzjcdrc",
+      "type": "heading",
+      "content": "A Comprehensive Guide to Tourist Attractions in Delhi NCR",
+      "level": 2
+    },
+    {
+      "id": "4oouwyy",
+      "type": "text",
+      "content": "Delhi NCR (National Capital Region) is one of India’s most diverse travel destinations, blending imperial history, Mughal architecture, spiritual landmarks, vibrant bazaars, global cuisine, modern entertainment districts, and rapidly developing satellite cities. For travellers seeking an in-depth exploration of heritage, culture, shopping, cuisine, contemporary lifestyle, and offbeat experiences, Delhi NCR offers an extensive portfolio of attractions.\n\nWhether you are planning a short visit or an extended itinerary, this guide provides a complete overview of every major attraction in Delhi, Gurugram, Noida, Faridabad, and Ghaziabad, helping you curate an informed and comprehensive travel experience."
+    }
+  ]
 }
