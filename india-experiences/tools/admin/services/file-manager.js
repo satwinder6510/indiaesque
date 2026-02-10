@@ -86,6 +86,56 @@ export async function saveAdminState(data) {
   await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8');
 }
 
+// Read hub.json for a city
+export async function getHubData(city) {
+  try {
+    const filePath = path.join(ASTRO_DATA_DIR, 'content', city, 'hub.json');
+    const data = await fs.readFile(filePath, 'utf-8');
+    return JSON.parse(data);
+  } catch (err) {
+    if (err.code === 'ENOENT') return null;
+    throw err;
+  }
+}
+
+// Update hub.json generatedContent for a city
+export async function updateHubContent(city, generatedContent) {
+  const filePath = path.join(ASTRO_DATA_DIR, 'content', city, 'hub.json');
+
+  // Read existing hub.json
+  let hubData;
+  try {
+    const data = await fs.readFile(filePath, 'utf-8');
+    hubData = JSON.parse(data);
+  } catch (err) {
+    if (err.code === 'ENOENT') {
+      // Create new hub.json if doesn't exist
+      hubData = {
+        slug: city,
+        name: city.charAt(0).toUpperCase() + city.slice(1),
+        title: `${city.charAt(0).toUpperCase() + city.slice(1)} Travel Guide`,
+        description: '',
+        sections: [],
+        viator: { destinationId: null, enabled: false },
+        createdAt: new Date().toISOString()
+      };
+    } else {
+      throw err;
+    }
+  }
+
+  // Update content and timestamp
+  hubData.generatedContent = generatedContent;
+  hubData.updatedAt = new Date().toISOString();
+
+  // Ensure directory exists
+  await ensureDir(path.dirname(filePath));
+
+  // Write back
+  await fs.writeFile(filePath, JSON.stringify(hubData, null, 2), 'utf-8');
+  return hubData;
+}
+
 // List content files for a city
 export async function getContentFiles(city) {
   try {

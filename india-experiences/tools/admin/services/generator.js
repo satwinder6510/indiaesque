@@ -261,6 +261,12 @@ export async function generator(options, onEvent) {
       const slug = page.slug === '_index' ? '_index' : page.slug;
       await fileManager.writeContentFile(contentBank.city, slug, finalFrontmatter, content);
 
+      // If this is a hub page, also update hub.json's generatedContent
+      if (page.type === 'hub' || page.slug === '_index') {
+        await fileManager.updateHubContent(contentBank.city, content);
+        onEvent({ log: `Updated hub.json for ${contentBank.city}`, type: 'success' });
+      }
+
       // Update content bank
       const pageIndex = contentBank.pages.findIndex(p => p.id === page.id);
       if (pageIndex !== -1) {
