@@ -315,59 +315,45 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     border: 1px solid #e5e7eb;
   }
 
-  /* Hub Content - Magazine-style article layout */
+  /* Hub Content - Clean Editorial Design with Tight Spacing */
   .hub-content {
-    padding: 48px 20px 64px;
-    background-color: #fafafa;
+    padding: 0;
+    background: #ffffff;
   }
 
   .hub-content-inner {
-    max-width: 680px;
+    max-width: 700px;
     margin: 0 auto;
     font-family: 'Muli', sans-serif;
-    font-size: 16px;
-    line-height: 1.85;
-    color: #3d4852;
-    background: #ffffff;
-    padding: 40px 28px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    font-size: 15px;
+    line-height: 1.75;
+    color: #374151;
+    padding: 32px 20px 48px;
   }
 
-  /* First paragraph - lead paragraph */
+  /* Lead paragraph */
   .hub-content-inner > p:first-of-type {
-    font-size: 18px;
-    line-height: 1.75;
-    color: #2d3748;
-    margin-bottom: 32px;
-    padding-bottom: 28px;
-    border-bottom: 2px solid #0d9488;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #1f2937;
+    margin-bottom: 24px;
   }
 
   .hub-content-inner p {
-    margin: 0 0 20px 0;
+    margin: 0 0 16px 0;
   }
 
   /* H2 - Major sections */
   .hub-content-inner h2 {
     font-family: 'Oswald', sans-serif;
-    font-size: 24px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: #1a202c;
-    margin: 48px 0 20px 0;
-    padding: 20px 0 16px;
-    border-top: 1px solid #e2e8f0;
-    position: relative;
-  }
-
-  .hub-content-inner h2::before {
-    content: '';
-    position: absolute;
-    top: -1px;
-    left: 0;
-    width: 50px;
-    height: 3px;
-    background: #0d9488;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #111827;
+    margin: 32px 0 16px 0;
+    padding-top: 24px;
+    border-top: 1px solid #e5e7eb;
   }
 
   .hub-content-inner > h2:first-child,
@@ -377,131 +363,94 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     border-top: none;
   }
 
-  .hub-content-inner > h2:first-child::before,
-  .hub-content-inner > p:first-of-type + h2::before {
-    display: none;
-  }
-
   /* H3 - Subsections */
   .hub-content-inner h3 {
     font-family: 'Oswald', sans-serif;
-    font-size: 19px;
+    font-size: 17px;
     font-weight: 400;
-    letter-spacing: 0.02em;
-    color: #2d3748;
-    margin: 36px 0 14px 0;
-    padding-left: 14px;
-    border-left: 3px solid #0d9488;
+    letter-spacing: 0.03em;
+    color: #0d9488;
+    margin: 24px 0 12px 0;
   }
 
   /* H4 - Sub-subsections */
   .hub-content-inner h4 {
     font-family: 'Muli', sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #4a5568;
-    margin: 28px 0 10px 0;
+    color: #374151;
+    margin: 20px 0 8px 0;
   }
 
   /* Bold text */
   .hub-content-inner strong {
-    font-weight: 700;
-    color: #1a202c;
+    font-weight: 600;
+    color: #111827;
   }
 
-  /* Lists - Clean modern styling */
+  /* Lists - Compact styling */
   .hub-content-inner ul,
   .hub-content-inner ol {
-    margin: 20px 0 28px 0;
-    padding: 0;
-    list-style: none;
+    margin: 12px 0 20px 0;
+    padding-left: 24px;
+  }
+
+  .hub-content-inner ul {
+    list-style: disc;
+  }
+
+  .hub-content-inner ol {
+    list-style: decimal;
   }
 
   .hub-content-inner li {
-    margin-bottom: 14px;
-    padding-left: 24px;
-    position: relative;
-    line-height: 1.7;
-  }
-
-  .hub-content-inner ul > li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 10px;
-    width: 6px;
-    height: 6px;
-    background: #0d9488;
-    border-radius: 50%;
-  }
-
-  .hub-content-inner ol {
-    counter-reset: list-counter;
-  }
-
-  .hub-content-inner ol > li {
-    counter-increment: list-counter;
-    padding-left: 32px;
-  }
-
-  .hub-content-inner ol > li::before {
-    content: counter(list-counter);
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-family: 'Oswald', sans-serif;
     font-size: 14px;
-    font-weight: 500;
-    color: #ffffff;
-    background: #0d9488;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-bottom: 6px;
+    line-height: 1.65;
+    color: #4b5563;
+  }
+
+  .hub-content-inner li::marker {
+    color: #0d9488;
   }
 
   /* Nested list items */
   .hub-content-inner li ul,
   .hub-content-inner li ol {
-    margin: 10px 0 6px 0;
+    margin: 6px 0 6px 0;
   }
 
   .hub-content-inner li li {
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
 
   /* Horizontal rule */
   .hub-content-inner hr {
     border: none;
-    height: 1px;
-    background: linear-gradient(to right, #e2e8f0, #0d9488, #e2e8f0);
-    margin: 40px 0;
+    border-top: 1px solid #e5e7eb;
+    margin: 28px 0;
   }
 
   /* Links */
   .hub-content-inner a {
     color: #0d9488;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s ease;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
   }
 
   .hub-content-inner a:hover {
-    border-bottom-color: #0d9488;
+    color: #0f766e;
   }
 
   /* Blockquotes */
   .hub-content-inner blockquote {
-    margin: 28px 0;
-    padding: 20px 24px;
-    background: #f7fafc;
-    border-left: 4px solid #0d9488;
+    margin: 20px 0;
+    padding: 12px 20px;
+    background: #f9fafb;
+    border-left: 3px solid #0d9488;
     font-style: italic;
-    color: #4a5568;
+    color: #4b5563;
   }
 
   .hub-content-inner blockquote p {
@@ -510,21 +459,22 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
 
   /* Code/pre blocks */
   .hub-content-inner code {
-    font-family: 'Monaco', 'Consolas', monospace;
-    font-size: 14px;
-    background: #f1f5f9;
+    font-family: 'Consolas', monospace;
+    font-size: 13px;
+    background: #f3f4f6;
     padding: 2px 6px;
     border-radius: 3px;
-    color: #0d9488;
+    color: #be185d;
   }
 
   .hub-content-inner pre {
-    background: #1a202c;
-    color: #e2e8f0;
-    padding: 20px;
+    background: #1f2937;
+    color: #e5e7eb;
+    padding: 16px;
     overflow-x: auto;
-    margin: 24px 0;
+    margin: 20px 0;
     border-radius: 4px;
+    font-size: 13px;
   }
 
   .hub-content-inner pre code {
@@ -537,62 +487,65 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
   .hub-content-inner table {
     width: 100%;
     border-collapse: collapse;
-    margin: 24px 0;
-    font-size: 14px;
+    margin: 20px 0;
+    font-size: 13px;
   }
 
   .hub-content-inner th,
   .hub-content-inner td {
-    padding: 12px 16px;
+    padding: 10px 12px;
     text-align: left;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e5e7eb;
   }
 
   .hub-content-inner th {
-    font-weight: 700;
-    color: #1a202c;
-    background: #f7fafc;
-  }
-
-  .hub-content-inner tr:hover td {
-    background: #f7fafc;
+    font-weight: 600;
+    color: #111827;
+    background: #f9fafb;
   }
 
   /* Desktop hub content */
   @media (min-width: 768px) {
     .hub-content {
-      padding: 64px 32px 80px;
+      padding: 32px 24px 48px;
+      background: #f9fafb;
     }
 
     .hub-content-inner {
-      font-size: 17px;
-      padding: 56px 52px;
-      border-radius: 2px;
+      font-size: 16px;
+      padding: 40px 48px 56px;
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
 
     .hub-content-inner > p:first-of-type {
-      font-size: 19px;
+      font-size: 17px;
     }
 
     .hub-content-inner h2 {
-      font-size: 28px;
-      margin: 56px 0 24px 0;
+      font-size: 24px;
+      margin: 40px 0 18px 0;
+      padding-top: 32px;
     }
 
     .hub-content-inner h3 {
-      font-size: 21px;
-      margin: 42px 0 16px 0;
+      font-size: 18px;
+      margin: 28px 0 14px 0;
     }
 
     .hub-content-inner h4 {
-      font-size: 16px;
+      font-size: 15px;
     }
   }
 
   @media (min-width: 1024px) {
+    .hub-content {
+      padding: 40px 32px 64px;
+    }
+
     .hub-content-inner {
-      max-width: 760px;
-      padding: 64px 72px;
+      max-width: 740px;
+      padding: 48px 64px 64px;
     }
   }
 
