@@ -400,6 +400,38 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     margin-top: 0.4em;
   }
 
+  /* Facts list - compact key-value pairs */
+  .hub-content-inner ul.facts,
+  .hub-content-inner .facts {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.25em;
+  }
+
+  .hub-content-inner .facts li {
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 0.35em 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .hub-content-inner .facts li:last-child {
+    border-bottom: none;
+  }
+
+  .hub-content-inner .facts strong {
+    color: #0d9488;
+  }
+
+  @media (min-width: 640px) {
+    .hub-content-inner .facts {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.25em 1.5em;
+    }
+  }
+
   .hub-content-inner strong {
     font-weight: 600;
     color: #111827;
