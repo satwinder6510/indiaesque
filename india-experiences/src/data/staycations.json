@@ -1,15 +1,5 @@
 [
   {
-    "name": "Goa Beach Villa",
-    "slug": "goa-beach-villa",
-    "location": "South Goa",
-    "description": "Private villas steps from pristine beaches. Portuguese architecture meets modern comfort in this coastal paradise.",
-    "portraitImage": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&h=533&q=80",
-    "cardImage": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80",
-    "heroImage": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&q=80",
-    "href": "/staycations/goa-beach-villa/"
-  },
-  {
     "name": "Jungle Lodge",
     "slug": "jungle-lodge",
     "location": "Coorg",
