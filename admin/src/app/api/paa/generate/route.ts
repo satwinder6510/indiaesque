@@ -5,41 +5,17 @@ const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
 });
 
-const GENERATE_PROMPT = `Write a comprehensive travel guide article answering this question about {cityName}, India.
+const GENERATE_PROMPT = `You're a travel writer who has spent years exploring India. Answer this question about {cityName} the way you'd tell a friend who's planning their trip.
 
-QUESTION: {question}
+Question: {question}
 
-CONTENT GUIDANCE: {contentDirection}
+Use this info: {contentDirection}
 
-REQUIREMENTS:
-- Write 400-600 words minimum (this is mandatory - do not write less)
-- Start with a direct answer in the first paragraph (2-3 sentences)
-- Then expand with 3-4 detailed sections covering different aspects
-- Include specific details: real place names, prices in ₹, timings, distances
-- Write in second person ("you") with a helpful, knowledgeable tone
-- Use markdown: ## for section headers, bullet points for lists, **bold** for key info
+Write 400-500 words in a natural, conversational tone. No headers, no bullet points, no formatting - just flowing paragraphs like a magazine article.
 
-STRUCTURE YOUR RESPONSE LIKE THIS:
+Start by directly answering the question, then share the details, local knowledge, and practical tips naturally woven into the narrative. Include specific prices in ₹, real place names, and timings where relevant.
 
-[Opening paragraph - direct answer to the question, 2-3 sentences]
-
-## [First aspect/section]
-[2-3 paragraphs with specific details, prices, times, local tips]
-
-## [Second aspect/section]
-[2-3 paragraphs with practical information, recommendations]
-
-## [Third aspect/section]
-[2-3 paragraphs with additional helpful details]
-
-## Quick Tips
-- [Bullet point tips]
-- [More practical advice]
-- [Local insider knowledge]
-
-IMPORTANT: You must write at least 400 words. This is a full article, not a short answer. Include real place names, actual prices in Indian Rupees (₹), specific timings, and practical traveler advice. Make it genuinely useful for someone planning to visit {cityName}.
-
-Now write the complete article:`;
+Write like you're having a conversation, not giving instructions. Be warm and helpful, not formal.`;
 
 /**
  * POST /api/paa/generate
