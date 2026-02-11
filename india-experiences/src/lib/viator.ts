@@ -3,21 +3,91 @@
 const VIATOR_API_KEY = import.meta.env.VIATOR_API_KEY || process.env.VIATOR_API_KEY || '';
 const VIATOR_BASE_URL = 'https://api.viator.com/partner';
 
-// Debug: log whether API key is available at build time
-console.log('VIATOR_API_KEY available:', VIATOR_API_KEY ? 'YES (length: ' + VIATOR_API_KEY.length + ')' : 'NO');
-
-// Destination IDs for Indian cities (verified from Viator)
-// Destination IDs from GET /destinations endpoint (refreshed 2026-02-11)
-export const DESTINATIONS = {
-  delhi: { id: 804, name: 'Delhi' },
-  jaipur: { id: 4627, name: 'Jaipur' },
-  mumbai: { id: 953, name: 'Mumbai' },
-  goa: { id: 4594, name: 'Goa' },
+// All Indian city destination IDs from GET /partner/destinations (refreshed 2026-02-11)
+// Parent: India (723). Section hides automatically when a city has 0 products.
+export const DESTINATIONS: Record<string, { id: number; name: string }> = {
   agra: { id: 4547, name: 'Agra' },
-  varanasi: { id: 22015, name: 'Varanasi' },
-  kolkata: { id: 4924, name: 'Kolkata' },
-  udaipur: { id: 5106, name: 'Udaipur' },
+  ahmedabad: { id: 24558, name: 'Ahmedabad' },
+  ajmer: { id: 51525, name: 'Ajmer' },
+  allahabad: { id: 50898, name: 'Allahabad' },
+  alwar: { id: 50429, name: 'Alwar' },
+  amritsar: { id: 22306, name: 'Amritsar' },
+  aurangabad: { id: 23226, name: 'Aurangabad' },
+  ayodhya: { id: 51586, name: 'Ayodhya' },
+  bagdogra: { id: 50262, name: 'Bagdogra' },
+  bangalore: { id: 5310, name: 'Bangalore' },
+  bhopal: { id: 24530, name: 'Bhopal' },
+  bhubaneswar: { id: 25191, name: 'Bhubaneswar' },
+  bikaner: { id: 50339, name: 'Bikaner' },
+  'bodh-gaya': { id: 50423, name: 'Bodh Gaya' },
+  bundi: { id: 51594, name: 'Bundi' },
+  chandigarh: { id: 24420, name: 'Chandigarh' },
+  chennai: { id: 4624, name: 'Chennai' },
+  chittaurgarh: { id: 50428, name: 'Chittaurgarh' },
+  coimbatore: { id: 26228, name: 'Coimbatore' },
+  darjeeling: { id: 22035, name: 'Darjeeling' },
+  delhi: { id: 804, name: 'Delhi' },
+  dharamsala: { id: 25979, name: 'Dharamsala' },
+  dibrugarh: { id: 51678, name: 'Dibrugarh' },
+  dimapur: { id: 52181, name: 'Dimapur' },
+  gaya: { id: 51535, name: 'Gaya' },
+  goa: { id: 4594, name: 'Goa' },
+  guwahati: { id: 24307, name: 'Guwahati' },
+  gwalior: { id: 24829, name: 'Gwalior' },
+  hampi: { id: 50426, name: 'Hampi' },
+  haridwar: { id: 22303, name: 'Haridwar' },
+  harji: { id: 50338, name: 'Harji' },
+  'havelock-island': { id: 50422, name: 'Havelock Island' },
+  hyderabad: { id: 22442, name: 'Hyderabad' },
+  indore: { id: 24026, name: 'Indore' },
+  jabalpur: { id: 50921, name: 'Jabalpur' },
+  jaipur: { id: 4627, name: 'Jaipur' },
+  jaisalmer: { id: 24761, name: 'Jaisalmer' },
+  jhansi: { id: 50261, name: 'Jhansi' },
+  jodhpur: { id: 22142, name: 'Jodhpur' },
+  kannur: { id: 23640, name: 'Kannur' },
   kerala: { id: 964, name: 'Kerala' },
+  khajuraho: { id: 25032, name: 'Khajuraho' },
+  kochi: { id: 952, name: 'Kochi' },
+  kodaikanal: { id: 50888, name: 'Kodaikanal' },
+  kolkata: { id: 4924, name: 'Kolkata' },
+  leh: { id: 22569, name: 'Leh' },
+  lucknow: { id: 23770, name: 'Lucknow' },
+  madurai: { id: 26847, name: 'Madurai' },
+  manali: { id: 22496, name: 'Manali' },
+  mangalore: { id: 4625, name: 'Mangalore' },
+  'mount-abu': { id: 50337, name: 'Mount Abu' },
+  mumbai: { id: 953, name: 'Mumbai' },
+  munnar: { id: 25293, name: 'Munnar' },
+  mysore: { id: 25746, name: 'Mysore' },
+  nagpur: { id: 50881, name: 'Nagpur' },
+  nainital: { id: 50425, name: 'Nainital' },
+  nanded: { id: 51551, name: 'Nanded' },
+  nashik: { id: 50879, name: 'Nashik' },
+  orccha: { id: 50857, name: 'Orccha' },
+  patna: { id: 50874, name: 'Patna' },
+  pelling: { id: 50858, name: 'Pelling' },
+  pondicherry: { id: 22690, name: 'Pondicherry' },
+  'port-blair': { id: 50896, name: 'Port Blair' },
+  pune: { id: 26473, name: 'Pune' },
+  pushkar: { id: 50259, name: 'Pushkar' },
+  rajkot: { id: 50913, name: 'Rajkot' },
+  'ranthambore-national-park': { id: 50260, name: 'Ranthambore National Park' },
+  rishikesh: { id: 22733, name: 'Rishikesh' },
+  'sasan-gir': { id: 50424, name: 'Sasan Gir' },
+  'sawai-madhopur': { id: 50258, name: 'Sawai Madhopur' },
+  shillong: { id: 51511, name: 'Shillong' },
+  shimla: { id: 25944, name: 'Shimla' },
+  shirdi: { id: 50890, name: 'Shirdi' },
+  srinagar: { id: 23017, name: 'Srinagar' },
+  thanjavur: { id: 27741, name: 'Thanjavur' },
+  thekkady: { id: 50427, name: 'Thekkady' },
+  tiruvannamalai: { id: 51534, name: 'Tiruvannamalai' },
+  trivandrum: { id: 4629, name: 'Trivandrum' },
+  udaipur: { id: 5106, name: 'Udaipur' },
+  vadodara: { id: 50883, name: 'Vadodara' },
+  varanasi: { id: 22015, name: 'Varanasi' },
+  visakhapatnam: { id: 51509, name: 'Visakhapatnam' },
 };
 
 export interface ViatorProduct {
@@ -58,8 +128,6 @@ export async function searchProducts(params: SearchParams): Promise<ViatorProduc
       currency: 'INR',
     };
 
-    console.log('Viator Products request:', JSON.stringify(requestBody));
-
     const response = await fetch(`${VIATOR_BASE_URL}/products/search`, {
       method: 'POST',
       headers: {
@@ -79,7 +147,6 @@ export async function searchProducts(params: SearchParams): Promise<ViatorProduc
 
     const data = await response.json();
     const products = data.products || [];
-    console.log('Viator Products success, count:', products.length);
     return transformProducts(products);
   } catch (error) {
     console.error('Viator Products error:', error);
@@ -141,5 +208,10 @@ function selectBestImage(images: any[]): string {
 }
 
 export function getDestinationId(city: string): number | undefined {
-  return DESTINATIONS[city.toLowerCase() as keyof typeof DESTINATIONS]?.id;
+  // Try slug match first (e.g. "jaipur"), then name match (e.g. "Jaipur")
+  const bySlug = DESTINATIONS[city.toLowerCase()];
+  if (bySlug) return bySlug.id;
+  const lower = city.toLowerCase();
+  const entry = Object.values(DESTINATIONS).find(d => d.name.toLowerCase() === lower);
+  return entry?.id;
 }

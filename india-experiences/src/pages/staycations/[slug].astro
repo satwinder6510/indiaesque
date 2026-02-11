@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import GygWidget from '../../components/GygWidget.astro';
 import staycationsData from '../../data/staycations.json';
-import { searchProducts } from '../../lib/viator';
+import { searchProducts, getDestinationId } from '../../lib/viator';
 
 export const prerender = true;
 
@@ -18,22 +18,11 @@ const { staycation } = Astro.props;
 // Load tours from Viator API
 const toursConfig = staycation.tours || { enabled: false };
 
-// Viator destination IDs (from GET /destinations endpoint)
-const VIATOR_DEST_IDS: Record<string, number> = {
-  'Delhi': 804,
-  'Jaipur': 4627,
-  'Mumbai': 953,
-  'Goa': 4594,
-  'Agra': 4547,
-};
-
 let viatorTours: any[] = [];
 if (toursConfig.enabled) {
   try {
-    // Use known destination ID or fall back to configured ID
     const cityName = staycation.location || 'Delhi';
-    const destId = VIATOR_DEST_IDS[cityName] || toursConfig.viatorDestinationId || 804;
-    console.log('Using Viator destination ID:', destId, 'for', cityName);
+    const destId = getDestinationId(cityName) || toursConfig.viatorDestinationId || 804;
 
     const products = await searchProducts({
       destId: destId,
