@@ -10,10 +10,19 @@ interface CityHub {
   pageCount: number;
 }
 
+interface BulkResearchResult {
+  citySlug: string;
+  cityName: string;
+  success: boolean;
+  error?: string;
+  questionCount?: number;
+}
+
 export default function ContentPage() {
   const [cities, setCities] = useState<CityHub[]>([]);
   const [loading, setLoading] = useState(true);
   const [showAddModal, setShowAddModal] = useState(false);
+  const [showBulkResearchModal, setShowBulkResearchModal] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -69,15 +78,28 @@ export default function ContentPage() {
               Manage city hub pages and their sub-pages
             </p>
           </div>
-          <button
-            onClick={() => setShowAddModal(true)}
-            className="inline-flex items-center gap-2 px-4 py-2.5 bg-[var(--primary)] hover:bg-[var(--primary-light)] text-white font-medium rounded-xl shadow-lg transition-all"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-            </svg>
-            Add City Hub
-          </button>
+          <div className="flex items-center gap-3">
+            {cities.length > 0 && (
+              <button
+                onClick={() => setShowBulkResearchModal(true)}
+                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white font-medium rounded-xl shadow-lg transition-all"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                Bulk Research
+              </button>
+            )}
+            <button
+              onClick={() => setShowAddModal(true)}
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-[var(--primary)] hover:bg-[var(--primary-light)] text-white font-medium rounded-xl shadow-lg transition-all"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+              </svg>
+              Add City Hub
+            </button>
+          </div>
         </div>
 
         {loading ? (
@@ -130,6 +152,13 @@ export default function ContentPage() {
             setShowAddModal(false);
             router.push(`/content/${hub.slug}`);
           }}
+        />
+      )}
+
+      {showBulkResearchModal && (
+        <BulkResearchModal
+          cities={cities}
+          onClose={() => setShowBulkResearchModal(false)}
         />
       )}
     </div>
@@ -242,6 +271,206 @@ function AddHubModal({
             </button>
           </div>
         </form>
+      </div>
+    </div>
+  );
+}
+
+function BulkResearchModal({
+  cities,
+  onClose,
+}: {
+  cities: CityHub[];
+  onClose: () => void;
+}) {
+  const [selectedCities, setSelectedCities] = useState<Set<string>>(new Set());
+  const [researching, setResearching] = useState(false);
+  const [results, setResults] = useState<BulkResearchResult[]>([]);
+  const [currentCity, setCurrentCity] = useState<string | null>(null);
+
+  const toggleCity = (slug: string) => {
+    setSelectedCities((prev) => {
+      const next = new Set(prev);
+      if (next.has(slug)) {
+        next.delete(slug);
+      } else {
+        next.add(slug);
+      }
+      return next;
+    });
+  };
+
+  const selectAll = () => {
+    setSelectedCities(new Set(cities.map((c) => c.slug)));
+  };
+
+  const clearAll = () => {
+    setSelectedCities(new Set());
+  };
+
+  const handleResearch = async () => {
+    if (selectedCities.size === 0) return;
+
+    setResearching(true);
+    setResults([]);
+
+    const citiesToResearch = cities
+      .filter((c) => selectedCities.has(c.slug))
+      .map((c) => ({ slug: c.slug, name: c.name }));
+
+    try {
+      const res = await fetch("/api/content/research", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "bulk-research",
+          cities: citiesToResearch,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+
+      setResults(data.results);
+    } catch (err) {
+      console.error("Bulk research failed:", err);
+    } finally {
+      setResearching(false);
+      setCurrentCity(null);
+    }
+  };
+
+  const successCount = results.filter((r) => r.success).length;
+  const failCount = results.filter((r) => !r.success).length;
+
+  return (
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <div className="bg-[var(--background-card)] rounded-2xl shadow-2xl w-full max-w-lg border border-[var(--border)] max-h-[80vh] flex flex-col">
+        <div className="px-6 py-4 border-b border-[var(--border)] flex items-center justify-between flex-shrink-0">
+          <h3 className="text-lg font-semibold text-[var(--foreground)]">Bulk PAA Research</h3>
+          <button
+            onClick={onClose}
+            disabled={researching}
+            className="p-1 text-[var(--foreground-muted)] hover:text-[var(--foreground)] rounded-lg hover:bg-[var(--border)] transition-colors disabled:opacity-50"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="p-6 overflow-y-auto flex-1">
+          {results.length === 0 ? (
+            <>
+              <p className="text-sm text-[var(--foreground-muted)] mb-4">
+                Select cities to research PAA questions for. This will fetch questions for all selected cities.
+              </p>
+
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-sm text-[var(--foreground-muted)]">
+                  {selectedCities.size} of {cities.length} selected
+                </span>
+                <div className="flex gap-2 text-sm">
+                  <button onClick={selectAll} className="text-[var(--primary)] hover:underline">
+                    Select All
+                  </button>
+                  <button onClick={clearAll} className="text-[var(--foreground-muted)] hover:underline">
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <div className="space-y-2 max-h-60 overflow-y-auto">
+                {cities.map((city) => (
+                  <label
+                    key={city.slug}
+                    className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${
+                      selectedCities.has(city.slug)
+                        ? "border-[var(--primary)] bg-[var(--primary)]/5"
+                        : "border-[var(--border)] hover:border-[var(--primary)]/50"
+                    }`}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={selectedCities.has(city.slug)}
+                      onChange={() => toggleCity(city.slug)}
+                      disabled={researching}
+                      className="w-4 h-4 rounded border-[var(--border)] text-[var(--primary)]"
+                    />
+                    <span className="text-[var(--foreground)]">{city.name}</span>
+                    {currentCity === city.slug && (
+                      <span className="ml-auto text-xs text-[var(--primary)]">Researching...</span>
+                    )}
+                  </label>
+                ))}
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="mb-4 p-3 bg-[var(--background)] rounded-lg">
+                <p className="text-sm text-[var(--foreground)]">
+                  Research complete: {successCount} succeeded, {failCount} failed
+                </p>
+              </div>
+
+              <div className="space-y-2 max-h-60 overflow-y-auto">
+                {results.map((result) => (
+                  <div
+                    key={result.citySlug}
+                    className={`p-3 rounded-lg border ${
+                      result.success
+                        ? "border-green-200 bg-green-50 dark:border-green-800 dark:bg-green-900/20"
+                        : "border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-900/20"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="font-medium text-[var(--foreground)]">{result.cityName}</span>
+                      {result.success ? (
+                        <span className="text-xs text-green-600 dark:text-green-400">
+                          {result.questionCount} questions
+                        </span>
+                      ) : (
+                        <span className="text-xs text-red-600 dark:text-red-400">Failed</span>
+                      )}
+                    </div>
+                    {result.error && (
+                      <p className="text-xs text-red-600 dark:text-red-400 mt-1">{result.error}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+
+        <div className="px-6 py-4 border-t border-[var(--border)] flex justify-end gap-3 flex-shrink-0">
+          <button
+            onClick={onClose}
+            disabled={researching}
+            className="px-4 py-2.5 text-[var(--foreground-muted)] hover:text-[var(--foreground)] hover:bg-[var(--border)] rounded-xl transition-colors font-medium disabled:opacity-50"
+          >
+            {results.length > 0 ? "Close" : "Cancel"}
+          </button>
+          {results.length === 0 && (
+            <button
+              onClick={handleResearch}
+              disabled={researching || selectedCities.size === 0}
+              className="px-5 py-2.5 bg-[var(--accent)] hover:bg-[var(--accent-light)] disabled:opacity-50 text-white font-semibold rounded-xl shadow-lg transition-all flex items-center gap-2"
+            >
+              {researching ? (
+                <>
+                  <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                  </svg>
+                  Researching...
+                </>
+              ) : (
+                `Research ${selectedCities.size} Cities`
+              )}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

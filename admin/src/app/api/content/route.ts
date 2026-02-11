@@ -15,6 +15,30 @@ export interface ViatorConfig {
   enabled: boolean;
 }
 
+export interface PAAQuestion {
+  id: string;
+  question: string;
+  category: string;
+  searchVolume: "high" | "medium" | "low";
+  selected: boolean;
+  researchedAt: string;
+}
+
+export interface ContentVersion {
+  id: string;
+  content: string;
+  wordCount: number;
+  createdAt: string;
+  source: "ai" | "manual";
+  generationConfig?: {
+    tone: string;
+    wordCount: number;
+    keywords: string[];
+    paaQuestionIds: string[];
+  };
+  note?: string;
+}
+
 export interface CityHub {
   slug: string;
   name: string;
@@ -24,6 +48,32 @@ export interface CityHub {
   viator: ViatorConfig;
   createdAt: string;
   updatedAt: string;
+
+  // Generated content (legacy field - kept for migration)
+  generatedContent?: string;
+
+  // PAA Research (persisted)
+  paaResearch?: {
+    questions: PAAQuestion[];
+    lastResearchedAt: string;
+  };
+
+  // Content Versioning
+  currentVersionId?: string;
+  versions: ContentVersion[];
+
+  // Draft
+  draft?: {
+    content: string;
+    lastSavedAt: string;
+  };
+
+  // Generation defaults
+  generationDefaults?: {
+    tone: string;
+    wordCount: number;
+    keywords: string[];
+  };
 }
 
 export interface SubPage {
@@ -173,29 +223,148 @@ export async function POST(request: NextRequest) {
 }
 
 /**
+ * Migrate legacy hub to new versioning structure
+ */
+function migrateHub(hub: CityHub): CityHub {
+  // If already migrated, return as-is
+  if (hub.versions) {
+    return hub;
+  }
+
+  // Initialize versions array
+  const migratedHub: CityHub = {
+    ...hub,
+    versions: [],
+  };
+
+  // If there's legacy generatedContent, create initial version from it
+  if (hub.generatedContent) {
+    const initialVersion: ContentVersion = {
+      id: generateVersionId(),
+      content: hub.generatedContent,
+      wordCount: hub.generatedContent.split(/\s+/).filter(w => w).length,
+      createdAt: hub.updatedAt || new Date().toISOString(),
+      source: "ai",
+    };
+    migratedHub.versions = [initialVersion];
+    migratedHub.currentVersionId = initialVersion.id;
+  }
+
+  return migratedHub;
+}
+
+/**
+ * Generate a unique version ID
+ */
+function generateVersionId(): string {
+  return `v_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+}
+
+/**
  * PUT /api/content
- * Update a city hub
+ * Update a city hub with action support
  */
 export async function PUT(request: NextRequest) {
   try {
     const body = await request.json();
-    const { slug, updates } = body;
+    const { slug, action = "update", updates, versionId, versionNote } = body;
 
     if (!slug) {
       return NextResponse.json({ error: "slug required" }, { status: 400 });
     }
 
     const hubPath = `${CONTENT_BASE}/${slug}/hub.json`;
-    const hub = await readJSON<CityHub>(hubPath);
+    let hub = await readJSON<CityHub>(hubPath);
 
     if (!hub) {
       return NextResponse.json({ error: "City hub not found" }, { status: 404 });
     }
 
-    const updatedHub = { ...hub, ...updates, updatedAt: new Date().toISOString() };
-    await writeJSON(hubPath, updatedHub, `feat(content): update ${hub.name} hub [admin]`);
+    // Migrate if needed
+    hub = migrateHub(hub);
 
-    return NextResponse.json({ success: true, hub: updatedHub });
+    let commitMessage = `feat(content): update ${hub.name} hub [admin]`;
+
+    switch (action) {
+      case "update":
+        // Standard update with optional field updates
+        hub = { ...hub, ...updates, updatedAt: new Date().toISOString() };
+        break;
+
+      case "saveDraft":
+        // Save draft content (auto-save)
+        if (!updates?.content) {
+          return NextResponse.json({ error: "content required for saveDraft" }, { status: 400 });
+        }
+        hub.draft = {
+          content: updates.content,
+          lastSavedAt: new Date().toISOString(),
+        };
+        hub.updatedAt = new Date().toISOString();
+        commitMessage = `feat(content): auto-save draft for ${hub.name} [admin]`;
+        break;
+
+      case "publishVersion":
+        // Publish draft or new content as a version
+        const content = updates?.content || hub.draft?.content;
+        if (!content) {
+          return NextResponse.json({ error: "No content to publish" }, { status: 400 });
+        }
+
+        const newVersion: ContentVersion = {
+          id: generateVersionId(),
+          content,
+          wordCount: content.split(/\s+/).filter((w: string) => w).length,
+          createdAt: new Date().toISOString(),
+          source: updates?.source || "manual",
+          generationConfig: updates?.generationConfig,
+          note: versionNote,
+        };
+
+        // Add to versions (keep max 20)
+        hub.versions = [newVersion, ...hub.versions].slice(0, 20);
+        hub.currentVersionId = newVersion.id;
+        hub.draft = undefined; // Clear draft after publishing
+        hub.generatedContent = content; // Keep legacy field in sync
+        hub.updatedAt = new Date().toISOString();
+        commitMessage = `feat(content): publish new version for ${hub.name} [admin]`;
+        break;
+
+      case "revertToVersion":
+        // Revert to a specific version
+        if (!versionId) {
+          return NextResponse.json({ error: "versionId required for revert" }, { status: 400 });
+        }
+
+        const targetVersion = hub.versions.find(v => v.id === versionId);
+        if (!targetVersion) {
+          return NextResponse.json({ error: "Version not found" }, { status: 404 });
+        }
+
+        // Create a new version from the reverted content
+        const revertedVersion: ContentVersion = {
+          id: generateVersionId(),
+          content: targetVersion.content,
+          wordCount: targetVersion.wordCount,
+          createdAt: new Date().toISOString(),
+          source: "manual",
+          note: `Reverted from version ${versionId}`,
+        };
+
+        hub.versions = [revertedVersion, ...hub.versions].slice(0, 20);
+        hub.currentVersionId = revertedVersion.id;
+        hub.generatedContent = targetVersion.content; // Keep legacy field in sync
+        hub.updatedAt = new Date().toISOString();
+        commitMessage = `feat(content): revert ${hub.name} to version ${versionId} [admin]`;
+        break;
+
+      default:
+        return NextResponse.json({ error: "Invalid action" }, { status: 400 });
+    }
+
+    await writeJSON(hubPath, hub, commitMessage);
+
+    return NextResponse.json({ success: true, hub });
   } catch (error) {
     console.error("Content update error:", error);
     return NextResponse.json(
