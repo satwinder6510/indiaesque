@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, getEntry, render } from 'astro:content';
 import { DESTINATIONS, searchProducts, getDestinationId, VIATOR_TAGS } from '../lib/viator';
-import GygCityWidget from '../components/GygCityWidget.astro';
 import citiesData from '../data/cities.json';
 
 export const prerender = true;
@@ -147,9 +146,6 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
       ))}
     </div>
   </section>
-
-  <!-- GetYourGuide Widget -->
-  <GygCityWidget city={cityData.name} numberOfItems={3} />
 
   <!-- Related Journals (SEO Funnel) -->
   {journalArticles.length > 0 && (
