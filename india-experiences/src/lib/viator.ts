@@ -195,7 +195,7 @@ function transformProducts(products: any[]): ViatorProduct[] {
     reviewCount: p.reviews?.totalReviews || 0,
     imageUrl: selectBestImage(p.images, 600), // Card size ~600px
     imageLarge: selectBestImage(p.images, 1200), // Hero/detail ~1200px
-    bookingLink: `https://www.viator.com/tours/${p.productCode}?pid=YOURPID`,
+    bookingLink: p.productUrl || `https://www.viator.com/tours/${p.productCode}`,
   }));
 }
 
