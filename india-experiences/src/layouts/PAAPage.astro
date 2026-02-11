@@ -292,8 +292,32 @@ const formatDate = (dateStr?: string) => {
   .article-content :global(li) {
     margin-bottom: 8px;
   }
+  .article-content :global(h4) {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 24px 0 12px;
+    color: #1a1a1a;
+  }
+  .article-content :global(strong) {
+    font-weight: 600;
+    color: #1a1a1a;
+  }
   .article-content :global(a) {
     color: #e07060;
+    text-decoration: none;
+  }
+  .article-content :global(a:hover) {
+    text-decoration: underline;
+  }
+  .article-content :global(blockquote) {
+    padding: 12px 20px;
+    margin: 0 0 20px;
+    border-left: 3px solid #2a9d8f;
+    font-style: italic;
+    color: #666;
+  }
+  .article-content :global(blockquote p) {
+    margin: 0;
   }
 
   /* AUTHOR */
