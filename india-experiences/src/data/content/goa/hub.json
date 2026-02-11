@@ -1,0 +1,35 @@
+{
+  "slug": "goa",
+  "name": "Goa",
+  "title": "Goa Travel Guide",
+  "description": "Complete guide to exploring Goa",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "Introduction",
+      "content": ""
+    },
+    {
+      "id": "getting-there",
+      "title": "Getting There",
+      "content": ""
+    },
+    {
+      "id": "areas",
+      "title": "Where to Stay",
+      "content": ""
+    },
+    {
+      "id": "highlights",
+      "title": "Must-See Highlights",
+      "content": ""
+    }
+  ],
+  "viator": {
+    "destinationId": 0,
+    "enabled": false
+  },
+  "versions": [],
+  "createdAt": "2026-02-11T11:09:49.006Z",
+  "updatedAt": "2026-02-11T11:09:49.006Z"
+}
