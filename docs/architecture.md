@@ -888,6 +888,33 @@ Font files stored at `/public/fonts/{family}/`. No Google Fonts, no external req
 
 **Important:** All templates must reference these fonts. Never use `'Inter'`, `'Playfair Display'`, or other unloaded fonts — they silently fall back to system fonts and break visual consistency.
 
+### 7.1b Header Logo
+
+The site logo "INDIA ESQUE" (with space) uses Benton Sans in the header:
+
+| Breakpoint | Font Size | Letter Spacing |
+|------------|-----------|----------------|
+| Mobile | 26px | 0.3em |
+| Desktop (768px+) | 32px | 0.3em |
+
+**File:** `src/components/Header.astro`
+
+```css
+.header-logo {
+  font-family: 'Benton Sans', sans-serif;
+  font-size: 26px;      /* Mobile */
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: #E9CDB0;       /* Gold accent */
+}
+
+@media (min-width: 768px) {
+  .header-logo {
+    font-size: 32px;    /* Desktop */
+  }
+}
+```
+
 ### 7.2 Global CSS Reset
 
 `src/styles/main.css` contains a targeted reset:
