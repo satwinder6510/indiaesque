@@ -82,11 +82,36 @@ const paaPages = cityPages
 // Get products from Viator
 const destId = getDestinationId(city as string);
 const viatorProducts = destId ? await searchProducts({ destId, limit: 6 }) : [];
+
+// Schema markup
+const siteUrl = 'https://indiaesque.com';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+    { '@type': 'ListItem', position: 2, name: cityData.name, item: `${siteUrl}/${city}/` }
+  ]
+};
+
+const destinationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TouristDestination',
+  name: cityData.name,
+  description: description,
+  url: `${siteUrl}/${city}/`,
+  containedInPlace: {
+    '@type': 'Country',
+    name: 'India'
+  }
+};
 ---
 
 <BaseLayout
   title={`${cityData.name} Travel Guide | Indiaesque`}
   description={description}
+  schema={[breadcrumbSchema, destinationSchema]}
 >
   <!-- Hero -->
   <section class="hero">

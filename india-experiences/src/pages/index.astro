@@ -36,12 +36,39 @@ const staycations = staycationsData.map(stay => ({
 }));
 
 const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') || '';
+
+// Organization schema for homepage
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Indiaesque',
+  url: 'https://indiaesque.com',
+  logo: 'https://indiaesque.com/logo.png',
+  description: 'Curated India experiences - personalized journeys, heritage walks, food tours, and unforgettable adventures across India.',
+  sameAs: [
+    'https://www.instagram.com/indiaesque',
+    'https://www.facebook.com/indiaesque'
+  ]
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Indiaesque',
+  url: 'https://indiaesque.com',
+  description: 'Discover authentic India through curated experiences.',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Indiaesque'
+  }
+};
 ---
 
 <BaseLayout
   title="Curated India Experiences"
   description="Discover authentic India through curated experiences. Personalized journeys, heritage walks, and unforgettable adventures."
   includeFooter={true}
+  schema={[organizationSchema, websiteSchema]}
 >
   <!-- Hero -->
   <section class="hero">
@@ -223,7 +250,7 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
 
   <!-- Newsletter -->
   <section class="newsletter">
-    <img src="/images/newsletter-bg.jpg" alt="" class="newsletter-bg" />
+    <img src="/images/newsletter-bg.jpg" alt="" role="presentation" class="newsletter-bg" />
     <div class="newsletter-overlay"></div>
     <div class="newsletter-content">
       <h2>STAY UP TO DATE BY SUBSCRIBING<br/>TO OUR NEWSLETTER</h2>

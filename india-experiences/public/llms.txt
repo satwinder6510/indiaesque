@@ -8,22 +8,54 @@ This site covers experiences and activities across 30+ Indian cities. Every page
 
 ## Content Structure
 
-- /[city]/ — Comprehensive city guide
-- /[city]/food-tours/ — Food tour guide for that city
-- /[city]/heritage-walks/ — Heritage walk guide
-- /[city]/cooking-classes/ — Cooking class guide
-- /[city]/[topic]/ — Specific guides and FAQs
+All content follows a city-first architecture:
+
+- `/` — Homepage with featured cities, experiences, and staycations
+- `/[city]/` — City hub page (e.g., /delhi/, /jaipur/)
+- `/[city]/food-tours/` — Food tour guide for that city
+- `/[city]/heritage-walks/` — Heritage walk guide
+- `/[city]/[topic]/` — Specific guides and FAQs (e.g., /delhi/is-delhi-safe/)
+- `/staycations/` — Boutique hotel recommendations
+- `/staycations/[property]/` — Individual property pages
+- `/journal/` — Travel articles and guides
 
 ## Top Cities
 
-- /delhi/ — Delhi experiences guide
-- /jaipur/ — Jaipur experiences guide
-- /goa/ — Goa experiences guide
-- /mumbai/ — Mumbai experiences guide
-- /varanasi/ — Varanasi experiences guide
+- `/delhi/` — Delhi travel guide with 80+ sub-pages
+- `/jaipur/` — Jaipur experiences and tours
+- `/mumbai/` — Mumbai city guide
+- `/kolkata/` — Kolkata heritage and food
+- `/goa/` — Goa beaches and experiences
+- `/varanasi/` — Varanasi spiritual experiences
+- `/kerala/` — Kerala backwaters and culture
+- `/udaipur/` — Udaipur lakes and palaces
 
-## Categories
+## Experience Types
 
-- /food-tours-india/ — Food tours across India
-- /cooking-classes-india/ — Cooking classes across India
-- /heritage-walks-india/ — Heritage walks across India
+Each city has category pages for:
+- Food Tours — Street food walks, cooking classes
+- Heritage Walks — Historical and architectural tours
+- Cultural Experiences — Local traditions and festivals
+- Day Trips — Excursions from major cities
+- Markets & Shopping — Local bazaars and crafts
+
+## Page Types
+
+1. **City Hubs** (`/[city]/`) — Overview with links to all sub-pages, Viator tours
+2. **Category Pages** (`/[city]/food-tours/`) — Experience guides with bookable Viator tours
+3. **PAA Pages** (`/[city]/is-delhi-safe/`) — Answers to common travel questions
+4. **Staycation Pages** (`/staycations/[property]/`) — Boutique hotel details with booking
+
+## Data Sources
+
+- Original editorial content written by local experts
+- Tour listings from Viator Partner API (affiliate)
+- Hotel availability via GetYourGuide widgets
+- Prices shown in INR, verified annually
+
+## Technical
+
+- Static site built with Astro
+- Deployed on Vercel
+- No client-side JavaScript required to read content
+- Schema markup: Organization, BreadcrumbList, Article, FAQPage, TouristDestination
