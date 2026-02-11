@@ -1,4 +1,4 @@
-// Viator API Service - Attractions endpoint
+// Viator API Service - Products endpoint
 
 const VIATOR_API_KEY = import.meta.env.VIATOR_API_KEY || process.env.VIATOR_API_KEY || '';
 const VIATOR_BASE_URL = 'https://api.viator.com/partner';
@@ -19,22 +19,27 @@ export const DESTINATIONS = {
   kerala: { id: 958, name: 'Kerala' },
 };
 
-export interface ViatorAttraction {
-  attractionId: number;
+export interface ViatorProduct {
+  productCode: string;
   title: string;
-  imageUrl: string;
-  attractionUrl: string;
-  productCount: number;
+  description: string;
+  duration: string;
+  price: {
+    amount: number;
+    currency: string;
+  };
   rating: number;
   reviewCount: number;
+  imageUrl: string;
+  bookingLink: string;
 }
 
-interface AttractionsParams {
+interface SearchParams {
   destId: number;
   limit?: number;
 }
 
-export async function searchAttractions(params: AttractionsParams): Promise<ViatorAttraction[]> {
+export async function searchProducts(params: SearchParams): Promise<ViatorProduct[]> {
   if (!VIATOR_API_KEY) {
     console.warn('Viator API key not configured, skipping');
     return [];
@@ -42,16 +47,19 @@ export async function searchAttractions(params: AttractionsParams): Promise<Viat
 
   try {
     const requestBody: any = {
-      destinationId: params.destId,
+      filtering: {
+        destination: params.destId,
+      },
       pagination: {
         start: 1,
         count: params.limit || 6,
       },
+      currency: 'INR',
     };
 
-    console.log('Viator Attractions request:', JSON.stringify(requestBody));
+    console.log('Viator Products request:', JSON.stringify(requestBody));
 
-    const response = await fetch(`${VIATOR_BASE_URL}/attractions/search`, {
+    const response = await fetch(`${VIATOR_BASE_URL}/products/search`, {
       method: 'POST',
       headers: {
         'exp-api-key': VIATOR_API_KEY,
@@ -64,50 +72,71 @@ export async function searchAttractions(params: AttractionsParams): Promise<Viat
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('Viator Attractions error:', response.status, errorText);
-      throw new Error(`Viator Attractions error: ${response.status}`);
+      console.error('Viator Products error:', response.status, errorText);
+      throw new Error(`Viator Products error: ${response.status}`);
     }
 
     const data = await response.json();
-    const attractions = data.attractions || [];
-    console.log('Viator Attractions success, count:', attractions.length);
-    return transformAttractions(attractions);
+    const products = data.products || [];
+    console.log('Viator Products success, count:', products.length);
+    return transformProducts(products);
   } catch (error) {
-    console.error('Viator Attractions error:', error);
+    console.error('Viator Products error:', error);
     return [];
   }
 }
 
-function transformAttractions(attractions: any[]): ViatorAttraction[] {
-  return attractions.map(a => {
-    // Reviews: { sources: [{ provider, reviewCounts, totalCount, averageRating }] }
-    const viatorReviews = a.reviews?.sources?.find((s: any) => s.provider === 'VIATOR');
+function transformProducts(products: any[]): ViatorProduct[] {
+  return products.map(p => {
+    // Reviews: { sources: [{ provider, totalCount, averageRating }] }
+    const viatorReviews = p.reviews?.sources?.find((s: any) => s.provider === 'VIATOR');
     const rating = viatorReviews?.averageRating || 0;
     const reviewCount = viatorReviews?.totalCount || 0;
 
-    // Images: simple array of { url, width, height } — pick best fit for ~600px card
-    const imageUrl = selectBestImage(a.images);
+    // Duration
+    const mins = p.duration?.fixedDurationInMinutes;
+    let duration = 'Varies';
+    if (mins) {
+      if (mins >= 1440) {
+        const days = Math.round(mins / 1440);
+        duration = days === 1 ? '1 day' : `${days} days`;
+      } else {
+        const hours = Math.round(mins / 60);
+        duration = hours === 1 ? '1 hour' : `${hours} hours`;
+      }
+    }
 
     return {
-      attractionId: a.attractionId,
-      title: a.name || '',
-      imageUrl,
-      attractionUrl: a.attractionUrl || '#',
-      productCount: a.productCount || 0,
+      productCode: p.productCode,
+      title: p.title,
+      description: p.description || '',
+      duration,
+      price: {
+        amount: p.pricing?.summary?.fromPrice || 0,
+        currency: p.pricing?.currency || 'INR',
+      },
       rating,
       reviewCount,
+      imageUrl: selectBestImage(p.images),
+      bookingLink: p.productUrl || `https://www.viator.com/tours/${p.productCode}`,
     };
   });
 }
 
-// Images are simple { url, width, height } objects — no variants, no isCover
+// Products images: { isCover, variants: [{ url, width, height }] }
 function selectBestImage(images: any[]): string {
   if (!images || images.length === 0) return '';
 
-  // Sort by width, pick the one closest to 600px wide
-  const sorted = [...images].sort((a, b) => a.width - b.width);
-  const bestFit = sorted.find(img => img.width >= 600);
-  return bestFit?.url || sorted[sorted.length - 1]?.url || '';
+  const coverImage = images.find((img: any) => img.isCover) || images[0];
+
+  if (!coverImage.variants || coverImage.variants.length === 0) {
+    return coverImage.url || '';
+  }
+
+  // Sort variants by width, pick best fit for ~600px card
+  const variants = [...coverImage.variants].sort((a: any, b: any) => a.width - b.width);
+  const bestFit = variants.find((v: any) => v.width >= 600);
+  return bestFit?.url || variants[variants.length - 1]?.url || '';
 }
 
 export function getDestinationId(city: string): number | undefined {

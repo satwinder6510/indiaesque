@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { searchAttractions } from '../../../lib/viator';
+import { searchProducts } from '../../../lib/viator';
 
 export const prerender = false;
 
@@ -15,18 +15,27 @@ export const GET: APIRoute = async ({ request }) => {
   }
 
   try {
-    const attractions = await searchAttractions({
+    const products = await searchProducts({
       destId: destinationId,
       limit: 6,
     });
 
-    return new Response(JSON.stringify({ attractions }), {
+    const tours = products.map(p => ({
+      title: p.title,
+      thumbnailURL: p.imageUrl,
+      webURL: p.bookingLink,
+      price: p.price.amount,
+      rating: p.rating,
+      duration: p.duration,
+    }));
+
+    return new Response(JSON.stringify({ tours }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     });
   } catch (error) {
-    console.error('Viator Attractions error:', error);
-    return new Response(JSON.stringify({ error: 'Failed to fetch attractions' }), {
+    console.error('Viator API error:', error);
+    return new Response(JSON.stringify({ error: 'Failed to fetch tours' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     });
