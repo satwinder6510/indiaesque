@@ -190,8 +190,16 @@ export default function MarkdownEditor({
         {/* Preview */}
         {(viewMode === "preview" || viewMode === "split") && (
           <div className={`flex-1 ${viewMode === "split" ? "w-1/2" : "w-full"} overflow-y-auto`}>
+            <style>{`
+              .markdown-preview p { margin-bottom: 1rem; }
+              .markdown-preview h1 { margin-top: 1.5rem; margin-bottom: 0.75rem; }
+              .markdown-preview h2 { margin-top: 1.25rem; margin-bottom: 0.5rem; }
+              .markdown-preview h3 { margin-top: 1rem; margin-bottom: 0.5rem; }
+              .markdown-preview ul, .markdown-preview ol { margin-bottom: 1rem; }
+              .markdown-preview li { margin-bottom: 0.25rem; }
+            `}</style>
             <div
-              className="p-4 prose prose-sm dark:prose-invert max-w-none [&>p]:mb-4 [&>h1]:mt-6 [&>h2]:mt-5 [&>h3]:mt-4 [&>ul]:mb-4 [&>ol]:mb-4"
+              className="markdown-preview p-4 max-w-none text-[var(--foreground)]"
               dangerouslySetInnerHTML={{ __html: renderMarkdown() }}
             />
           </div>
