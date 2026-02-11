@@ -35,6 +35,7 @@ export interface ContentVersion {
     wordCount: number;
     keywords: string[];
     paaQuestionIds: string[];
+    expandDirection?: string;
   };
   note?: string;
 }
@@ -206,6 +207,7 @@ export async function POST(request: NextRequest) {
         destinationId: 0,
         enabled: false
       },
+      versions: [],
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     };

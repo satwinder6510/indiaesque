@@ -23,8 +23,9 @@ Last updated: 2026-02-11
 13. Performance Requirements
 14. Hosting & Deployment
 15. Analytics & Search Console
-16. Content Injection Workflow
-17. File & Folder Structure
+16. Content Admin — AI Generation & Versioning
+17. Content Injection Workflow
+18. File & Folder Structure
 
 ---
 
@@ -1248,7 +1249,105 @@ The admin tool (`admin.indiaesque.com`) also commits to this repo via GitHub API
 
 ---
 
-## 15. Content Injection Workflow
+## 16. Content Admin — AI Generation & Versioning
+
+The admin panel (`admin/`) manages city hub content through a multi-tab interface at `/content/[city]`. Content is stored as JSON in `india-experiences/src/data/content/{city}/hub.json` and committed to GitHub via the API.
+
+### 16.1 Content Versioning
+
+Every content change creates a `ContentVersion` stored in the hub's `versions` array (max 20 retained):
+
+```typescript
+interface ContentVersion {
+  id: string;            // e.g. "v_1707123456_abc1234"
+  content: string;       // Full markdown content
+  wordCount: number;
+  createdAt: string;     // ISO timestamp
+  source: "ai" | "manual";
+  generationConfig?: {
+    tone: string;
+    wordCount: number;
+    keywords: string[];
+    paaQuestionIds: string[];
+    expandDirection?: string;  // Set for expand-generated versions
+  };
+  note?: string;         // User-provided or auto-generated note
+}
+```
+
+The `currentVersionId` field on the hub tracks which version is active. Users can preview any version and revert (which creates a new version from the old content).
+
+### 16.2 PAA Research
+
+The **PAA Research** tab sends city names to Claude to generate 15–20 "People Also Ask" questions across categories (transport, best time, food, safety, etc.). Questions are persisted to the hub's `paaResearch` field and can be individually selected/deselected for generation.
+
+API: `POST /api/content/research` with `action: "research"` or `action: "save"`
+
+Bulk research across multiple cities: `action: "bulk-research"`
+
+### 16.3 Prompt Builder
+
+Shared utility at `admin/src/lib/promptBuilder.ts` — single source of truth for prompt construction, used by both the API (server-side execution) and the UI (client-side preview).
+
+**Exports:**
+
+| Function | Purpose |
+|----------|---------|
+| `buildGeneratePrompt()` | Constructs the full hub content generation prompt from selected PAA questions, tone, word count, and keywords |
+| `buildExpandPrompt()` | Constructs the expand prompt that includes existing content between delimiters with instructions to add new material without duplicating |
+| `TONE_PROMPTS` | Map of tone values to natural-language style instructions |
+
+**Available tones:** conversational, professional, enthusiastic, practical, storytelling
+
+### 16.4 Content Generation
+
+The **Generation** tab provides two modes:
+
+**Generate Content** — Creates fresh hub content from selected PAA questions:
+1. User selects PAA questions, configures tone/wordCount/keywords
+2. Live prompt preview shows the exact prompt (collapsible, updates reactively)
+3. On generate: calls `POST /api/content/research` with `action: "generate"`
+4. Response content is set in the editor and auto-published as a new AI version
+5. UI switches to the editor tab
+
+**Expand Content** — Adds to existing content without duplicating (only visible when content exists):
+1. User types a free-form expansion direction (e.g. "Add a section about monsoon festivals")
+2. Configures additional word count (200–2000) — uses same tone/keywords from above
+3. Live expand prompt preview shows the full prompt including existing content
+4. On expand: calls `POST /api/content/research` with `action: "expand"`
+5. Claude receives existing content between delimiters with instructions to return the complete merged document
+6. Response replaces editor content and is auto-published with a note like "Expanded: {direction}"
+
+**Key design decisions:**
+- Prompt preview is client-side (deterministic from inputs, no secrets) — no extra API call needed
+- Expand returns the full merged document, not a diff — simpler and more reliable; version history handles comparison
+- `max_tokens: 16384` for expand to accommodate existing content + new additions
+- Shared prompt builder ensures the preview matches exactly what the server sends to Claude
+
+### 16.5 Admin File Structure
+
+```
+admin/src/
+├── lib/
+│   ├── promptBuilder.ts          ← Shared prompt construction (generate + expand)
+│   ├── github.ts                 ← GitHub API client (readJSON, writeJSON)
+│   └── auth.ts
+├── app/
+│   ├── api/content/
+│   │   ├── route.ts              ← CRUD + versioning (GET, POST, PUT)
+│   │   └── research/route.ts     ← PAA research, generate, expand actions
+│   └── content/[city]/
+│       ├── page.tsx              ← City hub editor (tabs, state, handlers)
+│       └── components/
+│           ├── GenerationControls.tsx  ← Tone/wordCount/keywords + prompt preview + expand UI
+│           ├── PAAResearchPanel.tsx    ← PAA question research + selection
+│           ├── MarkdownEditor.tsx      ← Content editor with preview
+│           └── VersionHistory.tsx      ← Version list, preview, revert
+```
+
+---
+
+## 17. Content Injection Workflow
 
 **How content gets from generation to published page.**
 
@@ -1328,7 +1427,7 @@ Before any content file is committed, run automated checks:
 
 ---
 
-## 16. File & Folder Structure
+## 18. File & Folder Structure
 
 ```
 indiaesque/                           ← Monorepo root

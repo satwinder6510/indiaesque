@@ -41,6 +41,7 @@ interface ContentVersion {
     wordCount: number;
     keywords: string[];
     paaQuestionIds: string[];
+    expandDirection?: string;
   };
   note?: string;
 }
@@ -52,6 +53,8 @@ interface CityHub {
   description: string;
   sections: HubSection[];
   viator: ViatorConfig;
+  createdAt: string;
+  updatedAt: string;
   generatedContent?: string;
   paaResearch?: {
     questions: PAAQuestion[];
@@ -104,6 +107,7 @@ export default function CityHubPage() {
   const [paaQuestions, setPaaQuestions] = useState<PAAQuestion[]>([]);
   const [researching, setResearching] = useState(false);
   const [generating, setGenerating] = useState(false);
+  const [expanding, setExpanding] = useState(false);
 
   // Editor state
   const [editorContent, setEditorContent] = useState("");
@@ -400,6 +404,65 @@ export default function CityHubPage() {
     }
   };
 
+  const handleExpandContent = async (config: { expandDirection: string; tone: string; wordCount: number; keywords: string[] }) => {
+    if (!hub) return;
+    setExpanding(true);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/content/research", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          cityName: hub.name,
+          action: "expand",
+          existingContent: editorContent,
+          expandDirection: config.expandDirection,
+          tone: config.tone,
+          wordCount: config.wordCount,
+          keywords: config.keywords,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+
+      // Set the expanded content in editor
+      setEditorContent(data.content);
+
+      // Auto-publish as a new version
+      const publishRes = await fetch("/api/content", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          slug: citySlug,
+          action: "publishVersion",
+          updates: {
+            content: data.content,
+            source: "ai",
+            generationConfig: data.generationConfig,
+          },
+          versionNote: `Expanded: ${config.expandDirection.substring(0, 80)}`,
+        }),
+      });
+
+      const publishData = await publishRes.json();
+      if (publishRes.ok) {
+        setHub(publishData.hub);
+      }
+
+      setSuccess(`Expanded to ${data.wordCount} words!`);
+      setTimeout(() => setSuccess(null), 5000);
+
+      // Switch to editor tab
+      setActiveTab("editor");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Expansion failed");
+    } finally {
+      setExpanding(false);
+    }
+  };
+
   const handleSaveGenerationDefaults = async (config: { tone: string; wordCount: number; keywords: string[] }) => {
     if (!hub) return;
 
@@ -665,6 +728,11 @@ export default function CityHubPage() {
               onGenerate={handleGenerateContent}
               onSaveDefaults={handleSaveGenerationDefaults}
               isGenerating={generating}
+              cityName={hub.name}
+              selectedQuestions={paaQuestions.filter((q) => q.selected)}
+              existingContent={editorContent}
+              onExpand={handleExpandContent}
+              isExpanding={expanding}
             />
 
             {selectedQuestionCount === 0 && paaQuestions.length === 0 && (

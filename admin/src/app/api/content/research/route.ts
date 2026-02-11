@@ -2,21 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
 import { readJSON, writeJSON } from "@/lib/github";
 import type { CityHub, PAAQuestion } from "../route";
+import { buildGeneratePrompt, buildExpandPrompt } from "@/lib/promptBuilder";
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
 });
 
 const CONTENT_BASE = "india-experiences/src/data/content";
-
-// Tone options for content generation
-const TONE_PROMPTS: Record<string, string> = {
-  conversational: "Write in a friendly, conversational tone as if chatting with a friend about travel. Use 'you' frequently and share insights naturally.",
-  professional: "Write in a professional, authoritative tone with well-researched facts. Maintain a polished, informative style suitable for a travel publication.",
-  enthusiastic: "Write with enthusiasm and excitement! Use vivid language, share personal touches, and convey genuine passion for the destination.",
-  practical: "Write in a practical, no-nonsense tone focused on actionable advice. Prioritize useful tips, logistics, and money-saving strategies.",
-  storytelling: "Write in a narrative, storytelling style. Paint vivid pictures, share anecdotes, and take readers on a journey through the destination.",
-};
 
 /**
  * Generate unique ID for PAA question
@@ -234,96 +226,13 @@ Make questions specific to ${name} and realistic - the kind that appear in Googl
         return NextResponse.json({ error: "questions are required" }, { status: 400 });
       }
 
-      const toneInstruction = TONE_PROMPTS[tone] || TONE_PROMPTS.conversational;
-      const keywordsInstruction = keywords.length > 0
-        ? `\n\nIMPORTANT: Naturally incorporate these keywords throughout the content: ${keywords.join(", ")}`
-        : "";
-
-      // Generate full SEO-optimized hub content
-      const generatePrompt = `You are an expert travel writer and SEO specialist. Create a comprehensive, SEO-optimized travel guide for ${cityName}, India.
-
-TONE INSTRUCTION: ${toneInstruction}
-
-TARGET LENGTH: Aim for approximately ${targetWordCount} words.${keywordsInstruction}
-
-Use these PAA questions as your guide for what to cover:
-${questions.map((q: { question: string }) => `- ${q.question}`).join("\n")}
-
-Create a complete hub page with this EXACT structure:
-
-# ${cityName} Travel Guide: Everything You Need to Know [Year]
-
-[Compelling 150-word intro paragraph that hooks the reader and includes key LSI keywords]
-
-## Quick Facts About ${cityName}
-[Brief overview with key stats - best time, language, currency tips, etc.]
-
-## How to Get to ${cityName}
-### By Air
-[Airport info, airlines, taxi/metro from airport with prices]
-
-### By Train
-[Major stations, popular routes, booking tips]
-
-### By Road
-[Highway connections, bus options]
-
-## Best Time to Visit ${cityName}
-[Seasonal breakdown with pros/cons of each season]
-
-## Where to Stay in ${cityName}
-### Best Areas for Tourists
-[3-4 neighborhood recommendations with character descriptions]
-
-### Hotels by Budget
-[Luxury, mid-range, budget options with price ranges in ₹]
-
-## Top Things to Do in ${cityName}
-### Must-See Attractions
-[Top 5-7 attractions with practical info]
-
-### Hidden Gems
-[3-4 lesser-known spots]
-
-### Experiences & Activities
-[Unique things to do - food tours, workshops, etc.]
-
-## ${cityName} Food Guide
-### Must-Try Dishes
-[Local specialties with where to find them]
-
-### Best Restaurants & Street Food
-[Specific recommendations with areas]
-
-## Practical Tips for ${cityName}
-### Safety Tips
-[Honest, practical safety advice]
-
-### Money & Costs
-[Budget breakdown, tipping, bargaining]
-
-### Getting Around
-[Local transport options with prices]
-
-## How Many Days in ${cityName}?
-[Suggested itineraries: 1 day, 2-3 days, 4+ days]
-
-## Day Trips from ${cityName}
-[3-4 day trip options with distance/time]
-
-## FAQs About ${cityName}
-[Answer 5-6 key questions from the PAA list in Q&A format]
-
----
-
-REQUIREMENTS:
-- Use proper H1 (only one), H2, H3 hierarchy
-- Include specific prices in ₹ where relevant
-- Add practical, actionable details (timings, costs, tips)
-- Write naturally but SEO-optimized
-- Target approximately ${targetWordCount} words
-- Include local insights that show expertise
-- Each section should flow naturally into the next`;
+      const generatePrompt = buildGeneratePrompt({
+        cityName,
+        tone,
+        wordCount: targetWordCount,
+        keywords,
+        questions,
+      });
 
       const message = await anthropic.messages.create({
         model: "claude-sonnet-4-20250514",
@@ -346,6 +255,61 @@ REQUIREMENTS:
           wordCount: targetWordCount,
           keywords,
           paaQuestionIds: questions.map((q: { id?: string }) => q.id).filter(Boolean),
+        },
+      });
+    }
+
+    if (action === "expand") {
+      if (!cityName) {
+        return NextResponse.json({ error: "cityName is required" }, { status: 400 });
+      }
+
+      const {
+        existingContent,
+        expandDirection,
+        tone = "conversational",
+        wordCount: targetAdditionalWords = 500,
+        keywords = [],
+      } = body;
+
+      if (!existingContent || !expandDirection) {
+        return NextResponse.json(
+          { error: "existingContent and expandDirection are required" },
+          { status: 400 }
+        );
+      }
+
+      const expandPrompt = buildExpandPrompt({
+        cityName,
+        existingContent,
+        expandDirection,
+        tone,
+        targetAdditionalWords,
+        keywords,
+      });
+
+      const message = await anthropic.messages.create({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 16384,
+        messages: [{ role: "user", content: expandPrompt }],
+      });
+
+      const content = message.content[0];
+      if (content.type !== "text") throw new Error("Unexpected response");
+
+      const expandedContent = content.text.trim();
+      const actualWordCount = expandedContent.split(/\s+/).length;
+
+      return NextResponse.json({
+        success: true,
+        content: expandedContent,
+        wordCount: actualWordCount,
+        generationConfig: {
+          tone,
+          wordCount: targetAdditionalWords,
+          keywords,
+          paaQuestionIds: [],
+          expandDirection,
         },
       });
     }
