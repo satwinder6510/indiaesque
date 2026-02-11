@@ -504,6 +504,76 @@ GetYourGuide Partner Program:
 
 ---
 
+## 5d. Experience URL Architecture (Decision Record)
+
+**Status:** Under consideration (Feb 2026)
+
+### Current Structure
+
+```
+/experiences/                    → Hub showing all 30 categories
+/experiences/food-tours/         → Food tours across ALL of India (Viator tag filter)
+/experiences/yoga-meditation/    → Yoga experiences across ALL of India
+/[city]/                         → City hub (Delhi, Jaipur, etc.)
+```
+
+### Proposed Addition: City-Level Experience Pages
+
+```
+/experiences/food-tours/delhi/   → Food tours IN Delhi specifically
+/experiences/yoga-meditation/rishikesh/
+```
+
+**Math:** 30 experience types × 11 cities = **330 potential new pages**
+
+### Trade-offs
+
+| Consideration | Pro | Con |
+|--------------|-----|-----|
+| **Long-tail SEO** | Targets specific searches ("food tours delhi", "yoga retreats rishikesh") | Competes with Viator/TripAdvisor who already own these terms |
+| **User intent** | Higher conversion — visitor has city in mind | Generic pages catch researchers earlier in funnel |
+| **Content quality** | More specific, relevant content per page | Many combos will have thin/zero Viator inventory |
+| **Maintenance** | 330 pages to keep updated | Automated via Viator API if inventory exists |
+| **Cannibalization** | — | May compete with city hub pages that already cover experiences |
+
+### Key Questions
+
+1. **Where does traffic land first?** Are users searching by experience type ("yoga retreats india") or by destination ("things to do in rishikesh")?
+
+2. **Viator inventory reality** — Many combinations will return zero products (safaris in Varanasi, bird watching in Mumbai). Empty pages = bad SEO.
+
+3. **Content differentiation** — Can each page have unique editorial value beyond just Viator listings? If not, thin pages won't rank.
+
+### Options Under Consideration
+
+**Option A: Selective city pages**
+- Only create `/experiences/[type]/[city]/` where Viator has 3+ products AND the combo makes sense
+- Example: `/experiences/yoga-meditation/rishikesh/` ✓, `/experiences/safaris/delhi/` ✗
+- Requires inventory check before page creation
+
+**Option B: Dynamic filtering (no new pages)**
+- Keep `/experiences/food-tours/` but add city filter tabs/dropdown
+- One URL, multiple views via query param or client-side filter
+- Less SEO benefit but no thin content risk
+
+**Option C: City-first hierarchy**
+- Instead of `/experiences/food-tours/delhi/`
+- Use `/delhi/food-tours/` (city as parent, experience as child)
+- Keeps city hubs as authority pages, experiences as sub-sections
+- Already partially implemented for some cities
+
+### Recommendation
+
+**Lean toward Option A (selective) or Option C (city-first)**. The city-first approach (`/delhi/food-tours/`) may be stronger because:
+- City hubs already exist and have authority
+- Users often know their destination before their activity type
+- Avoids creating a parallel hierarchy that competes with city pages
+- Simpler information architecture
+
+**Next step:** Check Viator inventory for high-value combos to validate whether selective pages would have sufficient content.
+
+---
+
 ## 6. Page Templates & HTML Structure
 
 ### 6.1 Base HTML Template (every page)
