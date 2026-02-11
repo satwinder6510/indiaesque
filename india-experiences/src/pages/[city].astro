@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, getEntry, render } from 'astro:content';
-import { DESTINATIONS, searchProducts, getDestinationId, VIATOR_TAGS } from '../lib/viator';
+import { DESTINATIONS, searchAttractions, getDestinationId } from '../lib/viator';
 import citiesData from '../data/cities.json';
 
 export const prerender = true;
@@ -49,9 +49,9 @@ const curatedExperiences = allPages
   .filter(page => page.data.type === 'experience' && page.data.city === city)
   .slice(0, 3);
 
-// Get more experiences from Viator (or mock data)
+// Get attractions from Viator
 const destId = getDestinationId(city as string);
-const viatorExperiences = destId ? await searchProducts({ destId, limit: 6 }) : [];
+const viatorAttractions = destId ? await searchAttractions({ destId, limit: 6 }) : [];
 
 // Get related journal articles for SEO funnel
 const journalArticles = allPages
@@ -117,30 +117,35 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     </section>
   )}
 
-  <!-- More Experiences (Viator API) - only shown if API returns results -->
-  {viatorExperiences.length > 0 && (
+  <!-- Attractions (Viator API) - only shown if API returns results -->
+  {viatorAttractions.length > 0 && (
     <section class="viator-section">
-      <h2>More Experiences in {cityData.name}</h2>
-      <p class="section-desc">Popular tours and activities from our partners</p>
+      <h2>Top Attractions in {cityData.name}</h2>
+      <p class="section-desc">Popular attractions and things to do</p>
       <div class="experiences-grid">
-        {viatorExperiences.map(exp => (
-          <a href={exp.bookingLink} target="_blank" rel="noopener" class="experience-card">
-            <div class="card-image">
-              <img src={exp.imageUrl} alt={exp.title} loading="lazy" />
-              <div class="card-info">
-                <span class="card-duration">{exp.duration}</span>
+        {viatorAttractions.map(att => (
+          <a href={att.attractionUrl} target="_blank" rel="noopener" class="experience-card">
+            {att.imageUrl && (
+              <div class="card-image">
+                <img src={att.imageUrl} alt={att.title} loading="lazy" />
+                {att.productCount > 0 && (
+                  <div class="card-info">
+                    <span class="card-duration">{att.productCount} experiences</span>
+                  </div>
+                )}
               </div>
-            </div>
+            )}
             <div class="card-content">
-              <h3>{exp.title}</h3>
-              <div class="card-meta">
-                <span class="rating">{'★'.repeat(Math.round(exp.rating))} {exp.rating.toFixed(1)}</span>
-                <span class="reviews">({exp.reviewCount} reviews)</span>
-              </div>
-              <p class="card-desc">{exp.description}</p>
+              <h3>{att.title}</h3>
+              {att.rating > 0 && (
+                <div class="card-meta">
+                  <span class="rating">{'★'.repeat(Math.round(att.rating))} {att.rating.toFixed(1)}</span>
+                  {att.reviewCount > 0 && <span class="reviews">({att.reviewCount} reviews)</span>}
+                </div>
+              )}
+              {att.description && <p class="card-desc">{att.description}</p>}
               <div class="card-footer">
-                <span class="price">From {exp.price.currency === 'INR' ? '₹' : '$'}{exp.price.amount.toLocaleString()}</span>
-                <span class="book-btn">BOOK NOW</span>
+                <span class="book-btn">EXPLORE →</span>
               </div>
             </div>
           </a>

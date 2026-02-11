@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import GygWidget from '../../components/GygWidget.astro';
 import staycationsData from '../../data/staycations.json';
-import { searchProducts } from '../../lib/viator';
+import { searchAttractions } from '../../lib/viator';
 
 export const prerender = true;
 
@@ -35,19 +35,18 @@ if (toursConfig.enabled) {
     const destId = VIATOR_DEST_IDS[cityName] || toursConfig.viatorDestinationId || 804;
     console.log('Using Viator destination ID:', destId, 'for', cityName);
 
-    const products = await searchProducts({
+    const attractions = await searchAttractions({
       destId: destId,
-      tagIds: toursConfig.viatorTagIds,
       limit: 6,
     });
-    viatorTours = products.map(p => ({
-      title: p.title,
-      description: p.description,
-      duration: p.duration,
-      webURL: p.bookingLink,
-      price: p.price.amount,
-      rating: p.rating,
-      reviewCount: p.reviewCount,
+    viatorTours = attractions.map(a => ({
+      title: a.title,
+      description: a.description,
+      duration: `${a.productCount} experiences`,
+      webURL: a.attractionUrl,
+      price: 0,
+      rating: a.rating,
+      reviewCount: a.reviewCount,
     }));
   } catch (error) {
     console.error('Failed to load tours:', error);
