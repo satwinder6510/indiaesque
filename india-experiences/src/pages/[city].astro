@@ -117,35 +117,37 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     </section>
   )}
 
-  <!-- More Experiences (Viator API) -->
-  <section class="viator-section">
-    <h2>More Experiences in {cityData.name}</h2>
-    <p class="section-desc">Popular tours and activities from our partners</p>
-    <div class="experiences-grid">
-      {viatorExperiences.map(exp => (
-        <a href={exp.bookingLink} target="_blank" rel="noopener" class="experience-card">
-          <div class="card-image">
-            <img src={exp.imageUrl} alt={exp.title} loading="lazy" />
-            <div class="card-info">
-              <span class="card-duration">{exp.duration}</span>
+  <!-- More Experiences (Viator API) - only shown if API returns results -->
+  {viatorExperiences.length > 0 && (
+    <section class="viator-section">
+      <h2>More Experiences in {cityData.name}</h2>
+      <p class="section-desc">Popular tours and activities from our partners</p>
+      <div class="experiences-grid">
+        {viatorExperiences.map(exp => (
+          <a href={exp.bookingLink} target="_blank" rel="noopener" class="experience-card">
+            <div class="card-image">
+              <img src={exp.imageUrl} alt={exp.title} loading="lazy" />
+              <div class="card-info">
+                <span class="card-duration">{exp.duration}</span>
+              </div>
             </div>
-          </div>
-          <div class="card-content">
-            <h3>{exp.title}</h3>
-            <div class="card-meta">
-              <span class="rating">{'★'.repeat(Math.round(exp.rating))} {exp.rating.toFixed(1)}</span>
-              <span class="reviews">({exp.reviewCount} reviews)</span>
+            <div class="card-content">
+              <h3>{exp.title}</h3>
+              <div class="card-meta">
+                <span class="rating">{'★'.repeat(Math.round(exp.rating))} {exp.rating.toFixed(1)}</span>
+                <span class="reviews">({exp.reviewCount} reviews)</span>
+              </div>
+              <p class="card-desc">{exp.description}</p>
+              <div class="card-footer">
+                <span class="price">From {exp.price.currency === 'INR' ? '₹' : '$'}{exp.price.amount.toLocaleString()}</span>
+                <span class="book-btn">BOOK NOW</span>
+              </div>
             </div>
-            <p class="card-desc">{exp.description}</p>
-            <div class="card-footer">
-              <span class="price">From ${exp.price.amount}</span>
-              <span class="book-btn">BOOK NOW</span>
-            </div>
-          </div>
-        </a>
-      ))}
-    </div>
-  </section>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
 
   <!-- Related Journals (SEO Funnel) -->
   {journalArticles.length > 0 && (

@@ -100,8 +100,8 @@ interface SearchParams {
 
 export async function searchProducts(params: SearchParams): Promise<ViatorProduct[]> {
   if (!VIATOR_API_KEY) {
-    console.warn('Viator API key not configured, using mock data');
-    return getMockProducts(params);
+    console.warn('Viator API key not configured, skipping');
+    return [];
   }
 
   try {
@@ -151,7 +151,7 @@ export async function searchProducts(params: SearchParams): Promise<ViatorProduc
     return transformProducts(data.products || []);
   } catch (error) {
     console.error('Viator API error:', error);
-    return getMockProducts(params);
+    return [];
   }
 }
 
