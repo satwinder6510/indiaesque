@@ -18,13 +18,13 @@ const { staycation } = Astro.props;
 // Load tours from Viator API
 const toursConfig = staycation.tours || { enabled: false };
 
-// Known Viator destination IDs (from viator.com URLs like /New-Delhi/d804-ttd)
+// Viator destination IDs (from GET /destinations endpoint)
 const VIATOR_DEST_IDS: Record<string, number> = {
-  'Delhi': 804,      // New Delhi
-  'Jaipur': 1469,
+  'Delhi': 804,
+  'Jaipur': 4627,
   'Mumbai': 953,
-  'Goa': 4704,
-  'Agra': 4282,
+  'Goa': 4594,
+  'Agra': 4547,
 };
 
 let viatorTours: any[] = [];

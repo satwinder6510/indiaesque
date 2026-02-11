@@ -7,16 +7,17 @@ const VIATOR_BASE_URL = 'https://api.viator.com/partner';
 console.log('VIATOR_API_KEY available:', VIATOR_API_KEY ? 'YES (length: ' + VIATOR_API_KEY.length + ')' : 'NO');
 
 // Destination IDs for Indian cities (verified from Viator)
+// Destination IDs from GET /destinations endpoint (refreshed 2026-02-11)
 export const DESTINATIONS = {
   delhi: { id: 804, name: 'Delhi' },
-  jaipur: { id: 1469, name: 'Jaipur' },
+  jaipur: { id: 4627, name: 'Jaipur' },
   mumbai: { id: 953, name: 'Mumbai' },
-  goa: { id: 4704, name: 'Goa' },
-  agra: { id: 4282, name: 'Agra' },
-  varanasi: { id: 960, name: 'Varanasi' },
-  kolkata: { id: 954, name: 'Kolkata' },
-  udaipur: { id: 959, name: 'Udaipur' },
-  kerala: { id: 958, name: 'Kerala' },
+  goa: { id: 4594, name: 'Goa' },
+  agra: { id: 4547, name: 'Agra' },
+  varanasi: { id: 22015, name: 'Varanasi' },
+  kolkata: { id: 4924, name: 'Kolkata' },
+  udaipur: { id: 5106, name: 'Udaipur' },
+  kerala: { id: 964, name: 'Kerala' },
 };
 
 export interface ViatorProduct {
