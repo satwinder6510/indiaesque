@@ -181,7 +181,7 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     <h2>Experience Types</h2>
     <div class="categories-grid">
       {categories.map(cat => (
-        <a href="#" class="category-card">
+        <a href={cat.href} class="category-card">
           <img src={cat.image} alt={cat.name} />
           <div class="category-info">
             <span class="category-name">{cat.name}</span>

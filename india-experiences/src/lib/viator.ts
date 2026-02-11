@@ -108,7 +108,11 @@ export interface ViatorProduct {
 interface SearchParams {
   destId: number;
   limit?: number;
+  tagIds?: number[];
 }
+
+// India country destination ID
+export const INDIA_DESTINATION_ID = 723;
 
 export async function searchProducts(params: SearchParams): Promise<ViatorProduct[]> {
   if (!VIATOR_API_KEY) {
@@ -117,10 +121,16 @@ export async function searchProducts(params: SearchParams): Promise<ViatorProduc
   }
 
   try {
+    const filtering: any = {
+      destination: params.destId,
+    };
+
+    if (params.tagIds && params.tagIds.length > 0) {
+      filtering.tags = params.tagIds;
+    }
+
     const requestBody: any = {
-      filtering: {
-        destination: params.destId,
-      },
+      filtering,
       pagination: {
         start: 1,
         count: params.limit || 6,

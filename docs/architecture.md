@@ -484,6 +484,26 @@ GetYourGuide Partner Program:
 
 ---
 
+## 5c. Experience Pages (Viator by Category)
+
+**Dedicated pages for each experience type, showing Viator tours filtered by tag ID.**
+
+| URL | Tag ID | Experience Type |
+|-----|--------|-----------------|
+| `/experiences/` | - | Hub page |
+| `/experiences/food-tours/` | 21911 | Food & Drink |
+| `/experiences/nature/` | 11903 | Nature & Wildlife |
+| `/experiences/cultural/` | 12028 | Cultural Tours |
+| `/experiences/arts-crafts/` | 21915 | Workshops |
+| `/experiences/walking-tours/` | 13030 | Walking Tours |
+| `/experiences/adventure/` | 22046 | Adventure |
+
+**Files:** `pages/experiences/[slug].astro`, `data/experiences.json` (viatorTagId field), `lib/viator.ts` (INDIA_DESTINATION_ID = 723)
+
+**API:** `POST /products/search` with `filtering: { destination: 723, tags: [tagId] }`
+
+---
+
 ## 6. Page Templates & HTML Structure
 
 ### 6.1 Base HTML Template (every page)
