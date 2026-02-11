@@ -31,5 +31,170 @@
   },
   "versions": [],
   "createdAt": "2026-02-11T11:09:49.006Z",
-  "updatedAt": "2026-02-11T11:09:49.006Z"
+  "updatedAt": "2026-02-11T11:10:37.438Z",
+  "paaResearch": {
+    "questions": [
+      {
+        "id": "paa_1770808215438_q1i9bb0",
+        "question": "How to reach Goa from Mumbai by train?",
+        "category": "Getting there",
+        "searchVolume": "high",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_qhonnvw",
+        "question": "Which airport is closest to Goa beaches?",
+        "category": "Getting there",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_wnhmtyt",
+        "question": "How far is Goa airport from Calangute beach?",
+        "category": "Getting there",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_9og056w",
+        "question": "What is the best time to visit Goa for beaches?",
+        "category": "Best time to visit",
+        "searchVolume": "high",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_es7max7",
+        "question": "Is monsoon a good time to visit Goa?",
+        "category": "Best time to visit",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_7fp3x52",
+        "question": "Which is better North Goa or South Goa for families?",
+        "category": "Where to stay",
+        "searchVolume": "high",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_pa1wu40",
+        "question": "Best area to stay in Goa for nightlife?",
+        "category": "Where to stay",
+        "searchVolume": "high",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_oeb42y3",
+        "question": "Is Anjuna beach good for stay?",
+        "category": "Where to stay",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_5xzxncl",
+        "question": "What are the top 10 things to do in Goa?",
+        "category": "Things to do",
+        "searchVolume": "high",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_c7js2dd",
+        "question": "Is Dudhsagar waterfall worth visiting from Goa?",
+        "category": "Things to do",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_30a2rb4",
+        "question": "Best churches to visit in Old Goa?",
+        "category": "Things to do",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_uc69rzx",
+        "question": "What is famous food to eat in Goa?",
+        "category": "Food and dining",
+        "searchVolume": "high",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_m11wi26",
+        "question": "Where to eat best seafood in Goa?",
+        "category": "Food and dining",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_366iz3t",
+        "question": "Is Goa safe for solo female travelers?",
+        "category": "Safety and tips",
+        "searchVolume": "high",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_4ym0ew7",
+        "question": "What to wear in Goa beaches?",
+        "category": "Safety and tips",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_wuayfkk",
+        "question": "Can you do Hampi from Goa in one day?",
+        "category": "Day trips",
+        "searchVolume": "low",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_kmqvnmv",
+        "question": "How to go to Spice Plantation from Panaji?",
+        "category": "Day trips",
+        "searchVolume": "low",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_fm5yy6n",
+        "question": "How many days are enough for Goa trip?",
+        "category": "How many days needed",
+        "searchVolume": "high",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_fz1cnp1",
+        "question": "What is the cost of 3 days trip to Goa?",
+        "category": "Budget/costs",
+        "searchVolume": "high",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      },
+      {
+        "id": "paa_1770808215439_9xm177z",
+        "question": "How much money needed for Goa trip for couple?",
+        "category": "Budget/costs",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:10:15.438Z"
+      }
+    ],
+    "lastResearchedAt": "2026-02-11T11:10:37.438Z"
+  }
 }
