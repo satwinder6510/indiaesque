@@ -17,16 +17,27 @@ export interface GeneratePromptParams {
   wordCount: number;
   keywords: string[];
   questions: { question: string }[];
+  facts?: string[];  // Current facts to ensure accuracy
 }
 
 export function buildGeneratePrompt(params: GeneratePromptParams): string {
-  const { cityName, tone, wordCount, keywords, questions } = params;
+  const { cityName, tone, wordCount, keywords, questions, facts = [] } = params;
   const toneInstruction = TONE_PROMPTS[tone] || TONE_PROMPTS.conversational;
   const keywordsInstruction = keywords.length > 0
     ? `\n\nIMPORTANT: Naturally incorporate these keywords throughout the content: ${keywords.join(", ")}`
     : "";
 
+  const currentYear = new Date().getFullYear();
+  const currentDate = new Date().toISOString().split('T')[0];
+
+  const factsInstruction = facts.length > 0
+    ? `\n\nCRITICAL FACTS (verified current information - MUST include these):
+${facts.map(f => `- ${f}`).join("\n")}`
+    : "";
+
   return `You are an expert travel writer and SEO specialist. Create a comprehensive, SEO-optimized travel guide for ${cityName}, India.
+
+IMPORTANT: Today's date is ${currentDate}. Use your most current knowledge. The guide should be for ${currentYear}, not any earlier year.${factsInstruction}
 
 TONE INSTRUCTION: ${toneInstruction}
 
@@ -102,6 +113,16 @@ Create a complete hub page with this EXACT structure:
 
 ---
 
+## Facts to Verify Before Publishing
+[List 5-10 specific facts from the article that should be verified, especially:
+- Prices and costs
+- Opening hours and timings
+- Recent infrastructure changes
+- Policy or visa requirements
+- Phone numbers or booking links]
+
+---
+
 REQUIREMENTS:
 - Use proper H1 (only one), H2, H3 hierarchy
 - Include specific prices in ₹ where relevant
@@ -109,7 +130,16 @@ REQUIREMENTS:
 - Write naturally but SEO-optimized
 - Target approximately ${wordCount} words
 - Include local insights that show expertise
-- Each section should flow naturally into the next`;
+- Each section should flow naturally into the next
+
+ACCURACY REQUIREMENTS:
+- ALL prices must include the year: "₹500 (${currentYear} rates)" or "₹800-1200 (${currentYear})"
+- Use ranges for prices rather than exact amounts when uncertain: "₹800-1200" not "₹950"
+- Use hedging language for time-sensitive info: "typically", "usually", "check current rates"
+- If you are uncertain about a specific fact (new infrastructure, policy changes, exact prices), mark it with [VERIFY: brief reason] inline
+- The "Facts to Verify" section at the end MUST list specific claims that need human verification
+- Do NOT invent specific restaurant names, hotel names, or business names unless you are confident they exist
+- For opening hours, use "generally" or "typically" unless provided in the facts above`;
 }
 
 export interface ExpandPromptParams {
@@ -128,7 +158,12 @@ export function buildExpandPrompt(params: ExpandPromptParams): string {
     ? `\nNaturally incorporate these keywords in the new content: ${keywords.join(", ")}`
     : "";
 
+  const currentYear = new Date().getFullYear();
+  const currentDate = new Date().toISOString().split('T')[0];
+
   return `You are an expert travel writer. You need to EXPAND an existing travel guide for ${cityName}, India.
+
+IMPORTANT: Today's date is ${currentDate}. Use your most current knowledge for ${currentYear}.
 
 TONE: ${toneInstruction}
 
@@ -151,6 +186,13 @@ INSTRUCTIONS:
 7. If the expansion direction asks for a new topic, add a new H2 or H3 section in the appropriate location
 8. Maintain consistent formatting (markdown headings, paragraph style) with the existing content
 9. Return the COMPLETE document (existing + new content merged together)
+
+ACCURACY REQUIREMENTS:
+- ALL prices must include the year: "₹500 (${currentYear} rates)" or "₹800-1200 (${currentYear})"
+- Use ranges for prices rather than exact amounts: "₹800-1200" not "₹950"
+- Use hedging language for time-sensitive info: "typically", "usually", "check current rates"
+- If uncertain about a fact, mark it with [VERIFY: brief reason] inline
+- Do NOT invent specific business names unless confident they exist
 
 Return the full expanded document now:`;
 }

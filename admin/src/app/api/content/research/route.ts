@@ -217,9 +217,10 @@ Make questions specific to ${name} and realistic - the kind that appear in Googl
 
       const {
         questions,
-        tone = "conversational",
+        tone = "professional",
         wordCount: targetWordCount = 3500,
-        keywords = []
+        keywords = [],
+        facts = []
       } = body;
 
       if (!questions || questions.length === 0) {
@@ -232,6 +233,7 @@ Make questions specific to ${name} and realistic - the kind that appear in Googl
         wordCount: targetWordCount,
         keywords,
         questions,
+        facts,
       });
 
       const message = await anthropic.messages.create({
@@ -267,7 +269,7 @@ Make questions specific to ${name} and realistic - the kind that appear in Googl
       const {
         existingContent,
         expandDirection,
-        tone = "conversational",
+        tone = "professional",
         wordCount: targetAdditionalWords = 500,
         keywords = [],
       } = body;

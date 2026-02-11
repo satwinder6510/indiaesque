@@ -50,6 +50,9 @@ export interface CityHub {
   createdAt: string;
   updatedAt: string;
 
+  // Current facts to inject into AI prompts (editorial control over accuracy)
+  facts?: string[];
+
   // Generated content (legacy field - kept for migration)
   generatedContent?: string;
 

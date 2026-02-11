@@ -15,6 +15,7 @@ Last updated: 2026-02-11
 5. Viator Tours Integration
 5b. GetYourGuide (GYG) Integration
 6. Page Templates & HTML Structure
+6b. Homepage Architecture
 7. CSS & Typography Architecture
 8. Schema Markup (JSON-LD)
 9. Internal Linking Architecture
@@ -769,6 +770,108 @@ Always in HTML, always visible, always with schema markup.
 
 ---
 
+## 6b. Homepage Architecture
+
+The homepage (`pages/index.astro`) displays curated content sections with horizontal scroll carousels.
+
+### Data Sources
+
+| Section | Data File | Selection Logic |
+|---------|-----------|-----------------|
+| Top Cities | `data/cities.json` | First 8 cities (`slice(0, 8)`) |
+| Staycations | `data/staycations.json` | All staycations |
+| Experience Types | `data/experiences.json` | All experiences |
+
+### Cities Display Logic
+
+```javascript
+const popularLocations = citiesData.slice(0, 8).map(city => ({
+  name: city.name.toUpperCase(),
+  image: city.cardImage,
+  href: `/${city.slug}/`
+}));
+```
+
+**To change which cities appear:** Reorder entries in `cities.json` — the first 8 are displayed. The `tier` field is metadata only; display order is determined by array position.
+
+### Horizontal Scroll Pattern
+
+Both "Top Cities" and "Staycations" sections use a horizontal scroll carousel with arrow navigation.
+
+**Required CSS structure:**
+
+```css
+/* Wrapper — DO NOT add overflow:hidden, it breaks scroll calculation */
+.locations-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Scroll container — flex:1 and min-width:0 are critical */
+.locations-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  flex: 1;
+  min-width: 0;  /* Allows flex item to shrink below content size */
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+/* Cards must not shrink */
+.location-card {
+  flex: 0 0 auto;
+  width: 500px;  /* Fixed width */
+}
+```
+
+**Critical rules:**
+- **Never add `overflow: hidden` to the wrapper** — it clips the scroll container and breaks `scrollWidth` calculation
+- **Scroll container needs `flex: 1; min-width: 0;`** — ensures proper width calculation within flex parent
+- **Cards need `flex: 0 0 auto`** — prevents cards from shrinking
+
+### Arrow Visibility Logic
+
+```javascript
+function updateArrows() {
+  const scrollLeft = scrollContainer.scrollLeft;
+  const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+  // Hide left arrow at start
+  leftArrow.style.display = scrollLeft <= 0 ? 'none' : 'flex';
+
+  // Hide right arrow at end (with 10px threshold)
+  rightArrow.style.display = maxScroll > 10 && scrollLeft < maxScroll - 1 ? 'flex' : 'none';
+}
+```
+
+### City Data Structure
+
+```json
+{
+  "name": "Delhi",
+  "slug": "delhi",
+  "tier": 1,
+  "lat": "28.6139",
+  "lng": "77.2090",
+  "description": "India's capital city...",
+  "heroImage": "/images/cities/delhi-hero.jpg",
+  "cardImage": "/images/cities/delhi-card.jpg",
+  "bestMonths": [10, 11, 12, 1, 2, 3],
+  "goodMonths": [4, 9]
+}
+```
+
+| Field | Usage |
+|-------|-------|
+| `cardImage` | Homepage "Top Cities" carousel (aspect ratio 16:10) |
+| `heroImage` | City hub page banner |
+| `bestMonths` | Displayed on city pages as optimal travel months |
+| `tier` | Metadata for prioritization (1=major, 2=secondary) — does not affect homepage display |
+
+---
+
 ## 7. CSS & Typography Architecture
 
 ### 7.1 Fonts
@@ -1420,6 +1523,45 @@ The admin tool (`admin.indiaesque.com`) also commits to this repo via GitHub API
 
 The admin panel (`admin/`) manages city hub content through a multi-tab interface at `/content/[city]`. Content is stored as JSON in `india-experiences/src/data/content/{city}/hub.json` and committed to GitHub via the API.
 
+### 16.0 Content Flow: Admin → City Page
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                      CONTENT FLOW                                │
+│                                                                  │
+│   Admin Panel                     City Page ([city].astro)       │
+│   ───────────                     ────────────────────────       │
+│   1. Generate/edit content        1. import.meta.glob() loads    │
+│   2. Publish version                 data/content/*/hub.json     │
+│   3. Save to hub.json             2. Read generatedContent field │
+│      via GitHub API               3. Parse markdown with marked  │
+│                                   4. Render HTML via set:html    │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Key files:**
+
+| Location | Purpose |
+|----------|---------|
+| `admin/src/app/api/content/route.ts` | Saves hub.json via GitHub API |
+| `india-experiences/src/data/content/{city}/hub.json` | Stores content + versions |
+| `india-experiences/src/pages/[city].astro` | Reads hub.json, renders markdown |
+
+**City page content loading:**
+
+```javascript
+// [city].astro loads hub content at build time
+const hubModules = import.meta.glob('../data/content/*/hub.json', { eager: true });
+const hubPath = `../data/content/${city}/hub.json`;
+const hubData = hubModules[hubPath];
+
+if (hubData?.default?.generatedContent) {
+  hubContent = await marked(hubData.default.generatedContent);
+}
+```
+
+**Fallback behavior:** If no hub.json exists for a city, the page displays a simple intro paragraph from `cities.json` description.
+
 ### 16.1 Content Versioning
 
 Every content change creates a `ContentVersion` stored in the hub's `versions` array (max 20 retained):
@@ -1444,6 +1586,111 @@ interface ContentVersion {
 
 The `currentVersionId` field on the hub tracks which version is active. Users can preview any version and revert (which creates a new version from the old content).
 
+### 16.1b City Facts (Current Information)
+
+AI models have knowledge cutoffs and may generate outdated information. The `facts` field in hub.json provides editorial control over current information that gets injected into every generation prompt.
+
+**Admin UI:** Content → [City] → **Facts** tab
+
+The Facts tab allows adding, editing, and deleting facts without editing JSON directly. Each fact is a text field that can be modified inline.
+
+**Example hub.json facts:**
+```json
+{
+  "slug": "goa",
+  "facts": [
+    "Goa has TWO airports: Dabolim (GOI) in south Goa and Manohar International (GOX) at Mopa in north Goa",
+    "Mopa airport opened January 2023, is closer to North Goa beaches",
+    "Current taxi rates 2026: Dabolim→Calangute ₹1500, Mopa→Calangute ₹900"
+  ]
+}
+```
+
+**How it works:**
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     FACTS INJECTION FLOW                        │
+│                                                                 │
+│  Facts Tab          hub.json           Generation Prompt        │
+│  ─────────          ────────           ─────────────────        │
+│  Add/edit facts  →  facts: [...]   →   CRITICAL FACTS:          │
+│  Save Changes                          - fact 1                 │
+│                                        - fact 2                 │
+│                                        (MUST include these)     │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+1. Admin adds facts via the **Facts** tab
+2. Facts saved to `hub.json` via Save Changes button
+3. When generating content, facts passed to `buildGeneratePrompt()`
+4. Prompt includes facts as "CRITICAL FACTS (verified current information - MUST include these)"
+5. Claude incorporates these facts into generated content
+6. Facts persist across regenerations, ensuring consistency
+
+**Prompt injection example:**
+```
+Today's date is 2026-02-11. Use your most current knowledge.
+The guide should be for 2026, not any earlier year.
+
+CRITICAL FACTS (verified current information - MUST include these):
+- Goa has TWO airports: Dabolim (GOI) and Manohar International (GOX) at Mopa
+- Mopa airport opened January 2023, closer to North Goa beaches
+```
+
+**Best practices for facts:**
+- Include information that changes (prices, new infrastructure, policy changes)
+- Be specific with dates, prices, names
+- Update facts when information changes
+- Keep each fact concise (one fact = one piece of information)
+- Add year to time-sensitive info (e.g., "taxi rates 2026: ₹X")
+
+### 16.1c Accuracy Safeguards
+
+The generation prompt includes multiple safeguards to reduce outdated or inaccurate content:
+
+**1. Uncertainty Flagging**
+Claude marks uncertain information inline:
+```
+The metro runs from 5 AM to midnight [VERIFY: check current timings].
+```
+
+**2. Date-Stamped Prices**
+All prices include the year automatically:
+```
+Taxi from airport: ₹800-1200 (2026 rates)
+```
+
+**3. Range-Based Pricing**
+Uses ranges instead of specific amounts to account for variation:
+```
+₹800-1200 (not ₹950)
+```
+
+**4. Hedging Language**
+Time-sensitive info uses cautious language:
+```
+"typically open 9 AM - 5 PM"
+"usually costs around ₹500"
+"check current rates before visiting"
+```
+
+**5. Facts to Verify Section**
+Every generated article ends with a verification checklist:
+```markdown
+## Facts to Verify Before Publishing
+- Airport taxi rates (₹800-1200 mentioned)
+- Metro timings (5 AM - midnight mentioned)
+- Mopa airport terminal facilities
+- Current visa-on-arrival policy
+- Restaurant X still operating
+```
+
+**6. No Invented Names**
+Prompt instructs Claude not to invent specific business names (restaurants, hotels) unless confident they exist.
+
+**Editorial workflow:** After generation, review the `[VERIFY: ...]` tags and "Facts to Verify" section. Update or remove uncertain claims before publishing.
+
 ### 16.2 PAA Research
 
 The **PAA Research** tab sends city names to Claude to generate 15–20 "People Also Ask" questions across categories (transport, best time, food, safety, etc.). Questions are persisted to the hub's `paaResearch` field and can be individually selected/deselected for generation.
@@ -1465,6 +1712,8 @@ Shared utility at `admin/src/lib/promptBuilder.ts` — single source of truth fo
 | `TONE_PROMPTS` | Map of tone values to natural-language style instructions |
 
 **Available tones:** conversational, professional, enthusiastic, practical, storytelling
+
+**Default tone:** `professional` — authoritative and well-researched style suitable for a travel publication
 
 ### 16.4 Content Generation
 

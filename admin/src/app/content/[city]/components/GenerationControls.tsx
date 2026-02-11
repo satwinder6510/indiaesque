@@ -51,7 +51,7 @@ export default function GenerationControls({
   onExpand,
   isExpanding,
 }: GenerationControlsProps) {
-  const [tone, setTone] = useState(defaults?.tone || "conversational");
+  const [tone, setTone] = useState(defaults?.tone || "professional");
   const [wordCount, setWordCount] = useState(defaults?.wordCount || 3500);
   const [keywordsInput, setKeywordsInput] = useState(defaults?.keywords?.join(", ") || "");
   const [saveAsDefaults, setSaveAsDefaults] = useState(false);

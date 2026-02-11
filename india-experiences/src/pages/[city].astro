@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCollection, getEntry, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 import { DESTINATIONS, searchProducts, getDestinationId } from '../lib/viator';
 import citiesData from '../data/cities.json';
+import { marked } from 'marked';
 
 export const prerender = true;
 
@@ -19,13 +20,23 @@ const { cityData } = Astro.props;
 // Get city data from cities.json
 const cityFromData = citiesData.find(c => c.slug === city);
 
-// Load hub content from _index.md in the city's content folder
-// All content is in the 'pages' collection, with IDs like 'delhi/_index'
-const hubEntry = await getEntry('pages', `${city}/_index`);
-const { Content: HubContent } = hubEntry ? await render(hubEntry) : { Content: null };
+// Load hub content from data/content/{city}/hub.json (where admin saves it)
+let hubContent: string | null = null;
+let hubDescription: string | null = null;
+try {
+  const hubModules = import.meta.glob('../data/content/*/hub.json', { eager: true });
+  const hubPath = `../data/content/${city}/hub.json`;
+  const hubData = hubModules[hubPath] as { default: { generatedContent?: string; description?: string } } | undefined;
+  if (hubData?.default?.generatedContent) {
+    hubContent = await marked(hubData.default.generatedContent);
+    hubDescription = hubData.default.description;
+  }
+} catch (e) {
+  // Hub doesn't exist yet, that's fine
+}
 
-// Use description from the markdown frontmatter or cities.json
-const description = hubEntry?.data?.description || cityFromData?.description || `Discover ${cityData.name}, India.`;
+// Use description from hub.json or cities.json
+const description = hubDescription || cityFromData?.description || `Discover ${cityData.name}, India.`;
 // Use heroImage from data file, fallback to Unsplash
 const heroImage = cityFromData?.heroImage || 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600&q=80';
 
@@ -83,12 +94,10 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     <span>{cityData.name}</span>
   </nav>
 
-  <!-- Hub Content from CMS (_index.md) -->
-  {HubContent ? (
+  <!-- Hub Content from Admin (hub.json) -->
+  {hubContent ? (
     <section class="hub-content">
-      <div class="hub-content-inner">
-        <HubContent />
-      </div>
+      <div class="hub-content-inner" set:html={hubContent} />
     </section>
   ) : (
     <section class="intro">

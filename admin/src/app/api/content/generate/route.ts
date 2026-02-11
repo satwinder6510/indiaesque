@@ -19,20 +19,30 @@ const buildPrompt = (
   contentDirection: string,
   tone: string,
   wordCount: number,
-  keywords: string[]
+  keywords: string[],
+  facts: string[] = []
 ) => {
   const toneInstruction = TONE_STYLES[tone] || TONE_STYLES.conversational;
   const keywordInstruction = keywords.length > 0
     ? `\n\nNaturally incorporate these keywords/phrases: ${keywords.join(", ")}`
     : "";
 
+  const currentYear = new Date().getFullYear();
+  const currentDate = new Date().toISOString().split('T')[0];
+
+  const factsInstruction = facts.length > 0
+    ? `\n\nCRITICAL FACTS TO INCLUDE (verified current information):\n${facts.map(f => `- ${f}`).join('\n')}`
+    : "";
+
   const sectionCount = Math.max(3, Math.ceil(wordCount / 400));
 
   return `You're a travel writer who has spent years exploring India. Create a comprehensive, well-structured article about ${cityName}.
 
+IMPORTANT: Today's date is ${currentDate}. Use your most current knowledge (up to your training cutoff). Do NOT write outdated information. The guide should be titled "${currentYear} Guide" not any earlier year.
+
 TOPIC: ${question}
 
-CONTEXT: ${contentDirection || "Use your knowledge of Indian travel."}
+CONTEXT: ${contentDirection || "Use your most recent knowledge of Indian travel."}${factsInstruction}
 
 TONE: ${toneInstruction}
 
@@ -72,7 +82,7 @@ Write the complete article now:`;
 
 /**
  * POST /api/content/generate
- * Generate content with configurable tone, word count, and keywords
+ * Generate content with configurable tone, word count, keywords, and facts
  */
 export async function POST(request: NextRequest) {
   try {
@@ -81,9 +91,10 @@ export async function POST(request: NextRequest) {
       cityName,
       question,
       contentDirection,
-      tone = "conversational",
+      tone = "professional",
       wordCount = 500,
-      keywords = []
+      keywords = [],
+      facts = []  // Array of current facts to include
     } = body;
 
     if (!question || !cityName) {
@@ -100,7 +111,8 @@ export async function POST(request: NextRequest) {
       contentDirection,
       tone,
       wordCount,
-      keywords
+      keywords,
+      facts
     );
 
     const message = await anthropic.messages.create({

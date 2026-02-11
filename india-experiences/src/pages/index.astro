@@ -583,6 +583,8 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     scroll-behavior: smooth;
+    flex: 1;
+    min-width: 0;
   }
 
   .locations-scroll::-webkit-scrollbar {
@@ -1164,8 +1166,8 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     // Show/hide left arrow
     leftArrow.style.display = scrollLeft <= 0 ? 'none' : 'flex';
 
-    // Show/hide right arrow
-    rightArrow.style.display = scrollLeft >= maxScroll - 1 ? 'none' : 'flex';
+    // Show/hide right arrow - need at least 10px of scroll room
+    rightArrow.style.display = maxScroll > 10 && scrollLeft < maxScroll - 1 ? 'flex' : 'none';
   }
 
   function updateCenterCard() {

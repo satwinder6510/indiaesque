@@ -56,6 +56,7 @@ interface CityHub {
   createdAt: string;
   updatedAt: string;
   generatedContent?: string;
+  facts?: string[];  // Current facts to inject into AI prompts
   paaResearch?: {
     questions: PAAQuestion[];
     lastResearchedAt: string;
@@ -87,7 +88,7 @@ const PAGE_TYPES = [
   { value: "attraction", label: "Attraction" },
 ];
 
-type TabId = "editor" | "paa" | "generation" | "pages" | "viator";
+type TabId = "editor" | "paa" | "generation" | "facts" | "pages" | "viator";
 
 export default function CityHubPage() {
   const params = useParams();
@@ -363,6 +364,7 @@ export default function CityHubPage() {
           tone: config.tone,
           wordCount: config.wordCount,
           keywords: config.keywords,
+          facts: hub.facts || [],  // Pass current facts to prompt
         }),
       });
 
@@ -531,6 +533,7 @@ export default function CityHubPage() {
     { id: "editor", label: "Content Editor" },
     { id: "paa", label: "PAA Research" },
     { id: "generation", label: "Generation" },
+    { id: "facts", label: "Facts" },
     { id: "pages", label: "Sub-Pages" },
     { id: "viator", label: "Viator" },
   ];
@@ -748,6 +751,86 @@ export default function CityHubPage() {
                 </button>
               </div>
             )}
+          </div>
+        )}
+
+        {/* Facts Tab */}
+        {activeTab === "facts" && (
+          <div className="max-w-2xl">
+            <div className="bg-[var(--background-card)] rounded-2xl border border-[var(--border)] p-6">
+              <div className="flex items-start justify-between mb-4">
+                <div>
+                  <h3 className="font-semibold text-[var(--foreground)]">Current Facts</h3>
+                  <p className="text-sm text-[var(--foreground-muted)] mt-1">
+                    These facts are injected into AI prompts to ensure accurate, up-to-date content generation.
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-3 mb-6">
+                {(hub.facts || []).map((fact, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 p-3 bg-[var(--background)] rounded-xl border border-[var(--border)]"
+                  >
+                    <div className="flex-1">
+                      <textarea
+                        value={fact}
+                        onChange={(e) => {
+                          const newFacts = [...(hub.facts || [])];
+                          newFacts[index] = e.target.value;
+                          setHub({ ...hub, facts: newFacts });
+                        }}
+                        rows={2}
+                        className="w-full px-3 py-2 bg-transparent border-0 text-[var(--foreground)] text-sm resize-none focus:outline-none focus:ring-0"
+                        placeholder="Enter a fact..."
+                      />
+                    </div>
+                    <button
+                      onClick={() => {
+                        const newFacts = (hub.facts || []).filter((_, i) => i !== index);
+                        setHub({ ...hub, facts: newFacts });
+                      }}
+                      className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                ))}
+
+                {(!hub.facts || hub.facts.length === 0) && (
+                  <div className="text-center py-8 text-[var(--foreground-muted)]">
+                    No facts added yet. Add facts to ensure AI generates accurate content.
+                  </div>
+                )}
+              </div>
+
+              <button
+                onClick={() => {
+                  const newFacts = [...(hub.facts || []), ""];
+                  setHub({ ...hub, facts: newFacts });
+                }}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--primary)] hover:bg-[var(--primary-light)] text-white font-medium rounded-lg transition-colors"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                </svg>
+                Add Fact
+              </button>
+
+              <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl">
+                <h4 className="font-medium text-blue-700 dark:text-blue-400 mb-2">Tips for good facts:</h4>
+                <ul className="text-sm text-blue-600 dark:text-blue-300 space-y-1">
+                  <li>• Include new infrastructure (airports, metro lines, roads)</li>
+                  <li>• Add current prices with year (taxi rates 2026: ₹X)</li>
+                  <li>• Note policy changes (visa rules, entry requirements)</li>
+                  <li>• Mention seasonal events with dates</li>
+                  <li>• Keep each fact specific and concise</li>
+                </ul>
+              </div>
+            </div>
           </div>
         )}
 
