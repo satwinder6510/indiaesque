@@ -31,5 +31,170 @@
   },
   "versions": [],
   "createdAt": "2026-02-11T11:13:20.498Z",
-  "updatedAt": "2026-02-11T11:13:20.498Z"
+  "updatedAt": "2026-02-11T11:13:45.111Z",
+  "paaResearch": {
+    "questions": [
+      {
+        "id": "paa_1770808418132_mbszx7x",
+        "question": "How to reach Kochi from Mumbai by flight?",
+        "category": "Getting there",
+        "searchVolume": "high",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_alcqqqv",
+        "question": "What is the distance from Kochi airport to Fort Kochi?",
+        "category": "Getting there",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_6hnbiy0",
+        "question": "Is there a direct train from Delhi to Kochi?",
+        "category": "Getting there",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_0ga3oec",
+        "question": "How much does a taxi cost from Kochi airport to city center?",
+        "category": "Getting there",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_a4q2t1u",
+        "question": "When is the best time to visit Kochi Kerala?",
+        "category": "Best time to visit",
+        "searchVolume": "high",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_nkbq08h",
+        "question": "Is monsoon a good time to visit Kochi?",
+        "category": "Best time to visit",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_hzsb780",
+        "question": "Which is better to stay Fort Kochi or Ernakulam?",
+        "category": "Where to stay",
+        "searchVolume": "high",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_yxrlql2",
+        "question": "What are the best hotels in Fort Kochi?",
+        "category": "Where to stay",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_sr7t9k2",
+        "question": "Is it safe to stay in Fort Kochi at night?",
+        "category": "Where to stay",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_hkpv4aw",
+        "question": "What are the top 10 things to do in Kochi?",
+        "category": "Things to do",
+        "searchVolume": "high",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_372gj0x",
+        "question": "Are Chinese fishing nets worth visiting in Kochi?",
+        "category": "Things to do",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_jojkh32",
+        "question": "How much time needed to explore Mattancherry Palace?",
+        "category": "Things to do",
+        "searchVolume": "low",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_8vdgrjd",
+        "question": "What is the famous food of Kochi Kerala?",
+        "category": "Food and dining",
+        "searchVolume": "high",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_z2oq5yv",
+        "question": "Where to eat authentic Kerala fish curry in Kochi?",
+        "category": "Food and dining",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_3gho596",
+        "question": "Is Kochi safe for solo female travelers?",
+        "category": "Safety and tips",
+        "searchVolume": "high",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_jm2vkw2",
+        "question": "What should I avoid in Kochi Kerala?",
+        "category": "Safety and tips",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_x8pbcrp",
+        "question": "Can you do Munnar as a day trip from Kochi?",
+        "category": "Day trips",
+        "searchVolume": "high",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_rjenwai",
+        "question": "How far is Alleppey from Kochi by road?",
+        "category": "Day trips",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_sm4zd08",
+        "question": "Is 2 days enough for Kochi sightseeing?",
+        "category": "How many days needed",
+        "searchVolume": "high",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      },
+      {
+        "id": "paa_1770808418132_l1w9ymc",
+        "question": "How much does a 3 day trip to Kochi cost?",
+        "category": "Budget/costs",
+        "searchVolume": "medium",
+        "selected": true,
+        "researchedAt": "2026-02-11T11:13:38.132Z"
+      }
+    ],
+    "lastResearchedAt": "2026-02-11T11:13:45.111Z"
+  }
 }
