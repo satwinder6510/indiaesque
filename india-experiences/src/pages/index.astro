@@ -20,11 +20,13 @@ const popularLocations = citiesData.slice(0, 8).map(city => ({
   href: `/${city.slug}/`
 }));
 
-const categories = experiencesData.map(exp => ({
-  name: exp.name.toUpperCase(),
-  image: exp.cardImage,
-  href: exp.href
-}));
+const categories = experiencesData
+  .filter(exp => exp.showOnHomepage)
+  .map(exp => ({
+    name: exp.name.toUpperCase(),
+    image: exp.cardImage,
+    href: exp.href
+  }));
 
 const staycations = staycationsData.map(stay => ({
   name: stay.name.toUpperCase(),

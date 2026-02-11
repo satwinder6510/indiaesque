@@ -8,10 +8,11 @@
     "listImage": "https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?w=800&q=80",
     "heroImage": "https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?w=1200&q=80",
     "href": "/experiences/food-tours/",
-    "viatorTagId": 21911
+    "viatorTagId": 21911,
+    "showOnHomepage": true
   },
   {
-    "name": "Nature",
+    "name": "Nature & Wildlife",
     "slug": "nature",
     "category": "Adventure",
     "description": "Encounter India's incredible biodiversity. Safari through national parks, trek in the Himalayas, and witness wildlife in their natural habitats.",
@@ -19,21 +20,23 @@
     "listImage": "https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?w=800&q=80",
     "heroImage": "https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?w=1200&q=80",
     "href": "/experiences/nature/",
-    "viatorTagId": 11903
+    "viatorTagId": 11903,
+    "showOnHomepage": true
   },
   {
-    "name": "Cultural",
+    "name": "Cultural Tours",
     "slug": "cultural",
     "category": "Heritage",
-    "description": "Walk through centuries of history with expert guides. Explore ancient monuments, hidden alleyways, and architectural wonders on foot.",
+    "description": "Immerse yourself in India's rich traditions. Experience local customs, religious ceremonies, and cultural practices with knowledgeable guides.",
     "cardImage": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=400&q=80",
     "listImage": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80",
     "heroImage": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1200&q=80",
     "href": "/experiences/cultural/",
-    "viatorTagId": 12028
+    "viatorTagId": 12028,
+    "showOnHomepage": true
   },
   {
-    "name": "Arts and Crafts",
+    "name": "Arts & Crafts",
     "slug": "arts-crafts",
     "category": "Creative",
     "description": "Create with your hands in traditional craft workshops. Learn block printing, pottery, weaving, and other artisan skills passed down through generations.",
@@ -41,7 +44,8 @@
     "listImage": "https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=800&q=80",
     "heroImage": "https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=1200&q=80",
     "href": "/experiences/arts-crafts/",
-    "viatorTagId": 21915
+    "viatorTagId": 21915,
+    "showOnHomepage": true
   },
   {
     "name": "Walking Tours",
@@ -52,7 +56,8 @@
     "listImage": "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80",
     "heroImage": "https://images.unsplash.com/photo-1548013146-72479768bada?w=1200&q=80",
     "href": "/experiences/walking-tours/",
-    "viatorTagId": 13030
+    "viatorTagId": 13030,
+    "showOnHomepage": true
   },
   {
     "name": "Adventure",
@@ -63,6 +68,271 @@
     "listImage": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80",
     "heroImage": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1200&q=80",
     "href": "/experiences/adventure/",
-    "viatorTagId": 22046
+    "viatorTagId": 22046,
+    "showOnHomepage": true
+  },
+  {
+    "name": "Day Trips",
+    "slug": "day-trips",
+    "category": "Tours",
+    "description": "Escape the city for a day. Visit nearby attractions, historical sites, and scenic destinations with convenient round-trip transportation.",
+    "cardImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
+    "href": "/experiences/day-trips/",
+    "viatorTagId": 11889
+  },
+  {
+    "name": "Private Tours",
+    "slug": "private-tours",
+    "category": "Luxury",
+    "description": "Enjoy personalized attention with private guides and vehicles. Customize your itinerary and explore at your own pace.",
+    "cardImage": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=80",
+    "href": "/experiences/private-tours/",
+    "viatorTagId": 12050
+  },
+  {
+    "name": "Sightseeing",
+    "slug": "sightseeing",
+    "category": "Tours",
+    "description": "See the highlights with expert commentary. Comprehensive tours covering major landmarks, monuments, and must-see attractions.",
+    "cardImage": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1200&q=80",
+    "href": "/experiences/sightseeing/",
+    "viatorTagId": 21725
+  },
+  {
+    "name": "Sunset & Sunrise",
+    "slug": "sunset-sunrise",
+    "category": "Scenic",
+    "description": "Witness magical golden hours at iconic locations. Capture stunning photographs as the sun paints the sky over temples, rivers, and mountains.",
+    "cardImage": "https://images.unsplash.com/photo-1506461883276-594a12b11cf3?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1506461883276-594a12b11cf3?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1506461883276-594a12b11cf3?w=1200&q=80",
+    "href": "/experiences/sunset-sunrise/",
+    "viatorTagId": 11963
+  },
+  {
+    "name": "Photography Tours",
+    "slug": "photography",
+    "category": "Creative",
+    "description": "Capture India's beauty with expert photographers. Learn techniques while visiting the most photogenic locations and hidden spots.",
+    "cardImage": "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1200&q=80",
+    "href": "/experiences/photography/",
+    "viatorTagId": 11969
+  },
+  {
+    "name": "Yoga & Meditation",
+    "slug": "yoga-meditation",
+    "category": "Wellness",
+    "description": "Find inner peace in the birthplace of yoga. Join classes, retreats, and spiritual experiences guided by experienced practitioners.",
+    "cardImage": "https://images.unsplash.com/photo-1545389336-cf090694435e?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1545389336-cf090694435e?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1545389336-cf090694435e?w=1200&q=80",
+    "href": "/experiences/yoga-meditation/",
+    "viatorTagId": 21522
+  },
+  {
+    "name": "Wellness & Spa",
+    "slug": "wellness-spa",
+    "category": "Wellness",
+    "description": "Rejuvenate with traditional Ayurvedic treatments. Experience healing therapies, massages, and wellness rituals passed down for centuries.",
+    "cardImage": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1200&q=80",
+    "href": "/experiences/wellness-spa/",
+    "viatorTagId": 12078
+  },
+  {
+    "name": "Boat Tours",
+    "slug": "boat-tours",
+    "category": "Water",
+    "description": "Glide along sacred rivers, backwaters, and lakes. Experience India from the water on traditional boats, houseboats, and cruises.",
+    "cardImage": "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?w=1200&q=80",
+    "href": "/experiences/boat-tours/",
+    "viatorTagId": 22189
+  },
+  {
+    "name": "Safaris",
+    "slug": "safaris",
+    "category": "Adventure",
+    "description": "Track tigers, elephants, and exotic wildlife. Join expert naturalists on jeep and elephant safaris through India's famous national parks.",
+    "cardImage": "https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=1200&q=80",
+    "href": "/experiences/safaris/",
+    "viatorTagId": 12038
+  },
+  {
+    "name": "Historical Tours",
+    "slug": "historical",
+    "category": "Heritage",
+    "description": "Journey through millennia of history. Explore ancient ruins, medieval forts, and colonial architecture with expert historians.",
+    "cardImage": "https://images.unsplash.com/photo-1587135941948-670b381f08ce?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1587135941948-670b381f08ce?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1587135941948-670b381f08ce?w=1200&q=80",
+    "href": "/experiences/historical/",
+    "viatorTagId": 12029
+  },
+  {
+    "name": "Shopping Tours",
+    "slug": "shopping",
+    "category": "Cultural",
+    "description": "Navigate bustling bazaars with local experts. Find authentic textiles, jewellery, spices, and handicrafts while learning to bargain.",
+    "cardImage": "https://images.unsplash.com/photo-1596097635121-14b63a7a4c52?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1596097635121-14b63a7a4c52?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1596097635121-14b63a7a4c52?w=1200&q=80",
+    "href": "/experiences/shopping/",
+    "viatorTagId": 12039
+  },
+  {
+    "name": "Night Tours",
+    "slug": "night-tours",
+    "category": "Cultural",
+    "description": "Experience India after dark. Witness evening aarti ceremonies, explore illuminated monuments, and discover vibrant nightlife.",
+    "cardImage": "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=1200&q=80",
+    "href": "/experiences/night-tours/",
+    "viatorTagId": 12057
+  },
+  {
+    "name": "Bike Tours",
+    "slug": "bike-tours",
+    "category": "Active",
+    "description": "Pedal through cities and countryside. Explore hidden lanes, rural villages, and scenic routes on guided cycling adventures.",
+    "cardImage": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+    "href": "/experiences/bike-tours/",
+    "viatorTagId": 13018
+  },
+  {
+    "name": "Motorcycle Tours",
+    "slug": "motorcycle-tours",
+    "category": "Adventure",
+    "description": "Ride through epic landscapes on Royal Enfields. Cruise mountain passes, desert roads, and coastal highways on thrilling motorcycle journeys.",
+    "cardImage": "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=1200&q=80",
+    "href": "/experiences/motorcycle-tours/",
+    "viatorTagId": 13021
+  },
+  {
+    "name": "Tuk Tuk Tours",
+    "slug": "tuk-tuk-tours",
+    "category": "Cultural",
+    "description": "Zip through narrow lanes in iconic auto-rickshaws. Experience the energy of Indian cities from these colourful three-wheelers.",
+    "cardImage": "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=1200&q=80",
+    "href": "/experiences/tuk-tuk-tours/",
+    "viatorTagId": 13029
+  },
+  {
+    "name": "Bird Watching",
+    "slug": "bird-watching",
+    "category": "Nature",
+    "description": "Spot exotic species in diverse habitats. India hosts over 1,300 bird species across wetlands, forests, and mountain regions.",
+    "cardImage": "https://images.unsplash.com/photo-1480044965905-02098d419e96?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1480044965905-02098d419e96?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1480044965905-02098d419e96?w=1200&q=80",
+    "href": "/experiences/bird-watching/",
+    "viatorTagId": 21423
+  },
+  {
+    "name": "Hiking & Trekking",
+    "slug": "hiking-trekking",
+    "category": "Adventure",
+    "description": "Trek through Himalayan trails and Western Ghats. From easy nature walks to challenging high-altitude expeditions.",
+    "cardImage": "https://images.unsplash.com/photo-1551632811-561732d1e306?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&q=80",
+    "href": "/experiences/hiking-trekking/",
+    "viatorTagId": 11902
+  },
+  {
+    "name": "Romantic Tours",
+    "slug": "romantic",
+    "category": "Special",
+    "description": "Create unforgettable moments together. Sunset cruises, candlelit dinners, palace visits, and experiences designed for couples.",
+    "cardImage": "https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=1200&q=80",
+    "href": "/experiences/romantic/",
+    "viatorTagId": 11939
+  },
+  {
+    "name": "Family & Kids",
+    "slug": "family-kids",
+    "category": "Special",
+    "description": "Adventures the whole family will love. Kid-friendly tours, interactive experiences, and activities designed for all ages.",
+    "cardImage": "https://images.unsplash.com/photo-1559734840-f9509ee5677f?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1559734840-f9509ee5677f?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1559734840-f9509ee5677f?w=1200&q=80",
+    "href": "/experiences/family-kids/",
+    "viatorTagId": 11919
+  },
+  {
+    "name": "Luxury Experiences",
+    "slug": "luxury",
+    "category": "Luxury",
+    "description": "Indulge in India's finest offerings. Palace hotels, private jets, exclusive access, and five-star service throughout.",
+    "cardImage": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80",
+    "href": "/experiences/luxury/",
+    "viatorTagId": 21736
+  },
+  {
+    "name": "Multi-Day Tours",
+    "slug": "multi-day",
+    "category": "Tours",
+    "description": "Comprehensive itineraries covering multiple destinations. Overnight trips with accommodation, meals, and seamless logistics.",
+    "cardImage": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1200&q=80",
+    "href": "/experiences/multi-day/",
+    "viatorTagId": 11922
+  },
+  {
+    "name": "Airport Transfers",
+    "slug": "transfers",
+    "category": "Transport",
+    "description": "Hassle-free airport pickups and drop-offs. Private vehicles, professional drivers, and reliable service for stress-free arrivals.",
+    "cardImage": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=80",
+    "href": "/experiences/transfers/",
+    "viatorTagId": 12044
+  },
+  {
+    "name": "Market Tours",
+    "slug": "markets",
+    "category": "Cultural",
+    "description": "Explore vibrant local markets with guides. Spice bazaars, flower markets, antique shops, and street vendor discoveries.",
+    "cardImage": "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=1200&q=80",
+    "href": "/experiences/markets/",
+    "viatorTagId": 13286
+  },
+  {
+    "name": "Shows & Performances",
+    "slug": "shows",
+    "category": "Entertainment",
+    "description": "Experience traditional dance, music, and theatre. Bollywood shows, classical performances, and cultural entertainment.",
+    "cardImage": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80",
+    "listImage": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
+    "heroImage": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&q=80",
+    "href": "/experiences/shows/",
+    "viatorTagId": 21516
   }
 ]
