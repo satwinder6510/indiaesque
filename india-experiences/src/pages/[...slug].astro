@@ -5,8 +5,32 @@ import CategoryPage from '../layouts/CategoryPage.astro';
 import PAAPage from '../layouts/PAAPage.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import cities from '../data/cities.json';
+import experiencesData from '../data/experiences.json';
+import { searchProducts, getDestinationId } from '../lib/viator';
 
 export const prerender = true;
+
+// Map content categories to Viator tag IDs
+const CATEGORY_TO_VIATOR_TAG: Record<string, number> = {};
+experiencesData.forEach(exp => {
+  // Map both slug and category field to tag ID
+  CATEGORY_TO_VIATOR_TAG[exp.slug] = exp.viatorTagId;
+  if (exp.category) {
+    CATEGORY_TO_VIATOR_TAG[exp.category.toLowerCase()] = exp.viatorTagId;
+  }
+});
+
+// Map PAA categories to relevant Viator tags for contextual tours
+const PAA_CATEGORY_TOURS: Record<string, number[]> = {
+  'food': [21911],           // Food & Drink
+  'transport': [12044],      // Transfers
+  'practical': [12044],      // Transfers (airport, getting around)
+  'heritage': [12029, 13030], // Historical + Walking
+  'activities': [21725],     // Sightseeing
+  'shopping': [12039],       // Shopping
+  'culture': [12028],        // Cultural
+  'wellness': [21522],       // Yoga & Meditation
+};
 
 export async function getStaticPaths() {
   const allPages = await getCollection('pages');
@@ -112,6 +136,44 @@ const relatedLinks = (relatedPages ?? []).map(href => {
 const categoryName = entry.data.category !== 'general'
   ? entry.data.category.split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
   : title;
+
+// Fetch Viator products for category pages and relevant PAA pages
+let viatorProducts: any[] = [];
+const destId = citySlug ? getDestinationId(citySlug) : undefined;
+
+if (destId) {
+  if (type === 'category') {
+    // For category pages, get the tag ID from the category slug or experiences data
+    const categorySlugFromPath = entry.id.split('/').pop()?.replace('.md', '') || '';
+    const tagId = CATEGORY_TO_VIATOR_TAG[categorySlugFromPath] || CATEGORY_TO_VIATOR_TAG[entry.data.category?.toLowerCase()];
+
+    if (tagId) {
+      viatorProducts = await searchProducts({ destId, tagIds: [tagId], limit: 6 });
+    } else {
+      // Fallback: fetch general tours for this destination
+      viatorProducts = await searchProducts({ destId, limit: 6 });
+    }
+  } else if (type === 'paa' && entry.data.category) {
+    // For PAA pages, check if the category has relevant tour types
+    const paaCategory = entry.data.category.toLowerCase();
+    const relevantTags = PAA_CATEGORY_TOURS[paaCategory];
+
+    if (relevantTags && relevantTags.length > 0) {
+      viatorProducts = await searchProducts({ destId, tagIds: relevantTags, limit: 4 });
+    }
+  }
+}
+
+// Transform Viator products for layouts
+const experiences = viatorProducts.map(p => ({
+  title: p.title,
+  href: p.bookingLink,
+  image: p.imageUrl,
+  duration: p.duration,
+  price: `From ₹${Math.round(p.price.amount).toLocaleString()}`,
+  rating: p.rating,
+  reviewCount: p.reviewCount,
+}));
 ---
 
 {type === 'hub' ? (
@@ -141,6 +203,7 @@ const categoryName = entry.data.category !== 'general'
     faq={faq}
     relatedPages={relatedLinks}
     schema={schemaObjects}
+    experiences={experiences}
   >
     <Content />
   </CategoryPage>
@@ -156,6 +219,7 @@ const categoryName = entry.data.category !== 'general'
     faq={faq}
     relatedPages={relatedLinks}
     schema={schemaObjects}
+    experiences={experiences}
   >
     <Content />
   </PAAPage>

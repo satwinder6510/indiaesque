@@ -12,6 +12,15 @@ interface Props {
   faq?: { question: string; answer: string }[];
   relatedPages?: { href: string; label: string }[];
   schema?: object[];
+  experiences?: {
+    title: string;
+    href: string;
+    image?: string;
+    duration?: string;
+    price?: string;
+    rating?: number;
+    reviewCount?: number;
+  }[];
 }
 
 const {
@@ -24,7 +33,8 @@ const {
   dateModified,
   faq = [],
   relatedPages = [],
-  schema = []
+  schema = [],
+  experiences = []
 } = Astro.props;
 
 // Generate mobile image path from hero image
@@ -118,34 +128,40 @@ const formatDate = (dateStr?: string) => {
     )}
   </article>
 
-  <!-- RELATED HOLIDAYS -->
-  <section class="related">
-    <div class="related-inner">
-      <div class="related-header">
-        <h2>Related Holidays</h2>
-        <a href={`/${citySlug}/`}>&rarr;</a>
-      </div>
-      <p class="related-desc">Discover more curated experiences in {city}. All prices shown in INR with verified local guides.</p>
+  <!-- RELATED TOURS (Viator) -->
+  {experiences.length > 0 && (
+    <section class="related">
+      <div class="related-inner">
+        <div class="related-header">
+          <h2>Related Tours</h2>
+          <a href={`/${citySlug}/`}>&rarr;</a>
+        </div>
+        <p class="related-desc">Book these experiences in {city}. All prices shown in INR.</p>
 
-      <div class="holiday-card">
-        <div class="holiday-image">
-          <img src={heroImage} alt={city} />
-        </div>
-        <div class="holiday-body">
-          <span class="holiday-location">{city.toUpperCase()}</span>
-          <p class="holiday-desc">Explore the best of {city} with our curated local experiences and expert guides.</p>
-          <div class="holiday-meta">
-            <span>Multiple Days</span>
-            <span>Guided Experience</span>
-          </div>
-          <div class="holiday-footer">
-            <span class="holiday-price">From ₹2,500</span>
-            <a href={`/${citySlug}/`} class="holiday-arrow">&rarr;</a>
-          </div>
-        </div>
+        {experiences.slice(0, 2).map(exp => (
+          <a href={exp.href} target="_blank" rel="noopener" class="holiday-card">
+            <div class="holiday-image">
+              <img src={exp.image || heroImage} alt={exp.title} />
+            </div>
+            <div class="holiday-body">
+              <span class="holiday-location">{city.toUpperCase()}</span>
+              <p class="holiday-title">{exp.title}</p>
+              <div class="holiday-meta">
+                {exp.duration && <span>{exp.duration}</span>}
+                {exp.rating && exp.rating > 0 && (
+                  <span class="rating">{'★'.repeat(Math.round(exp.rating))} {exp.rating.toFixed(1)}</span>
+                )}
+              </div>
+              <div class="holiday-footer">
+                <span class="holiday-price">{exp.price || 'View Details'}</span>
+                <span class="holiday-arrow">&rarr;</span>
+              </div>
+            </div>
+          </a>
+        ))}
       </div>
-    </div>
-  </section>
+    </section>
+  )}
 
   <!-- NEWSLETTER -->
   <section class="newsletter">
@@ -517,12 +533,21 @@ const formatDate = (dateStr?: string) => {
     color: #666;
     margin: 0 0 15px;
   }
+  .holiday-title {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
+    margin: 0 0 15px;
+  }
   .holiday-meta {
     display: flex;
     gap: 15px;
     font-size: 11px;
     color: #999;
     margin-bottom: 15px;
+  }
+  .holiday-meta .rating {
+    color: #E9CDB0;
   }
   .holiday-footer {
     display: flex;
