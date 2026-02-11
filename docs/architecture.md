@@ -486,14 +486,14 @@ GetYourGuide Partner Program:
 
 ## 5c. City-First Content Architecture
 
-**Decision (Feb 2026): All content lives under city hubs. No separate `/experiences/` hierarchy.**
+**Implemented Feb 2026: All content lives under city hubs. No separate `/experiences/` hierarchy.**
 
 ### URL Structure
 
 ```
 /delhi/                      → City hub (overview + links to sub-pages)
-/delhi/food-tours/           → Experience page: Food tours in Delhi (Viator listings)
-/delhi/walking-tours/        → Experience page: Walking tours in Delhi
+/delhi/food-tours/           → Category page: Food tours in Delhi (Viator listings)
+/delhi/heritage-walks/       → Category page: Heritage walks in Delhi
 /delhi/best-street-food/     → PAA page + contextual food tours
 /delhi/airport-to-city/      → PAA page + contextual transfer tours
 /delhi/is-delhi-safe/        → PAA page (info only, no tours)
@@ -506,38 +506,76 @@ GetYourGuide Partner Program:
 3. **No duplication** — single hierarchy, no competing `/experiences/` tree
 4. **Contextual monetization** — PAA pages show relevant tours based on question type
 
+### Implementation
+
+**Routing:** Content is handled by `pages/[...slug].astro` (catch-all route)
+- Content files at `content/{city}/{slug}.md` become `/{city}/{slug}/`
+- Route detects page type from frontmatter (`type: category` or `type: paa`)
+- Renders appropriate layout: `CategoryPage.astro` or `PAAPage.astro`
+
+**City Hub Navigation:** `pages/[city].astro`
+- "Experiences in {City}" section links to category pages
+- "Travel Guides" section links to PAA pages
+- Both use `/{city}/{slug}/` URL pattern
+
 ### Page Types Under Each City
 
-| Type | Example | Content | Tours |
-|------|---------|---------|-------|
-| **Hub** | `/delhi/` | Overview, links to all sub-pages | Featured tours |
-| **Experience** | `/delhi/food-tours/` | Experience intro + Viator listings | Yes (filtered by tag) |
-| **PAA** | `/delhi/best-street-food/` | Answer to specific question | Contextual (if relevant) |
-| **PAA** | `/delhi/is-delhi-safe/` | Answer to specific question | None |
+| Type | Example | Content | Tours | Layout |
+|------|---------|---------|-------|--------|
+| **Hub** | `/delhi/` | Overview, links to all sub-pages | Featured tours (6) | `[city].astro` |
+| **Category** | `/delhi/food-tours/` | Experience intro + Viator listings | Yes (6, filtered by tag) | `CategoryPage.astro` |
+| **PAA** | `/delhi/best-street-food/` | Answer to specific question | Contextual (2-4) | `PAAPage.astro` |
+| **PAA** | `/delhi/is-delhi-safe/` | Answer to specific question | None | `PAAPage.astro` |
 
-### PAA + Tour Matching
+### Viator Tour Integration
 
-| PAA Question Type | Relevant Viator Tours |
-|-------------------|----------------------|
-| Food/restaurant questions | Food tours, cooking classes |
-| Transport/airport | Transfers, private tours |
-| "How many days" / itinerary | Day trips, multi-day tours |
-| Heritage/history | Walking tours, historical tours |
-| Activities/things to do | Sightseeing, cultural tours |
-| Safety/practical | None (info only) |
-| Best time to visit | None (info only) |
+Tours are fetched at build time in `[...slug].astro`:
+
+**Category pages:** Viator products filtered by city destination ID + experience tag ID
+```javascript
+// Map content category slug to Viator tag ID from experiences.json
+const tagId = CATEGORY_TO_VIATOR_TAG[categorySlug];
+viatorProducts = await searchProducts({ destId, tagIds: [tagId], limit: 6 });
+```
+
+**PAA pages:** Contextual tours based on question category
+```javascript
+const PAA_CATEGORY_TOURS = {
+  'food': [21911],           // Food & Drink
+  'transport': [12044],      // Transfers
+  'practical': [12044],      // Transfers
+  'heritage': [12029, 13030], // Historical + Walking
+  'shopping': [12039],       // Shopping
+  'culture': [12028],        // Cultural
+  'wellness': [21522],       // Yoga & Meditation
+};
+```
 
 ### Data Files
 
-- `experiences.json` — Reference data for experience types (names, Viator tag IDs, images). Used for building city experience pages.
-- `cities.json` — City metadata (name, slug, coordinates, images)
-- `content/{city}/hub.json` — City hub content
-- `content/{city}/pages/*.json` — Individual PAA/experience pages
+- `data/experiences.json` — Experience types with Viator tag IDs (30 types)
+- `data/cities.json` — City metadata (name, slug, Viator destination ID)
+- `content/{city}/*.md` — Markdown content files with frontmatter
+- `data/content/{city}/hub.json` — City hub generated content (from admin)
 
-### Files to Build
+### Content Frontmatter
 
-- `pages/[city]/[slug].astro` — Dynamic route for city sub-pages (both experience and PAA)
-- Each page checks if it's an experience type (show Viator) or PAA (show content + optional contextual tours)
+**Category page (`food-tours.md`):**
+```yaml
+title: "Best Food Tours In Delhi — 2026"
+type: category
+city: delhi
+category: food
+viatorTagId: 21911  # Optional override
+```
+
+**PAA page (`is-delhi-safe.md`):**
+```yaml
+title: "Is Delhi Safe for Tourists?"
+type: paa
+city: delhi
+category: practical  # Maps to tour type (or none)
+```
 
 ---
 
