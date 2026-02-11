@@ -1,7 +1,10 @@
 // Viator API Service - Attractions endpoint
 
-const VIATOR_API_KEY = import.meta.env.VIATOR_API_KEY || '';
+const VIATOR_API_KEY = import.meta.env.VIATOR_API_KEY || process.env.VIATOR_API_KEY || '';
 const VIATOR_BASE_URL = 'https://api.viator.com/partner';
+
+// Debug: log whether API key is available at build time
+console.log('VIATOR_API_KEY available:', VIATOR_API_KEY ? 'YES (length: ' + VIATOR_API_KEY.length + ')' : 'NO');
 
 // Destination IDs for Indian cities (verified from Viator)
 export const DESTINATIONS = {
