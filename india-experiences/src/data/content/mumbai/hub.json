@@ -1,0 +1,34 @@
+{
+  "slug": "mumbai",
+  "name": "Mumbai",
+  "title": "Mumbai Travel Guide",
+  "description": "Complete guide to exploring Mumbai",
+  "sections": [
+    {
+      "id": "intro",
+      "title": "Introduction",
+      "content": ""
+    },
+    {
+      "id": "getting-there",
+      "title": "Getting There",
+      "content": ""
+    },
+    {
+      "id": "areas",
+      "title": "Where to Stay",
+      "content": ""
+    },
+    {
+      "id": "highlights",
+      "title": "Must-See Highlights",
+      "content": ""
+    }
+  ],
+  "viator": {
+    "destinationId": 0,
+    "enabled": false
+  },
+  "createdAt": "2026-02-11T09:49:43.660Z",
+  "updatedAt": "2026-02-11T09:49:43.660Z"
+}
