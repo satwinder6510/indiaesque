@@ -1788,6 +1788,56 @@ admin/src/
 │           └── VersionHistory.tsx      ← Version list, preview, revert
 ```
 
+### 16.6 Sub-Page AI Generation
+
+Sub-pages (e.g., `/delhi/food-tours/`, `/goa/is-goa-safe/`) have their own AI generation capability, separate from the hub page. The editor at `/content/[city]/[page]` provides a streamlined AI-first workflow.
+
+**Admin UI:** Content → [City] → Sub-pages list → [Page]
+
+**Three tabs:**
+
+| Tab | Purpose |
+|-----|---------|
+| **AI Generate** | Generate content using Claude with topic, tone, and word count settings |
+| **Editor** | Edit generated/existing content with live markdown preview |
+| **Viator** | Configure Viator tour integration (destination ID, enabled toggle) |
+
+**Generation flow:**
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│              SUB-PAGE GENERATION FLOW                            │
+│                                                                  │
+│   1. User enters topic (e.g. "Best street food in Old Delhi")   │
+│   2. Selects tone (professional, conversational, etc.)          │
+│   3. Selects word count (500/800/1200/1500)                     │
+│   4. Click "Generate Content"                                   │
+│   5. API calls Claude with city facts injected                  │
+│   6. Generated content appears in Editor tab                    │
+│   7. User reviews/edits, then saves                             │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**City facts inheritance:** Sub-page generation automatically inherits facts from the parent hub. If Goa hub has facts about the new airport, those facts are injected into every Goa sub-page generation prompt.
+
+**File:** `admin/src/app/content/[city]/[page]/page.tsx`
+
+**API endpoint:** `POST /api/content/generate`
+
+**Request body:**
+```json
+{
+  "cityName": "Goa",
+  "question": "Best beaches in North Goa",
+  "contentDirection": "Create a detailed, SEO-optimized article...",
+  "tone": "professional",
+  "wordCount": 800,
+  "facts": ["Goa has TWO airports...", "Mopa opened 2023..."]
+}
+```
+
+**Data storage:** Sub-page content saved to `india-experiences/src/data/content/{city}/pages/{slug}.json` via `/api/content/pages` endpoint.
+
 ---
 
 ## 17. Content Injection Workflow
