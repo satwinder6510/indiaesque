@@ -19,7 +19,6 @@ export const DESTINATIONS = {
 export interface ViatorAttraction {
   attractionId: number;
   title: string;
-  description: string;
   imageUrl: string;
   attractionUrl: string;
   productCount: number;
@@ -77,32 +76,35 @@ export async function searchAttractions(params: AttractionsParams): Promise<Viat
 }
 
 function transformAttractions(attractions: any[]): ViatorAttraction[] {
-  return attractions.map(a => ({
-    attractionId: a.attractionId,
-    title: a.title || a.name || '',
-    description: a.shortDescription || a.description || '',
-    imageUrl: selectBestImage(a.images),
-    attractionUrl: a.attractionUrl || '#',
-    productCount: a.productCount || 0,
-    rating: a.reviews?.combinedAverageRating || a.rating || 0,
-    reviewCount: a.reviews?.totalReviews || a.reviewCount || 0,
-  }));
+  return attractions.map(a => {
+    // Reviews: { sources: [{ provider, reviewCounts, totalCount, averageRating }] }
+    const viatorReviews = a.reviews?.sources?.find((s: any) => s.provider === 'VIATOR');
+    const rating = viatorReviews?.averageRating || 0;
+    const reviewCount = viatorReviews?.totalCount || 0;
+
+    // Images: simple array of { url, width, height } — pick best fit for ~600px card
+    const imageUrl = selectBestImage(a.images);
+
+    return {
+      attractionId: a.attractionId,
+      title: a.name || '',
+      imageUrl,
+      attractionUrl: a.attractionUrl || '#',
+      productCount: a.productCount || 0,
+      rating,
+      reviewCount,
+    };
+  });
 }
 
+// Images are simple { url, width, height } objects — no variants, no isCover
 function selectBestImage(images: any[]): string {
   if (!images || images.length === 0) return '';
 
-  // Find cover image first, or use first image
-  const coverImage = images.find((img: any) => img.isCover) || images[0];
-
-  if (!coverImage.variants || coverImage.variants.length === 0) {
-    return coverImage.url || '';
-  }
-
-  // Sort variants by width and find best fit for card (~600px)
-  const variants = coverImage.variants.sort((a: any, b: any) => a.width - b.width);
-  const bestFit = variants.find((v: any) => v.width >= 600);
-  return bestFit?.url || variants[variants.length - 1]?.url || coverImage.url || '';
+  // Sort by width, pick the one closest to 600px wide
+  const sorted = [...images].sort((a, b) => a.width - b.width);
+  const bestFit = sorted.find(img => img.width >= 600);
+  return bestFit?.url || sorted[sorted.length - 1]?.url || '';
 }
 
 export function getDestinationId(city: string): number | undefined {
