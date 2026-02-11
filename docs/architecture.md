@@ -264,23 +264,26 @@ Changes saved via API commit directly to the GitHub repository, triggering autom
 | Page | Template | What shows |
 |------|----------|------------|
 | City pages (`/delhi/`, `/jaipur/`, etc.) | `[city].astro` | "More Experiences" section — 6 products with images, ratings, prices, booking links |
-| Staycation pages (`/staycations/[slug]/`) | `[slug].astro` | "Experiences & Tours" section — tours near the property |
+| Staycation pages (`/staycations/[slug]/`) | `[slug].astro` | "Experiences & Tours" section — uses `getDestinationId()` to look up city from shared DESTINATIONS map |
 
-### Known Destination IDs
+### Destination IDs
 
-```typescript
-export const DESTINATIONS = {
-  delhi: { id: 804, name: 'Delhi' },
-  jaipur: { id: 1469, name: 'Jaipur' },
-  mumbai: { id: 953, name: 'Mumbai' },
-  goa: { id: 4704, name: 'Goa' },
-  agra: { id: 4282, name: 'Agra' },
-  varanasi: { id: 960, name: 'Varanasi' },
-  kolkata: { id: 954, name: 'Kolkata' },
-  udaipur: { id: 959, name: 'Udaipur' },
-  kerala: { id: 958, name: 'Kerala' },
-};
-```
+All 80 Indian CITY-type destinations from `GET /partner/destinations` (parent: India = 723). Full map in `viator.ts`. Key cities:
+
+| City | Dest ID | City | Dest ID |
+|------|---------|------|---------|
+| Delhi | 804 | Jaipur | 4627 |
+| Mumbai | 953 | Goa | 4594 |
+| Agra | 4547 | Varanasi | 22015 |
+| Kolkata | 4924 | Udaipur | 5106 |
+| Kerala | 964 | Kochi | 952 |
+| Chennai | 4624 | Bangalore | 5310 |
+| Hyderabad | 22442 | Amritsar | 22306 |
+| Rishikesh | 22733 | Shimla | 25944 |
+| Srinagar | 23017 | Leh | 22569 |
+| Jodhpur | 22142 | Darjeeling | 22035 |
+
+Section auto-hides when a city returns 0 products. IDs refreshed 2026-02-11.
 
 ### API Configuration
 
