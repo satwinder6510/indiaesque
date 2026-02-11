@@ -13,6 +13,7 @@ Last updated: 2026-02-11
 3. URL Structure
 4. Staycations System
 5. Viator Tours Integration
+5b. GetYourGuide (GYG) Integration
 6. Page Templates & HTML Structure
 7. CSS & Typography Architecture
 8. Schema Markup (JSON-LD)
@@ -197,7 +198,10 @@ Staycations are stored as JSON in `india-experiences/src/data/staycations.json`:
     "enabled": true,
     "source": "viator",
     "viatorDestinationId": 804,
-    "viatorTagIds": [11940, 21074]
+    "viatorTagIds": [21911, 11866],
+    "customTourIds": [],
+    "gygEnabled": true,
+    "gygTourIds": ["464596", "810824"]
   }
 }
 ```
@@ -229,18 +233,19 @@ Changes saved via API commit directly to the GitHub repository, triggering autom
 
 ## 5. Viator Tours Integration
 
-**Affiliate tours displayed on staycation pages via Viator Partner API.**
+**Affiliate tours displayed on city pages and staycation pages via Viator Partner API v2.**
 
 ### Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                     STAYCATION PAGE (Build Time)                 │
+│              CITY & STAYCATION PAGES (Build Time)                │
 │                                                                  │
-│   1. Read staycation data from JSON                              │
-│   2. Check if tours.enabled === true                             │
-│   3. Call Viator API with destination ID                         │
-│   4. Render tours in HTML (static, no client JS)                 │
+│   1. Get destination ID for city                                 │
+│   2. Call Viator products/search API                             │
+│   3. Transform response (images, reviews, pricing)               │
+│   4. Render in static HTML (no client JS)                        │
+│   5. If API fails → section hidden (no mock data)                │
 └──────────────────────────────────────────────────────────────────┘
          │
          │ Viator Partner API v2
@@ -249,41 +254,96 @@ Changes saved via API commit directly to the GitHub repository, triggering autom
 │                      VIATOR API                                  │
 │                                                                  │
 │   POST /products/search                                          │
-│   - filtering.destination: 804 (New Delhi)                       │
-│   - pagination.count: 6                                          │
-│   - currency: INR                                                │
+│   Headers: exp-api-key, Accept: application/json;version=2.0     │
+│   Body: { filtering: { destination }, pagination, currency }     │
 └──────────────────────────────────────────────────────────────────┘
 ```
+
+### Where Viator is Used
+
+| Page | Template | What shows |
+|------|----------|------------|
+| City pages (`/delhi/`, `/jaipur/`, etc.) | `[city].astro` | "More Experiences" section — 6 products with images, ratings, prices, booking links |
+| Staycation pages (`/staycations/[slug]/`) | `[slug].astro` | "Experiences & Tours" section — tours near the property |
 
 ### Known Destination IDs
 
 ```typescript
-const VIATOR_DEST_IDS: Record<string, number> = {
-  'Delhi': 804,      // New Delhi
-  'Jaipur': 1469,
-  'Mumbai': 953,
-  'Goa': 4704,
-  'Agra': 4282,
+export const DESTINATIONS = {
+  delhi: { id: 804, name: 'Delhi' },
+  jaipur: { id: 1469, name: 'Jaipur' },
+  mumbai: { id: 953, name: 'Mumbai' },
+  goa: { id: 4704, name: 'Goa' },
+  agra: { id: 4282, name: 'Agra' },
+  varanasi: { id: 960, name: 'Varanasi' },
+  kolkata: { id: 954, name: 'Kolkata' },
+  udaipur: { id: 959, name: 'Udaipur' },
+  kerala: { id: 958, name: 'Kerala' },
 };
 ```
 
 ### API Configuration
 
-Environment variable: `VIATOR_API_KEY` (exp-api-key header)
+- **Environment variable:** `VIATOR_API_KEY` (must be set in both `.env` locally and Vercel dashboard for production)
+- **Access:** `import.meta.env.VIATOR_API_KEY || process.env.VIATOR_API_KEY`
+- **Base URL:** `https://api.viator.com/partner`
+- **Endpoint:** `POST /products/search`
+- **Currency:** `INR`
 
-Base URL: `https://api.viator.com/partner`
+### Request Body
+
+```json
+{
+  "filtering": {
+    "destination": 804
+  },
+  "pagination": {
+    "start": 1,
+    "count": 6
+  },
+  "currency": "INR"
+}
+```
+
+### Response Structure (key fields)
+
+```json
+{
+  "products": [
+    {
+      "productCode": "7667P2",
+      "title": "...",
+      "description": "...",
+      "images": [
+        {
+          "isCover": true,
+          "variants": [
+            { "url": "https://media-cdn.tripadvisor.com/...", "width": 400, "height": 400 },
+            { "url": "...", "width": 800, "height": 800 }
+          ]
+        }
+      ],
+      "reviews": {
+        "sources": [
+          { "provider": "VIATOR", "totalCount": 453, "averageRating": 4.9 }
+        ]
+      },
+      "pricing": {
+        "summary": { "fromPrice": 12961.22 },
+        "currency": "INR"
+      },
+      "duration": { "fixedDurationInMinutes": 5760 },
+      "productUrl": "https://www.viator.com/tours/..."
+    }
+  ]
+}
+```
 
 ### viator.ts Module
 
 Located at `india-experiences/src/lib/viator.ts`:
 
 ```typescript
-export interface SearchParams {
-  destId: number;
-  tagIds?: number[];
-  limit?: number;
-}
-
 export interface ViatorProduct {
   productCode: string;
   title: string;
@@ -292,33 +352,19 @@ export interface ViatorProduct {
   price: { amount: number; currency: string };
   rating: number;
   reviewCount: number;
+  imageUrl: string;
   bookingLink: string;
-  thumbnailUrl: string;
 }
 
-export async function searchProducts(params: SearchParams): Promise<ViatorProduct[]>
-export async function lookupDestination(searchTerm: string): Promise<any[]>
+export async function searchProducts(params: { destId: number; limit?: number }): Promise<ViatorProduct[]>
+export function getDestinationId(city: string): number | undefined
 ```
 
-### Tours Display
+**Key behaviour:** If `VIATOR_API_KEY` is not set or the API call fails, returns an empty array (no mock data). The section is conditionally rendered — hidden when empty.
 
-Tours rendered at build time in `[slug].astro`:
+### Image Selection
 
-```html
-<section class="tours-section">
-  <h2>EXPERIENCES & TOURS</h2>
-  <div class="tours-list">
-    {viatorTours.map(tour => (
-      <a href={tour.webURL} class="tour-item">
-        <h3>{tour.title}</h3>
-        <p>{tour.description}</p>
-        <span class="tour-duration">{tour.duration}</span>
-        <span class="tour-price">From ₹{tour.price}</span>
-      </a>
-    ))}
-  </div>
-</section>
-```
+Products return images with `isCover` flag and `variants[]` array (multiple sizes). The `selectBestImage` function picks the cover image and selects the smallest variant >= 600px wide for cards.
 
 ### Affiliate Revenue
 
@@ -326,6 +372,111 @@ Viator Partner Program:
 - Commission: 8% of booking value
 - Cookie duration: 30 days
 - Payment: Monthly via PayPal
+
+---
+
+## 5b. GetYourGuide (GYG) Integration
+
+**Availability widget on staycation pages only. Inline booking — users book without leaving the site.**
+
+### Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│              STAYCATION PAGE ([slug].astro)                       │
+│                                                                  │
+│   1. Read gygTourIds from staycations.json                       │
+│   2. For each tour ID, render <GygWidget tourId={id} />          │
+│   3. GYG JS script (pa.umd.production.min.js) loads widget       │
+│   4. User sees inline availability calendar                      │
+│   5. Booking happens inside iframe — user stays on site          │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+### Where GYG is Used
+
+| Page | What shows |
+|------|------------|
+| Staycation pages only | Availability widget(s) after "Book your stay" section |
+| City pages | NOT used (Viator only) |
+
+### Partner ID
+
+`OBZX5NA` — set as `GYG_PARTNER_ID` env var (fallback hardcoded)
+
+### Widget Type
+
+**Availability widget** (not activities widget):
+- `data-gyg-widget="availability"` — shows calendar with live availability
+- `data-gyg-href="https://widget.getyourguide.com/default/availability.frame"`
+- Requires a specific `data-gyg-tour-id` per experience
+
+### GygWidget.astro Component
+
+Located at `india-experiences/src/components/GygWidget.astro`:
+
+```astro
+---
+interface Props {
+  tourId: string;
+  currency?: string;
+  variant?: 'horizontal' | 'vertical';
+}
+const { tourId, currency = 'INR', variant = 'horizontal' } = Astro.props;
+const partnerId = import.meta.env.GYG_PARTNER_ID || 'OBZX5NA';
+---
+<div
+  data-gyg-href="https://widget.getyourguide.com/default/availability.frame"
+  data-gyg-tour-id={tourId}
+  data-gyg-widget="availability"
+  data-gyg-variant={variant}
+  data-gyg-partner-id={partnerId}
+  data-gyg-locale-code="en-US"
+  data-gyg-currency={currency}
+>
+```
+
+### GYG Script
+
+Loaded once in `BaseLayout.astro` at the **end of `<body>`** (not in `<head>` — causes blank widgets):
+
+```html
+<script async defer src="https://widget.getyourguide.com/dist/pa.umd.production.min.js"
+  data-gyg-partner-id="OBZX5NA" is:inline></script>
+```
+
+The `is:inline` attribute prevents Astro from bundling/processing the external script.
+
+### Tour IDs Configuration
+
+Managed via admin panel. Stored in `staycations.json`:
+
+```json
+{
+  "tours": {
+    "gygEnabled": true,
+    "gygTourIds": ["464596", "810824"]
+  }
+}
+```
+
+Multiple tour IDs supported — each renders a separate availability widget. Admin UI has add/remove controls for tour IDs.
+
+### Rendering in [slug].astro
+
+```astro
+{(toursConfig.gygEnabled !== false) && toursConfig.gygTourIds?.length > 0 && (
+  toursConfig.gygTourIds.filter((id: string) => id).map((tourId: string) => (
+    <GygWidget tourId={tourId} />
+  ))
+)}
+```
+
+### Affiliate Revenue
+
+GetYourGuide Partner Program:
+- Commission: ~8% of booking value
+- Attribution via partner ID in widget
 
 ---
 
@@ -1161,28 +1312,41 @@ Three self-hosted font families loaded via `@font-face` in `main.css`. No Google
 - Same platform as the admin tool — one dashboard, one set of concepts
 - Generous free tier for a content site; Pro plan ($20/mo) if needed later for longer function timeouts
 
-**Hybrid rendering explained:**
-Astro's `hybrid` output mode lets you mark most pages as `prerender = true` (static HTML, built at deploy time) while adding server-rendered API routes for dynamic features later. Content pages stay static for SEO. Sales/booking APIs run as serverless functions.
+**Server output with prerendering:**
+Astro's `output: 'server'` mode with `@astrojs/vercel` adapter. Pages with `export const prerender = true` are built as static HTML at deploy time. Pages/routes without it run as serverless functions.
 
 ```javascript
 // astro.config.mjs
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
 
 export default defineConfig({
-  output: 'hybrid',        // Static by default, opt-in server routes
+  site: 'https://indiaesque.com',
+  trailingSlash: 'always',
+  output: 'server',
   adapter: vercel(),
+  integrations: [sitemap()],
+  build: { format: 'directory' },
 });
 ```
 
-When you're ready for sales APIs:
-```
-src/pages/api/booking.ts     → Serverless function at /api/booking
-src/pages/api/enquiry.ts     → Serverless function at /api/enquiry
-src/pages/delhi/index.astro  → Still static HTML (prerendered)
-```
+**Current rendering modes:**
 
-No architecture change needed. Add API files, they just work.
+| Route | Mode | Notes |
+|-------|------|-------|
+| `[city].astro` | `prerender = true` | Static — Viator API called at build time |
+| `staycations/[slug].astro` | `prerender = true` | Static — Viator + GYG data at build time |
+| `api/viator/tours.ts` | `prerender = false` | Serverless function (dynamic) |
+| All content pages | `prerender = true` | Static HTML |
+
+**Environment variables for build time:**
+Since prerendered pages call APIs at build time, env vars must be set in the **Vercel dashboard** (not just `.env`):
+
+| Variable | Where set | Used by |
+|----------|-----------|---------|
+| `VIATOR_API_KEY` | Vercel dashboard + `.env` | `viator.ts` — accessed via `import.meta.env` and `process.env` |
+| `GYG_PARTNER_ID` | Vercel dashboard + `.env` | `GygWidget.astro` — accessed via `import.meta.env` |
 
 ### Deployment Workflow
 
@@ -1438,7 +1602,7 @@ indiaesque/                           ← Monorepo root
 │   ├── astro.config.mjs
 │   ├── package.json
 │   ├── tsconfig.json
-│   ├── .env                          ← VIATOR_API_KEY
+│   ├── .env                          ← VIATOR_API_KEY, GYG_PARTNER_ID
 │   ├── public/
 │   │   ├── favicon.ico
 │   │   ├── robots.txt
@@ -1449,14 +1613,16 @@ indiaesque/                           ← Monorepo root
 │   │       └── ...
 │   ├── src/
 │   │   ├── layouts/
-│   │   │   └── BaseLayout.astro
+│   │   │   └── BaseLayout.astro      ← GYG script loaded at end of <body>
 │   │   ├── components/
 │   │   │   ├── Header.astro
-│   │   │   └── Footer.astro
+│   │   │   ├── Footer.astro
+│   │   │   └── GygWidget.astro       ← GYG availability widget component
 │   │   ├── lib/
-│   │   │   └── viator.ts             ← Viator API client
+│   │   │   └── viator.ts             ← Viator products/search API client
 │   │   ├── data/
-│   │   │   ├── staycations.json      ← Staycation data (managed by admin)
+│   │   │   ├── staycations.json      ← Staycation data (managed by admin) — includes gygTourIds
+│   │   │   ├── cities.json           ← City metadata (hero images, descriptions)
 │   │   │   └── experiences.json
 │   │   ├── content/
 │   │   │   ├── config.ts
@@ -1468,8 +1634,12 @@ indiaesque/                           ← Monorepo root
 │   │   │   └── blog/
 │   │   ├── pages/
 │   │   │   ├── index.astro           ← Homepage
+│   │   │   ├── [city].astro          ← City hub pages (Viator products)
 │   │   │   ├── staycations/
-│   │   │   │   └── [slug].astro      ← Staycation detail page
+│   │   │   │   └── [slug].astro      ← Staycation detail (Viator + GYG widgets)
+│   │   │   ├── api/
+│   │   │   │   └── viator/
+│   │   │   │       └── tours.ts      ← Dynamic API route (prerender=false)
 │   │   │   └── [...slug].astro
 │   │   └── styles/
 │   │       └── main.css
