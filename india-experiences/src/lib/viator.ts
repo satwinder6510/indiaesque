@@ -19,15 +19,15 @@ export const VIATOR_TAGS = {
 // Destination IDs for Indian cities - NEED TO VERIFY THESE!
 // 684 was Las Vegas - these IDs need to be looked up from Viator's destinations endpoint
 export const DESTINATIONS = {
-  delhi: { id: 0, name: 'Delhi' },  // TODO: Look up correct ID
-  jaipur: { id: 0, name: 'Jaipur' },
-  mumbai: { id: 0, name: 'Mumbai' },
-  goa: { id: 0, name: 'Goa' },
-  agra: { id: 0, name: 'Agra' },
-  varanasi: { id: 0, name: 'Varanasi' },
-  kolkata: { id: 0, name: 'Kolkata' },
-  udaipur: { id: 0, name: 'Udaipur' },
-  kerala: { id: 0, name: 'Kerala' },
+  delhi: { id: 804, name: 'Delhi' },
+  jaipur: { id: 1469, name: 'Jaipur' },
+  mumbai: { id: 953, name: 'Mumbai' },
+  goa: { id: 4704, name: 'Goa' },
+  agra: { id: 4282, name: 'Agra' },
+  varanasi: { id: 960, name: 'Varanasi' },
+  kolkata: { id: 954, name: 'Kolkata' },
+  udaipur: { id: 959, name: 'Udaipur' },
+  kerala: { id: 958, name: 'Kerala' },
 };
 
 // Function to look up destinations from Viator
