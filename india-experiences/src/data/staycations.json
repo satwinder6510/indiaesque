@@ -52,7 +52,9 @@
         21911,
         11866
       ],
-      "customTourIds": []
+      "customTourIds": [],
+      "gygEnabled": true,
+      "gygTourIds": ["280242"]
     },
     "href": "/staycations/haveli-dharampura/",
     "whoItSuits": "Haveli Dharampura is ideal for:\n\nTravellers seeking heritage stays\n\nGuests looking for immersion in Old Delhi’s history and bazaars\n\nCouples or solo travellers drawn to intimate boutique properties\n\nVisitors wanting a cultural and architectural experience, not just a hotel room\n\nIt is less suited to:\n\nGuests requiring large-format hotel amenities\n\nTravellers uncomfortable with bustling, narrow old-city lanes"

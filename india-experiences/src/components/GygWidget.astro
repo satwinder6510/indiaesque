@@ -1,0 +1,76 @@
+---
+interface Props {
+  tourId: string;
+  currency?: string;
+  variant?: 'horizontal' | 'vertical';
+}
+
+const {
+  tourId,
+  currency = 'INR',
+  variant = 'horizontal',
+} = Astro.props;
+
+const partnerId = import.meta.env.GYG_PARTNER_ID || 'OBZX5NA';
+---
+
+<section class="gyg-section">
+  <h2 class="gyg-title">CHECK AVAILABILITY</h2>
+  <p class="gyg-intro">Browse and book experiences with live availability</p>
+
+  <div class="gyg-container">
+    <div
+      data-gyg-href="https://widget.getyourguide.com/default/availability.frame"
+      data-gyg-tour-id={tourId}
+      data-gyg-locale-code="en-US"
+      data-gyg-currency={currency}
+      data-gyg-widget="availability"
+      data-gyg-variant={variant}
+      data-gyg-partner-id={partnerId}
+    >
+      <span>Powered by <a target="_blank" rel="sponsored" href="https://www.getyourguide.com/">GetYourGuide</a></span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gyg-section {
+    padding: 48px 24px;
+    background-color: #f9fafb;
+  }
+
+  .gyg-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #111827;
+    margin: 0 0 8px 0;
+  }
+
+  .gyg-intro {
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0 0 32px 0;
+  }
+
+  .gyg-container {
+    min-height: 200px;
+  }
+
+  @media (min-width: 768px) {
+    .gyg-section {
+      padding: 64px 48px;
+    }
+
+    .gyg-title {
+      text-align: center;
+      font-size: 26px;
+    }
+
+    .gyg-intro {
+      text-align: center;
+    }
+  }
+</style>

@@ -55,6 +55,8 @@ interface Staycation {
     viatorDestinationId: number;
     viatorTagIds: number[];
     customTourIds: string[];
+    gygEnabled: boolean;
+    gygTourIds: string[];
   };
 }
 
@@ -91,6 +93,8 @@ const defaultStaycation: Partial<Staycation> = {
     viatorDestinationId: 0,
     viatorTagIds: [],
     customTourIds: [],
+    gygEnabled: true,
+    gygTourIds: [],
   },
 };
 
@@ -1091,6 +1095,72 @@ function ToursTab({ staycation, setStaycation }: { staycation: Staycation; setSt
           )}
         </>
       )}
+
+      {/* GetYourGuide Widget Section */}
+      <div className="border-t pt-6 mt-6">
+        <div className="border rounded-lg p-4">
+          <div className="flex items-center gap-3 mb-4">
+            <input
+              type="checkbox"
+              id="gygEnabled"
+              checked={staycation.tours?.gygEnabled !== false}
+              onChange={(e) => updateTours("gygEnabled", e.target.checked)}
+              className="w-5 h-5"
+            />
+            <label htmlFor="gygEnabled" className="font-medium text-lg">GetYourGuide Widget</label>
+            <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Affiliate</span>
+          </div>
+          <p className="text-sm text-gray-500 mb-4">
+            Embeds an interactive GetYourGuide widget with live availability and booking. Partner ID: OBZX5NA
+          </p>
+
+          {staycation.tours?.gygEnabled !== false && (
+            <div className="bg-gray-50 border rounded-lg p-4 space-y-4">
+              <div>
+                <div className="flex justify-between items-center mb-2">
+                  <label className="text-sm font-medium">GYG Tour IDs</label>
+                  <button
+                    onClick={() => updateTours("gygTourIds", [...(staycation.tours?.gygTourIds || []), ""])}
+                    className="text-blue-600 text-sm hover:underline"
+                  >
+                    + Add Tour
+                  </button>
+                </div>
+                <div className="space-y-2">
+                  {(staycation.tours?.gygTourIds || []).map((id: string, i: number) => (
+                    <div key={i} className="flex gap-2">
+                      <input
+                        type="text"
+                        value={id}
+                        onChange={(e) => {
+                          const ids = [...(staycation.tours?.gygTourIds || [])];
+                          ids[i] = e.target.value;
+                          updateTours("gygTourIds", ids);
+                        }}
+                        className="flex-1 border rounded-lg p-2 bg-white"
+                        placeholder="e.g., 280242"
+                      />
+                      <button
+                        onClick={() => {
+                          const ids = [...(staycation.tours?.gygTourIds || [])];
+                          ids.splice(i, 1);
+                          updateTours("gygTourIds", ids);
+                        }}
+                        className="text-red-500 px-2"
+                      >
+                        ×
+                      </button>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-xs text-gray-500 mt-2">
+                  The numeric tour ID from GetYourGuide. Find it in the activity URL (e.g., getyourguide.com/...t280242). Each ID shows an availability widget.
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

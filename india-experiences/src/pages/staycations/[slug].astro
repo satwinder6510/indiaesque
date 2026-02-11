@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import GygWidget from '../../components/GygWidget.astro';
 import staycationsData from '../../data/staycations.json';
 import { searchProducts } from '../../lib/viator';
 
@@ -365,6 +366,13 @@ const tours = staycation.tours || {
       </div>
     </section>
   </div>
+
+  <!-- GetYourGuide Availability Widgets -->
+  {(toursConfig.gygEnabled !== false) && toursConfig.gygTourIds?.length > 0 && (
+    toursConfig.gygTourIds.filter((id: string) => id).map((tourId: string) => (
+      <GygWidget tourId={tourId} />
+    ))
+  )}
 </BaseLayout>
 
 <style>
