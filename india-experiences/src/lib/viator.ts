@@ -16,8 +16,7 @@ export const VIATOR_TAGS = {
   WORKSHOPS: 11770,
 };
 
-// Destination IDs for Indian cities - NEED TO VERIFY THESE!
-// 684 was Las Vegas - these IDs need to be looked up from Viator's destinations endpoint
+// Destination IDs for Indian cities (verified from Viator)
 export const DESTINATIONS = {
   delhi: { id: 804, name: 'Delhi' },
   jaipur: { id: 1469, name: 'Jaipur' },
