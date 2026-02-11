@@ -20,12 +20,12 @@ const popularLocations = citiesData.slice(0, 8).map(city => ({
   href: `/${city.slug}/`
 }));
 
+// Experience types shown as visual cards (no links until city+experience pages built)
 const categories = experiencesData
   .filter(exp => exp.showOnHomepage)
   .map(exp => ({
     name: exp.name.toUpperCase(),
-    image: exp.cardImage,
-    href: exp.href
+    image: exp.cardImage
   }));
 
 const staycations = staycationsData.map(stay => ({
@@ -183,13 +183,12 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     <h2>Experience Types</h2>
     <div class="categories-grid">
       {categories.map(cat => (
-        <a href={cat.href} class="category-card">
+        <div class="category-card">
           <img src={cat.image} alt={cat.name} />
           <div class="category-info">
             <span class="category-name">{cat.name}</span>
-            <span class="category-btn">DISCOVER</span>
           </div>
-        </a>
+        </div>
       ))}
     </div>
   </section>

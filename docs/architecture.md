@@ -484,93 +484,60 @@ GetYourGuide Partner Program:
 
 ---
 
-## 5c. Experience Pages (Viator by Category)
+## 5c. City-First Content Architecture
 
-**Dedicated pages for each experience type, showing Viator tours filtered by tag ID.**
+**Decision (Feb 2026): All content lives under city hubs. No separate `/experiences/` hierarchy.**
 
-| URL | Tag ID | Experience Type |
-|-----|--------|-----------------|
-| `/experiences/` | - | Hub page |
-| `/experiences/food-tours/` | 21911 | Food & Drink |
-| `/experiences/nature/` | 11903 | Nature & Wildlife |
-| `/experiences/cultural/` | 12028 | Cultural Tours |
-| `/experiences/arts-crafts/` | 21915 | Workshops |
-| `/experiences/walking-tours/` | 13030 | Walking Tours |
-| `/experiences/adventure/` | 22046 | Adventure |
-
-**Files:** `pages/experiences/[slug].astro`, `data/experiences.json` (viatorTagId field), `lib/viator.ts` (INDIA_DESTINATION_ID = 723)
-
-**API:** `POST /products/search` with `filtering: { destination: 723, tags: [tagId] }`
-
----
-
-## 5d. Experience URL Architecture (Decision Record)
-
-**Status:** Under consideration (Feb 2026)
-
-### Current Structure
+### URL Structure
 
 ```
-/experiences/                    → Hub showing all 30 categories
-/experiences/food-tours/         → Food tours across ALL of India (Viator tag filter)
-/experiences/yoga-meditation/    → Yoga experiences across ALL of India
-/[city]/                         → City hub (Delhi, Jaipur, etc.)
+/delhi/                      → City hub (overview + links to sub-pages)
+/delhi/food-tours/           → Experience page: Food tours in Delhi (Viator listings)
+/delhi/walking-tours/        → Experience page: Walking tours in Delhi
+/delhi/best-street-food/     → PAA page + contextual food tours
+/delhi/airport-to-city/      → PAA page + contextual transfer tours
+/delhi/is-delhi-safe/        → PAA page (info only, no tours)
 ```
 
-### Proposed Addition: City-Level Experience Pages
+### Why City-First
 
-```
-/experiences/food-tours/delhi/   → Food tours IN Delhi specifically
-/experiences/yoga-meditation/rishikesh/
-```
+1. **City hubs have authority** — sub-pages inherit link equity
+2. **Matches user journey** — visitors know destination first, browse activities second
+3. **No duplication** — single hierarchy, no competing `/experiences/` tree
+4. **Contextual monetization** — PAA pages show relevant tours based on question type
 
-**Math:** 30 experience types × 11 cities = **330 potential new pages**
+### Page Types Under Each City
 
-### Trade-offs
+| Type | Example | Content | Tours |
+|------|---------|---------|-------|
+| **Hub** | `/delhi/` | Overview, links to all sub-pages | Featured tours |
+| **Experience** | `/delhi/food-tours/` | Experience intro + Viator listings | Yes (filtered by tag) |
+| **PAA** | `/delhi/best-street-food/` | Answer to specific question | Contextual (if relevant) |
+| **PAA** | `/delhi/is-delhi-safe/` | Answer to specific question | None |
 
-| Consideration | Pro | Con |
-|--------------|-----|-----|
-| **Long-tail SEO** | Targets specific searches ("food tours delhi", "yoga retreats rishikesh") | Competes with Viator/TripAdvisor who already own these terms |
-| **User intent** | Higher conversion — visitor has city in mind | Generic pages catch researchers earlier in funnel |
-| **Content quality** | More specific, relevant content per page | Many combos will have thin/zero Viator inventory |
-| **Maintenance** | 330 pages to keep updated | Automated via Viator API if inventory exists |
-| **Cannibalization** | — | May compete with city hub pages that already cover experiences |
+### PAA + Tour Matching
 
-### Key Questions
+| PAA Question Type | Relevant Viator Tours |
+|-------------------|----------------------|
+| Food/restaurant questions | Food tours, cooking classes |
+| Transport/airport | Transfers, private tours |
+| "How many days" / itinerary | Day trips, multi-day tours |
+| Heritage/history | Walking tours, historical tours |
+| Activities/things to do | Sightseeing, cultural tours |
+| Safety/practical | None (info only) |
+| Best time to visit | None (info only) |
 
-1. **Where does traffic land first?** Are users searching by experience type ("yoga retreats india") or by destination ("things to do in rishikesh")?
+### Data Files
 
-2. **Viator inventory reality** — Many combinations will return zero products (safaris in Varanasi, bird watching in Mumbai). Empty pages = bad SEO.
+- `experiences.json` — Reference data for experience types (names, Viator tag IDs, images). Used for building city experience pages.
+- `cities.json` — City metadata (name, slug, coordinates, images)
+- `content/{city}/hub.json` — City hub content
+- `content/{city}/pages/*.json` — Individual PAA/experience pages
 
-3. **Content differentiation** — Can each page have unique editorial value beyond just Viator listings? If not, thin pages won't rank.
+### Files to Build
 
-### Options Under Consideration
-
-**Option A: Selective city pages**
-- Only create `/experiences/[type]/[city]/` where Viator has 3+ products AND the combo makes sense
-- Example: `/experiences/yoga-meditation/rishikesh/` ✓, `/experiences/safaris/delhi/` ✗
-- Requires inventory check before page creation
-
-**Option B: Dynamic filtering (no new pages)**
-- Keep `/experiences/food-tours/` but add city filter tabs/dropdown
-- One URL, multiple views via query param or client-side filter
-- Less SEO benefit but no thin content risk
-
-**Option C: City-first hierarchy**
-- Instead of `/experiences/food-tours/delhi/`
-- Use `/delhi/food-tours/` (city as parent, experience as child)
-- Keeps city hubs as authority pages, experiences as sub-sections
-- Already partially implemented for some cities
-
-### Recommendation
-
-**Lean toward Option A (selective) or Option C (city-first)**. The city-first approach (`/delhi/food-tours/`) may be stronger because:
-- City hubs already exist and have authority
-- Users often know their destination before their activity type
-- Avoids creating a parallel hierarchy that competes with city pages
-- Simpler information architecture
-
-**Next step:** Check Viator inventory for high-value combos to validate whether selective pages would have sufficient content.
+- `pages/[city]/[slug].astro` — Dynamic route for city sub-pages (both experience and PAA)
+- Each page checks if it's an experience type (show Viator) or PAA (show content + optional contextual tours)
 
 ---
 
