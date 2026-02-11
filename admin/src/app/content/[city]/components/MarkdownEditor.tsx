@@ -191,7 +191,7 @@ export default function MarkdownEditor({
         {(viewMode === "preview" || viewMode === "split") && (
           <div className={`flex-1 ${viewMode === "split" ? "w-1/2" : "w-full"} overflow-y-auto`}>
             <div
-              className="p-4 prose prose-sm dark:prose-invert max-w-none"
+              className="p-4 prose prose-sm dark:prose-invert max-w-none [&>p]:mb-4 [&>h1]:mt-6 [&>h2]:mt-5 [&>h3]:mt-4 [&>ul]:mb-4 [&>ol]:mb-4"
               dangerouslySetInnerHTML={{ __html: renderMarkdown() }}
             />
           </div>
