@@ -2,7 +2,7 @@
 
 **Reference document. Consult before making any structural changes.**
 
-Last updated: 2026-02-10
+Last updated: 2026-02-11
 
 ---
 
@@ -14,16 +14,17 @@ Last updated: 2026-02-10
 4. Staycations System
 5. Viator Tours Integration
 6. Page Templates & HTML Structure
-7. Schema Markup (JSON-LD)
-8. Internal Linking Architecture
-9. Sitemap Strategy
-10. AI Crawler Optimization
-11. SEO Meta Tags
-12. Performance Requirements
-13. Hosting & Deployment
-14. Analytics & Search Console
-15. Content Injection Workflow
-16. File & Folder Structure
+7. CSS & Typography Architecture
+8. Schema Markup (JSON-LD)
+9. Internal Linking Architecture
+10. Sitemap Strategy
+11. AI Crawler Optimization
+12. SEO Meta Tags
+13. Performance Requirements
+14. Hosting & Deployment
+15. Analytics & Search Console
+16. Content Injection Workflow
+17. File & Folder Structure
 
 ---
 
@@ -613,7 +614,86 @@ Always in HTML, always visible, always with schema markup.
 
 ---
 
-## 7. Schema Markup (JSON-LD)
+## 7. CSS & Typography Architecture
+
+### 7.1 Fonts
+
+Three self-hosted font families loaded via `@font-face` in `src/styles/main.css`:
+
+| Font | Role | Weights | CSS Variable |
+|------|------|---------|--------------|
+| **Muli** | Body text | 300, 400, 600, 700 | `--font-body` |
+| **Oswald** | Headings | 300, 400, 500, 700 | `--font-heading` |
+| **Benton Sans** | Accent text | 300, 400, 500, 700 | `--font-accent` |
+
+Font files stored at `/public/fonts/{family}/`. No Google Fonts, no external requests.
+
+**Important:** All templates must reference these fonts. Never use `'Inter'`, `'Playfair Display'`, or other unloaded fonts — they silently fall back to system fonts and break visual consistency.
+
+### 7.2 Global CSS Reset
+
+`src/styles/main.css` contains a targeted reset:
+
+```css
+*, *::before, *::after { box-sizing: border-box; }
+
+body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd { margin: 0; }
+ul, ol { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+```
+
+**This means all margins and list styles must be explicitly set** in component styles — nothing inherits browser defaults.
+
+### 7.3 Astro Scoped Styles & `:global()`
+
+Astro's `<style>` tags are **scoped by default** — each CSS selector gets a unique `data-astro-cid-xxx` attribute appended at build time.
+
+**Critical rule:** When a component renders markdown content via `<Content />` or `<HubContent />`, the rendered HTML elements (p, h2, ul, etc.) **do not have the scoping attribute**. This means scoped styles will not match them.
+
+**Solution:** Use `:global()` for any CSS that targets markdown-rendered children:
+
+```css
+/* WRONG — scoped styles won't match markdown <p> tags */
+.article-content p { margin: 0 0 20px; }
+
+/* CORRECT — :global() bypasses scoping on the child selector */
+.article-content :global(p) { margin: 0 0 20px; }
+```
+
+The parent class (`.article-content`, `.hub-content-inner`, `.prose`) remains scoped — only the child selectors need `:global()`.
+
+### 7.4 Style Locations
+
+| Page Type | Template | Wrapper Class | Style Location |
+|-----------|----------|---------------|----------------|
+| City hub (main) | `pages/[city].astro` | `.hub-content-inner` | Scoped `<style>` in page |
+| City hub (sub) | `layouts/CityHub.astro` | `.article-content` | Scoped `<style>` in layout |
+| Category | `layouts/CategoryPage.astro` | `.article-content` | Scoped `<style>` in layout |
+| PAA article | `layouts/PAAPage.astro` | `.article-content` | Scoped `<style>` in layout |
+| Journal | `pages/journal/[slug].astro` | `.prose` | Scoped `<style>` in page |
+
+All use `:global()` for markdown child elements. Each provides styles for at minimum: `p`, `h2`, `h3`, `h4`, `ul`, `ol`, `li`, `strong`, `a`, `blockquote`.
+
+### 7.5 Colour Palette
+
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `--black` | `#000000` | — |
+| `--white` | `#ffffff` | Page backgrounds |
+| `--gold` | `#E9CDB0` | CTA buttons, accent |
+| `--gray-100` | `#f3f4f6` | Light backgrounds |
+| `--gray-200` | `#e5e7eb` | Borders |
+| `--gray-400` | `#9ca3af` | Muted text |
+| `--gray-500` | `#6b7280` | Secondary text |
+| `--gray-600` | `#4b5563` | Body text |
+| `--gray-900` | `#111827` | Headings, primary text |
+| Teal | `#0d9488` | Links, accents (hub page) |
+| Coral | `#e07060` | Links, accents (sub-page layouts) |
+| Dark teal | `#2a9d8f` | Blockquote borders, best-time bars |
+
+---
+
+## 8. Schema Markup (JSON-LD)
 
 **All schema goes in `<head>` as JSON-LD. Not microdata, not RDFa. JSON-LD is what Google recommends and is cleanest to maintain at scale.**
 
@@ -1027,7 +1107,7 @@ Compare Delhi's best food tours from ₹1,500. Old Delhi street food walks, cook
 - [ ] **CSS inlined or preloaded** (single stylesheet, minified)
 - [ ] **Images in WebP format** with width/height attributes (prevents layout shift)
 - [ ] **Lazy loading on below-fold images** (`loading="lazy"`)
-- [ ] **Web fonts preloaded** (two fonts: DM Serif Display for headings, Source Sans 3 for body)
+- [ ] **Web fonts self-hosted** (three families: Muli, Oswald, Benton Sans — loaded via @font-face with `font-display: swap`)
 - [ ] **Gzip/Brotli compression enabled** (CDN handles this)
 - [ ] **Cache headers set** (static assets: 1 year, HTML: 1 hour)
 
@@ -1035,17 +1115,21 @@ Compare Delhi's best food tours from ₹1,500. Old Delhi street food walks, cook
 
 ```css
 /* Headings */
-h1, h2, h3 {
-    font-family: 'DM Serif Display', serif;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    line-height: 1.2;
 }
 
 /* Body */
 body {
-    font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: 'Muli', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
 }
 ```
 
-Two Google Fonts loaded via `<link rel="preload">` to avoid render-blocking. System font stack as fallback. DM Serif Display gives headings character; Source Sans 3 is highly readable at body sizes.
+Three self-hosted font families loaded via `@font-face` in `main.css`. No Google Fonts, no external requests. See Section 7 for full typography details.
 
 ### Image Strategy
 

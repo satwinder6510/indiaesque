@@ -185,13 +185,17 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
 
   <!-- Newsletter -->
   <section class="newsletter">
-    <h2>STAY UP TO DATE BY SUBSCRIBING<br/>TO OUR NEWSLETTER</h2>
-    <form class="newsletter-form">
-      <input type="text" placeholder="FORENAME" required />
-      <input type="text" placeholder="SURNAME" required />
-      <input type="email" placeholder="EMAIL ADDRESS" required />
-      <button type="submit">SUBSCRIBE</button>
-    </form>
+    <img src="/images/newsletter-bg.jpg" alt="" class="newsletter-bg" />
+    <div class="newsletter-overlay"></div>
+    <div class="newsletter-content">
+      <h2>STAY UP TO DATE BY SUBSCRIBING<br/>TO OUR NEWSLETTER</h2>
+      <form class="newsletter-form">
+        <input type="text" placeholder="FORENAME" required />
+        <input type="text" placeholder="SURNAME" required />
+        <input type="email" placeholder="EMAIL ADDRESS" required />
+        <button type="submit">SUBSCRIBE</button>
+      </form>
+    </div>
   </section>
 </BaseLayout>
 
@@ -536,21 +540,36 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
 
   /* Newsletter */
   .newsletter {
-    padding: 64px 24px;
-    background-color: #ffffff;
+    position: relative;
+    padding: 80px 24px;
     text-align: center;
+    overflow: hidden;
   }
-
+  .newsletter-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .newsletter-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  .newsletter-content {
+    position: relative;
+    z-index: 1;
+  }
   .newsletter h2 {
     font-family: 'Oswald', sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 400;
     letter-spacing: 0.1em;
-    color: #111827;
+    color: #ffffff;
     margin: 0 0 32px 0;
     line-height: 1.5;
   }
-
   .newsletter-form {
     max-width: 320px;
     margin: 0 auto;
@@ -558,21 +577,20 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     flex-direction: column;
     gap: 16px;
   }
-
   .newsletter-form input {
     padding: 14px 16px;
     font-family: 'Muli', sans-serif;
     font-size: 12px;
     letter-spacing: 0.1em;
-    border: 1px solid #e5e7eb;
-    background-color: #ffffff;
-    color: #111827;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #ffffff;
   }
-
   .newsletter-form input::placeholder {
-    color: #9ca3af;
+    color: rgba(255, 255, 255, 0.7);
   }
-
   .newsletter-form button {
     padding: 14px 16px;
     font-family: 'Muli', sans-serif;
@@ -580,13 +598,32 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     font-weight: 600;
     letter-spacing: 0.1em;
     border: none;
-    background-color: #0d9488;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #111827;
     cursor: pointer;
     transition: background-color 0.2s ease;
   }
-
   .newsletter-form button:hover {
-    background-color: #0f766e;
+    background-color: #f3f4f6;
+  }
+  @media (min-width: 768px) {
+    .newsletter {
+      padding: 80px 48px;
+    }
+    .newsletter h2 {
+      font-size: 22px;
+    }
+    .newsletter-form {
+      flex-direction: row;
+      max-width: 700px;
+      gap: 12px;
+    }
+    .newsletter-form input {
+      flex: 1;
+    }
+    .newsletter-form button {
+      flex: 0 0 auto;
+      padding: 14px 32px;
+    }
   }
 </style>
