@@ -128,7 +128,15 @@ export default function MarkdownEditor({
 
   const renderMarkdown = () => {
     try {
-      return marked(value) as string;
+      const html = marked(value) as string;
+      // Add spacing between block elements by wrapping in divs with margin
+      return html
+        .replace(/<p>/g, '<p style="margin-bottom: 1em;">')
+        .replace(/<h1>/g, '<h1 style="margin-top: 1.5em; margin-bottom: 0.5em;">')
+        .replace(/<h2>/g, '<h2 style="margin-top: 1.25em; margin-bottom: 0.5em;">')
+        .replace(/<h3>/g, '<h3 style="margin-top: 1em; margin-bottom: 0.5em;">')
+        .replace(/<ul>/g, '<ul style="margin-bottom: 1em;">')
+        .replace(/<ol>/g, '<ol style="margin-bottom: 1em;">');
     } catch {
       return "<p>Error rendering markdown</p>";
     }
@@ -190,16 +198,8 @@ export default function MarkdownEditor({
         {/* Preview */}
         {(viewMode === "preview" || viewMode === "split") && (
           <div className={`flex-1 ${viewMode === "split" ? "w-1/2" : "w-full"} overflow-y-auto`}>
-            <style>{`
-              .markdown-preview p { margin-bottom: 1rem; }
-              .markdown-preview h1 { margin-top: 1.5rem; margin-bottom: 0.75rem; }
-              .markdown-preview h2 { margin-top: 1.25rem; margin-bottom: 0.5rem; }
-              .markdown-preview h3 { margin-top: 1rem; margin-bottom: 0.5rem; }
-              .markdown-preview ul, .markdown-preview ol { margin-bottom: 1rem; }
-              .markdown-preview li { margin-bottom: 0.25rem; }
-            `}</style>
             <div
-              className="markdown-preview p-4 max-w-none text-[var(--foreground)]"
+              className="p-4 max-w-none text-[var(--foreground)]"
               dangerouslySetInnerHTML={{ __html: renderMarkdown() }}
             />
           </div>
