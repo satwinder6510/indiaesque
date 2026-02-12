@@ -2,7 +2,7 @@
 
 **Reference document. Consult before making any structural changes.**
 
-Last updated: 2026-02-11
+Last updated: 2026-02-12
 
 ---
 
@@ -12,6 +12,7 @@ Last updated: 2026-02-11
 2. Static Site Generator
 3. URL Structure
 4. Staycations System
+4b. AI Import for Staycations
 5. Viator Tours Integration
 5b. GetYourGuide (GYG) Integration
 6. Page Templates & HTML Structure
@@ -229,6 +230,143 @@ Staycations are managed via the Next.js admin panel at `localhost:3000`:
 - **Tours tab**: Viator integration settings
 
 Changes saved via API commit directly to the GitHub repository, triggering automatic rebuild.
+
+---
+
+## 4b. AI Import for Staycations
+
+**Import hotel data from any website URL using Jina Reader + Claude, with automatic image downloading and upload to GitHub.**
+
+### Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│              AI IMPORT FLOW (SSE Streaming)                      │
+│                                                                  │
+│   1. URL submitted → Jina Reader fetches (handles JS rendering)  │
+│   2. Claude extracts structured data (anti-hallucination prompt) │
+│   3. Images downloaded (3 concurrent, 10s timeout each)          │
+│   4. Images uploaded to GitHub via existing pipeline             │
+│   5. Data returned with local image paths                        │
+│   6. User selects fields to apply → merged into staycation form  │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+### API Endpoint
+
+**`POST /api/ai-import`** — Server-Sent Events for real-time progress
+
+Request body:
+```json
+{
+  "url": "https://www.seclude.in/shimla",
+  "slug": "seclude-shimla"
+}
+```
+
+Response: SSE stream with progress updates:
+```
+data: {"step":"fetching","message":"Fetching page content...","progress":10}
+data: {"step":"extracting","message":"Analyzing with AI...","progress":30}
+data: {"step":"downloading_images","message":"Downloading 5/12 images...","progress":60}
+data: {"step":"uploading_images","message":"Uploading to GitHub...","progress":85}
+data: {"step":"complete","message":"Import complete!","progress":100,"data":{...},"imageResults":[...]}
+```
+
+### Extracted Data Structure
+
+Claude extracts the following fields (only fields with actual data are returned):
+
+```typescript
+interface ExtractedStaycation {
+  name?: string;
+  location?: string;
+  overview?: {
+    description: string;
+    highlights: string[];
+    amenities: string[];
+  };
+  rooms?: {
+    name: string;
+    description: string;
+    images: string[];
+  }[];
+  booking?: {
+    phone: string;
+    email: string;
+    externalUrl: string;
+  };
+  images?: {
+    hero: string;
+    gallery: string[];
+  };
+}
+```
+
+### Claude Extraction Prompt
+
+The extraction prompt includes anti-hallucination rules:
+
+```
+CRITICAL RULES:
+- Extract ONLY information that is explicitly stated on the page
+- Write "Not found" for missing info - do NOT guess or infer
+- For images, extract the full URL if available
+- Image URLs should be complete (starting with http:// or https://)
+
+Only include fields where you found actual data.
+```
+
+### File Structure
+
+```
+admin/src/
+├── lib/ai-import/
+│   ├── types.ts              ← Type definitions
+│   ├── jina-fetcher.ts       ← Fetches via https://r.jina.ai/[URL]
+│   ├── content-extractor.ts  ← Claude extraction with cleaning
+│   └── image-downloader.ts   ← Parallel download with concurrency control
+├── app/
+│   ├── api/ai-import/
+│   │   └── route.ts          ← SSE streaming endpoint
+│   └── staycations/[slug]/
+│       └── components/
+│           └── AIImportTab.tsx  ← UI component
+```
+
+### UI Flow
+
+The AI Import tab in the staycation editor provides:
+
+1. **URL Input** — Paste any hotel website URL
+2. **Progress Bar** — Real-time step-by-step updates via SSE
+3. **Field Selection** — Checkboxes to include/exclude extracted fields
+4. **Raw Data View** — Expandable JSON preview
+5. **Apply Button** — Merges selected fields into the staycation form
+
+### Merge Strategy
+
+- User toggles individual fields (name, location, overview, rooms, booking, images)
+- Only selected fields are merged into the form
+- Empty extracted fields never overwrite existing data
+- Images are appended to gallery, not replaced
+- Rooms are appended to existing rooms list
+
+### Edge Cases
+
+| Scenario | Handling |
+|----------|----------|
+| JS-rendered pages | Jina Reader handles most; minimal data triggers warning |
+| Missing data | Only show checkboxes for fields with values |
+| Image download fails | Mark as failed, continue with others, show warning count |
+| Rate limits | Error surfaces in progress stream |
+| CORS/hotlink protection | 10s timeout, generic User-Agent, graceful failure |
+
+### Dependencies
+
+- **Jina Reader** (free tier: 100 req/min) — no API key needed
+- **Existing ANTHROPIC_API_KEY** — same as other AI features
+- **No new npm packages required**
 
 ---
 
@@ -1869,18 +2007,29 @@ admin/src/
 ├── lib/
 │   ├── promptBuilder.ts          ← Shared prompt construction (generate + expand)
 │   ├── github.ts                 ← GitHub API client (readJSON, writeJSON)
-│   └── auth.ts
+│   ├── auth.ts
+│   └── ai-import/                ← AI Import for staycations (see Section 4b)
+│       ├── types.ts              ← ExtractedStaycation, AIImportProgress types
+│       ├── jina-fetcher.ts       ← Fetch via Jina Reader (renders JS)
+│       ├── content-extractor.ts  ← Claude extraction with anti-hallucination
+│       └── image-downloader.ts   ← Parallel image download (3 concurrent)
 ├── app/
-│   ├── api/content/
-│   │   ├── route.ts              ← CRUD + versioning (GET, POST, PUT)
-│   │   └── research/route.ts     ← PAA research, generate, expand actions
-│   └── content/[city]/
-│       ├── page.tsx              ← City hub editor (tabs, state, handlers)
+│   ├── api/
+│   │   ├── content/
+│   │   │   ├── route.ts              ← CRUD + versioning (GET, POST, PUT)
+│   │   │   └── research/route.ts     ← PAA research, generate, expand actions
+│   │   └── ai-import/
+│   │       └── route.ts              ← SSE streaming endpoint for AI import
+│   ├── content/[city]/
+│   │   ├── page.tsx              ← City hub editor (tabs, state, handlers)
+│   │   └── components/
+│   │       ├── GenerationControls.tsx  ← Tone/wordCount/keywords + prompt preview + expand UI
+│   │       ├── PAAResearchPanel.tsx    ← PAA question research + selection
+│   │       ├── MarkdownEditor.tsx      ← Content editor with preview
+│   │       └── VersionHistory.tsx      ← Version list, preview, revert
+│   └── staycations/[slug]/
 │       └── components/
-│           ├── GenerationControls.tsx  ← Tone/wordCount/keywords + prompt preview + expand UI
-│           ├── PAAResearchPanel.tsx    ← PAA question research + selection
-│           ├── MarkdownEditor.tsx      ← Content editor with preview
-│           └── VersionHistory.tsx      ← Version list, preview, revert
+│           └── AIImportTab.tsx         ← AI Import UI (URL input, progress, field selection)
 ```
 
 ### 16.6 Sub-Page AI Generation
@@ -2082,10 +2231,15 @@ indiaesque/                           ← Monorepo root
 │   │   │   ├── login/page.tsx
 │   │   │   ├── staycations/
 │   │   │   │   ├── page.tsx          ← Staycations list
-│   │   │   │   └── [slug]/page.tsx   ← Staycation editor (5 tabs)
+│   │   │   │   └── [slug]/
+│   │   │   │       ├── page.tsx      ← Staycation editor (8 tabs)
+│   │   │   │       └── components/
+│   │   │   │           └── AIImportTab.tsx  ← AI Import UI
 │   │   │   ├── city/[slug]/page.tsx
 │   │   │   └── api/
 │   │   │       ├── auth/
+│   │   │       ├── ai-import/
+│   │   │       │   └── route.ts      ← AI Import SSE endpoint
 │   │   │       ├── staycations/
 │   │   │       │   ├── route.ts      ← List/create staycations
 │   │   │       │   ├── [slug]/route.ts
@@ -2095,7 +2249,12 @@ indiaesque/                           ← Monorepo root
 │   │   ├── lib/
 │   │   │   ├── github.ts
 │   │   │   ├── claude.ts
-│   │   │   └── auth.ts
+│   │   │   ├── auth.ts
+│   │   │   └── ai-import/            ← AI Import modules
+│   │   │       ├── types.ts
+│   │   │       ├── jina-fetcher.ts
+│   │   │       ├── content-extractor.ts
+│   │   │       └── image-downloader.ts
 │   │   └── middleware.ts
 │   └── prompts/
 │       ├── research.md

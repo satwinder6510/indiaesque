@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import AIImportTab from "./components/AIImportTab";
 
 interface RoomType {
   id: string;
@@ -98,7 +99,7 @@ const defaultStaycation: Partial<Staycation> = {
   },
 };
 
-type TabType = "images" | "overview" | "rooms" | "destination" | "transfers" | "booking" | "tours";
+type TabType = "images" | "overview" | "rooms" | "destination" | "transfers" | "booking" | "tours" | "ai-import";
 
 export default function StaycationEditPage() {
   const params = useParams();
@@ -175,6 +176,7 @@ export default function StaycationEditPage() {
     { id: "transfers", label: "Transfers" },
     { id: "booking", label: "Booking" },
     { id: "tours", label: "Tours" },
+    { id: "ai-import", label: "AI Import" },
   ];
 
   return (
@@ -240,6 +242,9 @@ export default function StaycationEditPage() {
         )}
         {activeTab === "tours" && (
           <ToursTab staycation={staycation} setStaycation={setStaycation} />
+        )}
+        {activeTab === "ai-import" && (
+          <AIImportTab staycation={staycation} setStaycation={setStaycation} />
         )}
       </div>
     </div>
