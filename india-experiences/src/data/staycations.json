@@ -214,7 +214,17 @@
         "Shared bathroom"
       ]
     },
-    "rooms": [],
+    "rooms": [
+      {
+        "id": "room-1770912463193",
+        "name": "",
+        "description": "Whole Cottage",
+        "pricePerNight": 0,
+        "maxGuests": 2,
+        "amenities": [],
+        "images": []
+      }
+    ],
     "destination": {
       "name": "Chorao, Goa",
       "description": "",
