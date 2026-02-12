@@ -7,7 +7,9 @@ export default defineConfig({
   site: 'https://indiaesque.com',
   trailingSlash: 'always',
   output: 'server',
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    mode: 'advanced'
+  }),
   integrations: [sitemap()],
   build: {
     format: 'directory',
