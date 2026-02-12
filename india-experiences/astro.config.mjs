@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
-  site: 'https://indiaesque.com',
+  site: 'https://indiaesque.in',
   trailingSlash: 'always',
   output: 'server',
   adapter: cloudflare({
