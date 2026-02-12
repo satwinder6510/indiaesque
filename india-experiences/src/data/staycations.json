@@ -248,5 +248,55 @@
       "gygTourIds": []
     },
     "href": "/staycations/falling-cashews/"
+  },
+  {
+    "slug": "https-www-gratitudeheritage-in",
+    "name": "https://www.gratitudeheritage.in/",
+    "location": "Pondicherry",
+    "description": "",
+    "homePageImage": "",
+    "portraitImage": "",
+    "cardImage": "",
+    "heroImage": "",
+    "gallery": [],
+    "overview": {
+      "description": "",
+      "highlights": [],
+      "checkIn": "2:00 PM",
+      "checkOut": "11:00 AM",
+      "amenities": []
+    },
+    "rooms": [],
+    "destination": {
+      "name": "Pondicherry",
+      "description": "",
+      "attractions": [],
+      "distanceFromAirport": "",
+      "distanceFromRailway": ""
+    },
+    "transfers": {
+      "airportPickup": {
+        "available": false,
+        "price": 0
+      },
+      "railwayPickup": {
+        "available": false,
+        "price": 0
+      }
+    },
+    "booking": {
+      "email": "",
+      "phone": "",
+      "whatsapp": "",
+      "externalUrl": ""
+    },
+    "tours": {
+      "enabled": false,
+      "source": "viator",
+      "viatorDestinationId": 0,
+      "viatorTagIds": [],
+      "customTourIds": []
+    },
+    "href": "/staycations/https-www-gratitudeheritage-in/"
   }
 ]
