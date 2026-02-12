@@ -8,7 +8,8 @@ export default defineConfig({
   trailingSlash: 'always',
   output: 'server',
   adapter: cloudflare({
-    mode: 'advanced'
+    mode: 'advanced',
+    imageService: 'compile'
   }),
   integrations: [sitemap()],
   build: {
