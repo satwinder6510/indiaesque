@@ -171,8 +171,8 @@ export async function POST(request: NextRequest) {
                 `feat(images): import ${mainImage.name} [ai-import]`
               );
 
-              // Store the GitHub raw URL
-              uploadedUrls.set(originalUrl, getGitHubRawUrl(path));
+              // Store the relative path (for public site), not GitHub raw URL
+              uploadedUrls.set(originalUrl, `/images/staycations/${mainImage.name}`);
             }
 
             uploadCount++;

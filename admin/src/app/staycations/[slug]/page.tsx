@@ -268,8 +268,9 @@ function ImagesTab({ staycation, setStaycation }: { staycation: Staycation; setS
     try {
       const res = await fetch("/api/images", { method: "POST", body: formData });
       const data = await res.json();
-      if (data.generated?.[0]?.url) {
-        setStaycation({ ...staycation, [field]: data.generated[0].url });
+      // Use publicUrl (relative path) for storage, not GitHub raw URL
+      if (data.generated?.[0]?.publicUrl) {
+        setStaycation({ ...staycation, [field]: data.generated[0].publicUrl });
       }
     } catch (error) {
       console.error("Upload error:", error);
@@ -290,10 +291,11 @@ function ImagesTab({ staycation, setStaycation }: { staycation: Staycation; setS
     try {
       const res = await fetch("/api/images", { method: "POST", body: formData });
       const data = await res.json();
-      if (data.generated?.[0]?.url) {
+      // Use publicUrl (relative path) for storage, not GitHub raw URL
+      if (data.generated?.[0]?.publicUrl) {
         setStaycation({
           ...staycation,
-          gallery: [...(staycation.gallery || []), { url: data.generated[0].url, alt: "" }],
+          gallery: [...(staycation.gallery || []), { url: data.generated[0].publicUrl, alt: "" }],
         });
       }
     } catch (error) {

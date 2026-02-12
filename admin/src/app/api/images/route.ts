@@ -32,6 +32,7 @@ interface ExperienceData {
 interface StaycationData {
   name: string;
   slug: string;
+  homePageImage: string;
   portraitImage: string;
   cardImage: string;
   heroImage: string;
@@ -212,6 +213,7 @@ export async function POST(request: NextRequest) {
         if (staycations) {
           const stayIndex = staycations.findIndex(s => s.slug === name);
           if (stayIndex !== -1) {
+            staycations[stayIndex].homePageImage = `/images/staycations/${name}-homepage.jpg`;
             staycations[stayIndex].portraitImage = `/images/staycations/${name}-portrait.jpg`;
             staycations[stayIndex].cardImage = `/images/staycations/${name}-card.jpg`;
             staycations[stayIndex].heroImage = `/images/staycations/${name}-hero.jpg`;

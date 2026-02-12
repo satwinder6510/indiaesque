@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push:*)",
+      "Bash(npm run build:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git pull:*)",
+      "Bash(npx next build:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(npm run dev:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh api:*)",
+      "Bash(curl:*)",
+      "Bash(powershell -Command:*)",
+      "WebFetch(domain:localhost)",
+      "Bash(tasklist:*)",
+      "Bash(taskkill:*)",
+      "Bash(git fetch:*)",
+      "WebFetch(domain:partner-resources.getyourguide.com)",
+      "WebFetch(domain:partner.getyourguide.support)",
+      "WebFetch(domain:wpadvancedads.com)",
+      "WebFetch(domain:forum.wixstudio.com)",
+      "Bash(npx astro build:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx astro dev:*)",
+      "WebFetch(domain:widget.getyourguide.com)",
+      "Bash(python -m json.tool:*)",
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(git diff:*)"
+    ]
+  }
+}
