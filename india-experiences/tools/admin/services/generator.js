@@ -330,3 +330,31 @@ export async function generator(options, onEvent) {
 
   return { generatedCount, total: pagesToGenerate.length };
 }
+
+// Helper function to generate a single page (used by admin API)
+export async function generatePage(city, pageId, options = {}) {
+  const { contentDirection } = options;
+
+  // If contentDirection provided, update the content bank first
+  if (contentDirection) {
+    const contentBank = await fileManager.getContentBank(city);
+    if (contentBank) {
+      const pageIndex = contentBank.pages.findIndex(p => p.id === pageId);
+      if (pageIndex !== -1) {
+        contentBank.pages[pageIndex].contentDirection = contentDirection;
+        await fileManager.saveContentBank(city, contentBank);
+      }
+    }
+  }
+
+  // Simple event handler that logs to console
+  const onEvent = (event) => {
+    if (event.type === 'error') {
+      console.error(event.log);
+    } else {
+      console.log(event.log);
+    }
+  };
+
+  return generator({ city, pageIds: [pageId] }, onEvent);
+}

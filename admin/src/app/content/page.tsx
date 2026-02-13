@@ -188,6 +188,55 @@ export default function ContentPage() {
     loadContentBank(selectedCity);
   };
 
+  const [regenerateModal, setRegenerateModal] = useState<{
+    pageId: string;
+    slug: string;
+    title: string;
+    contentDirection: string;
+  } | null>(null);
+
+  const openRegenerateModal = (pageId: string, slug: string, title: string) => {
+    const page = contentBank?.pages.find((p) => p.id === pageId) as { contentDirection?: string } | undefined;
+    setRegenerateModal({
+      pageId,
+      slug,
+      title,
+      contentDirection: page?.contentDirection || "",
+    });
+  };
+
+  const executeRegenerate = async () => {
+    if (!selectedCity || !regenerateModal) return;
+
+    setGenerating(true);
+    setRegenerateModal(null);
+    setLog([`Regenerating: ${regenerateModal.title}...`]);
+
+    try {
+      const res = await fetch("/api/seo/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          city: selectedCity,
+          pageId: regenerateModal.pageId,
+          contentDirection: regenerateModal.contentDirection,
+        }),
+      });
+      const result = await res.json();
+      if (result.success) {
+        setLog((prev) => [...prev, `  Regenerated: ${regenerateModal.title}`]);
+      } else {
+        setLog((prev) => [...prev, `  Failed: ${regenerateModal.title} - ${result.error}`]);
+      }
+    } catch {
+      setLog((prev) => [...prev, `  Error: ${regenerateModal.title}`]);
+    }
+
+    setLog((prev) => [...prev, "Done!"]);
+    setGenerating(false);
+    loadContentBank(selectedCity);
+  };
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case "generated":
@@ -497,12 +546,21 @@ export default function ContentPage() {
                           </td>
                           <td className="py-3 px-4">
                             {page.status === "generated" ? (
-                              <Link
-                                href={`/content/edit/${selectedCity}/${page.slug}`}
-                                className="text-[var(--primary)] hover:underline text-sm"
-                              >
-                                Edit
-                              </Link>
+                              <div className="flex items-center gap-3">
+                                <Link
+                                  href={`/content/edit/${selectedCity}/${page.slug}`}
+                                  className="text-[var(--primary)] hover:underline text-sm"
+                                >
+                                  Edit
+                                </Link>
+                                <button
+                                  onClick={() => openRegenerateModal(page.id, page.slug, page.title)}
+                                  disabled={generating}
+                                  className="text-orange-600 hover:underline text-sm disabled:opacity-50"
+                                >
+                                  Regenerate
+                                </button>
+                              </div>
                             ) : (
                               <span className="text-[var(--foreground-muted)] text-sm">—</span>
                             )}
@@ -746,6 +804,69 @@ export default function ContentPage() {
 
       {showBulkResearchModal && (
         <BulkResearchModal cities={cities} onClose={() => setShowBulkResearchModal(false)} />
+      )}
+
+      {regenerateModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-[var(--background-card)] rounded-2xl shadow-2xl w-full max-w-2xl border border-[var(--border)]">
+            <div className="px-6 py-4 border-b border-[var(--border)] flex items-center justify-between">
+              <div>
+                <h3 className="text-lg font-semibold text-[var(--foreground)]">Regenerate Page</h3>
+                <p className="text-sm text-[var(--foreground-muted)]">{regenerateModal.title}</p>
+              </div>
+              <button
+                onClick={() => setRegenerateModal(null)}
+                className="p-1 text-[var(--foreground-muted)] hover:text-[var(--foreground)] rounded-lg hover:bg-[var(--border)] transition-colors"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="p-6 space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-[var(--foreground)] mb-2">
+                  Content Direction
+                </label>
+                <p className="text-xs text-[var(--foreground-muted)] mb-2">
+                  Tell Claude what angle, focus, or specific information to include in this page.
+                </p>
+                <textarea
+                  value={regenerateModal.contentDirection}
+                  onChange={(e) =>
+                    setRegenerateModal({ ...regenerateModal, contentDirection: e.target.value })
+                  }
+                  rows={6}
+                  className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-xl focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent text-[var(--foreground)] text-sm"
+                  placeholder="e.g., Focus on budget options under ₹3000, include specific hotel names, compare areas by metro access..."
+                />
+              </div>
+
+              <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-xl p-4">
+                <p className="text-sm text-yellow-800 dark:text-yellow-200">
+                  <strong>Note:</strong> This will overwrite the existing content. The new content will use the improved prompts with AI-detection avoidance.
+                </p>
+              </div>
+            </div>
+
+            <div className="px-6 py-4 border-t border-[var(--border)] flex justify-end gap-3">
+              <button
+                onClick={() => setRegenerateModal(null)}
+                className="px-4 py-2.5 text-[var(--foreground-muted)] hover:text-[var(--foreground)] hover:bg-[var(--border)] rounded-xl transition-colors font-medium"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={executeRegenerate}
+                disabled={generating}
+                className="px-5 py-2.5 bg-orange-600 hover:bg-orange-700 disabled:opacity-50 text-white font-semibold rounded-xl shadow-lg transition-all"
+              >
+                Regenerate
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

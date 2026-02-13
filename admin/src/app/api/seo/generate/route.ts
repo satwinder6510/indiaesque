@@ -7,7 +7,12 @@ const INDIA_EXPERIENCES_PATH = path.join(process.cwd(), "..", "india-experiences
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { city, pageId } = body;
+    const { city, pageId, contentDirection } = body;
+
+    // Escape content direction for safe injection into script
+    const escapedDirection = contentDirection
+      ? contentDirection.replace(/\\/g, "\\\\").replace(/'/g, "\\'").replace(/\n/g, "\\n")
+      : "";
 
     // Run the generator script directly
     const result = await new Promise<{ success: boolean; error?: string }>((resolve) => {
@@ -15,7 +20,10 @@ export async function POST(request: Request) {
         import('file://${INDIA_EXPERIENCES_PATH.replace(/\\/g, "/")}/tools/admin/services/generator.js')
           .then(async ({ generatePage }) => {
             try {
-              await generatePage('${city}', '${pageId}');
+              const options = {
+                contentDirection: '${escapedDirection}' || undefined
+              };
+              await generatePage('${city}', '${pageId}', options);
               console.log(JSON.stringify({ success: true }));
             } catch (err) {
               console.log(JSON.stringify({ success: false, error: err.message }));
