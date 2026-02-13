@@ -2,7 +2,7 @@
 
 **Reference document. Consult before making any structural changes.**
 
-Last updated: 2026-02-13
+Last updated: 2026-02-13 (Added: About page admin, SEO fixes, Footer structure)
 
 ---
 
@@ -29,6 +29,9 @@ Last updated: 2026-02-13
 16. Content Admin — AI Generation & Versioning
 17. Content Injection Workflow
 18. File & Folder Structure
+19. About Page Admin
+20. SEO Implementation
+21. Footer Structure
 
 ---
 
@@ -2333,6 +2336,220 @@ export const collections = { delhi: cityContent, jaipur: cityContent /* ... */ }
 ```
 
 This catches content errors at build time — if a Markdown file has a title over 60 characters or is missing a required field, the build fails before deploying broken content.
+
+---
+
+## 19. About Page Admin
+
+The About page (`/about/`) content is managed via the admin panel with a JSON-based data structure and markdown support.
+
+### Data Structure
+
+**File:** `india-experiences/src/data/about.json`
+
+```json
+{
+  "hero": {
+    "location": "ABOUT",
+    "title": "INDIAESQUE",
+    "subtitle": "Unique stays, offbeat places and independent experiences"
+  },
+  "sections": [
+    {
+      "id": "our-story",
+      "title": "Ethos",
+      "content": "Markdown content with **bold**, *italic*, bullet points, etc."
+    },
+    {
+      "id": "section-123456",
+      "title": "Custom Section",
+      "content": "Dynamic sections can be added/removed via admin"
+    }
+  ],
+  "contact": {
+    "email": "hello@indiaesque.in",
+    "phone": "+91 00000 00000",
+    "address": "Indiaesque • Address Line 1\nAddress Line 2 • 110001"
+  }
+}
+```
+
+### Admin UI
+
+**Route:** `/about` in admin panel
+
+**Features:**
+- **Hero Section** — Edit location text, title, subtitle
+- **Contact Information** — Edit email, phone, address
+- **Content Sections** — Tabbed interface for editing multiple sections
+  - Add new sections (creates unique ID)
+  - Remove sections (minimum 1 must remain)
+  - Reorder sections (first 4 are primary)
+- **Markdown Editor** — Full markdown support with toolbar for formatting
+  - Bold, italic, headings (H2, H3)
+  - Bullet lists, numbered lists
+  - Links
+  - Live preview
+
+### API Endpoints
+
+**`GET /api/about`** — Returns about.json data
+
+**`PUT /api/about`** — Updates about.json, commits to GitHub
+
+### Frontend Rendering
+
+**File:** `india-experiences/src/pages/about.astro`
+
+Uses `marked` library to render markdown content:
+
+```javascript
+import { marked } from 'marked';
+marked.setOptions({ breaks: true, gfm: true });
+
+const renderMarkdown = (content) => marked(content);
+```
+
+Sections are dynamically rendered:
+```astro
+{contentSections.map((section) => (
+  <>
+    <h2>{section.title}</h2>
+    <div set:html={renderMarkdown(section.content || '')} />
+  </>
+))}
+```
+
+### Markdown Editor Component
+
+**File:** `admin/src/components/MarkdownEditor.tsx`
+
+Shared component with:
+- Toolbar buttons for common formatting
+- Text insertion at cursor position
+- Live preview toggle
+- Used by About page and can be reused for other content
+
+---
+
+## 20. SEO Implementation
+
+### Hero Heading Strategy
+
+Hero sections use `<span>` with ARIA heading role instead of `<h1>` to maintain proper heading hierarchy:
+
+```html
+<!-- Hero title styled as heading but not semantic H1 -->
+<span class="hero-title" role="heading" aria-level="1">DELHI</span>
+
+<!-- Content H1 remains the primary page heading for SEO -->
+<h1>Things To Do In Delhi</h1>
+```
+
+**Rationale:** Pages should have one semantic H1 for SEO. The hero title is decorative; the content heading is the page's true H1.
+
+**Files updated:**
+- `layouts/CategoryPage.astro`
+- `layouts/CityHub.astro`
+- `layouts/PAAPage.astro`
+- `pages/[city].astro`
+- `pages/about.astro`
+- `pages/contact.astro`
+- `pages/index.astro`
+- `pages/destinations/index.astro`
+- `pages/staycations/index.astro`
+- `pages/staycations/[slug].astro`
+- `pages/journal/index.astro`
+- `pages/journal/[slug].astro`
+- `components/Hero.astro`
+
+### Title Tag Deduplication
+
+**File:** `layouts/BaseLayout.astro`
+
+Prevents "Page Title | Indiaesque | Indiaesque" duplication:
+
+```javascript
+// Only append siteName if not already present
+const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+```
+
+### Schema URLs
+
+All schema markup uses `https://indiaesque.in` consistently:
+
+```javascript
+const siteUrl = 'https://indiaesque.in';
+```
+
+### CTA Alignment
+
+City page CTAs updated to align with editorial brand (not travel agency):
+
+```html
+<!-- Before -->
+<h2>PLAN YOUR DELHI JOURNEY</h2>
+<p>Let us help you create your perfect itinerary</p>
+<a href="/contact/">GET IN TOUCH</a>
+
+<!-- After -->
+<h2>DISCOVER MORE OF DELHI</h2>
+<p>Explore our curated guides and hidden gems</p>
+<a href="/journal/">BROWSE GUIDES</a>
+```
+
+---
+
+## 21. Footer Structure
+
+Clean, minimal footer used across the site.
+
+### Component
+
+**File:** `india-experiences/src/components/Footer.astro`
+
+### Structure
+
+```html
+<footer class="footer">
+  <div class="footer-inner">
+    <!-- Contact -->
+    <div class="footer-contact">
+      <h3 class="footer-heading">CONTACT</h3>
+      <p class="footer-tagline">Curated travel discovery across India.</p>
+      <p class="footer-email"><a href="mailto:hello@indiaesque.in">hello@indiaesque.in</a></p>
+      <p class="footer-location">New Delhi, India</p>
+    </div>
+
+    <!-- Links Grid -->
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4 class="footer-col-title">DESTINATIONS</h4>
+        <ul class="footer-links">
+          <!-- Delhi, Jaipur, Mumbai, Goa, Varanasi, Kerala -->
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">COLLECTIONS</h4>
+        <ul class="footer-links">
+          <!-- Food Tours, Heritage, Cooking, Markets, Day Trips, Art & Craft -->
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+      <p class="footer-tagline-bottom">Editorial travel platform for modern explorers.</p>
+    </div>
+  </div>
+</footer>
+```
+
+### Typography
+
+- Headings: Oswald, 12px, 400 weight, 0.2em letter-spacing
+- Body: Muli, 14-15px
+- Links: Muli, 14px, #6b7280 (hover: #2a9d8f)
 
 ---
 
