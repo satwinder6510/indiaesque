@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import cloudflare from '@astrojs/cloudflare';
 
 // Cities with actual content (exclude placeholder cities from sitemap)
+// TODO: Add cities here as content is created (e.g., 'goa', 'udaipur', 'varanasi')
 const CONTENT_CITIES = ['delhi', 'mumbai', 'jaipur', 'kolkata'];
 
 export default defineConfig({

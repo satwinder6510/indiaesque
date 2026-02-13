@@ -2,6 +2,16 @@
 
 How to create and structure content for the Indiaesque travel site.
 
+## Adding a New City
+
+When adding content for a new city:
+
+1. Create the city folder: `src/content/{city}/`
+2. Add the hub page: `src/content/{city}/_index.md`
+3. **Update sitemap**: Add city to `CONTENT_CITIES` in `astro.config.mjs`
+4. Add Tier 2 pages (experiences, where-to-stay, etc.)
+5. Run validation: `npm run validate`
+
 ## Content Location
 
 All content lives in `src/content/` organized by city:
