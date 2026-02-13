@@ -10,6 +10,27 @@ interface CityHub {
   pageCount: number;
 }
 
+interface CityStatus {
+  slug: string;
+  name: string;
+  contentBank: boolean;
+  generated: number;
+  total: number;
+}
+
+interface Page {
+  id: string;
+  title: string;
+  slug: string;
+  status: string;
+  tier: string;
+  category: string;
+}
+
+interface ContentBank {
+  pages: Page[];
+}
+
 interface BulkResearchResult {
   citySlug: string;
   cityName: string;
@@ -19,18 +40,45 @@ interface BulkResearchResult {
 }
 
 export default function ContentPage() {
-  const [cities, setCities] = useState<CityHub[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [showAddModal, setShowAddModal] = useState(false);
-  const [showBulkResearchModal, setShowBulkResearchModal] = useState(false);
+  const [activeTab, setActiveTab] = useState<"hubs" | "pages">("hubs");
   const router = useRouter();
 
+  // Hub state
+  const [cities, setCities] = useState<CityHub[]>([]);
+  const [loadingHubs, setLoadingHubs] = useState(true);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [showBulkResearchModal, setShowBulkResearchModal] = useState(false);
+
+  // Pages state
+  const [cityStatuses, setCityStatuses] = useState<CityStatus[]>([]);
+  const [selectedCity, setSelectedCity] = useState<string | null>(null);
+  const [contentBank, setContentBank] = useState<ContentBank | null>(null);
+  const [selectedPages, setSelectedPages] = useState<Set<string>>(new Set());
+  const [generating, setGenerating] = useState(false);
+  const [log, setLog] = useState<string[]>([]);
+  const [loadingPages, setLoadingPages] = useState(true);
+
+  // Load hubs data
   useEffect(() => {
     fetch("/api/content")
-      .then(r => r.json())
-      .then(data => setCities(data.cities || []))
+      .then((r) => r.json())
+      .then((data) => setCities(data.cities || []))
       .catch(console.error)
-      .finally(() => setLoading(false));
+      .finally(() => setLoadingHubs(false));
+  }, []);
+
+  // Load pages status
+  useEffect(() => {
+    fetch("/api/seo/status")
+      .then((res) => res.json())
+      .then((data) => {
+        setCityStatuses(data.cities || []);
+        setLoadingPages(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoadingPages(false);
+      });
   }, []);
 
   const handleLogout = async () => {
@@ -38,17 +86,86 @@ export default function ContentPage() {
     router.push("/login");
   };
 
+  const loadContentBank = async (citySlug: string) => {
+    setSelectedCity(citySlug);
+    const res = await fetch(`/api/seo/content-bank/${citySlug}`);
+    const data = await res.json();
+    setContentBank(data);
+    setSelectedPages(new Set());
+  };
+
+  const togglePage = (pageId: string) => {
+    const newSet = new Set(selectedPages);
+    if (newSet.has(pageId)) {
+      newSet.delete(pageId);
+    } else {
+      newSet.add(pageId);
+    }
+    setSelectedPages(newSet);
+  };
+
+  const selectAllPending = () => {
+    if (!contentBank) return;
+    const pending = contentBank.pages.filter((p) => p.status !== "generated");
+    setSelectedPages(new Set(pending.map((p) => p.id)));
+  };
+
+  const generateSelected = async () => {
+    if (!selectedCity || selectedPages.size === 0) return;
+    setGenerating(true);
+    setLog(["Starting generation..."]);
+
+    for (const pageId of selectedPages) {
+      const page = contentBank?.pages.find((p) => p.id === pageId);
+      setLog((prev) => [...prev, `Generating: ${page?.title || pageId}...`]);
+
+      try {
+        const res = await fetch("/api/seo/generate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ city: selectedCity, pageId }),
+        });
+        const result = await res.json();
+        if (result.success) {
+          setLog((prev) => [...prev, `  Generated: ${page?.title}`]);
+        } else {
+          setLog((prev) => [...prev, `  Failed: ${page?.title} - ${result.error}`]);
+        }
+      } catch {
+        setLog((prev) => [...prev, `  Error: ${page?.title}`]);
+      }
+    }
+
+    setLog((prev) => [...prev, "Done!"]);
+    setGenerating(false);
+    loadContentBank(selectedCity);
+  };
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case "generated":
+        return "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400";
+      case "pending":
+        return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400";
+      default:
+        return "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-400";
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[var(--background)]">
       <header className="bg-[var(--background-card)] border-b border-[var(--border)]">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Link href="/" className="w-10 h-10 rounded-xl bg-[var(--primary)] text-white flex items-center justify-center font-bold hover:bg-[var(--primary-light)] transition-colors">
+            <Link
+              href="/"
+              className="w-10 h-10 rounded-xl bg-[var(--primary)] text-white flex items-center justify-center font-bold hover:bg-[var(--primary-light)] transition-colors"
+            >
               IE
             </Link>
             <div>
-              <h1 className="font-semibold text-[var(--foreground)]">Content Hubs</h1>
-              <p className="text-sm text-[var(--foreground-muted)]">City guides & sub-pages</p>
+              <h1 className="font-semibold text-[var(--foreground)]">Content</h1>
+              <p className="text-sm text-[var(--foreground-muted)]">City hubs & pages</p>
             </div>
           </div>
           <button
@@ -71,76 +188,236 @@ export default function ContentPage() {
           Back to Dashboard
         </Link>
 
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <h2 className="text-2xl font-bold text-[var(--foreground)]">Content Hubs</h2>
-            <p className="text-[var(--foreground-muted)] mt-1">
-              Manage city hub pages and their sub-pages
-            </p>
-          </div>
-          <div className="flex items-center gap-3">
-            {cities.length > 0 && (
-              <button
-                onClick={() => setShowBulkResearchModal(true)}
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white font-medium rounded-xl shadow-lg transition-all"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-                Bulk Research
-              </button>
-            )}
-            <button
-              onClick={() => setShowAddModal(true)}
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-[var(--primary)] hover:bg-[var(--primary-light)] text-white font-medium rounded-xl shadow-lg transition-all"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-              </svg>
-              Add City Hub
-            </button>
-          </div>
+        {/* Tabs */}
+        <div className="flex gap-2 mb-6">
+          <button
+            onClick={() => setActiveTab("hubs")}
+            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+              activeTab === "hubs"
+                ? "bg-[var(--primary)] text-white"
+                : "bg-[var(--background-card)] text-[var(--foreground-muted)] hover:text-[var(--foreground)] border border-[var(--border)]"
+            }`}
+          >
+            City Hubs
+          </button>
+          <button
+            onClick={() => setActiveTab("pages")}
+            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+              activeTab === "pages"
+                ? "bg-[var(--primary)] text-white"
+                : "bg-[var(--background-card)] text-[var(--foreground-muted)] hover:text-[var(--foreground)] border border-[var(--border)]"
+            }`}
+          >
+            Pages
+          </button>
         </div>
 
-        {loading ? (
-          <div className="bg-[var(--background-card)] rounded-2xl border border-[var(--border)] p-8 text-center text-[var(--foreground-muted)]">
-            Loading...
-          </div>
-        ) : cities.length === 0 ? (
-          <div className="bg-[var(--background-card)] rounded-2xl border border-[var(--border)] p-12 text-center">
-            <svg className="w-12 h-12 mx-auto mb-4 text-[var(--foreground-muted)] opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
-            <h3 className="text-lg font-semibold text-[var(--foreground)] mb-2">No city hubs yet</h3>
-            <p className="text-[var(--foreground-muted)] mb-4">Create your first city hub to get started.</p>
-          </div>
-        ) : (
-          <div className="grid gap-4">
-            {cities.map(city => (
-              <Link
-                key={city.slug}
-                href={`/content/${city.slug}`}
-                className="block bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)] hover:border-[var(--primary)] hover:shadow-lg transition-all group"
-              >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-xl font-semibold text-[var(--foreground)] mb-1">{city.name}</h3>
-                    <p className="text-[var(--foreground-muted)] text-sm">
-                      {city.pageCount} sub-page{city.pageCount !== 1 ? "s" : ""}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[var(--primary)] font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
-                      Edit Hub
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </span>
+        {/* City Hubs Tab */}
+        {activeTab === "hubs" && (
+          <>
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold text-[var(--foreground)]">City Hubs</h2>
+                <p className="text-[var(--foreground-muted)] mt-1">Manage city landing pages</p>
+              </div>
+              <div className="flex items-center gap-3">
+                {cities.length > 0 && (
+                  <button
+                    onClick={() => setShowBulkResearchModal(true)}
+                    className="inline-flex items-center gap-2 px-4 py-2.5 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white font-medium rounded-xl shadow-lg transition-all"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      />
+                    </svg>
+                    Bulk Research
+                  </button>
+                )}
+                <button
+                  onClick={() => setShowAddModal(true)}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 bg-[var(--primary)] hover:bg-[var(--primary-light)] text-white font-medium rounded-xl shadow-lg transition-all"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                  </svg>
+                  Add City Hub
+                </button>
+              </div>
+            </div>
+
+            {loadingHubs ? (
+              <div className="bg-[var(--background-card)] rounded-2xl border border-[var(--border)] p-8 text-center text-[var(--foreground-muted)]">
+                Loading...
+              </div>
+            ) : cities.length === 0 ? (
+              <div className="bg-[var(--background-card)] rounded-2xl border border-[var(--border)] p-12 text-center">
+                <svg
+                  className="w-12 h-12 mx-auto mb-4 text-[var(--foreground-muted)] opacity-50"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  />
+                </svg>
+                <h3 className="text-lg font-semibold text-[var(--foreground)] mb-2">No city hubs yet</h3>
+                <p className="text-[var(--foreground-muted)] mb-4">Create your first city hub to get started.</p>
+              </div>
+            ) : (
+              <div className="grid gap-4">
+                {cities.map((city) => (
+                  <Link
+                    key={city.slug}
+                    href={`/content/${city.slug}`}
+                    className="block bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)] hover:border-[var(--primary)] hover:shadow-lg transition-all group"
+                  >
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="text-xl font-semibold text-[var(--foreground)] mb-1">{city.name}</h3>
+                        <p className="text-[var(--foreground-muted)] text-sm">
+                          {city.pageCount} sub-page{city.pageCount !== 1 ? "s" : ""}
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-[var(--primary)] font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                          Edit Hub
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </>
+        )}
+
+        {/* Pages Tab */}
+        {activeTab === "pages" && (
+          <>
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold text-[var(--foreground)]">Content Pages</h2>
+                <p className="text-[var(--foreground-muted)] mt-1">Generate and manage article pages</p>
+              </div>
+            </div>
+
+            {/* City Status Overview */}
+            <div className="bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)] mb-6">
+              <h3 className="text-lg font-semibold mb-4">City Status</h3>
+              {loadingPages ? (
+                <p className="text-[var(--foreground-muted)]">Loading...</p>
+              ) : (
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {cityStatuses.map((city) => (
+                    <button
+                      key={city.slug}
+                      onClick={() => loadContentBank(city.slug)}
+                      className={`p-4 rounded-xl border text-left transition-all ${
+                        selectedCity === city.slug
+                          ? "border-[var(--primary)] bg-[var(--primary)]/5"
+                          : "border-[var(--border)] hover:border-[var(--primary)]/50"
+                      }`}
+                    >
+                      <div className="font-semibold capitalize">{city.name}</div>
+                      <div className="text-sm text-[var(--foreground-muted)]">
+                        {city.generated}/{city.total} pages
+                      </div>
+                      <div className="mt-2 h-1.5 bg-[var(--border)] rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-[var(--primary)] rounded-full"
+                          style={{ width: city.total ? `${(city.generated / city.total) * 100}%` : "0%" }}
+                        />
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Content Bank for Selected City */}
+            {selectedCity && contentBank && (
+              <div className="bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)] mb-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-lg font-semibold capitalize">{selectedCity} Pages</h3>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={selectAllPending}
+                      className="px-3 py-1.5 text-sm bg-[var(--background)] rounded-lg border border-[var(--border)] hover:border-[var(--primary)] transition-colors"
+                    >
+                      Select Pending
+                    </button>
+                    <button
+                      onClick={generateSelected}
+                      disabled={generating || selectedPages.size === 0}
+                      className="px-4 py-1.5 bg-[var(--primary)] text-white rounded-lg font-medium disabled:opacity-50 transition-colors"
+                    >
+                      {generating ? "Generating..." : `Generate (${selectedPages.size})`}
+                    </button>
                   </div>
                 </div>
-              </Link>
-            ))}
-          </div>
+
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b border-[var(--border)]">
+                        <th className="w-10 py-3 px-4"></th>
+                        <th className="text-left py-3 px-4 text-sm font-medium text-[var(--foreground-muted)]">Title</th>
+                        <th className="text-left py-3 px-4 text-sm font-medium text-[var(--foreground-muted)]">Slug</th>
+                        <th className="text-left py-3 px-4 text-sm font-medium text-[var(--foreground-muted)]">Tier</th>
+                        <th className="text-left py-3 px-4 text-sm font-medium text-[var(--foreground-muted)]">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {contentBank.pages.map((page) => (
+                        <tr key={page.id} className="border-b border-[var(--border)]">
+                          <td className="py-3 px-4">
+                            <input
+                              type="checkbox"
+                              checked={selectedPages.has(page.id)}
+                              onChange={() => togglePage(page.id)}
+                              disabled={page.status === "generated"}
+                              className="w-4 h-4 rounded"
+                            />
+                          </td>
+                          <td className="py-3 px-4 text-sm">{page.title}</td>
+                          <td className="py-3 px-4 text-sm text-[var(--foreground-muted)] font-mono">{page.slug}</td>
+                          <td className="py-3 px-4 text-sm">{page.tier}</td>
+                          <td className="py-3 px-4">
+                            <span className={`px-2 py-1 rounded text-xs font-medium ${getStatusColor(page.status)}`}>
+                              {page.status}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
+            {/* Generation Log */}
+            {log.length > 0 && (
+              <div className="bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)]">
+                <h3 className="text-lg font-semibold mb-4">Generation Log</h3>
+                <div className="bg-gray-900 text-green-400 font-mono text-sm p-4 rounded-lg max-h-64 overflow-y-auto">
+                  {log.map((line, i) => (
+                    <div key={i}>{line}</div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </>
         )}
       </main>
 
@@ -148,7 +425,7 @@ export default function ContentPage() {
         <AddHubModal
           onClose={() => setShowAddModal(false)}
           onSuccess={(hub) => {
-            setCities(prev => [...prev, { slug: hub.slug, name: hub.name, pageCount: 0 }]);
+            setCities((prev) => [...prev, { slug: hub.slug, name: hub.name, pageCount: 0 }]);
             setShowAddModal(false);
             router.push(`/content/${hub.slug}`);
           }}
@@ -156,10 +433,7 @@ export default function ContentPage() {
       )}
 
       {showBulkResearchModal && (
-        <BulkResearchModal
-          cities={cities}
-          onClose={() => setShowBulkResearchModal(false)}
-        />
+        <BulkResearchModal cities={cities} onClose={() => setShowBulkResearchModal(false)} />
       )}
     </div>
   );
@@ -179,7 +453,12 @@ function AddHubModal({
 
   const handleNameChange = (value: string) => {
     setName(value);
-    setSlug(value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""));
+    setSlug(
+      value
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "")
+    );
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -276,17 +555,10 @@ function AddHubModal({
   );
 }
 
-function BulkResearchModal({
-  cities,
-  onClose,
-}: {
-  cities: CityHub[];
-  onClose: () => void;
-}) {
+function BulkResearchModal({ cities, onClose }: { cities: CityHub[]; onClose: () => void }) {
   const [selectedCities, setSelectedCities] = useState<Set<string>>(new Set());
   const [researching, setResearching] = useState(false);
   const [results, setResults] = useState<BulkResearchResult[]>([]);
-  const [currentCity, setCurrentCity] = useState<string | null>(null);
 
   const toggleCity = (slug: string) => {
     setSelectedCities((prev) => {
@@ -336,7 +608,6 @@ function BulkResearchModal({
       console.error("Bulk research failed:", err);
     } finally {
       setResearching(false);
-      setCurrentCity(null);
     }
   };
 
@@ -398,9 +669,6 @@ function BulkResearchModal({
                       className="w-4 h-4 rounded border-[var(--border)] text-[var(--primary)]"
                     />
                     <span className="text-[var(--foreground)]">{city.name}</span>
-                    {currentCity === city.slug && (
-                      <span className="ml-auto text-xs text-[var(--primary)]">Researching...</span>
-                    )}
                   </label>
                 ))}
               </div>
@@ -433,9 +701,7 @@ function BulkResearchModal({
                         <span className="text-xs text-red-600 dark:text-red-400">Failed</span>
                       )}
                     </div>
-                    {result.error && (
-                      <p className="text-xs text-red-600 dark:text-red-400 mt-1">{result.error}</p>
-                    )}
+                    {result.error && <p className="text-xs text-red-600 dark:text-red-400 mt-1">{result.error}</p>}
                   </div>
                 ))}
               </div>
