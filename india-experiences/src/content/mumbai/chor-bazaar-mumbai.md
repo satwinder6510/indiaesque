@@ -21,7 +21,7 @@ relatedPages:
 parentPage: "/mumbai/"
 faq:
   - question: "What can you buy at Chor Bazaar Mumbai?"
-    answer: "Chor Bazaar offers antique furniture, vintage gramophones, old clocks, typewriters, Bollywood movie posters, vintage cameras, colonial-era artifacts, brassware, and unique collectibles. The market specializes in second-hand and antique items with plenty of authentic vintage finds."
+    answer: "Chor Bazaar offers antique furniture, vintage gramophones, old clocks, typewriters, Bollywood movie posters, vintage cameras, colonial-era artifacts, brassware, and rare collectibles. The market specializes in second-hand and antique items with plenty of authentic vintage finds."
   - question: "What are the best timings to visit Chor Bazaar?"
     answer: "Visit Chor Bazaar between 9am-12pm on weekdays for the best selection and less crowded lanes. The market opens at 11am on most days but closes completely on Fridays. Avoid afternoons when it gets extremely crowded and hot."
   - question: "How much should you bargain at Chor Bazaar?"
@@ -34,7 +34,7 @@ tags:
 
 **Chor Bazaar, Mumbai's famous "Thieves Market," is a sprawling antique market near Mohammed Ali Road where you can find vintage furniture, Bollywood memorabilia, and colonial artifacts. Visit between 9am-12pm (closed Fridays) and bargain hard - expect to pay 30-50% of the initial quoted price.**
 
-Located in the heart of Mumbai's Muslim quarter, Chor Bazaar has been operating since the British era when it was known as "Shor Bazaar" (noisy market). The British mispronounced it as "Chor" (thief), and the name stuck. Today, this maze of narrow lanes houses one of India's largest markets for antiques, vintage items, and curiosities.
+Located in Mumbai's Muslim quarter, Chor Bazaar has been operating since the British era when it was known as "Shor Bazaar" (noisy market). The British mispronounced it as "Chor" (thief), and the name stuck. Today, this maze of narrow lanes houses one of India's largest markets for antiques, vintage items, and curiosities.
 
 ## Getting to Chor Bazaar
 
@@ -56,7 +56,7 @@ Working gramophones start at ₹8,000 ($95), while vintage radios cost ₹3,000-
 ### Brassware and Artifacts
 British-era brass items, old coins, stamps, and decorative pieces are abundant. Brass figurines start at ₹500 ($6), while larger pieces like vintage scales or nautical instruments cost ₹2,000-8,000 ($24-95).
 
-## Mastering the Art of Haggling
+## How to Haggle
 
 Start by offering 30% of the quoted price. Sellers typically inflate prices by 200-300%, so aggressive bargaining is expected. Walk away if they don't budge - this often brings better offers. For items above ₹10,000 ($120), negotiate for 10-15 minutes and expect to settle at 40-50% of the initial price.
 
@@ -88,7 +88,7 @@ Chor Bazaar is just one of Mumbai's fascinating marketplaces. For a comprehensiv
 
 Wear comfortable shoes as you'll walk on uneven surfaces and narrow lanes. Keep valuables secure - while generally safe, crowded areas attract pickpockets. Carry a measuring tape for furniture purchases and arrange transport for large items beforehand.
 
-Many shop owners speak English, but basic Hindi helps with better prices. Don't hesitate to ask about the history of items - dealers often share fascinating stories about their pieces' origins.
+Many shop owners speak English, but basic Hindi helps with better prices. Ask about the history of items - dealers often share fascinating stories about their pieces' origins.
 
 Take photos of items you're considering but visit other shops first. Return to make final decisions after seeing all options available in your budget range.
 
@@ -96,7 +96,7 @@ Take photos of items you're considering but visit other shops first. Return to m
 
 ### What can you buy at Chor Bazaar Mumbai?
 
-Chor Bazaar offers antique furniture, vintage gramophones, old clocks, typewriters, Bollywood movie posters, vintage cameras, colonial-era artifacts, brassware, and unique collectibles. The market specializes in second-hand and antique items with plenty of authentic vintage finds.
+Chor Bazaar offers antique furniture, vintage gramophones, old clocks, typewriters, Bollywood movie posters, vintage cameras, colonial-era artifacts, brassware, and rare collectibles. The market specializes in second-hand and antique items with plenty of authentic vintage finds.
 
 ### What are the best timings to visit Chor Bazaar?
 

@@ -1,0 +1,79 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-02-13",
+  "description": "Synonym clusters for detecting AI synonym cycling patterns",
+  "groups": {
+    "size_big": {
+      "words": ["large", "spacious", "roomy", "expansive", "vast", "enormous", "huge", "massive", "grand", "big", "extensive", "ample", "generous", "substantial"],
+      "context": "describing size or space"
+    },
+    "size_small": {
+      "words": ["small", "tiny", "compact", "cozy", "intimate", "petite", "little", "modest", "miniature", "cramped", "snug"],
+      "context": "describing small size"
+    },
+    "beauty": {
+      "words": ["beautiful", "stunning", "gorgeous", "breathtaking", "magnificent", "lovely", "pretty", "exquisite", "striking", "picturesque", "scenic", "attractive", "charming"],
+      "context": "describing visual appeal"
+    },
+    "taste_good": {
+      "words": ["delicious", "tasty", "flavorful", "scrumptious", "delectable", "appetizing", "savory", "yummy", "mouthwatering", "palatable", "succulent"],
+      "context": "describing good taste"
+    },
+    "old_ancient": {
+      "words": ["old", "ancient", "historic", "historical", "age-old", "antique", "vintage", "timeless", "centuries-old", "traditional", "classic", "time-honored"],
+      "context": "describing age or history"
+    },
+    "busy_active": {
+      "words": ["busy", "bustling", "crowded", "hectic", "lively", "vibrant", "teeming", "swarming", "thriving", "buzzing", "animated", "active"],
+      "context": "describing activity level"
+    },
+    "good_quality": {
+      "words": ["good", "great", "excellent", "wonderful", "fantastic", "amazing", "superb", "outstanding", "exceptional", "remarkable", "terrific", "fabulous", "marvelous"],
+      "context": "general positive quality"
+    },
+    "important": {
+      "words": ["important", "significant", "crucial", "vital", "essential", "key", "major", "critical", "fundamental", "paramount", "central", "principal"],
+      "context": "describing importance"
+    },
+    "easy": {
+      "words": ["easy", "simple", "straightforward", "effortless", "convenient", "hassle-free", "smooth", "uncomplicated", "painless", "trouble-free"],
+      "context": "describing ease"
+    },
+    "cheap": {
+      "words": ["cheap", "affordable", "inexpensive", "budget-friendly", "economical", "reasonable", "low-cost", "budget", "bargain", "value"],
+      "context": "describing low cost"
+    },
+    "expensive": {
+      "words": ["expensive", "pricey", "costly", "upscale", "high-end", "premium", "luxurious", "exclusive", "lavish", "extravagant"],
+      "context": "describing high cost"
+    },
+    "clean": {
+      "words": ["clean", "spotless", "immaculate", "pristine", "tidy", "well-maintained", "neat", "sparkling", "sanitary", "hygienic"],
+      "context": "describing cleanliness"
+    },
+    "unique": {
+      "words": ["unique", "distinctive", "one-of-a-kind", "special", "exceptional", "unparalleled", "incomparable", "singular", "rare", "unusual"],
+      "context": "describing uniqueness"
+    },
+    "fast": {
+      "words": ["fast", "quick", "rapid", "speedy", "swift", "prompt", "brisk", "hasty", "expedient", "immediate"],
+      "context": "describing speed"
+    },
+    "slow": {
+      "words": ["slow", "leisurely", "unhurried", "gradual", "relaxed", "measured", "deliberate", "sluggish", "lazy"],
+      "context": "describing slowness"
+    },
+    "interesting": {
+      "words": ["interesting", "fascinating", "intriguing", "captivating", "engaging", "compelling", "absorbing", "enthralling", "riveting", "gripping"],
+      "context": "describing interest level"
+    },
+    "calm_peaceful": {
+      "words": ["calm", "peaceful", "tranquil", "serene", "quiet", "relaxing", "soothing", "placid", "restful", "idyllic"],
+      "context": "describing peacefulness"
+    },
+    "friendly": {
+      "words": ["friendly", "welcoming", "hospitable", "warm", "cordial", "amiable", "approachable", "gracious", "kind", "helpful"],
+      "context": "describing friendliness"
+    }
+  }
+}

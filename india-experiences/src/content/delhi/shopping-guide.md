@@ -93,7 +93,7 @@ Delhi offers everything from centuries-old bazaars to modern malls. Here's where
 **Best for:** Books, upscale boutiques, coffee, gifts for people with taste
 
 **Key stores:**
-- **Bahrisons** — legendary bookstore since 1953
+- **Bahrisons** — Delhi's oldest independent bookstore, since 1953
 - **Full Circle** — another excellent bookshop
 - **Good Earth** — premium Indian homewares
 - **Anokhi** — block-printed clothing and home textiles

@@ -33,11 +33,11 @@ tags:
   - "first-time"
 ---
 
-Kolkata delivers an authentic Indian experience unlike any other major city. As Bengal's cultural capital and India's former colonial headquarters, this city of 15 million people offers incredible architecture, legendary street food, and warm locals who take pride in their literary and artistic heritage. You'll find everything from 200-year-old heritage buildings to contemporary art galleries, traditional hand-pulled rickshaws alongside modern metros, and some of the country's most passionate food culture.
+Kolkata delivers an authentic Indian experience that other major cities can't match. As Bengal's cultural capital and India's former colonial headquarters, this city of 15 million people offers colonial architecture dating to the 1700s, street food that draws visitors from across India, and warm locals who take pride in their literary and artistic heritage. You'll find everything from 200-year-old heritage buildings to contemporary art galleries, traditional hand-pulled rickshaws alongside modern metros, and some of the country's most passionate food culture.
 
 ## Top Attractions and Heritage Sites
 
-**Victoria Memorial** stands as Kolkata's most iconic landmark. This white marble monument houses an impressive collection of British-era artifacts, paintings, and sculptures. Entry costs ₹30 ($0.36) for Indians and ₹500 ($6) for foreigners. The surrounding gardens make for excellent evening walks. Take the metro to Maidan station and walk 10 minutes.
+**Victoria Memorial** is Kolkata's most recognizable landmark. This white marble monument houses an impressive collection of British-era artifacts, paintings, and sculptures. Entry costs ₹30 ($0.36) for Indians and ₹500 ($6) for foreigners. The surrounding gardens make for excellent evening walks. Take the metro to Maidan station and walk 10 minutes.
 
 **Howrah Bridge** connects Kolkata to Howrah across the Hooghly River. This cantilever bridge carries over 100,000 vehicles daily and offers spectacular sunrise and sunset views. Walk across early morning (6-7 AM) to avoid crowds and capture the best photos. The nearby Mullik Ghat Flower Market operates from 4 AM onwards.
 
@@ -241,7 +241,7 @@ For comprehensive practical advice, check our detailed [travel tips guide](/kolk
 
 **Bishnupur** (4 hours) features terracotta temples and traditional handicrafts. This makes an excellent cultural day trip for architecture enthusiasts.
 
-**Mayapur** (2 hours) serves as ISKCON's world headquarters with impressive temple complexes and spiritual programs.
+**Mayapur** (2 hours) is ISKCON's world headquarters with impressive temple complexes and spiritual programs.
 
 ## Understanding Kolkata's Cultural Significance
 

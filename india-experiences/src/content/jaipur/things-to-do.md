@@ -20,7 +20,7 @@ faq:
   - question: "What are the best things to do in Jaipur?"
     answer: "Must-do: Amber Fort at sunrise, Nahargarh sunset, City Palace, Hawa Mahal photos, bazaar shopping. Add: cooking class, block printing workshop, Chokhi Dhani cultural evening. Three days lets you experience all of this."
   - question: "Is Jaipur worth visiting?"
-    answer: "Absolutely. Jaipur offers some of India's finest forts and palaces, vibrant markets, excellent food, and accessible cultural experiences. It's more manageable than Delhi, has better hotels than Agra, and captures Rajasthan's royal heritage perfectly."
+    answer: "Yes. Jaipur offers some of India's best forts and palaces, vibrant markets, excellent food, and accessible cultural experiences. It's more manageable than Delhi, has better hotels than Agra, and captures Rajasthan's royal heritage perfectly."
   - question: "What are the best photography spots in Jaipur?"
     answer: "Best shots: Hawa Mahal from Wind View Cafe, Amber Fort at sunrise, Nahargarh sunset over city, Panna Meena ka Kund stepwell, Patrika Gate, City Palace courtyards. Early morning offers best light and fewer crowds."
 relatedPages:
@@ -41,7 +41,7 @@ Jaipur rewards every type of traveller — history buffs, shoppers, foodies, pho
 
 ### Watch Sunrise at Amber Fort
 
-The morning light on Amber Fort's sandstone walls is magical. Arrive at 8 AM opening, before crowds and heat. Spend 2-3 hours exploring.
+The morning light on Amber Fort's sandstone walls is striking. Arrive at 8 AM opening, before crowds and heat. Spend 2-3 hours exploring.
 
 ### Sunset from Nahargarh
 
@@ -53,7 +53,7 @@ Johari Bazaar for jewels, Bapu Bazaar for textiles, Tripolia for bangles. The ch
 
 ### Photograph Hawa Mahal
 
-The iconic 953-window facade. Best photographed from Wind View Cafe across the street, morning light.
+The famous 953-window facade. Best photographed from Wind View Cafe across the street, morning light.
 
 ### Experience Chokhi Dhani
 

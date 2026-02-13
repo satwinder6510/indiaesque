@@ -34,28 +34,28 @@ tags:
   - "outdoors"
 ---
 
-**Park Street is Kolkata's premier dining and entertainment district, famous for iconic restaurants like Peter Cat and Mocambo, vibrant nightlife, spectacular Christmas celebrations, and the historic Park Street Cemetery.**
+**Park Street is Kolkata's premier dining and entertainment district, famous for classic restaurants like Peter Cat and Mocambo, vibrant nightlife, spectacular Christmas celebrations, and the historic Park Street Cemetery.**
 
-This legendary street stretches from Park Circus to Chowringhee, packed with colonial-era buildings housing some of India's most famous restaurants and bars. You'll find everything from heritage eateries to modern pubs along this 2-kilometer stretch.
+This storied street stretches from Park Circus to Chowringhee, packed with colonial-era buildings housing some of India's most famous restaurants and bars. You'll find everything from heritage eateries to modern pubs along this 2-kilometer stretch.
 
 ## Famous Restaurants on Park Street
 
 ### Peter Cat
-The undisputed king of Park Street dining, Peter Cat has served its legendary Chelo Kebabs since 1975. The sizzling platter of mutton kebabs with Persian rice costs ₹650 ($8) and comes with their famous brown sauce. Expect a 30-45 minute wait during peak hours - no reservations accepted for the main dining hall.
+The defining restaurant of Park Street, Peter Cat has served its signature Chelo Kebabs since 1975. The sizzling platter of mutton kebabs with Persian rice costs ₹650 ($8) and comes with their famous brown sauce. Expect a 30-45 minute wait during peak hours - no reservations accepted for the main dining hall.
 
 The restaurant maintains a smart casual dress code. Shorts and flip-flops aren't allowed in the evening. Peak hours are 7:30-9:30 PM when queues stretch outside.
 
 ### Mocambo
-This art deco restaurant from 1956 serves Continental cuisine in an elegant setting. Their Deviled Crab (₹850/$10) and Continental Platter (₹1200/$14) are exceptional. Unlike Peter Cat, Mocambo accepts reservations - book 2-3 days ahead for weekend dinners.
+This art deco restaurant from 1956 serves Continental cuisine in an elegant setting. Their Deviled Crab (₹850/$10) and Continental Platter (₹1200/$14) are standouts. Unlike Peter Cat, Mocambo accepts reservations - book 2-3 days ahead for weekend dinners.
 
 Smart casual dress required. Expect to spend ₹800-1500 ($10-18) per person including drinks.
 
 ### Trincas
-More than just a restaurant, Trincas combines dining with live music. Their Thursday jazz nights and weekend bands create an authentic Park Street experience. Food is decent but you come here for the atmosphere. Cover charges apply during live shows (₹300-500/$4-6).
+Trincas combines dining with live music. Their Thursday jazz nights and weekend bands create an authentic Park Street experience. Food is decent but you come here for the atmosphere. Cover charges apply during live shows (₹300-500/$4-6).
 
 ## Nightlife and Entertainment
 
-Park Street transforms after dark. Someplace Else at The Park Hotel hosts live bands and DJs, with entry fees of ₹800-1500 ($10-18) including drinks. Shisha at The Astor Hotel offers a more upscale experience.
+Park Street comes alive after dark. Someplace Else at The Park Hotel hosts live bands and DJs, with entry fees of ₹800-1500 ($10-18) including drinks. Shisha at The Astor Hotel offers a more upscale experience.
 
 Most bars close by 1 AM except on New Year's Eve when special permits extend hours. Dress codes are strict - collared shirts for men, no sportswear.
 
@@ -63,7 +63,7 @@ For [food tours](/kolkata/food-tours/) that include Park Street's famous eaterie
 
 ## Christmas on Park Street
 
-December transforms Park Street into Kolkata's Christmas capital. Elaborate decorations, carol singers, and midnight mass at St. Paul's Cathedral create a festive atmosphere unmatched in India.
+December transforms Park Street into Kolkata's Christmas capital. Elaborate decorations, carol singers, and midnight mass at St. Paul's Cathedral create a festive atmosphere rarely seen elsewhere in India.
 
 The celebrations peak between December 20-25 when crowds swell to over 100,000 people nightly. Hotels like The Park and The Astor organize special Christmas Eve parties (₹3000-5000/$36-60 per person).
 
@@ -79,7 +79,7 @@ For serious shopping, head to [Kolkata's best markets](/kolkata/markets-shopping
 
 The South Park Street Cemetery, established in 1767, houses elaborate tombs of British colonial officials. Entry costs ₹20 ($0.25) for Indians, ₹100 ($1.20) for foreigners. Open 9 AM-5 PM daily except Mondays.
 
-This peaceful spot contrasts sharply with Park Street's commercial energy. The cemetery features some of Kolkata's finest colonial architecture and provides insight into British colonial history. Include it in your [heritage sites](/kolkata/heritage-sites/) exploration.
+This peaceful spot contrasts sharply with Park Street's commercial energy. The cemetery features notable colonial architecture and provides insight into British colonial history. Include it in your [heritage sites](/kolkata/heritage-sites/) exploration.
 
 ## Parking and Transportation
 

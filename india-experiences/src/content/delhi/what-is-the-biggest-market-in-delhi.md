@@ -19,7 +19,7 @@ faq:
   - question: "How old is Chandni Chowk market?"
     answer: "Chandni Chowk was built in 1650 by Jahanara Begum, the daughter of Mughal Emperor Shah Jahan, as the main commercial street of Shahjahanabad (Old Delhi). The market has operated continuously for over 375 years, making it one of the oldest functioning markets in India."
   - question: "What is Chandni Chowk famous for?"
-    answer: "Chandni Chowk is famous for its specialised lanes — each one dedicated to a specific product like spices, silver, textiles, electronics, wedding supplies, or books. It's also known for legendary street food spots like Paranthe Wali Gali, Karim's, and Natraj Dahi Bhalle. The market sits between Red Fort and Fatehpuri Masjid along Old Delhi's main axis."
+    answer: "Chandni Chowk is famous for its specialised lanes — each one dedicated to a specific product like spices, silver, textiles, electronics, wedding supplies, or books. It's also known for famous street food spots like Paranthe Wali Gali, Karim's, and Natraj Dahi Bhalle. The market sits between Red Fort and Fatehpuri Masjid along Old Delhi's main axis."
 relatedPages:
   - /delhi/markets-shopping/
   - /delhi/things-to-do-in-old-delhi-chandni-chowk/
@@ -107,4 +107,4 @@ Chandni Chowk was built in 1650 by Jahanara Begum, the daughter of Mughal Empero
 
 ## What Is Chandni Chowk Famous For?
 
-Chandni Chowk is famous for its specialised lanes — each one dedicated to a specific product like spices, silver, textiles, electronics, wedding supplies, or books. It's also known for legendary street food spots like Paranthe Wali Gali, Karim's, and Natraj Dahi Bhalle. The market sits between Red Fort and Fatehpuri Masjid along Old Delhi's main axis.
+Chandni Chowk is famous for its specialised lanes — each one dedicated to a specific product like spices, silver, textiles, electronics, wedding supplies, or books. It's also known for famous street food spots like Paranthe Wali Gali, Karim's, and Natraj Dahi Bhalle. The market sits between Red Fort and Fatehpuri Masjid along Old Delhi's main axis.

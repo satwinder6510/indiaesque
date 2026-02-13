@@ -30,34 +30,60 @@ async function retryWithBackoff(fn, maxRetries = 5, baseDelay = 5000) {
   }
 }
 
-// Banned phrases from technical architecture
-const BANNED_PHRASES = [
-  'in conclusion',
-  "it's worth noting",
-  'delve into',
-  'vibrant tapestry',
-  'bustling metropolis',
-  'hidden gem',
-  'kaleidoscope of',
-  'rich tapestry',
-  'feast for the senses',
-  'a must-visit',
-  'nestled in',
-  'whether you\'re a',
-  'from ... to ...',
-  'embark on a journey',
-  'immerse yourself',
-  'plethora of',
-  'myriad of',
-  'a testament to',
-  'unparalleled',
-  'breathtaking',
-  'awe-inspiring',
-  'unforgettable experience',
-  'perfect blend of',
-  'seamlessly blends',
-  'caters to every taste'
-];
+// Load banned phrases from JSON
+let BANNED_PHRASES_CACHE = null;
+
+async function loadBannedPhrases() {
+  if (BANNED_PHRASES_CACHE) return BANNED_PHRASES_CACHE;
+
+  try {
+    const phrasesPath = path.join(__dirname, '..', '..', '..', 'data', 'banned-phrases.json');
+    const data = await fs.readFile(phrasesPath, 'utf-8');
+    const phrasesData = JSON.parse(data);
+
+    // Flatten all phrases into a single array
+    const allPhrases = [];
+    for (const [category, categoryData] of Object.entries(phrasesData.categories)) {
+      allPhrases.push(...categoryData.phrases);
+    }
+
+    BANNED_PHRASES_CACHE = {
+      flat: allPhrases,
+      categorized: phrasesData.categories
+    };
+
+    return BANNED_PHRASES_CACHE;
+  } catch (err) {
+    console.error('Failed to load banned-phrases.json:', err.message);
+    // Fallback to basic list
+    return {
+      flat: [
+        'in conclusion', "it's worth noting", 'delve into', 'vibrant tapestry',
+        'bustling metropolis', 'hidden gem', 'rich tapestry', 'feast for the senses',
+        'must-visit', 'embark on a journey', 'immerse yourself', 'plethora of',
+        'myriad of', 'unparalleled', 'breathtaking', 'unforgettable experience'
+      ],
+      categorized: {}
+    };
+  }
+}
+
+// Format banned phrases for prompt injection (grouped by category for clarity)
+async function formatBannedPhrasesForPrompt() {
+  const phrases = await loadBannedPhrases();
+
+  if (Object.keys(phrases.categorized).length === 0) {
+    return phrases.flat.join(', ');
+  }
+
+  let formatted = '';
+  for (const [category, data] of Object.entries(phrases.categorized)) {
+    const categoryName = category.replace(/_/g, ' ').toUpperCase();
+    formatted += `\n**${categoryName}:** ${data.phrases.slice(0, 8).join(', ')}${data.phrases.length > 8 ? '...' : ''}`;
+  }
+
+  return formatted;
+}
 
 async function loadTemplate(templateName) {
   try {
@@ -69,7 +95,7 @@ async function loadTemplate(templateName) {
   }
 }
 
-function buildPrompt(page, contentBank, cities, categories, templateContent) {
+async function buildPrompt(page, contentBank, cities, categories, templateContent) {
   const cityInfo = cities.find(c => c.slug === contentBank.city);
   const cityName = cityInfo?.name || contentBank.cityName;
 
@@ -84,6 +110,9 @@ function buildPrompt(page, contentBank, cities, categories, templateContent) {
     .filter(p => p.type === 'category')
     .map(p => ({ title: p.title, slug: `/${contentBank.city}/${p.slug}/` }));
 
+  // Get formatted banned phrases
+  const bannedPhrasesFormatted = await formatBannedPhrasesForPrompt();
+
   // Build context
   let prompt = templateContent
     .replace(/\{\{cityName\}\}/g, cityName)
@@ -96,7 +125,7 @@ function buildPrompt(page, contentBank, cities, categories, templateContent) {
     .replace(/\{\{cityDescription\}\}/g, cityInfo?.description || '')
     .replace(/\{\{relatedPages\}\}/g, JSON.stringify(relatedPages, null, 2))
     .replace(/\{\{categoryPages\}\}/g, JSON.stringify(categoryPages, null, 2))
-    .replace(/\{\{bannedPhrases\}\}/g, BANNED_PHRASES.join(', '));
+    .replace(/\{\{bannedPhrases\}\}/g, bannedPhrasesFormatted);
 
   return prompt;
 }
@@ -211,7 +240,7 @@ export async function generator(options, onEvent) {
       continue;
     }
 
-    const prompt = buildPrompt(page, contentBank, cities, categories, templateContent);
+    const prompt = await buildPrompt(page, contentBank, cities, categories, templateContent);
 
     try {
       onEvent({ log: `Calling API (with retry)...`, type: 'info' });

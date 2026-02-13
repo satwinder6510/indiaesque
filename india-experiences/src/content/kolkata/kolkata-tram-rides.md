@@ -34,7 +34,7 @@ tags:
 
 **Kolkata operates India's last functioning tram system, running since 1873 with fares of just ₹5-10 ($0.06-0.12). While primarily a tourist attraction today, these heritage tramcars offer slow-paced sightseeing through the city's historic neighborhoods.**
 
-The Kolkata tramways represent more than just transport—they're rolling museums that connect you to 150 years of the city's history. As modernization swept across India, Kolkata's trams survived as the country's sole operating system, making every ride a journey through time.
+The Kolkata tramways are rolling museums that connect you to 150 years of the city's history. As modernization swept across India, Kolkata's trams survived as the country's sole operating system, making every ride a journey through time.
 
 ## Operating Routes and Network
 
@@ -60,13 +60,13 @@ There's no separate tourist pricing, making trams one of Kolkata's most budget-f
 
 Kolkata's trams began operations in 1873, making them older than London's Underground. The fleet includes vintage wooden carriages alongside newer models, each telling stories of different eras.
 
-The original horse-drawn trams evolved to steam-powered, then electric by 1900. Today's remaining fleet showcases this evolution, with some cars dating back several decades. The green and cream livery has become as iconic as the red double-deckers of London.
+The original horse-drawn trams evolved to steam-powered, then electric by 1900. Today's remaining fleet showcases this evolution, with some cars dating back several decades. The green and cream livery is now as recognizable as London's red double-deckers.
 
 The tram workshops at Nonapukur still manufacture parts and restore vintage cars, keeping traditional craftsmanship alive. Skilled mechanics here work with tools and techniques passed down through generations.
 
 ## The Sightseeing Experience
 
-Tram rides offer unmatched city views at walking pace—around 15-20 km/hour. This leisurely speed lets you photograph street scenes, colonial architecture, and daily life that faster transport would blur past.
+Tram rides offer city views at walking pace—around 15-20 km/hour. This leisurely speed lets you photograph street scenes, colonial architecture, and daily life that faster transport would blur past.
 
 The elevated position provides better vantage points than buses or cars. You'll see over compound walls into historic buildings, catch glimpses of hidden courtyards, and observe rooftop life across the city.
 

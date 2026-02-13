@@ -20,7 +20,7 @@ faq:
   - question: "What is the most visited place in Delhi?"
     answer: "The Red Fort is Delhi's most visited monument — a UNESCO World Heritage Site and symbol of Mughal power. India Gate is the most visited outdoor space. Chandni Chowk in Old Delhi draws the most foot traffic overall as a combined market, food, and historical area."
   - question: "Is Delhi worth visiting?"
-    answer: "Yes. Delhi rewards visitors who engage with its chaos. The food is extraordinary, the history is layered and visible, and it serves as the gateway to the Golden Triangle. Skip it if you want relaxation — come if you want intensity, history, and unforgettable meals."
+    answer: "Yes. Delhi rewards visitors who engage with its chaos. The food is extraordinary, the history is layered and visible, and it's the gateway to the Golden Triangle. Skip it if you want relaxation — come if you want intensity, history, and unforgettable meals."
   - question: "What are the best free things to do in Delhi?"
     answer: "Free attractions include: Lodhi Gardens (morning walks), India Gate and Kartavya Path, Gurudwara Bangla Sahib, Nizamuddin Dargah, Thursday qawwali, Agrasen ki Baoli, Mehrauli Archaeological Park, and walking through Chandni Chowk. Delhi's best experiences often cost nothing."
   - question: "What romantic things can you do in Delhi?"
@@ -247,7 +247,7 @@ Delhi's best season. Cool, dry, perfect for sightseeing.
 
 **Lodhi Gardens** — Walk among 15th-century tombs as the light turns golden
 
-**Humayun's Tomb** — The gardens at sunset are magical, less crowded than midday
+**Humayun's Tomb** — The gardens at sunset are striking, less crowded than midday
 
 **Garden of Five Senses** — Landscaped gardens in Mehrauli, quieter than parks
 
@@ -289,7 +289,7 @@ Delhi's best season. Cool, dry, perfect for sightseeing.
 
 **Street Art in Lodhi Colony** — India's first open-air art district. Murals on buildings.
 
-**Champa Gali** — Tiny alley of cafes and boutiques. Saket. Hidden gem.
+**Champa Gali** — Tiny alley of cafes and boutiques. Saket. Worth finding.
 
 **Sunder Nursery** — Restored Mughal garden, recently opened. Adjacent to Humayun's Tomb.
 

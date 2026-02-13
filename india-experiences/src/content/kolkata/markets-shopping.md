@@ -31,11 +31,11 @@ tags:
   - "shopping"
 ---
 
-Kolkata's markets are legendary shopping destinations where you'll find everything from rare antique books to hand-woven silk sarees. The city's four major markets—New Market, College Street, Gariahat, and Hatibagan—each offer distinct experiences and specialties that reflect Bengali culture and commerce.
+Kolkata's markets draw shoppers from across India for rare antique books and hand-woven silk sarees. The city's four major markets—New Market, College Street, Gariahat, and Hatibagan—each offer distinct experiences and specialties that reflect Bengali culture and commerce.
 
 ## New Market (Sir Stuart Hogg Market)
 
-New Market stands as Kolkata's most famous shopping destination, housed in a Victorian Gothic building from 1874. Located near Esplanade Metro station, this covered market spans multiple floors with over 2,000 shops selling textiles, leather goods, jewelry, and souvenirs.
+New Market is Kolkata's most famous shopping destination, housed in a Victorian Gothic building from 1874. Located near Esplanade Metro station, this covered market spans multiple floors with over 2,000 shops selling textiles, leather goods, jewelry, and souvenirs.
 
 The ground floor specializes in clothing and fabrics. You'll find cotton kurtas starting at ₹300 ($3.60), silk sarees from ₹2,000-₹15,000 ($24-$180), and leather shoes from ₹800-₹3,000 ($9.60-$36). The first floor houses electronics, bags, and accessories, while the basement level sells spices, tea, and food items.
 
@@ -63,7 +63,7 @@ You'll discover rare Bengali literature, vintage English classics, academic text
 
 ## Gariahat Market
 
-Gariahat Market serves as South Kolkata's primary shopping hub, popular with middle-class Bengali families. Located near Gariahat Metro station, this market combines traditional bazaar atmosphere with modern retail outlets.
+Gariahat Market is South Kolkata's primary shopping hub, popular with middle-class Bengali families. Located near Gariahat Metro station, this market combines traditional bazaar atmosphere with modern retail outlets.
 
 The market divides into distinct sections: clothing and accessories on the main road, vegetables and fish in the wet market area, and electronics in the back lanes. Clothing prices start from ₹150 ($1.80) for basic cotton tops, with designer pieces reaching ₹3,000 ($36).
 
@@ -77,13 +77,13 @@ The market divides into distinct sections: clothing and accessories on the main 
 
 ## Hatibagan Market
 
-Hatibagan Market operates as North Kolkata's primary shopping destination, particularly famous for affordable clothing and household goods. Located near Shyama Charan Dey Street Metro, this market caters to budget-conscious shoppers seeking good value.
+Hatibagan Market is North Kolkata's primary shopping destination, particularly famous for affordable clothing and household goods. Located near Shyama Charan Dey Street Metro, this market caters to budget-conscious shoppers seeking good value.
 
 The market's strength lies in wholesale and bulk purchases. Clothing vendors offer significant discounts for buying multiple pieces—₹200 ($2.40) shirts drop to ₹150 ($1.80) when buying three or more.
 
 **Specialty Items**: Children's clothing, traditional Bengali religious items, household utensils, and seasonal goods. During Durga Puja season, the market becomes headquarters for festival shopping.
 
-**Bargaining Culture**: Vendors here expect serious negotiation. Don't hesitate to walk away—sellers often call you back with better prices. Cash payments sometimes earn additional discounts of 5-10%.
+**Bargaining Culture**: Vendors here expect serious negotiation. Walk away if needed — sellers often call you back with better prices. Cash payments sometimes earn additional discounts of 5-10%.
 
 **Local Character**: This market maintains traditional Bengali shopping culture. Vendors know regular customers personally and offer special prices to familiar faces.
 

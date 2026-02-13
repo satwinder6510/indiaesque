@@ -33,7 +33,7 @@ tags:
 
 **Crawford Market is Mumbai's historic wholesale market operating since 1869, famous for its Gothic Revival architecture, extensive spice and fruit sections, and bargain shopping opportunities. Located in South Mumbai, it's open 11am-8pm daily except Sundays.**
 
-This 155-year-old market remains one of Mumbai's most authentic shopping experiences, combining British colonial architecture with the chaos of Indian commerce. The market's official name is Mahatma Jyotiba Phule Market, but locals still call it Crawford Market after Arthur Crawford, the first Municipal Commissioner of Mumbai.
+This 155-year-old market is one of Mumbai's most authentic shopping experiences, combining British colonial architecture with the chaos of Indian commerce. The market's official name is Mahatma Jyotiba Phule Market, but locals still call it Crawford Market after Arthur Crawford, the first Municipal Commissioner of Mumbai.
 
 ## Historic Architecture and Layout
 
@@ -50,11 +50,11 @@ Expect to find:
 - Local vegetables at wholesale rates (30-50% cheaper than local markets)
 - Dry fruits and nuts: Almonds (₹800-1,200 per kg), cashews, dates
 
-The fruit vendors are particularly skilled at selecting ripe produce. Don't hesitate to ask them to choose fruits for immediate consumption versus those for later use.
+The fruit vendors are particularly skilled at selecting ripe produce. Ask them to choose fruits for immediate consumption versus those for later use — they'll get it right.
 
 ## Spices and Dry Goods
 
-Crawford Market's spice section is legendary among Mumbai's home cooks and professional chefs. The aroma hits you before you see the colorful displays of whole spices, ground masalas, and exotic ingredients.
+Crawford Market's spice section draws Mumbai's home cooks and professional chefs daily. The aroma hits you before you see the colorful displays of whole spices, ground masalas, and exotic ingredients.
 
 Key spice shops include Mangaldas Market within the complex, where you'll find:
 - Basic spices: Turmeric (₹200-400 per kg), red chilies, coriander seeds
@@ -132,7 +132,7 @@ Combine your Crawford Market visit with other [markets in Mumbai](/mumbai/market
 
 ## What to Expect
 
-Crawford Market operates at a different pace than modern malls. Vendors shout prices, customers examine goods carefully, and the atmosphere remains authentically Mumbai. The market gets extremely crowded on Saturdays and before festivals.
+Crawford Market operates at a different pace than modern malls. Vendors shout prices, customers examine goods carefully, and the atmosphere is pure Mumbai. The market gets extremely crowded on Saturdays and before festivals.
 
 Don't expect air conditioning, escalators, or fancy displays. This is old-school Mumbai commerce at its most genuine. The experience is part of the attraction - you're shopping where four generations of Mumbaikars have bought their daily necessities.
 

@@ -50,7 +50,7 @@ This is the starting point for understanding Mughal architecture in Delhi, and a
 
 The tomb sits on a raised platform in the centre of a 30-acre garden. The double dome (an outer dome for external proportions and an inner dome for the interior ceiling) was an engineering innovation that the Mughals repeated in every major building afterward. The red sandstone and white marble combination became the Mughal signature.
 
-Inside the garden complex, you'll also find the tombs of Isa Khan (a noble who pre-dates the Mughals — his 1547 octagonal tomb is exquisite), Nila Gumbad, and the recently restored Bu Halima's Garden.
+Inside the garden complex, you'll also find the tombs of Isa Khan (a noble who pre-dates the Mughals — his 1547 octagonal tomb is worth seeing), Nila Gumbad, and the recently restored Bu Halima's Garden.
 
 **Entry:** ₹600 ($7.50) for foreigners, ₹40 for Indians. **Hours:** Sunrise to sunset. **Best time:** Late afternoon (3:30-5:00 PM) when the light turns the sandstone golden. **Metro:** JLN Stadium (Violet Line), then a 10-minute auto-rickshaw ride.
 
@@ -80,7 +80,7 @@ Unlike Red Fort and Humayun's Tomb, Jama Masjid is not a museum — it's an acti
 
 The Old Fort predates most Mughal buildings in Delhi. Started by Humayun and completed by his rival Sher Shah Suri (who briefly ousted the Mughals), it sits on a mound believed to be the site of Indraprastha, the legendary city from the Mahabharata. Excavations have found pottery dating back 3,000 years.
 
-The key structures are the **Qila-i-Kuhna Masjid** (1541), one of the finest pre-Mughal mosques in India with exquisite mihrab stonework, and the **Sher Mandal**, an octagonal tower that Humayun used as a library. It's also where Humayun died in 1556 — he tripped on the steep stairs while rushing to answer the call to prayer.
+The key structures are the **Qila-i-Kuhna Masjid** (1541), a notable pre-Mughal mosque in India with detailed mihrab stonework, and the **Sher Mandal**, an octagonal tower that Humayun used as a library. It's also where Humayun died in 1556 — he tripped on the steep stairs while rushing to answer the call to prayer.
 
 The fort grounds include a lake with boating (₹100 for 30 minutes) and a well-maintained park. It's less crowded than Red Fort and more atmospheric.
 
@@ -98,7 +98,7 @@ That said, the gardens are beautiful, especially in winter when the flowerbeds a
 
 The shrine of Hazrat Nizamuddin Auliya (1325) predates the Mughals, but the Mughal-era additions and surrounding monuments make this area essential for understanding the period. The Mughals were devoted to the Sufi saint, and several nobles built their tombs in the adjacent neighbourhood.
 
-**Chausath Khamba** (1623-1624) is a pavilion of 64 marble pillars with some of the finest jali (lattice) work in Delhi. Nearby, you'll find the tomb of Mughal princess Jahanara (Shah Jahan's daughter) and the grave of the Urdu poet Amir Khusrau.
+**Chausath Khamba** (1623-1624) is a pavilion of 64 marble pillars with excellent jali (lattice) work. Nearby, you'll find the tomb of Mughal princess Jahanara (Shah Jahan's daughter) and the grave of the Urdu poet Amir Khusrau.
 
 **Thursday evening qawwali:** The weekly Sufi devotional music session at the dargah is one of Delhi's most powerful cultural experiences. Free, open to all faiths. Arrive by 7:00 PM.
 

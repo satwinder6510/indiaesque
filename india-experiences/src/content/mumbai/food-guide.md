@@ -1,6 +1,6 @@
 ---
 title: "Mumbai Food Guide — Street Food, Restaurants & Culinary Experiences"
-description: "Vada pav, pav bhaji, fine dining, street food tours, best restaurants, and where to eat in Mumbai. Complete guide to the city's legendary food scene."
+description: "Vada pav, pav bhaji, fine dining, street food tours, best restaurants, and where to eat in Mumbai. Complete guide to the city's diverse food scene."
 type: paa
 city: mumbai
 tier: "2"
@@ -16,11 +16,11 @@ schema:
   - BreadcrumbList
 faq:
   - question: "What food is Mumbai famous for?"
-    answer: "Mumbai is famous for vada pav (spicy potato fritter in bread), pav bhaji (vegetable mash with buttered bread), bhel puri and pani puri (beach snacks), Bombay sandwich, and cutting chai. The street food culture is unmatched in India."
+    answer: "Mumbai is famous for vada pav (spicy potato fritter in bread), pav bhaji (vegetable mash with buttered bread), bhel puri and pani puri (beach snacks), Bombay sandwich, and cutting chai. The street food culture here rivals any city in India."
   - question: "Where is the best vada pav in Mumbai?"
     answer: "Famous spots: Ashok Vada Pav (multiple locations), Anand Stall (Vile Parle), Kirti College vendors. But good vada pav is everywhere — any busy stall near stations serves quality versions for ₹15-30."
   - question: "Where is the best pav bhaji in Mumbai?"
-    answer: "Sardar's Pav Bhaji (Tardeo) is legendary — established 1965. Cannon Pav Bhaji (CSMT area), Amar Juice Centre (Juhu), and any busy Juhu Beach stall. The butterier, the better."
+    answer: "Sardar's Pav Bhaji (Tardeo), established 1965, is the city's go-to. Cannon Pav Bhaji (CSMT area), Amar Juice Centre (Juhu), and any busy Juhu Beach stall. The butterier, the better."
   - question: "What are the best restaurants in Mumbai?"
     answer: "Fine dining: Trishna (seafood), Masala Library, Indian Accent. Classic: Britannia (Parsi), Leopold Cafe (history), Cafe Mondegar (atmosphere). Casual: Lucky's (Bandra), O Pedro (Goan). Mumbai has excellent options at every budget."
 relatedPages:
@@ -55,7 +55,7 @@ The Mumbai burger. Spiced potato fritter in soft pav bread with chutneys. Availa
 Buttered mashed vegetables served with toasted pav. A meal in itself. ₹80-150.
 
 **Best spots:**
-- **Sardar's Pav Bhaji** (Tardeo) — legendary since 1965
+- **Sardar's Pav Bhaji** (Tardeo) — the original since 1965
 - Cannon Pav Bhaji (CSMT area)
 - Amar Juice Centre (Juhu)
 - Juhu Beach stalls (evening)
@@ -118,15 +118,15 @@ Upscale beach promenade with food trucks and stalls.
 ### Britannia & Co.
 
 **Cuisine:** Parsi
-**Must-try:** Berry pulao (with sweet berries), dhansak
+**Order:** Berry pulao (with sweet berries), dhansak
 **Location:** Ballard Estate
 **Cost:** ₹400-700
-**Note:** Run by 98-year-old Mr. Kohinoor. A living legend.
+**Note:** Run by 98-year-old Mr. Kohinoor. Still at it every day.
 
 ### Trishna
 
 **Cuisine:** Seafood, Coastal Indian
-**Must-try:** Butter garlic crab, prawns
+**Order:** Butter garlic crab, prawns
 **Location:** Fort
 **Cost:** ₹1,500-2,500
 **Note:** Book ahead. One of India's best seafood restaurants.
@@ -149,7 +149,7 @@ Upscale beach promenade with food trucks and stalls.
 ### Olympia Coffee House
 
 **Cuisine:** Irani, Mughlai
-**Must-try:** Keema pav, bun maska, chai
+**Order:** Keema pav, bun maska, chai
 **Location:** Colaba
 **Cost:** ₹200-400
 **Note:** Old-world Irani cafe atmosphere

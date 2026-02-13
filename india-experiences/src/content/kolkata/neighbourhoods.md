@@ -43,7 +43,7 @@ The colonial-era core — government buildings, major monuments, and the city's 
 
 ### Park Street & Chowringhee
 
-**The vibe:** Kolkata's most iconic stretch. Colonial-era buildings, legendary restaurants, and cosmopolitan energy.
+**The vibe:** Kolkata's most iconic stretch. Colonial-era buildings, storied restaurants, and cosmopolitan energy.
 
 **Key sights:**
 - Indian Museum
@@ -53,7 +53,7 @@ The colonial-era core — government buildings, major monuments, and the city's 
 
 **Eating:**
 - Flurys — Art Deco tearoom since 1927
-- Peter Cat — legendary for Chelo Kebab
+- Peter Cat — famous for Chelo Kebab
 - Mocambo — continental classics
 - Blue & Beyond — rooftop dining
 
@@ -145,7 +145,7 @@ The historic heart. Narrow lanes, ancestral mansions, traditional markets, and B
 - Old Chinese quarter remnants
 
 **Eating:**
-- Anadi Cabin — no-frills legendary
+- Anadi Cabin — no-frills since 1924
 - Paramount Sherbet
 - Traditional sweet shops
 

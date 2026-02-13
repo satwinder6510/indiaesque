@@ -51,7 +51,7 @@ The original walled city built by Shah Jahan in the 17th century. Narrow lanes p
 - **Khari Baoli** — Asia's largest spice market
 - **Paranthe Wali Gali** — famous paratha street
 
-**Food:** Legendary. Karim's for kebabs, Paranthe Wali Gali for stuffed parathas, Natraj Dahi Bhalle for chaat, Gali Paranthe Wali for jalebis.
+**Food:** Outstanding. Karim's for kebabs, Paranthe Wali Gali for stuffed parathas, Natraj Dahi Bhalle for chaat, Gali Paranthe Wali for jalebis.
 
 **Best Time:** Morning (8-11 AM) before crowds and heat. Most shops close by 8 PM.
 

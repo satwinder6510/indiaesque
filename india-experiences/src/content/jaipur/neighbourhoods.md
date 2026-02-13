@@ -25,7 +25,7 @@ faq:
   - question: "Is it safe to stay in the Pink City area?"
     answer: "Yes, the Pink City is safe for tourists but crowded and noisy. Hotels inside the walled city are limited. Most visitors stay in nearby areas (Bani Park, C-Scheme) and visit the old town for sightseeing."
   - question: "Where is the best food in Jaipur?"
-    answer: "C-Scheme and Tonk Road have the best modern restaurants. The Pink City has legendary street food spots (Rawat, LMB). Bani Park has hotel restaurants and local eateries. MI Road connects traditional and modern dining."
+    answer: "C-Scheme and Tonk Road have the best modern restaurants. The Pink City has famous street food spots (Rawat, LMB). Bani Park has hotel restaurants and local eateries. MI Road connects traditional and modern dining."
 tags:
   - "neighbourhoods"
   - "areas"
@@ -60,7 +60,7 @@ This guide breaks down Jaipur's key areas for visitors. For accommodation recomm
 
 **Eating:**
 - LMB (Laxmi Misthan Bhandar) — famous sweets and thali
-- Rawat Mishthan Bhandar — legendary pyaaz kachori
+- Rawat Mishthan Bhandar — famous for pyaaz kachori
 - Street food along Chaura Rasta
 
 **Stay here if:** Want heritage atmosphere, don't mind crowds, prefer old-world charm.
@@ -105,7 +105,7 @@ This guide breaks down Jaipur's key areas for visitors. For accommodation recomm
 **Eating:**
 - Tapri — iconic rooftop tea cafe
 - Anokhi Cafe — organic, contemporary
-- Handi — legendary dal baati churma
+- Handi — known for dal baati churma
 - Meraaki Kitchen — modern Indian
 
 **Stay here if:** Want modern dining, cafes, and shopping. Willing to taxi to monuments.

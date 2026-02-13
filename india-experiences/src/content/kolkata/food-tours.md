@@ -33,7 +33,7 @@ tags:
   - "activities"
 ---
 
-Kolkata offers some of India's most diverse food tours, from volunteer-run community walks to private culinary adventures through the city's legendary eating districts. You can explore everything from Bengali sweet shops to Chinese restaurants in Tangra, with costs ranging from ₹50-500 ($0.60-6) per dish and tour fees from ₹500-8,000 ($6-96).
+Kolkata offers some of India's most diverse food tours, from volunteer-run community walks to private culinary adventures through the city's famous eating districts. You can explore everything from Bengali sweet shops to Chinese restaurants in Tangra, with costs ranging from ₹50-500 ($0.60-6) per dish and tour fees from ₹500-8,000 ($6-96).
 
 ## Types of Food Tours Available
 

@@ -33,7 +33,7 @@ tags:
   - "first-time"
 ---
 
-Mumbai packs centuries of history, world-class street food, and modern entertainment into India's financial capital. From colonial architecture at the Gateway of India to Bollywood studios in Film City, you'll find activities ranging from heritage walks through Fort district to late-night food crawls in Mohammed Ali Road.
+Mumbai packs centuries of history, street food that rivals any city on earth, and modern entertainment into India's financial capital. From colonial architecture at the Gateway of India to Bollywood studios in Film City, you'll find activities ranging from heritage walks through Fort district to late-night food crawls in Mohammed Ali Road.
 
 This guide covers Mumbai's essential attractions, practical transport advice, and detailed itineraries to help you navigate India's most cosmopolitan city efficiently.
 
@@ -41,7 +41,7 @@ This guide covers Mumbai's essential attractions, practical transport advice, an
 
 ### Gateway of India and Colaba
 
-Start your Mumbai exploration at the Gateway of India, the iconic 26-meter arch built in 1924 to commemorate King George V's visit. The monument overlooks Mumbai Harbor and serves as the departure point for Elephanta Caves ferry trips (₹185/$2.20 return).
+Start your Mumbai exploration at the Gateway of India, the iconic 26-meter arch built in 1924 to commemorate King George V's visit. The monument overlooks Mumbai Harbor and is the departure point for Elephanta Caves ferry trips (₹185/$2.20 return).
 
 Walk 5 minutes south to reach Colaba Causeway, Mumbai's tourist shopping street. Browse leather goods, jewelry, and handicrafts while practicing your bargaining skills. The adjacent Taj Mahal Palace Hotel, opened in 1903, represents Mumbai's colonial grandeur - even if you're not staying here, the lobby is worth seeing.
 
@@ -57,7 +57,7 @@ The Art Deco buildings along Marine Drive represent the world's second-largest c
 
 ### Crawford Market and Mohammed Ali Road
 
-Crawford Market (officially Mahatma Jyotiba Phule Market) operates as Mumbai's largest wholesale fruit and vegetable market. The 1869 building features Norman and Flemish architectural styles with bas-reliefs designed by Rudyard Kipling's father, John Lockwood Kipling.
+Crawford Market (officially Mahatma Jyotiba Phule Market) is Mumbai's largest wholesale fruit and vegetable market. The 1869 building features Norman and Flemish architectural styles with bas-reliefs designed by Rudyard Kipling's father, John Lockwood Kipling.
 
 Visit early morning (6-9 AM) to see the wholesale action and avoid afternoon crowds. The market sells everything from tropical fruits to spices, making it ideal for photography and cultural observation. Entry is free, but expect persistent vendors.
 
@@ -67,7 +67,7 @@ Our detailed [markets guide](/mumbai/markets/) covers shopping strategies and sp
 
 ### Dharavi Slum Tours
 
-Dharavi, one of Asia's largest slums, operates as a ₹15,000 crore ($1.8 billion) economy producing leather goods, textiles, and recycled materials. Professional tours provide ethical insight into this community of nearly 1 million residents across 2.1 square kilometers.
+Dharavi, one of Asia's largest slums, is a ₹15,000 crore ($1.8 billion) economy producing leather goods, textiles, and recycled materials. Professional tours provide ethical insight into this community of nearly 1 million residents across 2.1 square kilometers.
 
 Reality Tours & Travel runs responsible 2.5-hour walking tours for ₹1,199 ($14.50) with local guides who grew up in Dharavi. Tours run at 9:15 AM and 2:15 PM daily, covering pottery workshops, leather production, recycling operations, and residential areas.
 
@@ -101,7 +101,7 @@ Mumbai's street food scene centers on specific neighborhoods, each with distinct
 
 Juhu Beach offers more upscale versions of the same snacks, though prices increase to ₹80-150 ($1-1.80) due to the tourist location. The quality remains high, and you'll find additional options like grilled corn and fresh fruit juices.
 
-Khau Galli (Food Street) near Chhatrapati Shivaji Terminus operates as a narrow lane packed with food stalls serving regional Indian cuisine. Try the Rajasthani thali at Shree Thaker Bhojanalay (₹200/$2.40) or South Indian dosas at Prakash (₹150/$1.80).
+Khau Galli (Food Street) near Chhatrapati Shivaji Terminus is a narrow lane packed with food stalls serving regional Indian cuisine. Try the Rajasthani thali at Shree Thaker Bhojanalay (₹200/$2.40) or South Indian dosas at Prakash (₹150/$1.80).
 
 For organized food experiences, check our comprehensive [food tours guide](/mumbai/food-tours/) which details the best walking food tours and self-guided eating itineraries.
 

@@ -23,7 +23,7 @@ faq:
   - question: "Why is Jaipur called the Pink City?"
     answer: "Jaipur earned the Pink City nickname when Maharaja Sawai Ram Singh II ordered buildings painted pink in 1876 to welcome Prince Albert. The pink color represents hospitality in Rajasthani culture and creates the city's distinctive architectural identity."
   - question: "What crafts is Jaipur famous for?"
-    answer: "Jaipur is renowned for gem cutting, block printing, blue pottery, lac jewelry, and carpet weaving. The city supplies 90% of India's cut gemstones and produces intricate hand-block printed textiles exported worldwide."
+    answer: "Jaipur is known for gem cutting, block printing, blue pottery, lac jewelry, and carpet weaving. The city supplies 90% of India's cut gemstones and produces intricate hand-block printed textiles exported worldwide."
   - question: "Is Jaipur part of the Golden Triangle?"
     answer: "Yes, Jaipur forms one corner of India's Golden Triangle tourist circuit along with Delhi and Agra. This 720-kilometer route showcases India's most famous historical monuments including the Taj Mahal, Red Fort, and Amber Fort."
 tags:
@@ -35,11 +35,11 @@ tags:
 
 **Jaipur is famous for being India's Pink City, renowned for its distinctive pink sandstone architecture, UNESCO World Heritage sites, thriving gem cutting industry, traditional crafts like block printing and blue pottery, and its position as a key stop on India's Golden Triangle tourist route.**
 
-Known globally as the Pink City, Jaipur stands as Rajasthan's capital and one of India's most recognizable destinations. The city combines magnificent Rajput architecture with traditional craftsmanship that has thrived for centuries, making it a cultural and economic powerhouse in northern India.
+Known globally as the Pink City, Jaipur is Rajasthan's capital and one of India's most recognizable destinations. The city combines magnificent Rajput architecture with traditional craftsmanship that has thrived for centuries, making it a cultural and economic powerhouse in northern India.
 
 ## The Pink City Architecture
 
-Jaipur's most distinctive feature is its pink-hued buildings throughout the Old City. Maharaja Sawai Ram Singh II ordered this transformation in 1876 to welcome Britain's Prince Albert, painting buildings in pink terracotta - a color symbolizing hospitality in Rajasthani tradition.
+Jaipur's defining feature is its pink-hued buildings throughout the Old City. Maharaja Sawai Ram Singh II ordered this transformation in 1876 to welcome Britain's Prince Albert, painting buildings in pink terracotta - a color symbolizing hospitality in Rajasthani tradition.
 
 The Old City's planned layout, designed by architect Vidyadhar Bhattacharya in 1727, follows ancient Indian architectural principles. Wide boulevards divide the city into nine blocks, with the City Palace complex at the center. The famous Hawa Mahal (Palace of Winds) showcases this pink architecture at its finest, with its 953 intricately carved windows allowing royal women to observe street life while maintaining purdah.
 
@@ -77,7 +77,7 @@ Textile workshops in Anokhi Museum, Sanganer, offer demonstrations of the printi
 
 ## Blue Pottery and Lac Jewelry
 
-Jaipur's blue pottery stands out for its unique glazing technique and cobalt blue designs. Unlike traditional pottery, blue pottery contains no clay - it's made from quartz, raw glaze, sodium sulphate, and multani mitti (Fuller's earth). The distinctive blue and white patterns often feature birds, animals, and floral designs.
+Jaipur's blue pottery uses a distinct glazing technique and cobalt blue designs. Unlike traditional pottery, blue pottery contains no clay - it's made from quartz, raw glaze, sodium sulphate, and multani mitti (Fuller's earth). The distinctive blue and white patterns often feature birds, animals, and floral designs.
 
 Lac jewelry represents another specialty craft. Artisans heat lac (a natural resin) and shape it around metal forms, then embed colorful stones and beads. The Maniharon Ka Rasta area specializes in lac bangles and jewelry, with prices starting from ₹50 ($0.60) for simple bangles.
 
@@ -111,7 +111,7 @@ Jaipur earned the Pink City nickname when Maharaja Sawai Ram Singh II ordered bu
 
 **What crafts is Jaipur famous for?**
 
-Jaipur is renowned for gem cutting, block printing, blue pottery, lac jewelry, and carpet weaving. The city supplies 90% of India's cut gemstones and produces intricate hand-block printed textiles exported worldwide.
+Jaipur is known for gem cutting, block printing, blue pottery, lac jewelry, and carpet weaving. The city supplies 90% of India's cut gemstones and produces intricate hand-block printed textiles exported worldwide.
 
 **Is Jaipur part of the Golden Triangle?**
 
