@@ -2,7 +2,7 @@
 
 **Reference document. Consult before making any structural changes.**
 
-Last updated: 2026-02-12
+Last updated: 2026-02-13
 
 ---
 
@@ -1011,9 +1011,46 @@ The homepage (`pages/index.astro`) displays curated content sections with horizo
 
 | Section | Data File | Selection Logic |
 |---------|-----------|-----------------|
+| Hero & Intro | `data/homepage.json` | Editable via admin |
+| Features (3 icons) | `data/homepage.json` | Editable via admin |
 | Top Cities | `data/cities.json` | First 8 cities (`slice(0, 8)`) |
 | Staycations | `data/staycations.json` | All staycations |
 | Experience Types | `data/experiences.json` | All experiences |
+
+### Homepage Content Management
+
+The hero section, intro text, and features are editable via the admin panel.
+
+**Admin UI:** Dashboard → Homepage Content (`/homepage`)
+
+**Data file:** `india-experiences/src/data/homepage.json`
+
+```json
+{
+  "hero": {
+    "location": "KERALA & CHERUTHURUTHY",
+    "title": "DISCOVER A WORLD OF TRAVEL, UNIQUELY CURATED FOR YOU"
+  },
+  "intro": {
+    "paragraphs": ["First paragraph...", "Second paragraph..."]
+  },
+  "features": [
+    { "icon": "globe", "title": "RESPONSIBLE TOURISM", "description": "..." },
+    { "icon": "layers", "title": "INSIDER KNOWLEDGE", "description": "..." },
+    { "icon": "pin", "title": "SUSTAINABLE EXPERIENCES", "description": "..." }
+  ]
+}
+```
+
+**Available icons:** globe, layers, pin, heart, star, compass
+
+**API endpoint:** `GET/PUT /api/homepage` — reads/writes homepage.json via GitHub API
+
+**Admin features:**
+- Edit hero location text and title
+- Edit intro paragraphs (2 text areas)
+- Edit 3 features: icon selector, title, description for each
+- Save commits directly to GitHub repository
 
 ### Cities Display Logic
 
