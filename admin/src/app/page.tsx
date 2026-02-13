@@ -148,6 +148,36 @@ export default function Dashboard() {
               </div>
             </Link>
 
+            {/* About Card */}
+            <Link
+              href="/about"
+              className="block bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)] hover:border-[var(--primary)] hover:shadow-lg transition-all group"
+            >
+              <div className="flex items-start justify-between">
+                <div>
+                  <div className="text-[var(--primary)] mb-4 group-hover:scale-110 transition-transform inline-block">
+                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-[var(--foreground)] mb-1">
+                    About Us
+                  </h3>
+                  <p className="text-[var(--foreground-muted)] text-sm mb-4">
+                    Story, mission & contact
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center justify-end text-sm pt-4 border-t border-[var(--border)]">
+                <span className="text-[var(--primary)] font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                  Edit
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </div>
+            </Link>
+
             {/* Content Hubs Card */}
             <Link
               href="/content"
