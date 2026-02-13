@@ -123,95 +123,115 @@ const formattedAddress = contact.address.replace(/\n/g, '<br/>').replace(/•/g,
   /* HERO */
   .hero {
     width: 100%;
-    min-height: 300px;
+    min-height: 360px;
+    padding-top: 60px; /* Account for fixed header */
     background: linear-gradient(135deg, #2a9d8f 0%, #1a6b61 100%);
     display: flex;
     align-items: flex-end;
   }
   .hero-overlay {
     width: 100%;
-    padding: 60px 20px 40px;
+    padding: 60px 20px 50px;
     text-align: center;
   }
   .hero-location {
     display: block;
-    font-size: 10px;
+    font-family: 'Muli', sans-serif;
+    font-size: 11px;
     font-weight: 500;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.3em;
     color: rgba(255,255,255,0.8);
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
   .hero-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 32px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
+    font-family: 'Oswald', sans-serif;
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: 0.15em;
     line-height: 1.2;
     color: #fff;
-    margin: 0 0 15px;
+    margin: 0 0 20px;
   }
   .hero-subtitle {
-    font-size: 14px;
+    font-family: 'Muli', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
     color: rgba(255,255,255,0.9);
-    max-width: 400px;
+    max-width: 450px;
     margin: 0 auto;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   /* ARTICLE */
   .article {
-    max-width: 600px;
+    max-width: 680px;
     margin: 0 auto;
-    padding: 30px 20px;
+    padding: 50px 24px 60px;
   }
   .article-content {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    line-height: 1.7;
-    color: #333;
+    font-family: 'Muli', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #4b5563;
   }
   .article-content :global(h2) {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin: 40px 0 20px;
-    color: #1a1a1a;
+    letter-spacing: 0.1em;
+    margin: 48px 0 20px;
+    color: #111827;
   }
   .article-content :global(h2:first-child) {
     margin-top: 0;
   }
   .article-content :global(p) {
-    margin: 0 0 20px;
+    margin: 0 0 24px;
   }
   .article-content :global(ul) {
-    margin: 0 0 20px;
-    padding-left: 20px;
+    margin: 0 0 24px;
+    padding-left: 0;
+    list-style: none;
   }
   .article-content :global(li) {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
+    padding-left: 20px;
+    position: relative;
+  }
+  .article-content :global(li::before) {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #2a9d8f;
+  }
+  .article-content :global(strong) {
+    color: #111827;
+    font-weight: 600;
   }
   .article-content :global(a) {
-    color: #e07060;
+    color: #2a9d8f;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
   }
   .article-content :global(a:hover) {
-    text-decoration: underline;
+    border-bottom-color: #2a9d8f;
   }
 
   /* NEWSLETTER */
   .newsletter {
     background: #2a9d8f;
-    padding: 50px 20px;
+    padding: 60px 24px;
     text-align: center;
   }
   .newsletter-inner {
-    max-width: 320px;
+    max-width: 360px;
     margin: 0 auto;
   }
   .newsletter-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 14px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -222,60 +242,66 @@ const formattedAddress = contact.address.replace(/\n/g, '<br/>').replace(/•/g,
   .newsletter-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
   }
   .newsletter-form input {
     width: 100%;
-    padding: 14px;
+    padding: 16px;
+    font-family: 'Muli', sans-serif;
     font-size: 12px;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     border: none;
     background: #fff;
     color: #333;
   }
   .newsletter-form input::placeholder {
-    color: #aaa;
+    color: #9ca3af;
   }
   .newsletter-form button {
-    padding: 14px;
+    padding: 16px;
+    font-family: 'Muli', sans-serif;
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     border: none;
-    background: #e07060;
+    background: #111827;
     color: #fff;
     cursor: pointer;
+    transition: background 0.2s ease;
   }
   .newsletter-form button:hover {
-    background: #c85a4a;
+    background: #1f2937;
   }
 
   /* CONTACT */
   .contact {
-    padding: 40px 20px;
+    padding: 50px 24px;
     text-align: center;
-    border-bottom: 1px solid #e5e5e5;
+    background: #f9fafb;
   }
   .contact-title {
-    font-size: 11px;
-    font-weight: 500;
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: #333;
-    margin: 0 0 15px;
+    letter-spacing: 0.2em;
+    color: #111827;
+    margin: 0 0 20px;
   }
   .contact-phone {
-    font-size: 13px;
-    color: #666;
-    margin: 0 0 8px;
+    font-family: 'Muli', sans-serif;
+    font-size: 15px;
+    color: #4b5563;
+    margin: 0 0 10px;
   }
   .contact-address {
-    font-size: 13px;
-    color: #666;
-    line-height: 1.6;
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.8;
     margin: 0;
   }
 
@@ -283,9 +309,9 @@ const formattedAddress = contact.address.replace(/\n/g, '<br/>').replace(/•/g,
   .foot-links {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    padding: 30px 20px;
-    max-width: 400px;
+    gap: 40px;
+    padding: 50px 24px;
+    max-width: 500px;
     margin: 0 auto;
     text-align: center;
   }
@@ -293,12 +319,13 @@ const formattedAddress = contact.address.replace(/\n/g, '<br/>').replace(/•/g,
     text-align: center;
   }
   .foot-col h4 {
-    font-size: 11px;
-    font-weight: 500;
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: #333;
-    margin: 0 0 15px;
+    letter-spacing: 0.2em;
+    color: #111827;
+    margin: 0 0 20px;
   }
   .foot-col ul {
     list-style: none;
@@ -306,32 +333,33 @@ const formattedAddress = contact.address.replace(/\n/g, '<br/>').replace(/•/g,
     margin: 0;
   }
   .foot-col li {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
   .foot-col a {
-    font-size: 12px;
-    color: #666;
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    color: #6b7280;
     text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
   }
   .foot-col a:hover {
-    color: #e07060;
+    color: #2a9d8f;
   }
 
   /* COPYRIGHT */
   .copyright {
-    padding: 30px 20px;
+    padding: 30px 24px;
     text-align: center;
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e7eb;
   }
   .copyright p {
-    font-size: 11px;
-    color: #999;
-    margin: 0 0 5px;
+    font-family: 'Muli', sans-serif;
+    font-size: 12px;
+    color: #9ca3af;
+    margin: 0 0 6px;
   }
   .credit {
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
   }
 </style>
