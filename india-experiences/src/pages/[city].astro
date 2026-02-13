@@ -8,10 +8,14 @@ import { marked } from 'marked';
 export const prerender = true;
 
 export async function getStaticPaths() {
-  return Object.keys(DESTINATIONS).map(city => ({
-    params: { city },
-    props: { cityData: DESTINATIONS[city as keyof typeof DESTINATIONS] }
-  }));
+  // Only generate pages for cities with content (listed in cities.json)
+  const citiesWithContent = citiesData.map(c => c.slug);
+  return citiesWithContent
+    .filter(city => DESTINATIONS[city as keyof typeof DESTINATIONS])
+    .map(city => ({
+      params: { city },
+      props: { cityData: DESTINATIONS[city as keyof typeof DESTINATIONS] }
+    }));
 }
 
 const { city } = Astro.params;
