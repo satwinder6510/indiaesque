@@ -99,13 +99,26 @@ export default function AboutPage() {
     setData({ ...data, sections });
   };
 
-  const updateHighlight = (sectionIndex: number, highlightIndex: number, field: "title" | "description", value: string) => {
+  const addSection = () => {
     if (!data) return;
-    const sections = [...data.sections];
-    const highlights = [...(sections[sectionIndex].highlights || [])];
-    highlights[highlightIndex] = { ...highlights[highlightIndex], [field]: value };
-    sections[sectionIndex] = { ...sections[sectionIndex], highlights };
+    const newId = `section-${Date.now()}`;
+    const newSection: Section = {
+      id: newId,
+      title: "New Section",
+      content: "",
+    };
+    setData({ ...data, sections: [...data.sections, newSection] });
+    setActiveSection(newId);
+  };
+
+  const removeSection = (sectionId: string) => {
+    if (!data) return;
+    const sections = data.sections.filter(s => s.id !== sectionId);
     setData({ ...data, sections });
+    // Set active to first remaining section
+    if (sections.length > 0 && activeSection === sectionId) {
+      setActiveSection(sections[0].id);
+    }
   };
 
   if (loading) {
@@ -301,7 +314,7 @@ export default function AboutPage() {
           {/* Right Column - Content Sections with Markdown Editor */}
           <div className="lg:col-span-2 space-y-6">
             {/* Section Tabs */}
-            <div className="flex gap-2 flex-wrap">
+            <div className="flex gap-2 flex-wrap items-center">
               {contentSections.map((section) => (
                 <button
                   key={section.id}
@@ -315,19 +328,41 @@ export default function AboutPage() {
                   {section.title}
                 </button>
               ))}
+              <button
+                onClick={addSection}
+                className="px-4 py-2 rounded-lg text-sm font-medium bg-[var(--background)] text-[var(--foreground-muted)] hover:text-[var(--foreground)] border border-dashed border-[var(--border)] hover:border-[var(--primary)] transition-colors flex items-center gap-1"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                </svg>
+                Add Section
+              </button>
             </div>
 
             {/* Active Section Editor */}
-            {contentSections.map((section, idx) => {
+            {contentSections.map((section) => {
               if (section.id !== activeSection) return null;
               const sectionIndex = data.sections.findIndex(s => s.id === section.id);
 
               return (
                 <div key={section.id} className="space-y-4">
                   <div className="bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)]">
-                    <label className="block text-sm font-medium text-[var(--foreground-muted)] mb-2">
-                      Section Title
-                    </label>
+                    <div className="flex items-center justify-between mb-4">
+                      <label className="text-sm font-medium text-[var(--foreground-muted)]">
+                        Section Title
+                      </label>
+                      {contentSections.length > 1 && (
+                        <button
+                          onClick={() => removeSection(section.id)}
+                          className="text-sm text-red-500 hover:text-red-600 flex items-center gap-1"
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                          </svg>
+                          Remove
+                        </button>
+                      )}
+                    </div>
                     <input
                       type="text"
                       value={section.title}

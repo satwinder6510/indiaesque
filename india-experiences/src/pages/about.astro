@@ -8,17 +8,14 @@ marked.setOptions({ breaks: true, gfm: true });
 
 const { hero, sections, contact } = aboutData;
 
-// Find sections by ID
-const ourStory = sections.find(s => s.id === 'our-story');
-const ourMission = sections.find(s => s.id === 'our-mission');
-const transparency = sections.find(s => s.id === 'transparency');
-const getInTouch = sections.find(s => s.id === 'get-in-touch');
-
 // Render markdown content
 const renderMarkdown = (content: string) => marked(content) as string;
 
 // Format address for display (replace \n with <br/>)
 const formattedAddress = contact.address.replace(/\n/g, '<br/>').replace(/•/g, '&bull;');
+
+// Filter sections with content
+const contentSections = sections.filter(s => s.content);
 ---
 
 <BaseLayout
@@ -38,34 +35,16 @@ const formattedAddress = contact.address.replace(/\n/g, '<br/>').replace(/•/g,
   <!-- CONTENT -->
   <article class="article">
     <div class="article-content">
-      {ourStory && (
+      {contentSections.map((section, index) => (
         <>
-          <h2>{ourStory.title}</h2>
-          <div set:html={renderMarkdown(ourStory.content || '')} />
+          <h2>{section.title}</h2>
+          <div set:html={renderMarkdown(section.content || '')} />
+          {/* Add contact link after last section */}
+          {index === contentSections.length - 1 && (
+            <p>Reach out at <a href={`mailto:${contact.email}`}>{contact.email}</a> or visit our <a href="/contact/">contact page</a>.</p>
+          )}
         </>
-      )}
-
-      {ourMission && (
-        <>
-          <h2>{ourMission.title}</h2>
-          <div set:html={renderMarkdown(ourMission.content || '')} />
-        </>
-      )}
-
-      {transparency && (
-        <>
-          <h2>{transparency.title}</h2>
-          <div set:html={renderMarkdown(transparency.content || '')} />
-        </>
-      )}
-
-      {getInTouch && (
-        <>
-          <h2>{getInTouch.title}</h2>
-          <div set:html={renderMarkdown(getInTouch.content || '')} />
-          <p>Reach out at <a href={`mailto:${contact.email}`}>{contact.email}</a> or visit our <a href="/contact/">contact page</a>.</p>
-        </>
-      )}
+      ))}
     </div>
   </article>
 
