@@ -55,7 +55,7 @@ Each city has category pages for:
 
 ## Technical
 
-- Static site built with Astro
-- Deployed on Vercel
+- Built with Astro (SSR)
+- Deployed on Cloudflare Workers
 - No client-side JavaScript required to read content
 - Schema markup: Organization, BreadcrumbList, Article, FAQPage, TouristDestination
