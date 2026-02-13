@@ -9,7 +9,16 @@ export default defineConfig({
   output: 'server',
   adapter: cloudflare({
     mode: 'advanced',
-    imageService: 'compile'
+    imageService: 'compile',
+    routes: {
+      extend: {
+        exclude: [
+          { pattern: '/sitemap-index.xml' },
+          { pattern: '/sitemap-0.xml' },
+          { pattern: '/sitemap-*.xml' },
+        ]
+      }
+    }
   }),
   integrations: [sitemap()],
   build: {
