@@ -64,8 +64,9 @@ const contentSections = sections.filter(s => s.content);
   <!-- CONTACT -->
   <section class="contact">
     <h3 class="contact-title">Contact</h3>
-    <p class="contact-phone">{contact.phone}</p>
-    <p class="contact-address" set:html={formattedAddress} />
+    <p class="contact-tagline">Curated travel discovery across India.</p>
+    <p class="contact-email"><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+    <p class="contact-location">New Delhi, India</p>
   </section>
 
   <!-- FOOTER LINKS -->
@@ -96,8 +97,7 @@ const contentSections = sections.filter(s => s.content);
 
   <!-- COPYRIGHT -->
   <footer class="copyright">
-    <p>&copy; Indiaesque {new Date().getFullYear()}</p>
-    <p class="credit">Designed & Built in India</p>
+    <p class="tagline">Editorial travel platform for modern explorers.</p>
   </footer>
 </BaseLayout>
 
@@ -271,19 +271,30 @@ const contentSections = sections.filter(s => s.content);
     text-transform: uppercase;
     letter-spacing: 0.2em;
     color: #111827;
-    margin: 0 0 20px;
+    margin: 0 0 16px;
   }
-  .contact-phone {
+  .contact-tagline {
     font-family: 'Muli', sans-serif;
     font-size: 15px;
     color: #4b5563;
-    margin: 0 0 10px;
+    margin: 0 0 20px;
   }
-  .contact-address {
+  .contact-email {
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    margin: 0 0 8px;
+  }
+  .contact-email a {
+    color: #2a9d8f;
+    text-decoration: none;
+  }
+  .contact-email a:hover {
+    text-decoration: underline;
+  }
+  .contact-location {
     font-family: 'Muli', sans-serif;
     font-size: 14px;
     color: #6b7280;
-    line-height: 1.8;
     margin: 0;
   }
 
@@ -330,18 +341,15 @@ const contentSections = sections.filter(s => s.content);
 
   /* COPYRIGHT */
   .copyright {
-    padding: 30px 24px;
+    padding: 24px;
     text-align: center;
     border-top: 1px solid #e5e7eb;
   }
-  .copyright p {
+  .copyright .tagline {
     font-family: 'Muli', sans-serif;
     font-size: 12px;
+    font-style: italic;
     color: #9ca3af;
-    margin: 0 0 6px;
-  }
-  .credit {
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
+    margin: 0;
   }
 </style>
