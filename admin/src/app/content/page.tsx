@@ -39,8 +39,49 @@ interface BulkResearchResult {
   questionCount?: number;
 }
 
+interface AIScoreSummary {
+  average: number;
+  distribution: {
+    excellent: number;
+    good: number;
+    fair: number;
+    poor: number;
+    bad: number;
+    fail: number;
+  };
+  readyToPublish: number;
+  needsEditing: number;
+}
+
+interface FileAIScore {
+  total: number;
+  rating: string;
+  breakdown: {
+    phrases: number;
+    structural: number;
+  };
+  phraseViolations: number;
+  structuralViolations: number;
+}
+
+interface ValidationResult {
+  totalFiles: number;
+  passed: number;
+  failed: number;
+  aiScores: Record<string, FileAIScore>;
+  aiScoreSummary: AIScoreSummary;
+  errors: Array<{
+    file: string;
+    type: string;
+    category?: string;
+    weight?: number;
+    line?: number;
+    message: string;
+  }>;
+}
+
 export default function ContentPage() {
-  const [activeTab, setActiveTab] = useState<"hubs" | "pages">("hubs");
+  const [activeTab, setActiveTab] = useState<"hubs" | "pages" | "ai">("hubs");
   const router = useRouter();
 
   // Hub state
@@ -57,6 +98,12 @@ export default function ContentPage() {
   const [generating, setGenerating] = useState(false);
   const [log, setLog] = useState<string[]>([]);
   const [loadingPages, setLoadingPages] = useState(true);
+
+  // AI Detection state
+  const [aiSelectedCity, setAiSelectedCity] = useState<string | null>(null);
+  const [validating, setValidating] = useState(false);
+  const [validationResult, setValidationResult] = useState<ValidationResult | null>(null);
+  const [selectedFile, setSelectedFile] = useState<string | null>(null);
 
   // Load hubs data
   useEffect(() => {
@@ -152,6 +199,45 @@ export default function ContentPage() {
     }
   };
 
+  const runValidation = async (city: string) => {
+    setAiSelectedCity(city);
+    setValidating(true);
+    setValidationResult(null);
+    setSelectedFile(null);
+
+    try {
+      const res = await fetch("/api/seo/validate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ city }),
+      });
+      const data = await res.json();
+      if (data.success && data.data) {
+        setValidationResult(data.data);
+      }
+    } catch (err) {
+      console.error("Validation failed:", err);
+    } finally {
+      setValidating(false);
+    }
+  };
+
+  const getScoreColor = (score: number) => {
+    if (score <= 10) return "text-green-600 dark:text-green-400";
+    if (score <= 20) return "text-green-500 dark:text-green-500";
+    if (score <= 35) return "text-yellow-600 dark:text-yellow-400";
+    if (score <= 50) return "text-orange-600 dark:text-orange-400";
+    return "text-red-600 dark:text-red-400";
+  };
+
+  const getScoreBadge = (score: number) => {
+    if (score <= 10) return { label: "Excellent", color: "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400" };
+    if (score <= 20) return { label: "Good", color: "bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-500" };
+    if (score <= 35) return { label: "Fair", color: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400" };
+    if (score <= 50) return { label: "Poor", color: "bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400" };
+    return { label: "Bad", color: "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400" };
+  };
+
   return (
     <div className="min-h-screen bg-[var(--background)]">
       <header className="bg-[var(--background-card)] border-b border-[var(--border)]">
@@ -209,6 +295,16 @@ export default function ContentPage() {
             }`}
           >
             Pages
+          </button>
+          <button
+            onClick={() => setActiveTab("ai")}
+            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+              activeTab === "ai"
+                ? "bg-[var(--primary)] text-white"
+                : "bg-[var(--background-card)] text-[var(--foreground-muted)] hover:text-[var(--foreground)] border border-[var(--border)]"
+            }`}
+          >
+            AI Detection
           </button>
         </div>
 
@@ -416,6 +512,209 @@ export default function ContentPage() {
                   ))}
                 </div>
               </div>
+            )}
+          </>
+        )}
+
+        {/* AI Detection Tab */}
+        {activeTab === "ai" && (
+          <>
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold text-[var(--foreground)]">AI Detection</h2>
+                <p className="text-[var(--foreground-muted)] mt-1">Scan content for AI-detectable patterns</p>
+              </div>
+            </div>
+
+            {/* City Selector */}
+            <div className="bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)] mb-6">
+              <h3 className="text-lg font-semibold mb-4">Select City to Validate</h3>
+              <div className="flex flex-wrap gap-3">
+                {cityStatuses.map((city) => (
+                  <button
+                    key={city.slug}
+                    onClick={() => runValidation(city.slug)}
+                    disabled={validating}
+                    className={`px-4 py-2 rounded-lg font-medium capitalize transition-all ${
+                      aiSelectedCity === city.slug
+                        ? "bg-[var(--primary)] text-white"
+                        : "bg-[var(--background)] text-[var(--foreground-muted)] hover:text-[var(--foreground)] border border-[var(--border)] hover:border-[var(--primary)]"
+                    } disabled:opacity-50`}
+                  >
+                    {validating && aiSelectedCity === city.slug ? (
+                      <span className="flex items-center gap-2">
+                        <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                        </svg>
+                        Validating...
+                      </span>
+                    ) : (
+                      city.name
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Validation Results */}
+            {validationResult && (
+              <>
+                {/* Summary Cards */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                  <div className="bg-[var(--background-card)] rounded-xl p-4 border border-[var(--border)]">
+                    <div className="text-3xl font-bold text-[var(--foreground)]">{validationResult.totalFiles}</div>
+                    <div className="text-sm text-[var(--foreground-muted)]">Total Files</div>
+                  </div>
+                  <div className="bg-[var(--background-card)] rounded-xl p-4 border border-green-200 dark:border-green-800">
+                    <div className="text-3xl font-bold text-green-600 dark:text-green-400">
+                      {validationResult.aiScoreSummary.readyToPublish}
+                    </div>
+                    <div className="text-sm text-[var(--foreground-muted)]">Ready to Publish</div>
+                  </div>
+                  <div className="bg-[var(--background-card)] rounded-xl p-4 border border-yellow-200 dark:border-yellow-800">
+                    <div className="text-3xl font-bold text-yellow-600 dark:text-yellow-400">
+                      {validationResult.aiScoreSummary.needsEditing}
+                    </div>
+                    <div className="text-sm text-[var(--foreground-muted)]">Needs Editing</div>
+                  </div>
+                  <div className="bg-[var(--background-card)] rounded-xl p-4 border border-[var(--border)]">
+                    <div className="text-3xl font-bold text-[var(--foreground)]">
+                      {validationResult.aiScoreSummary.average}
+                    </div>
+                    <div className="text-sm text-[var(--foreground-muted)]">Avg Score</div>
+                  </div>
+                </div>
+
+                {/* Distribution Chart */}
+                <div className="bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)] mb-6">
+                  <h3 className="text-lg font-semibold mb-4">Score Distribution</h3>
+                  <div className="flex items-end gap-2 h-32">
+                    {Object.entries(validationResult.aiScoreSummary.distribution).map(([rating, count]) => {
+                      const maxCount = Math.max(...Object.values(validationResult.aiScoreSummary.distribution));
+                      const height = maxCount > 0 ? (count / maxCount) * 100 : 0;
+                      const colors: Record<string, string> = {
+                        excellent: "bg-green-500",
+                        good: "bg-green-400",
+                        fair: "bg-yellow-500",
+                        poor: "bg-orange-500",
+                        bad: "bg-red-500",
+                        fail: "bg-red-700",
+                      };
+                      return (
+                        <div key={rating} className="flex-1 flex flex-col items-center gap-1">
+                          <span className="text-xs font-medium text-[var(--foreground)]">{count}</span>
+                          <div
+                            className={`w-full rounded-t ${colors[rating]}`}
+                            style={{ height: `${height}%`, minHeight: count > 0 ? "4px" : "0" }}
+                          />
+                          <span className="text-xs text-[var(--foreground-muted)] capitalize">{rating}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Flagged Files */}
+                <div className="bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)]">
+                  <h3 className="text-lg font-semibold mb-4">
+                    Files by Score
+                    <span className="text-sm font-normal text-[var(--foreground-muted)] ml-2">
+                      (click to see details)
+                    </span>
+                  </h3>
+                  <div className="overflow-x-auto">
+                    <table className="w-full">
+                      <thead>
+                        <tr className="border-b border-[var(--border)]">
+                          <th className="text-left py-3 px-4 text-sm font-medium text-[var(--foreground-muted)]">File</th>
+                          <th className="text-left py-3 px-4 text-sm font-medium text-[var(--foreground-muted)]">Score</th>
+                          <th className="text-left py-3 px-4 text-sm font-medium text-[var(--foreground-muted)]">Rating</th>
+                          <th className="text-left py-3 px-4 text-sm font-medium text-[var(--foreground-muted)]">Phrases</th>
+                          <th className="text-left py-3 px-4 text-sm font-medium text-[var(--foreground-muted)]">Structural</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {Object.entries(validationResult.aiScores)
+                          .sort(([, a], [, b]) => b.total - a.total)
+                          .map(([file, score]) => {
+                            const badge = getScoreBadge(score.total);
+                            return (
+                              <tr
+                                key={file}
+                                onClick={() => setSelectedFile(selectedFile === file ? null : file)}
+                                className={`border-b border-[var(--border)] cursor-pointer transition-colors ${
+                                  selectedFile === file
+                                    ? "bg-[var(--primary)]/5"
+                                    : "hover:bg-[var(--background)]"
+                                }`}
+                              >
+                                <td className="py-3 px-4 text-sm font-mono">{file}</td>
+                                <td className={`py-3 px-4 text-sm font-bold ${getScoreColor(score.total)}`}>
+                                  {score.total}
+                                </td>
+                                <td className="py-3 px-4">
+                                  <span className={`px-2 py-1 rounded text-xs font-medium ${badge.color}`}>
+                                    {badge.label}
+                                  </span>
+                                </td>
+                                <td className="py-3 px-4 text-sm text-[var(--foreground-muted)]">
+                                  {score.phraseViolations > 0 ? score.phraseViolations : "-"}
+                                </td>
+                                <td className="py-3 px-4 text-sm text-[var(--foreground-muted)]">
+                                  {score.structuralViolations > 0 ? score.structuralViolations : "-"}
+                                </td>
+                              </tr>
+                            );
+                          })}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* File Details */}
+                {selectedFile && (
+                  <div className="bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)] mt-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-lg font-semibold font-mono">{selectedFile}</h3>
+                      <button
+                        onClick={() => setSelectedFile(null)}
+                        className="p-1 text-[var(--foreground-muted)] hover:text-[var(--foreground)] rounded-lg hover:bg-[var(--border)]"
+                      >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
+                    </div>
+                    <div className="space-y-2">
+                      {validationResult.errors
+                        .filter((e) => e.file === selectedFile)
+                        .map((error, i) => (
+                          <div
+                            key={i}
+                            className={`p-3 rounded-lg text-sm ${
+                              error.type === "banned-phrase"
+                                ? "bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800"
+                                : "bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800"
+                            }`}
+                          >
+                            <div className="flex items-center gap-2">
+                              {error.weight && (
+                                <span className="px-1.5 py-0.5 bg-[var(--background)] rounded text-xs font-medium">
+                                  +{error.weight}
+                                </span>
+                              )}
+                              <span className="text-[var(--foreground)]">{error.message}</span>
+                            </div>
+                          </div>
+                        ))}
+                      {validationResult.errors.filter((e) => e.file === selectedFile).length === 0 && (
+                        <p className="text-[var(--foreground-muted)]">No issues found in this file.</p>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </>
             )}
           </>
         )}
