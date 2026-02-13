@@ -5,6 +5,7 @@ import citiesData from '../data/cities.json';
 import categoriesData from '../data/categories.json';
 import staycationsData from '../data/staycations.json';
 import experiencesData from '../data/experiences.json';
+import homepageData from '../data/homepage.json';
 
 // Get latest journal articles
 const allPages = await getCollection('pages');
@@ -42,8 +43,8 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Indiaesque',
-  url: 'https://indiaesque.com',
-  logo: 'https://indiaesque.com/logo.png',
+  url: 'https://indiaesque.in',
+  logo: 'https://indiaesque.in/logo.png',
   description: 'Curated India experiences - personalized journeys, heritage walks, food tours, and unforgettable adventures across India.',
   sameAs: [
     'https://www.instagram.com/indiaesque',
@@ -55,7 +56,7 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Indiaesque',
-  url: 'https://indiaesque.com',
+  url: 'https://indiaesque.in',
   description: 'Discover authentic India through curated experiences.',
   publisher: {
     '@type': 'Organization',
@@ -75,58 +76,62 @@ const websiteSchema = {
     <img src="/images/hero.jpg" alt="Traditional Indian Theyyam performer" class="hero-bg" />
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <span class="hero-location">KERALA & CHERUTHURUTHY</span>
-      <h1 class="hero-title">DISCOVER A WORLD OF TRAVEL, UNIQUELY CURATED FOR YOU</h1>
+      <span class="hero-location">{homepageData.hero.location}</span>
+      <h1 class="hero-title">{homepageData.hero.title}</h1>
     </div>
   </section>
 
   <!-- Introduction -->
   <section class="intro">
-    <p class="intro-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-    </p>
-    <p class="intro-text">
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-      dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
-    </p>
+    {homepageData.intro.paragraphs.map(paragraph => (
+      <p class="intro-text">{paragraph}</p>
+    ))}
 
     <div class="features">
-      <div class="feature">
-        <div class="feature-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-            <line x1="2" y1="12" x2="22" y2="12"></line>
-          </svg>
+      {homepageData.features.map(feature => (
+        <div class="feature">
+          <div class="feature-icon">
+            {feature.icon === 'globe' && (
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+              </svg>
+            )}
+            {feature.icon === 'layers' && (
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            )}
+            {feature.icon === 'pin' && (
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            )}
+            {feature.icon === 'heart' && (
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            )}
+            {feature.icon === 'star' && (
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            )}
+            {feature.icon === 'compass' && (
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+              </svg>
+            )}
+          </div>
+          <h3>{feature.title}</h3>
+          <p>{feature.description}</p>
         </div>
-        <h3>RESPONSIBLE TOURISM</h3>
-        <p>Delectus alias doloribus cupiditate. Ratione culpa in fuga qui.</p>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-            <path d="M2 17l10 5 10-5"></path>
-            <path d="M2 12l10 5 10-5"></path>
-          </svg>
-        </div>
-        <h3>INSIDER KNOWLEDGE</h3>
-        <p>Itaque nihil non eveniet cum optio. Quo facere ab labore.</p>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
-        </div>
-        <h3>SUSTAINABLE EXPERIENCES</h3>
-        <p>Iusto recusandae quo voluptas dicta. Vitae rerum at officiis.</p>
-      </div>
+      ))}
     </div>
 
     <a href="/about/" class="read-more">Read More</a>

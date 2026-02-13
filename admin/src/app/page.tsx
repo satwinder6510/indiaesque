@@ -117,7 +117,37 @@ export default function Dashboard() {
             </div>
           </div>
         ) : (
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {/* Homepage Card */}
+            <Link
+              href="/homepage"
+              className="block bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)] hover:border-[var(--primary)] hover:shadow-lg transition-all group"
+            >
+              <div className="flex items-start justify-between">
+                <div>
+                  <div className="text-[var(--primary)] mb-4 group-hover:scale-110 transition-transform inline-block">
+                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-[var(--foreground)] mb-1">
+                    Homepage
+                  </h3>
+                  <p className="text-[var(--foreground-muted)] text-sm mb-4">
+                    Hero, intro & features
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center justify-end text-sm pt-4 border-t border-[var(--border)]">
+                <span className="text-[var(--primary)] font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                  Edit
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </div>
+            </Link>
+
             {/* Content Hubs Card */}
             <Link
               href="/content"

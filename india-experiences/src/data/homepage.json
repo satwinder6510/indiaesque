@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "location": "KERALA & CHERUTHURUTHY",
+    "title": "DISCOVER A WORLD OF TRAVEL, UNIQUELY CURATED FOR YOU"
+  },
+  "intro": {
+    "paragraphs": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat."
+    ]
+  },
+  "features": [
+    {
+      "icon": "globe",
+      "title": "RESPONSIBLE TOURISM",
+      "description": "Delectus alias doloribus cupiditate. Ratione culpa in fuga qui."
+    },
+    {
+      "icon": "layers",
+      "title": "INSIDER KNOWLEDGE",
+      "description": "Itaque nihil non eveniet cum optio. Quo facere ab labore."
+    },
+    {
+      "icon": "pin",
+      "title": "SUSTAINABLE EXPERIENCES",
+      "description": "Iusto recusandae quo voluptas dicta. Vitae rerum at officiis."
+    }
+  ]
+}
