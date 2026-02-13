@@ -11,7 +11,7 @@ const { hero, sections, contact } = aboutData;
 // Find sections by ID
 const ourStory = sections.find(s => s.id === 'our-story');
 const ourMission = sections.find(s => s.id === 'our-mission');
-const whatMakesUsDifferent = sections.find(s => s.id === 'what-makes-us-different');
+const transparency = sections.find(s => s.id === 'transparency');
 const getInTouch = sections.find(s => s.id === 'get-in-touch');
 
 // Render markdown content
@@ -52,14 +52,10 @@ const formattedAddress = contact.address.replace(/\n/g, '<br/>').replace(/•/g,
         </>
       )}
 
-      {whatMakesUsDifferent && (
+      {transparency && (
         <>
-          <h2>{whatMakesUsDifferent.title}</h2>
-          <ul>
-            {whatMakesUsDifferent.highlights?.map(h => (
-              <li><strong>{h.title}</strong> — {h.description}</li>
-            ))}
-          </ul>
+          <h2>{transparency.title}</h2>
+          <div set:html={renderMarkdown(transparency.content || '')} />
         </>
       )}
 
