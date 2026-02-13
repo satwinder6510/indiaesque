@@ -1,34 +1,21 @@
 ---
 // Footer Component
-const currentYear = new Date().getFullYear();
-
 const destinations = [
   { name: 'Delhi', href: '/delhi/' },
   { name: 'Jaipur', href: '/jaipur/' },
   { name: 'Mumbai', href: '/mumbai/' },
   { name: 'Goa', href: '/goa/' },
-  { name: 'Agra', href: '/agra/' },
   { name: 'Varanasi', href: '/varanasi/' },
   { name: 'Kerala', href: '/kerala/' },
-  { name: 'Udaipur', href: '/udaipur/' },
 ];
 
 const collections = [
-  { name: 'Luxury', href: '#' },
-  { name: 'Adventure', href: '#' },
-  { name: 'Cultural', href: '#' },
-  { name: 'Wellness', href: '#' },
-];
-
-const company = [
-  { name: 'About Us', href: '/about/' },
-  { name: 'Journals', href: '/journal/' },
-  { name: 'Contact', href: '/contact/' },
-];
-
-const legal = [
-  { name: 'Privacy', href: '#' },
-  { name: 'Terms', href: '#' },
+  { name: 'Food Tours', href: '#' },
+  { name: 'Heritage', href: '#' },
+  { name: 'Cooking', href: '#' },
+  { name: 'Markets', href: '#' },
+  { name: 'Day Trips', href: '#' },
+  { name: 'Art & Craft', href: '#' },
 ];
 ---
 
@@ -37,11 +24,9 @@ const legal = [
     <!-- Contact -->
     <div class="footer-contact">
       <h3 class="footer-heading">CONTACT</h3>
-      <p class="footer-tagline">YOUR DREAM JOURNEY AWAITS</p>
-      <p class="footer-info">
-        Indiaesque | hello@indiaesque.com<br />
-        New Delhi, India
-      </p>
+      <p class="footer-tagline">Curated travel discovery across India.</p>
+      <p class="footer-email"><a href="mailto:hello@indiaesque.in">hello@indiaesque.in</a></p>
+      <p class="footer-location">New Delhi, India</p>
     </div>
 
     <!-- Links Grid -->
@@ -63,63 +48,23 @@ const legal = [
           ))}
         </ul>
       </div>
-
-      <div class="footer-col">
-        <h4 class="footer-col-title">COMPANY</h4>
-        <ul class="footer-links">
-          {company.map(item => (
-            <li><a href={item.href}>{item.name}</a></li>
-          ))}
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4 class="footer-col-title">LEGAL</h4>
-        <ul class="footer-links">
-          {legal.map(item => (
-            <li><a href={item.href}>{item.name}</a></li>
-          ))}
-        </ul>
-      </div>
     </div>
 
-    <!-- Social -->
-    <div class="footer-social">
-      <a href="#" aria-label="Facebook">
-        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-        </svg>
-      </a>
-      <a href="#" aria-label="Twitter">
-        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
-        </svg>
-      </a>
-      <a href="#" aria-label="Instagram">
-        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-        </svg>
-      </a>
-    </div>
-
-    <!-- Copyright -->
+    <!-- Bottom -->
     <div class="footer-bottom">
-      <p class="footer-copyright">&copy; Indiaesque {currentYear}</p>
-      <p class="footer-credit">DESIGNED & BUILT IN INDIA</p>
+      <p class="footer-tagline-bottom">Editorial travel platform for modern explorers.</p>
     </div>
   </div>
 </footer>
 
 <style>
   .footer {
-    background-color: #ffffff;
-    padding: 64px 24px;
+    background-color: #f9fafb;
+    padding: 64px 24px 32px;
   }
 
   .footer-inner {
-    max-width: 900px;
+    max-width: 600px;
     margin: 0 auto;
   }
 
@@ -130,98 +75,97 @@ const legal = [
   }
 
   .footer-heading {
-    font-family: 'Muli', sans-serif;
-    font-size: 14px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
     font-weight: 400;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.2em;
     color: #111827;
-    margin-bottom: 12px;
+    margin: 0 0 16px;
   }
 
   .footer-tagline {
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    color: #6b7280;
-    margin-bottom: 24px;
+    font-family: 'Muli', sans-serif;
+    font-size: 15px;
+    color: #4b5563;
+    margin: 0 0 20px;
   }
 
-  .footer-info {
+  .footer-email {
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    margin: 0 0 8px;
+  }
+
+  .footer-email a {
+    color: #2a9d8f;
+    text-decoration: none;
+  }
+
+  .footer-email a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-location {
+    font-family: 'Muli', sans-serif;
     font-size: 14px;
     color: #6b7280;
-    line-height: 1.8;
+    margin: 0;
   }
 
   /* Links Grid */
   .footer-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    gap: 40px;
     margin-bottom: 48px;
     text-align: center;
-  }
-
-  @media (min-width: 640px) {
-    .footer-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .footer-col-title {
-    font-family: 'Muli', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
     color: #111827;
-    margin-bottom: 16px;
+    margin: 0 0 20px;
   }
 
   .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
   }
 
   .footer-links a {
+    font-family: 'Muli', sans-serif;
     font-size: 14px;
     color: #6b7280;
+    text-decoration: none;
     transition: color 0.2s ease;
   }
 
   .footer-links a:hover {
-    color: #111827;
-  }
-
-  /* Social */
-  .footer-social {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    margin-bottom: 48px;
-  }
-
-  .footer-social a {
-    color: #111827;
-    transition: color 0.2s ease;
-  }
-
-  .footer-social a:hover {
-    color: #6b7280;
+    color: #2a9d8f;
   }
 
   /* Bottom */
   .footer-bottom {
     text-align: center;
+    padding-top: 24px;
+    border-top: 1px solid #e5e7eb;
   }
 
-  .footer-copyright {
+  .footer-tagline-bottom {
+    font-family: 'Muli', sans-serif;
     font-size: 12px;
+    font-style: italic;
     color: #9ca3af;
-    margin-bottom: 8px;
-  }
-
-  .footer-credit {
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    color: #9ca3af;
+    margin: 0;
   }
 </style>
