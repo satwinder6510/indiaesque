@@ -2,7 +2,7 @@
 
 **Reference document. Consult before making any structural changes.**
 
-Last updated: 2026-02-13 (Added: About page admin, SEO fixes, Footer structure)
+Last updated: 2026-02-13 (Added: City image management, hero image inheritance)
 
 ---
 
@@ -1142,6 +1142,41 @@ function updateArrows() {
 | `heroImage` | City hub page banner |
 | `bestMonths` | Displayed on city pages as optimal travel months |
 | `tier` | Metadata for prioritization (1=major, 2=secondary) — does not affect homepage display |
+
+### City Image Management
+
+**Storage:** `/public/images/cities/`
+
+| Image Type | Dimensions | Naming Convention |
+|------------|------------|-------------------|
+| Hero | 1200×600 | `{city}-hero.jpg` |
+| Hero Mobile | 800×600 | `{city}-hero-mobile.jpg` |
+| Card | 500×313 | `{city}-card.jpg` |
+| List | 800×500 | `{city}-list.jpg` |
+
+**Hero Image Inheritance:**
+
+Content pages (`/delhi/where-to-stay/`, `/delhi/best-food/`, etc.) inherit the city's hero image via fallback logic in `[...slug].astro`:
+
+```javascript
+const cityHeroImage = heroImage ?? cityData?.heroImage;
+```
+
+| Page Type | Image Source |
+|-----------|--------------|
+| Hub (`/delhi/`) | `cityData.heroImage` from cities.json |
+| Category (`/delhi/where-to-stay/`) | Content frontmatter `heroImage` → city's `heroImage` fallback |
+| PAA (`/delhi/is-delhi-safe/`) | Content frontmatter `heroImage` → city's `heroImage` fallback |
+
+Content files can override with a custom `heroImage` in frontmatter:
+```yaml
+---
+title: "Where To Stay In Delhi"
+heroImage: "/images/cities/delhi-hotels-hero.jpg"  # Optional override
+---
+```
+
+**Admin Upload:** Cities page in admin (`/cities`) handles image uploads with automatic resizing to all required dimensions.
 
 ---
 
