@@ -8,18 +8,12 @@
     {
       "id": "our-story",
       "title": "Ethos",
-      "paragraphs": [
-        "India has never been a place you can fully “cover.”\n\nIt shifts. Expands. Reinvents itself constantly.\n\nNew stays open quietly. Neighbourhoods evolve. Independent spaces emerge outside the spotlight.\n\nIndiaesque exists to curate what’s worth discovering — city by city.\n\nWe are an editorial travel platform spotlighting unique stays, offbeat places, and experiences that go beyond the obvious. We don’t aim to list everything. We focus on what stands out.",
-        ""
-      ]
+      "content": "India has never been a place you can fully "cover."\n\nIt shifts. Expands. Reinvents itself constantly.\n\nNew stays open quietly. Neighbourhoods evolve. Independent spaces emerge outside the spotlight.\n\nIndiaesque exists to curate what's worth discovering — city by city.\n\nWe are an editorial travel platform spotlighting unique stays, offbeat places, and experiences that go beyond the obvious. We don't aim to list everything. We focus on what stands out."
     },
     {
       "id": "our-mission",
       "title": "What We Do",
-      "paragraphs": [
-        "Indiaesque documents:\n\nDesign-led and boutique stays\n\nHidden neighbourhoods\n\nLocal food discoveries\n\nCultural experiences\n\nIndependent spaces shaping modern India\n\nOur guides evolve as India does — updated as new discoveries emerge.",
-        "What We’re Not\n\nWe’re not a travel agency.\nWe don’t sell packages.\nWe don’t push itineraries.\n\nWe act as a filter — highlighting places and experiences we believe deserve attention."
-      ]
+      "content": "Indiaesque documents:\n\n- Design-led and boutique stays\n- Hidden neighbourhoods\n- Local food discoveries\n- Cultural experiences\n- Independent spaces shaping modern India\n\nOur guides evolve as India does — updated as new discoveries emerge.\n\n### What We're Not\n\nWe're not a travel agency. We don't sell packages. We don't push itineraries.\n\nWe act as a filter — highlighting places and experiences we believe deserve attention."
     },
     {
       "id": "what-makes-us-different",
@@ -46,9 +40,7 @@
     {
       "id": "get-in-touch",
       "title": "Get in Touch",
-      "paragraphs": [
-        "Have a question about an experience? Want to suggest something we should check out? We'd love to hear from you."
-      ]
+      "content": "Have a question about an experience? Want to suggest something we should check out? We'd love to hear from you."
     }
   ],
   "contact": {

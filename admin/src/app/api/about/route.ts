@@ -13,7 +13,7 @@ interface Highlight {
 interface Section {
   id: string;
   title: string;
-  paragraphs?: string[];
+  content?: string;
   highlights?: Highlight[];
 }
 

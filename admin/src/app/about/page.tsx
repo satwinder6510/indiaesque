@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import MarkdownEditor from "@/components/MarkdownEditor";
 
 interface Highlight {
   title: string;
@@ -11,7 +12,7 @@ interface Highlight {
 interface Section {
   id: string;
   title: string;
-  paragraphs?: string[];
+  content?: string;
   highlights?: Highlight[];
 }
 
@@ -34,11 +35,19 @@ export default function AboutPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("/api/about")
       .then((res) => res.json())
-      .then((data) => setData(data))
+      .then((data) => {
+        setData(data);
+        // Set first content section as active
+        const firstContentSection = data.sections?.find((s: Section) => s.content);
+        if (firstContentSection) {
+          setActiveSection(firstContentSection.id);
+        }
+      })
       .catch(console.error)
       .finally(() => setLoading(false));
   }, []);
@@ -83,12 +92,10 @@ export default function AboutPage() {
     setData({ ...data, sections });
   };
 
-  const updateSectionParagraph = (sectionIndex: number, paragraphIndex: number, value: string) => {
+  const updateSectionContent = (sectionIndex: number, value: string) => {
     if (!data) return;
     const sections = [...data.sections];
-    const paragraphs = [...(sections[sectionIndex].paragraphs || [])];
-    paragraphs[paragraphIndex] = value;
-    sections[sectionIndex] = { ...sections[sectionIndex], paragraphs };
+    sections[sectionIndex] = { ...sections[sectionIndex], content: value };
     setData({ ...data, sections });
   };
 
@@ -117,10 +124,13 @@ export default function AboutPage() {
     );
   }
 
+  const contentSections = data.sections.filter(s => s.content !== undefined);
+  const highlightSection = data.sections.find(s => s.highlights !== undefined);
+
   return (
     <div className="min-h-screen bg-[var(--background)]">
       <header className="bg-[var(--background-card)] border-b border-[var(--border)]">
-        <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Link
               href="/"
@@ -145,7 +155,7 @@ export default function AboutPage() {
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-6 py-8">
+      <main className="max-w-6xl mx-auto px-6 py-8">
         {message && (
           <div
             className={`mb-6 p-4 rounded-lg ${
@@ -158,156 +168,184 @@ export default function AboutPage() {
           </div>
         )}
 
-        {/* Hero Section */}
-        <section className="bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)] mb-6">
-          <h2 className="text-lg font-semibold text-[var(--foreground)] mb-4">Hero Section</h2>
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-[var(--foreground-muted)] mb-2">
-                Location Text
-              </label>
-              <input
-                type="text"
-                value={data.hero.location}
-                onChange={(e) => updateHero("location", e.target.value)}
-                className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)]"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-[var(--foreground-muted)] mb-2">
-                Title
-              </label>
-              <input
-                type="text"
-                value={data.hero.title}
-                onChange={(e) => updateHero("title", e.target.value)}
-                className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)]"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-[var(--foreground-muted)] mb-2">
-                Subtitle
-              </label>
-              <textarea
-                value={data.hero.subtitle}
-                onChange={(e) => updateHero("subtitle", e.target.value)}
-                rows={2}
-                className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)] resize-none"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* Content Sections */}
-        {data.sections.map((section, sectionIndex) => (
-          <section key={section.id} className="bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)] mb-6">
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-[var(--foreground-muted)] mb-2">
-                Section Title
-              </label>
-              <input
-                type="text"
-                value={section.title}
-                onChange={(e) => updateSectionTitle(sectionIndex, e.target.value)}
-                className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)]"
-              />
-            </div>
-
-            {/* Paragraphs */}
-            {section.paragraphs && (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Left Column - Hero, Contact, Highlights */}
+          <div className="space-y-6">
+            {/* Hero Section */}
+            <section className="bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)]">
+              <h2 className="text-lg font-semibold text-[var(--foreground)] mb-4">Hero Section</h2>
               <div className="space-y-4">
-                {section.paragraphs.map((paragraph, paragraphIndex) => (
-                  <div key={paragraphIndex}>
+                <div>
+                  <label className="block text-sm font-medium text-[var(--foreground-muted)] mb-2">
+                    Location Text
+                  </label>
+                  <input
+                    type="text"
+                    value={data.hero.location}
+                    onChange={(e) => updateHero("location", e.target.value)}
+                    className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-[var(--foreground-muted)] mb-2">
+                    Title
+                  </label>
+                  <input
+                    type="text"
+                    value={data.hero.title}
+                    onChange={(e) => updateHero("title", e.target.value)}
+                    className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-[var(--foreground-muted)] mb-2">
+                    Subtitle
+                  </label>
+                  <textarea
+                    value={data.hero.subtitle}
+                    onChange={(e) => updateHero("subtitle", e.target.value)}
+                    rows={2}
+                    className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)] resize-none"
+                  />
+                </div>
+              </div>
+            </section>
+
+            {/* Contact Section */}
+            <section className="bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)]">
+              <h2 className="text-lg font-semibold text-[var(--foreground)] mb-4">Contact Information</h2>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-[var(--foreground-muted)] mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    value={data.contact.email}
+                    onChange={(e) => updateContact("email", e.target.value)}
+                    className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-[var(--foreground-muted)] mb-2">
+                    Phone
+                  </label>
+                  <input
+                    type="text"
+                    value={data.contact.phone}
+                    onChange={(e) => updateContact("phone", e.target.value)}
+                    className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-[var(--foreground-muted)] mb-2">
+                    Address
+                  </label>
+                  <textarea
+                    value={data.contact.address}
+                    onChange={(e) => updateContact("address", e.target.value)}
+                    rows={3}
+                    className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)] resize-none"
+                  />
+                </div>
+              </div>
+            </section>
+
+            {/* Highlights Section */}
+            {highlightSection && (
+              <section className="bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)]">
+                <div className="mb-4">
+                  <label className="block text-sm font-medium text-[var(--foreground-muted)] mb-2">
+                    Section Title
+                  </label>
+                  <input
+                    type="text"
+                    value={highlightSection.title}
+                    onChange={(e) => {
+                      const idx = data.sections.findIndex(s => s.id === highlightSection.id);
+                      updateSectionTitle(idx, e.target.value);
+                    }}
+                    className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)]"
+                  />
+                </div>
+                <div className="space-y-3">
+                  {highlightSection.highlights?.map((highlight, highlightIndex) => (
+                    <div key={highlightIndex} className="p-3 bg-[var(--background)] rounded-lg border border-[var(--border)]">
+                      <input
+                        type="text"
+                        value={highlight.title}
+                        onChange={(e) => {
+                          const idx = data.sections.findIndex(s => s.id === highlightSection.id);
+                          updateHighlight(idx, highlightIndex, "title", e.target.value);
+                        }}
+                        placeholder="Title"
+                        className="w-full px-3 py-2 mb-2 bg-[var(--background-card)] border border-[var(--border)] rounded text-[var(--foreground)] text-sm focus:outline-none focus:border-[var(--primary)]"
+                      />
+                      <input
+                        type="text"
+                        value={highlight.description}
+                        onChange={(e) => {
+                          const idx = data.sections.findIndex(s => s.id === highlightSection.id);
+                          updateHighlight(idx, highlightIndex, "description", e.target.value);
+                        }}
+                        placeholder="Description"
+                        className="w-full px-3 py-2 bg-[var(--background-card)] border border-[var(--border)] rounded text-[var(--foreground)] text-sm focus:outline-none focus:border-[var(--primary)]"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
+
+          {/* Right Column - Content Sections with Markdown Editor */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Section Tabs */}
+            <div className="flex gap-2 flex-wrap">
+              {contentSections.map((section) => (
+                <button
+                  key={section.id}
+                  onClick={() => setActiveSection(section.id)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    activeSection === section.id
+                      ? "bg-[var(--primary)] text-white"
+                      : "bg-[var(--background-card)] text-[var(--foreground-muted)] hover:text-[var(--foreground)] border border-[var(--border)]"
+                  }`}
+                >
+                  {section.title}
+                </button>
+              ))}
+            </div>
+
+            {/* Active Section Editor */}
+            {contentSections.map((section, idx) => {
+              if (section.id !== activeSection) return null;
+              const sectionIndex = data.sections.findIndex(s => s.id === section.id);
+
+              return (
+                <div key={section.id} className="space-y-4">
+                  <div className="bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)]">
                     <label className="block text-sm font-medium text-[var(--foreground-muted)] mb-2">
-                      Paragraph {paragraphIndex + 1}
+                      Section Title
                     </label>
-                    <textarea
-                      value={paragraph}
-                      onChange={(e) => updateSectionParagraph(sectionIndex, paragraphIndex, e.target.value)}
-                      rows={4}
-                      className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)] resize-none"
+                    <input
+                      type="text"
+                      value={section.title}
+                      onChange={(e) => updateSectionTitle(sectionIndex, e.target.value)}
+                      className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)]"
                     />
                   </div>
-                ))}
-              </div>
-            )}
 
-            {/* Highlights */}
-            {section.highlights && (
-              <div className="space-y-4">
-                <p className="text-sm font-medium text-[var(--foreground-muted)]">Highlights</p>
-                {section.highlights.map((highlight, highlightIndex) => (
-                  <div key={highlightIndex} className="p-4 bg-[var(--background)] rounded-lg border border-[var(--border)]">
-                    <div className="grid gap-3">
-                      <div>
-                        <label className="block text-sm font-medium text-[var(--foreground-muted)] mb-1">
-                          Title
-                        </label>
-                        <input
-                          type="text"
-                          value={highlight.title}
-                          onChange={(e) => updateHighlight(sectionIndex, highlightIndex, "title", e.target.value)}
-                          className="w-full px-3 py-2 bg-[var(--background-card)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)]"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-[var(--foreground-muted)] mb-1">
-                          Description
-                        </label>
-                        <input
-                          type="text"
-                          value={highlight.description}
-                          onChange={(e) => updateHighlight(sectionIndex, highlightIndex, "description", e.target.value)}
-                          className="w-full px-3 py-2 bg-[var(--background-card)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)]"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </section>
-        ))}
-
-        {/* Contact Section */}
-        <section className="bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)]">
-          <h2 className="text-lg font-semibold text-[var(--foreground)] mb-4">Contact Information</h2>
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-[var(--foreground-muted)] mb-2">
-                Email
-              </label>
-              <input
-                type="email"
-                value={data.contact.email}
-                onChange={(e) => updateContact("email", e.target.value)}
-                className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)]"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-[var(--foreground-muted)] mb-2">
-                Phone
-              </label>
-              <input
-                type="text"
-                value={data.contact.phone}
-                onChange={(e) => updateContact("phone", e.target.value)}
-                className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)]"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-[var(--foreground-muted)] mb-2">
-                Address (use \n for line breaks)
-              </label>
-              <textarea
-                value={data.contact.address}
-                onChange={(e) => updateContact("address", e.target.value)}
-                rows={3}
-                className="w-full px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-[var(--foreground)] focus:outline-none focus:border-[var(--primary)] resize-none"
-              />
-            </div>
+                  <MarkdownEditor
+                    value={section.content || ""}
+                    onChange={(value) => updateSectionContent(sectionIndex, value)}
+                    placeholder="Write your content using markdown..."
+                  />
+                </div>
+              );
+            })}
           </div>
-        </section>
+        </div>
       </main>
     </div>
   );

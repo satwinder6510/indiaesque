@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import aboutData from '../data/about.json';
+import { marked } from 'marked';
+
+// Configure marked
+marked.setOptions({ breaks: true, gfm: true });
 
 const { hero, sections, contact } = aboutData;
 
@@ -9,6 +13,9 @@ const ourStory = sections.find(s => s.id === 'our-story');
 const ourMission = sections.find(s => s.id === 'our-mission');
 const whatMakesUsDifferent = sections.find(s => s.id === 'what-makes-us-different');
 const getInTouch = sections.find(s => s.id === 'get-in-touch');
+
+// Render markdown content
+const renderMarkdown = (content: string) => marked(content) as string;
 
 // Format address for display (replace \n with <br/>)
 const formattedAddress = contact.address.replace(/\n/g, '<br/>').replace(/•/g, '&bull;');
@@ -34,14 +41,14 @@ const formattedAddress = contact.address.replace(/\n/g, '<br/>').replace(/•/g,
       {ourStory && (
         <>
           <h2>{ourStory.title}</h2>
-          {ourStory.paragraphs?.map(p => <p>{p}</p>)}
+          <div set:html={renderMarkdown(ourStory.content || '')} />
         </>
       )}
 
       {ourMission && (
         <>
           <h2>{ourMission.title}</h2>
-          {ourMission.paragraphs?.map(p => <p>{p}</p>)}
+          <div set:html={renderMarkdown(ourMission.content || '')} />
         </>
       )}
 
@@ -50,7 +57,7 @@ const formattedAddress = contact.address.replace(/\n/g, '<br/>').replace(/•/g,
           <h2>{whatMakesUsDifferent.title}</h2>
           <ul>
             {whatMakesUsDifferent.highlights?.map(h => (
-              <li><strong>{h.title}</strong> - {h.description}</li>
+              <li><strong>{h.title}</strong> — {h.description}</li>
             ))}
           </ul>
         </>
@@ -59,7 +66,7 @@ const formattedAddress = contact.address.replace(/\n/g, '<br/>').replace(/•/g,
       {getInTouch && (
         <>
           <h2>{getInTouch.title}</h2>
-          {getInTouch.paragraphs?.map(p => <p>{p}</p>)}
+          <div set:html={renderMarkdown(getInTouch.content || '')} />
           <p>Reach out at <a href={`mailto:${contact.email}`}>{contact.email}</a> or visit our <a href="/contact/">contact page</a>.</p>
         </>
       )}
