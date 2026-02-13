@@ -3,6 +3,9 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import cloudflare from '@astrojs/cloudflare';
 
+// Cities with actual content (exclude placeholder cities from sitemap)
+const CONTENT_CITIES = ['delhi', 'mumbai', 'jaipur', 'kolkata'];
+
 export default defineConfig({
   site: 'https://indiaesque.in',
   trailingSlash: 'always',
@@ -20,7 +23,33 @@ export default defineConfig({
       }
     }
   }),
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => {
+        const url = new URL(page);
+        const path = url.pathname;
+
+        // Allow homepage, about, contact, destinations, journal, staycations
+        if (path === '/' ||
+            path.startsWith('/about') ||
+            path.startsWith('/contact') ||
+            path.startsWith('/destinations') ||
+            path.startsWith('/journal') ||
+            path.startsWith('/staycations')) {
+          return true;
+        }
+
+        // For city pages, only include cities with content
+        const cityMatch = path.match(/^\/([^/]+)\/?/);
+        if (cityMatch) {
+          const city = cityMatch[1];
+          return CONTENT_CITIES.includes(city);
+        }
+
+        return true;
+      }
+    })
+  ],
   build: {
     format: 'directory',
   },
