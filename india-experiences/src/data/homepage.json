@@ -1,7 +1,7 @@
 {
   "hero": {
-    "location": "KERALA & CHERUTHURUTHY",
-    "title": "DISCOVER A WORLD OF TRAVEL, UNIQUELY CURATED FOR YOU"
+    "location": "Discover India, Uniquely Curated",
+    "title": "Curated stays, experiences, and the stories behind them."
   },
   "intro": {
     "paragraphs": [
@@ -12,18 +12,18 @@
   "features": [
     {
       "icon": "globe",
-      "title": "RESPONSIBLE TOURISM",
-      "description": "Delectus alias doloribus cupiditate. Ratione culpa in fuga qui."
+      "title": "Independent Curation",
+      "description": "We spotlight stays and experiences that stand out — not every listing in the city."
     },
     {
       "icon": "layers",
-      "title": "INSIDER KNOWLEDGE",
-      "description": "Itaque nihil non eveniet cum optio. Quo facere ab labore."
+      "title": "Beyond the Mainstream",
+      "description": "From design-led stays to hidden neighborhoods, we focus on what’s less obvious."
     },
     {
       "icon": "pin",
-      "title": "SUSTAINABLE EXPERIENCES",
-      "description": "Iusto recusandae quo voluptas dicta. Vitae rerum at officiis."
+      "title": "Updated & Evolving",
+      "description": "India never stands still. Neither do we. Our guides grow with new discoveries."
     }
   ]
 }
