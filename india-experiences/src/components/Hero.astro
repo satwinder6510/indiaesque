@@ -40,7 +40,7 @@ const backgroundStyle = backgroundImage
 <section class={`hero ${sizeClass}`} style={backgroundStyle}>
   <div class="hero-content">
     {tag && <span class="hero-tag">{tag}</span>}
-    <h1 class="hero-title">{title}</h1>
+    <span class="hero-title" role="heading" aria-level="1">{title}</span>
     {subtitle && <p class="hero-subtitle">{subtitle}</p>}
     {(cta || secondaryCta) && (
       <div class="hero-actions">

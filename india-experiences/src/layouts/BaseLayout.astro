@@ -25,7 +25,8 @@ const {
   includeFooter = true,
 } = Astro.props;
 
-const fullTitle = `${title} | ${siteName}`;
+// Avoid title duplication - don't append siteName if already present
+const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
 ---
 
 <!DOCTYPE html>

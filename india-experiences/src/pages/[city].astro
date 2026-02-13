@@ -119,7 +119,7 @@ const destinationSchema = {
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <span class="hero-tagline">{tagline}</span>
-      <h1 class="hero-title">{cityData.name.toUpperCase()}</h1>
+      <span class="hero-title" role="heading" aria-level="1">{cityData.name.toUpperCase()}</span>
     </div>
   </section>
 
@@ -211,9 +211,9 @@ const destinationSchema = {
 
   <!-- CTA -->
   <section class="cta-section">
-    <h2>PLAN YOUR {cityData.name.toUpperCase()} JOURNEY</h2>
-    <p>Let us help you create your perfect itinerary</p>
-    <a href="/contact/" class="cta-btn">GET IN TOUCH</a>
+    <h2>DISCOVER MORE OF {cityData.name.toUpperCase()}</h2>
+    <p>Explore our curated guides and hidden gems</p>
+    <a href="/journal/" class="cta-btn">BROWSE GUIDES</a>
   </section>
 </BaseLayout>
 

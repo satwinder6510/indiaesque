@@ -68,7 +68,7 @@ const getSlug = (entry: any) => entry.id.split('/').pop()?.replace('.md', '') ||
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <span class="hero-location">{cityName.toUpperCase()}</span>
-      <h1 class="hero-title">{title.toUpperCase()}</h1>
+      <span class="hero-title" role="heading" aria-level="1">{title.toUpperCase()}</span>
     </div>
   </section>
 
