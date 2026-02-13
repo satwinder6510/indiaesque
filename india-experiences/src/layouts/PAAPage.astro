@@ -10,6 +10,7 @@ interface Props {
   datePublished?: string;
   dateModified?: string;
   faq?: { question: string; answer: string }[];
+  cityLinks?: { href: string; label: string }[];
   relatedPages?: { href: string; label: string }[];
   schema?: object[];
   experiences?: {
@@ -32,6 +33,7 @@ const {
   datePublished,
   dateModified,
   faq = [],
+  cityLinks = [],
   relatedPages = [],
   schema = [],
   experiences = []
@@ -80,11 +82,23 @@ const formatDate = (dateStr?: string) => {
       </div>
     </div>
 
-    <!-- RECENT JOURNALS -->
+    <!-- IN THIS CITY (Core Guides) -->
+    {cityLinks.length > 0 && (
+      <div class="internal-links">
+        <h3 class="internal-links-title">More in {city}</h3>
+        <ul class="internal-links-list">
+          {cityLinks.slice(0, 6).map(link => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <!-- RELATED (Topic-based) -->
     {relatedPages.length > 0 && (
-      <div class="recent">
-        <h3 class="recent-title">Recent Journals</h3>
-        <ul class="recent-list">
+      <div class="internal-links related">
+        <h3 class="internal-links-title">Related</h3>
+        <ul class="internal-links-list">
           {relatedPages.slice(0, 6).map(link => (
             <li><a href={link.href}>{link.label}</a></li>
           ))}
@@ -366,34 +380,52 @@ const formatDate = (dateStr?: string) => {
     color: #888;
   }
 
-  /* RECENT JOURNALS */
-  .recent {
+  /* INTERNAL LINKS */
+  .internal-links {
     margin-top: 40px;
     padding-top: 30px;
     border-top: 1px solid #e5e5e5;
   }
-  .recent-title {
+  .internal-links.related {
+    margin-top: 30px;
+    padding-top: 25px;
+  }
+  .internal-links-title {
     font-family: 'Oswald', sans-serif;
     font-size: 16px;
     font-weight: 400;
     margin: 0 0 20px;
     color: #1a1a1a;
   }
-  .recent-list {
-    list-style: disc;
-    padding-left: 18px;
+  .internal-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  @media (min-width: 480px) {
+    .internal-links-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .internal-links-list li {
     margin: 0;
   }
-  .recent-list li {
-    margin-bottom: 8px;
-  }
-  .recent-list a {
+  .internal-links-list a {
+    display: block;
+    padding: 10px 14px;
+    background: #f8f8f6;
     color: #333;
     text-decoration: none;
     font-size: 14px;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
   }
-  .recent-list a:hover {
-    color: #e07060;
+  .internal-links-list a:hover {
+    background: #e07060;
+    color: #fff;
   }
 
   /* SHARE */

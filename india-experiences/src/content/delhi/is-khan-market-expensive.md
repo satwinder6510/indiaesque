@@ -3,6 +3,7 @@ title: "Is Khan Market Expensive?"
 description: "Khan Market is India's priciest retail area, but it's worth visiting for bookshops, cafes, and boutiques. Here's what things actually cost."
 type: paa
 city: delhi
+tier: "3"
 category: markets
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,9 @@ relatedPages:
   - /delhi/best-cafes-in-delhi/
   - /delhi/things-to-do-in-south-delhi/
   - /delhi/what-are-the-best-markets-in-delhi/
+tags:
+  - "markets"
+  - "shopping"
 ---
 
 **Khan Market is the most expensive retail area in India — its per-square-foot rents have ranked among the top 25 high streets in the world.** But "expensive" is relative, and a visit here costs less than you might think if you know where to spend.

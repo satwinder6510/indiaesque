@@ -3,6 +3,7 @@ title: "What Is Delhi Belly and How to Avoid It"
 description: "Delhi belly is traveller's diarrhea caused by unfamiliar bacteria in food or water. Drink bottled water, eat at busy stalls, and carry ORS sachets."
 type: paa
 city: delhi
+tier: "3"
 category: practical
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/is-street-food-safe-in-delhi/
   - /delhi/what-should-i-pack-for-delhi/
   - /delhi/what-should-i-avoid-in-delhi/
+tags:
+  - "health"
+  - "food-safety"
+  - "practical"
+  - "street-food"
 ---
 
 **Delhi belly is traveller's diarrhea — your stomach reacting to bacteria in food or water that locals are adapted to but your gut isn't.** It's common, rarely serious, and largely preventable with sensible precautions. Most cases hit within the first 2-5 days of arrival and clear up on their own within 48 hours.

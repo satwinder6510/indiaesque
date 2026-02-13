@@ -2,11 +2,13 @@
 title: "Things To Do In Delhi — 2026 Guide"
 description: "Complete guide to Delhi experiences including food tours, heritage walks, markets, and day trips. Prices in INR, honest local recommendations."
 city: delhi
+tier: "1"
 category: general
 type: hub
 datePublished: "2026-02-07"
 dateModified: "2026-02-07"
 status: machine-draft
+priority: 10
 schema:
   - FAQPage
   - Article
@@ -31,6 +33,9 @@ faq:
     answer: "Airport Express Metro is fastest — ₹60, 20 minutes to New Delhi station. Uber and Ola cost ₹300-500 to central Delhi. Prepaid taxis from the airport counter run ₹400-600. Avoid anyone who approaches you inside the terminal."
   - question: "Is Delhi expensive?"
     answer: "Delhi is cheap by Western standards. Budget travellers spend ₹2,000-3,000 ($25-35) per day on food, transport, and entry fees. Mid-range runs ₹5,000-10,000 ($60-120). Luxury starts at ₹15,000+ ($180+). Street food meals cost ₹50-150."
+tags:
+  - "overview"
+  - "first-time"
 ---
 
 Delhi is India's capital and its most historically layered city — seven distinct cities built on top of each other over a thousand years, from the Rajput Tomars in the 8th century to Edwin Lutyens' colonial avenues in the 1930s. Every neighbourhood carries a different century's fingerprint, and you can cross 500 years of architecture in a single auto-rickshaw ride. This is not a city you "do" in a day, though you can certainly try.

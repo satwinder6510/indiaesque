@@ -3,6 +3,7 @@ title: "Is Qutub Minar Worth Visiting?"
 description: "Yes. The 73-metre Qutub Minar is a 12th-century tower with stunning carvings, and the surrounding complex is equally impressive. Entry is ₹35/₹550."
 type: paa
 city: delhi
+tier: "3"
 category: heritage
 status: machine-draft
 datePublished: "2026-02-07"
@@ -25,6 +26,10 @@ relatedPages:
   - /delhi/things-to-do-in-south-delhi/
   - /delhi/what-are-the-unesco-world-heritage-sites-in-delhi/
   - /delhi/best-free-things-to-do-in-delhi/
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
 ---
 
 **Yes, Qutub Minar is absolutely worth visiting — the 73-metre sandstone tower built in 1192 is one of the finest examples of Indo-Islamic architecture in the world, and the complex around it contains 800 years of layered history.** Go in the morning for the best light on the carvings, and combine it with the nearby Mehrauli Archaeological Park.

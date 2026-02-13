@@ -2,6 +2,7 @@
 title: "Mumbai Art Deco Architecture Tour"
 description: "Mumbai has the world's second-largest Art Deco collection after Miami. Explore Marine Drive, Oval Maidan buildings, and Eros Cinema."
 city: "mumbai"
+tier: "3"
 category: "heritage"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Early morning (7-9 AM) and late afternoon (4-6 PM) offer the best natural lighting. Marine Drive looks spectacular during golden hour for facade photography."
   - question: "How long does an Art Deco architecture tour take?"
     answer: "A complete Art Deco tour takes 4-6 hours covering Marine Drive, Oval Maidan, and Fort areas. Focus tours of single areas take 2-3 hours."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "art"
+  - "culture"
 ---
 
 **Mumbai houses the world's second-largest collection of Art Deco architecture after Miami Beach, with over 200 buildings concentrated around Marine Drive, Oval Maidan, and Fort district built during the 1930s construction boom.**

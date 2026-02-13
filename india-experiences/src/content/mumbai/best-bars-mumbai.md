@@ -2,6 +2,7 @@
 title: "Best Bars In Mumbai"
 description: "Mumbai's top bars: Aer rooftop, Toto's Garage Bandra, Harbour Bar at Taj, Social outlets. Craft cocktails, city views, ₹1,500-3,000 covers."
 city: "mumbai"
+tier: "3"
 category: "nightlife"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "Aer at Four Seasons offers panoramic city views from the 34th floor. AER Bar & Lounge in Lower Parel and Skyye at Upper Deck provide excellent Marine Drive and skyline views with outdoor seating."
   - question: "When is happy hour at Mumbai bars?"
     answer: "Most bars offer happy hour 4-8 PM on weekdays with 1+1 offers or 25-50% discounts. Social runs deals until 8 PM, while hotel bars like Harbour Bar offer evening promotions 6-9 PM Tuesday-Thursday."
+tags:
+  - "nightlife"
+  - "bars"
+  - "entertainment"
+  - "drinks"
 ---
 
 **Mumbai's best bars range from sky-high rooftops like Aer (₹2,000+ cover) to quirky spots like Toto's Garage in Bandra, historic hotel bars like Harbour Bar at Taj, and trendy Social outlets across the city.**

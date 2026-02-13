@@ -3,6 +3,7 @@ title: "Best Places to Buy Clothes in Delhi"
 description: "Budget fashion at Sarojini Nagar, mid-range at Select Citywalk and Khan Market, designer labels in Hauz Khas Village. Where to shop by price range."
 type: paa
 city: delhi
+tier: "3"
 category: markets
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,9 @@ relatedPages:
   - /delhi/is-khan-market-expensive/
   - /delhi/things-to-do-in-hauz-khas/
   - /delhi/what-are-the-best-markets-in-delhi/
+tags:
+  - "markets"
+  - "shopping"
 ---
 
 **Your best option depends entirely on budget: Sarojini Nagar and Lajpat Nagar for cheap fashion under ₹500, Select Citywalk and Khan Market for mid-range brands, and Hauz Khas Village for independent designer pieces.** Delhi covers every price point, and there's a specific market for each.

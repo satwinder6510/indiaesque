@@ -2,6 +2,7 @@
 title: "Best Photography Spots In Kolkata"
 description: "Discover Kolkata's top photography locations including Victoria Memorial at golden hour, Howrah Bridge at dawn, and street photography tips."
 city: "kolkata"
+tier: "3"
 category: "culture"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,11 @@ faq:
     answer: "Most heritage sites allow personal photography without permits. Victoria Memorial charges ₹20 ($0.25) for camera entry. Commercial shoots require prior permission from the Archaeological Survey of India."
   - question: "Where can I capture the best street photography in Kolkata?"
     answer: "College Street, New Market area, and Kumartuli offer excellent street photography opportunities. Early morning (6-8 AM) provides the best natural light and authentic local activity."
+tags:
+  - "culture"
+  - "heritage"
+  - "photography"
+  - "instagram"
 ---
 
 **Kolkata offers exceptional photography opportunities from Victoria Memorial during golden hour to early morning shots at Howrah Bridge. The city's heritage buildings, flower markets, iconic trams, and street life provide diverse subjects for both amateur and professional photographers.**

@@ -3,8 +3,10 @@ title: "Mumbai Safety Guide — Scams, Street Food Safety & Tips"
 description: "Is Mumbai safe for tourists? Common scams, solo female travel, street food safety, and practical safety tips for India's Maximum City."
 type: paa
 city: mumbai
+tier: "2"
 category: practical
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /mumbai/
@@ -24,6 +26,12 @@ relatedPages:
   - /mumbai/getting-around/
   - /mumbai/food-guide/
   - /mumbai/where-to-stay/
+tags:
+  - "practical"
+  - "planning"
+  - "street-food"
+  - "local-food"
+  - "safety"
 ---
 
 Mumbai feels safer than most Indian cities. The crowds provide security, the police are visible, and tourists are common. Here's what to know.

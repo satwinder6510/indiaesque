@@ -3,6 +3,7 @@ title: "Best Free Things to Do in Delhi"
 description: "Gurudwara Bangla Sahib, Lodhi Gardens, Lodhi Art District, India Gate, and Sunder Nursery are all free. Here are Delhi's best no-cost experiences."
 type: paa
 city: delhi
+tier: "3"
 category: heritage
 status: machine-draft
 datePublished: "2026-02-07"
@@ -25,6 +26,10 @@ relatedPages:
   - /delhi/where-to-see-street-art-in-delhi/
   - /delhi/what-is-mehrauli-archaeological-park/
   - /delhi/things-to-do-in-connaught-place/
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
 ---
 
 **Delhi has more free things worth doing than most cities charge for — Gurudwara Bangla Sahib, Lodhi Gardens, the Lodhi Art District, India Gate, Sunder Nursery, and dozens of unticketeted monuments are all completely free.** You could fill three days without spending a rupee on entry fees.

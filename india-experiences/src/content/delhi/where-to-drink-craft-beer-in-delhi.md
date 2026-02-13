@@ -3,6 +3,7 @@ title: "Where to Drink Craft Beer in Delhi"
 description: "Delhi's best craft beer spots include Bira 91 Taproom, Ek Bar, and Raasta in Hauz Khas. Expect to pay ₹300-600 per pint. Here's the full list."
 type: paa
 city: delhi
+tier: "3"
 category: food
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/best-restaurants-in-delhi/
   - /delhi/things-to-do-in-hauz-khas/
   - /delhi/best-cafes-in-delhi/
+tags:
+  - "nightlife"
+  - "bars"
+  - "craft-beer"
+  - "drinks"
 ---
 
 **Delhi's craft beer scene centres on Bira 91 Taproom in Cyber Hub, Ek Bar in Defence Colony, Cocktails and Dreams in Gurgaon, and several bars in Hauz Khas Village — expect to pay ₹300-600 ($3.60-7) per pint.** The scene has grown fast since 2015, and you now have access to IPAs, wheat beers, stouts, and seasonal brews that weren't available a few years ago.

@@ -3,8 +3,10 @@ title: "Things to Do in Delhi — Complete Guide by Season & Interest"
 description: "Best attractions, free activities, seasonal experiences, family-friendly options, and romantic spots in Delhi. What Delhi is known for and why it's worth visiting."
 type: paa
 city: delhi
+tier: "2"
 category: things-to-do
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /delhi/
@@ -28,6 +30,8 @@ relatedPages:
   - /delhi/food-guide/
   - /delhi/neighbourhoods/
   - /delhi/planning-your-trip/
+tags:
+  - "travel"
 ---
 
 Delhi is a city of extremes — ancient and modern, overwhelming and rewarding. Here's what to see and do, organized by interest and season.

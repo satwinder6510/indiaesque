@@ -3,6 +3,7 @@ title: "How Long Do You Need at Red Fort?"
 description: "Plan 1.5 to 2 hours for Red Fort, plus 30 minutes if you visit the museum. Combine it with Chandni Chowk and Jama Masjid for a full Old Delhi morning."
 type: paa
 city: delhi
+tier: "3"
 category: heritage
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/self-guided-walking-tour-old-delhi/
   - /delhi/things-to-do-in-old-delhi-chandni-chowk/
   - /delhi/heritage-walks/
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "forts"
 ---
 
 **You need 1.5 to 2 hours to see Red Fort properly, plus another 30 minutes if you want to visit the Mumtaz Mahal museum inside.** Speed-walkers can do it in an hour, but that means rushing past buildings without understanding what you're looking at.

@@ -2,6 +2,7 @@
 title: "Best Heritage Sites In Kolkata — 2026 Guide"
 description: "Explore Kolkata's top heritage sites: Victoria Memorial (₹30), Indian Museum, BBD Bagh colonial architecture, and North Kolkata mansions."
 city: "kolkata"
+tier: "2"
 category: "heritage"
 type: "category"
 datePublished: "2026-02-09"
@@ -25,6 +26,10 @@ faq:
     answer: "You need a permit from the West Bengal Tourism office at BBD Bagh or the Tourist Information Centre at Shakespeare Sarani. Bring your passport or ID card. The permit is free but required for entry."
   - question: "Which metro station is closest to the Indian Museum?"
     answer: "Park Street metro station is the closest to Indian Museum, about a 5-minute walk. Esplanade and Maidan stations are also nearby options. The museum is located on 27 Jawaharlal Nehru Road."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
 ---
 
 Kolkata houses some of India's most impressive heritage sites, from grand British-era monuments to centuries-old Bengali mansions. The city's architectural legacy spans three centuries, offering everything from neoclassical government buildings to traditional courtyard houses that tell the story of Bengal's cultural evolution.

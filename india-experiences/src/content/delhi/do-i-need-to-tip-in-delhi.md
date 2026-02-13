@@ -3,6 +3,7 @@ title: "Do I Need To Tip in Delhi? — Tipping Guide"
 description: "Tip 10% at Delhi restaurants if there's no service charge. Round up for auto drivers. Give ₹50-100 to guides. Full tipping guide."
 type: paa
 city: delhi
+tier: "3"
 category: practical
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,9 @@ relatedPages:
   - /delhi/how-much-money-do-i-need-per-day-in-delhi/
   - /delhi/food-tours/
   - /delhi/what-should-i-avoid-in-delhi/
+tags:
+  - "practical"
+  - "planning"
 ---
 
 **Tip 10% at sit-down restaurants if there's no service charge already on the bill, round up small amounts for auto drivers, and give ₹50-100 ($0.60-1.20) to hotel porters and guides.** Tipping in Delhi isn't as mandatory as in the US, but it's appreciated and makes a real difference to workers earning low wages.

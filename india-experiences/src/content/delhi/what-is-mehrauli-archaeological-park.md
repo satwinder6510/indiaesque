@@ -3,6 +3,7 @@ title: "What Is Mehrauli Archaeological Park?"
 description: "Mehrauli Archaeological Park has 200+ monuments from the 10th to 19th century in an overgrown forest next to Qutub Minar. Free entry, barely any tourists."
 type: paa
 city: delhi
+tier: "3"
 category: heritage
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/heritage-walks/
   - /delhi/best-free-things-to-do-in-delhi/
   - /delhi/what-are-the-7-cities-of-delhi/
+tags:
+  - "heritage"
+  - "monuments"
+  - "history"
+  - "archaeology"
 ---
 
 **Mehrauli Archaeological Park is a sprawling heritage site containing over 200 monuments from the 10th to 19th century, spread across an overgrown forest immediately adjacent to the Qutub Minar complex.** Entry is free, it rarely gets more than a handful of visitors, and it contains some of the most architecturally significant structures in Delhi that almost nobody sees.

@@ -2,6 +2,7 @@
 title: "Solo Female Travel In Kolkata"
 description: "Complete guide for solo female travelers in Kolkata. Safety tips, best areas to stay, metro advice, cultural sensitivities & more."
 city: "kolkata"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,9 @@ faq:
     answer: "Modest clothing covering shoulders and knees works best. Cotton kurtas, palazzo pants, or long dresses are comfortable and culturally appropriate. Avoid revealing clothes, especially when visiting religious sites."
   - question: "Are there women-only sections in Kolkata Metro?"
     answer: "Yes, Kolkata Metro has dedicated women-only coaches marked with pink signage. These are located at the front and rear of trains and operate throughout the day for added comfort and security."
+tags:
+  - "practical"
+  - "planning"
 ---
 
 **Kolkata is one of India's safest cities for solo female travelers, with helpful locals, women-only metro coaches, and well-developed tourist infrastructure. With basic precautions and cultural awareness, women can explore the city confidently and safely.**

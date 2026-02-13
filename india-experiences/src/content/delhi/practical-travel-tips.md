@@ -3,8 +3,10 @@ title: "Delhi Practical Travel Tips — Complete Guide"
 description: "Everything you need to know before visiting Delhi: visas, money, tipping, water safety, costs, packing, and avoiding common mistakes. Updated for 2026."
 type: paa
 city: delhi
+tier: "2"
 category: practical
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /delhi/
@@ -34,6 +36,9 @@ relatedPages:
   - /delhi/how-to-get-around-delhi/
   - /delhi/where-should-i-stay-in-delhi/
   - /delhi/food-tours/
+tags:
+  - "practical"
+  - "planning"
 ---
 
 This is everything you need to know before arriving in Delhi — visas, money, health, costs, packing, and the practical details that make your trip smoother. Bookmark this page and read it on the flight over.

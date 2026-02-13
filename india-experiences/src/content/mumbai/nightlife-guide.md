@@ -3,8 +3,10 @@ title: "Mumbai Nightlife Guide — Bars, Clubs & Live Music"
 description: "Best bars, clubs, rooftops, and live music venues in Mumbai. Colaba, Bandra, Lower Parel — where to go out in India's party capital."
 type: paa
 city: mumbai
+tier: "2"
 category: nightlife
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /mumbai/
@@ -26,6 +28,12 @@ relatedPages:
   - /mumbai/neighbourhoods/
   - /mumbai/food-guide/
   - /mumbai/safety-guide/
+tags:
+  - "nightlife"
+  - "bars"
+  - "entertainment"
+  - "drinks"
+  - "after-dark"
 ---
 
 Mumbai parties harder than anywhere else in India. Here's your guide to the city after dark.

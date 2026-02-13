@@ -2,6 +2,7 @@
 title: "Crawford Market Mumbai Guide"
 description: "Complete guide to Crawford Market Mumbai: British architecture, spices, textiles, bargaining tips, hours 11am-8pm. Transport & nearby attractions."
 city: "mumbai"
+tier: "3"
 category: "markets"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,9 @@ faq:
     answer: "Take the train to Chhatrapati Shivaji Maharaj Terminus (CSMT) and walk 10 minutes. Alternatively, use Mahatma Gandhi Road metro station on Line 2/3. Local buses 1, 21, 103 also stop nearby at DN Road."
   - question: "What can I buy at Crawford Market?"
     answer: "Crawford Market sells fresh fruits, vegetables, spices, dry fruits, textiles, toys, household items, and electronics. The spice section offers everything from basic masalas to exotic imported spices at wholesale rates."
+tags:
+  - "markets"
+  - "shopping"
 ---
 
 **Crawford Market is Mumbai's historic wholesale market operating since 1869, famous for its Gothic Revival architecture, extensive spice and fruit sections, and bargain shopping opportunities. Located in South Mumbai, it's open 11am-8pm daily except Sundays.**

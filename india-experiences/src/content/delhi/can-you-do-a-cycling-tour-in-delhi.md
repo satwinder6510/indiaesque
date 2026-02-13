@@ -3,6 +3,7 @@ title: "Can You Do a Cycling Tour in Delhi?"
 description: "Yes — Delhi By Cycle runs early morning rides through Old Delhi starting at 6am for ₹1,500-2,000 before traffic hits. Here's how to book."
 type: paa
 city: delhi
+tier: "3"
 category: experiences
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,10 @@ relatedPages:
   - /delhi/things-to-do-in-old-delhi-chandni-chowk/
   - /delhi/food-tours/
   - /delhi/best-free-things-to-do-in-delhi/
+tags:
+  - "experiences"
+  - "activities"
+  - "tours"
 ---
 
 **Yes, you can absolutely do a cycling tour in Delhi — and it's one of the best ways to see Old Delhi before the city wakes up.** Delhi By Cycle is the most established operator, running daily rides that start at 6am and cost ₹1,500-2,000 ($18-24) per person.

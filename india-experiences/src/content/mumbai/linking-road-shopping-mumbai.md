@@ -2,6 +2,7 @@
 title: "Linking Road Shopping Guide Mumbai"
 description: "Complete guide to shopping at Bandra's Linking Road - best bargains, street food spots, timing tips, and nearby malls. Local insider advice."
 city: "mumbai"
+tier: "3"
 category: "markets"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,9 @@ faq:
     answer: "Start at 30-40% of the quoted price and settle around 50-60%. For clothing items priced at ₹1,000, you can typically get them for ₹500-600 ($6-7)."
   - question: "Which metro station is closest to Linking Road?"
     answer: "Bandra station on the Western line is the closest. Take the west exit and walk 5 minutes to reach the main shopping stretch near McDonald's."
+tags:
+  - "markets"
+  - "shopping"
 ---
 
 **Linking Road in Bandra is Mumbai's most famous street shopping destination, offering trendy fashion items at bargain prices, excellent street food, and the city's best haggling experience. The 1-kilometer stretch runs parallel to Hill Road and is busiest between 6-9 PM when bargaining works best.**

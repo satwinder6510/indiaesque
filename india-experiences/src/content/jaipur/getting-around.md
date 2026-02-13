@@ -3,8 +3,10 @@ title: "Getting Around Jaipur — Airport, Transport & City Guide"
 description: "Airport transfers, auto rickshaws, Uber, city buses, and getting between Jaipur's attractions. Complete transport guide for visitors."
 type: paa
 city: jaipur
+tier: "2"
 category: practical
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /jaipur/
@@ -24,6 +26,12 @@ relatedPages:
   - /jaipur/planning-your-trip/
   - /jaipur/where-to-stay/
   - /jaipur/day-trips/
+tags:
+  - "practical"
+  - "planning"
+  - "airport"
+  - "transport"
+  - "arrival"
 ---
 
 Jaipur is spread out — the old walled city is walkable, but forts and palaces require transport. Here's how to get around.

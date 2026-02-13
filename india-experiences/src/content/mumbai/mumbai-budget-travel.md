@@ -2,6 +2,7 @@
 title: "Mumbai On A Budget"
 description: "Travel Mumbai for ₹1,500-3,000 daily. Budget stays in Colaba/Bandra ₹800-2,500. Street food, free attractions, transport tips."
 city: "mumbai"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "Colaba offers hostels from ₹800-1,200 ($10-15) near attractions. Bandra has budget hotels ₹1,500-2,500 ($18-30). Backpacker hostels cluster around Fort and Marine Drive areas."
   - question: "What's the cheapest way to eat in Mumbai?"
     answer: "Street food costs ₹50-150 ($0.60-1.80) per meal. Local restaurants charge ₹200-400 ($2.40-4.80) for thalis. Avoid hotel restaurants which cost ₹800-1,500 ($10-18) per meal."
+tags:
+  - "practical"
+  - "planning"
+  - "budget"
+  - "affordable"
 ---
 
 **Mumbai works perfectly for budget travelers with daily costs between ₹1,500-3,000 ($18-36). You'll find cheap hostels in Colaba from ₹800 ($10), incredible street food for ₹50-150 ($0.60-1.80) per meal, and efficient local transport at ₹10-50 ($0.12-0.60) per ride.**

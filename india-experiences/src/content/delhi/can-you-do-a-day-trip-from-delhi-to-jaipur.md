@@ -3,6 +3,7 @@ title: "Can You Do a Day Trip from Delhi to Jaipur?"
 description: "Possible but exhausting — Jaipur is 5-6 hours from Delhi by road. The Shatabdi Express takes 4.5 hours. An overnight trip is far more practical."
 type: paa
 city: delhi
+tier: "3"
 category: daytrips
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,10 @@ relatedPages:
   - /delhi/best-weekend-trips-from-delhi/
   - /delhi/can-you-do-a-day-trip-from-delhi-to-agra/
   - /delhi/how-to-get-from-delhi-to-agra/
+tags:
+  - "day-trips"
+  - "excursions"
+  - "jaipur"
 ---
 
 **A day trip from Delhi to Jaipur is possible but honestly not ideal — the 5-6 hour drive each way leaves you with barely 4-5 hours in a city that deserves at least two days.** If you can swing an overnight stay, you'll have a much better experience. If you absolutely must do it in a day, here's how to make it work.

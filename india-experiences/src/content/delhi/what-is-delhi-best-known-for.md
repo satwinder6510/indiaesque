@@ -3,6 +3,7 @@ title: "What Is Delhi Best Known For?"
 description: "Delhi is best known for Mughal architecture, street food, seven ancient cities, and massive markets. Discover what defines India's capital."
 type: paa
 city: delhi
+tier: "3"
 category: general
 status: machine-draft
 datePublished: "2026-02-07"
@@ -25,6 +26,11 @@ relatedPages:
   - /delhi/what-are-the-7-cities-of-delhi/
   - /delhi/what-food-is-delhi-famous-for/
   - /delhi/markets-shopping/
+tags:
+  - "overview"
+  - "first-time"
+  - "highlights"
+  - "introduction"
 ---
 
 **Delhi is best known for its layered Mughal architecture, its street food culture, and its status as the capital of virtually every major empire that has ruled northern India.** It's a city defined by the sheer density of its history and the intensity of its present.

@@ -2,6 +2,7 @@
 title: "Rabindra Sarovar Lake Guide"
 description: "Complete guide to Rabindra Sarovar Lake in Kolkata - walking tracks, boating, photography spots, nearby attractions, and local tips."
 city: "kolkata"
+tier: "3"
 category: "nature"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,10 @@ faq:
     answer: "Paddle boats cost ₹100-150 ($1.20-$1.80) for 30 minutes, while rowboats are ₹80-120 ($1-$1.45) for the same duration. Boating is available from 9 AM to 6 PM daily."
   - question: "How do I reach Rabindra Sarovar Lake by metro?"
     answer: "Take the Purple Line to Rabindra Sarovar Metro Station. The lake is a 5-minute walk from Exit 2. You can also take buses 45, 80, or 215 that stop near the lake entrance."
+tags:
+  - "nature"
+  - "outdoors"
+  - "lakes"
 ---
 
 **Rabindra Sarovar Lake is Kolkata's largest man-made lake and the city's favorite spot for morning jogs, evening walks, and peaceful retreats. Located in South Kolkata, this 73-acre waterbody offers free entry, boating facilities, and serves as a natural escape from the city's noise.**

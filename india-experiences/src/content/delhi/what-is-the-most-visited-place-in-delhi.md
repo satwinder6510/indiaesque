@@ -3,6 +3,7 @@ title: "What Is the Most Visited Place in Delhi?"
 description: "Red Fort is Delhi's most visited monument with 3 million+ visitors yearly. Qutub Minar and India Gate complete the top three."
 type: paa
 city: delhi
+tier: "3"
 category: general
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/is-qutub-minar-worth-visiting/
   - /delhi/heritage-walks/
   - /delhi/what-are-the-unesco-world-heritage-sites-in-delhi/
+tags:
+  - "overview"
+  - "monuments"
+  - "highlights"
+  - "first-time"
 ---
 
 **Red Fort is the most visited ticketed monument in Delhi, drawing over 3 million visitors per year according to Archaeological Survey of India figures.** If you count open-access sites, India Gate sees far more foot traffic, but it has no entry gate or ticket counter to measure against.

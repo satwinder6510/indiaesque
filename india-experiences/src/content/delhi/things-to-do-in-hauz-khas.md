@@ -3,6 +3,7 @@ title: "Things To Do in Hauz Khas — Area Guide"
 description: "Hauz Khas has 13th-century ruins, Deer Park, boutique shopping, and Delhi's densest concentration of bars. Here's what to see and where to go."
 type: paa
 city: delhi
+tier: "3"
 category: neighbourhoods
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/where-to-drink-craft-beer-in-delhi/
   - /delhi/things-to-do-in-south-delhi/
   - /delhi/delhi-metro-map-and-tips/
+tags:
+  - "neighbourhoods"
+  - "areas"
+  - "hauz-khas"
+  - "south-delhi"
 ---
 
 **Hauz Khas pairs 700-year-old ruins overlooking a lake with Delhi's most concentrated nightlife scene, all packed into a single narrow lane in South Delhi.** Come in the afternoon for the ruins, Deer Park, and boutique shopping, then stay for dinner and drinks as the village transforms after dark.

@@ -2,6 +2,7 @@
 title: "Kolkata Travel Tips"
 description: "Essential travel tips for Kolkata: currency, language, temple dress codes, market bargaining, food safety, and local customs."
 city: "kolkata"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,9 @@ faq:
     answer: "Tip 10-15% at restaurants if service charge isn't included. Give taxi drivers ₹20-50 ($0.25-0.60) extra, hotel bellboys ₹50-100 ($0.60-1.20), and tour guides ₹200-500 ($2.40-6.00) per day."
   - question: "What should you wear when visiting temples in Kolkata?"
     answer: "Cover your shoulders and knees at temples. Remove shoes before entering. At Kalighat Temple and Dakshineswar, avoid leather items. Women should carry a scarf to cover their heads if required."
+tags:
+  - "practical"
+  - "planning"
 ---
 
 **Navigating Kolkata requires understanding local customs, currency (Indian Rupee), and practical considerations like temple dress codes, market bargaining, and monsoon timing to make your visit smooth and respectful.**

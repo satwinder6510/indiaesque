@@ -2,6 +2,7 @@
 title: "Mount Mary Church Bandra Mumbai"
 description: "Historic Mount Mary Church in Bandra offers miraculous healing, stunning Arabian Sea views, and the famous September fair. Complete guide."
 city: "mumbai"
+tier: "3"
 category: "spiritual"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "The annual Bandra Fair takes place for eight days starting the Sunday after September 8th, which marks the Feast of the Nativity of Mary. The fair attracts over two million visitors with food stalls, games, and religious celebrations."
   - question: "How do I reach Mount Mary Church by public transport?"
     answer: "Take the Western Railway to Bandra Station, then catch bus route 211 or 222 to Mount Mary Church. Alternatively, take a taxi or auto-rickshaw from Bandra Station, which costs ₹80-120 ($1-1.50) and takes 10 minutes."
+tags:
+  - "spiritual"
+  - "temples"
+  - "religious"
+  - "churches"
 ---
 
 **Mount Mary Church in Bandra is a 16th-century Portuguese basilica famous for miraculous healing, spectacular Arabian Sea views, and hosting Mumbai's largest religious fair each September. Located on a hilltop in Bandra West, this Catholic pilgrimage site welcomes over 50,000 visitors weekly.**

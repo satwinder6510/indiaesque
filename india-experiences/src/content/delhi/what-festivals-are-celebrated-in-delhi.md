@@ -3,6 +3,7 @@ title: "What Festivals Are Celebrated in Delhi?"
 description: "Delhi celebrates dozens of festivals year-round, from Diwali and Holi to Republic Day and Eid. A month-by-month calendar with dates and tips for tourists."
 type: paa
 city: delhi
+tier: "3"
 category: festival
 status: machine-draft
 datePublished: "2026-02-07"
@@ -22,6 +23,10 @@ relatedPages:
   - /delhi/best-time-to-visit-delhi-for-festivals/
   - /delhi/diwali-in-delhi-what-to-expect/
   - /delhi/where-to-celebrate-holi-in-delhi/
+tags:
+  - "festivals"
+  - "culture"
+  - "events"
 ---
 
 **Delhi celebrates more festivals than almost any other city in the world — over 30 major ones each year — thanks to its position as India's capital and the extraordinary religious and cultural diversity of its 20+ million residents.** No matter when you visit, something is likely happening.

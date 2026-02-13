@@ -2,6 +2,7 @@
 title: "Marine Drive Mumbai Guide"
 description: "Complete guide to Marine Drive, Mumbai's iconic Queen's Necklace promenade. Sunset spots, Art Deco buildings, food stalls & more."
 city: "mumbai"
+tier: "3"
 category: "heritage"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,10 @@ faq:
     answer: "Marine Drive is completely free to visit. Street food costs ₹50-200 ($0.60-2.40) per item. Paid parking is available at ₹20-50 ($0.25-0.60) per hour depending on the location."
   - question: "Is it better to walk or drive along Marine Drive?"
     answer: "Walking is better for the full experience. The 3.6km stretch takes 45-60 minutes to walk leisurely. Driving gives you views but you'll miss street food stalls, Art Deco details, and the chance to sit on the promenade."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
 ---
 
 **Marine Drive is Mumbai's iconic 3.6km waterfront promenade stretching from Nariman Point to Chowpatty Beach. Known as the "Queen's Necklace" for its curved string of street lights, it offers stunning sunset views, Art Deco architecture, and some of the city's best people-watching spots.**

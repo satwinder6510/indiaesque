@@ -3,6 +3,7 @@ title: "Can You Drink Tap Water in Delhi?"
 description: "No. Never drink tap water in Delhi. Stick to sealed bottled water or RO-filtered water in restaurants. Avoid ice from street stalls. Here's what's safe."
 type: paa
 city: delhi
+tier: "3"
 category: practical
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,9 @@ relatedPages:
   - /delhi/is-street-food-safe-in-delhi/
   - /delhi/what-should-i-avoid-in-delhi/
   - /delhi/what-should-i-pack-for-delhi/
+tags:
+  - "practical"
+  - "planning"
 ---
 
 **No — never drink tap water in Delhi.** The water supply is treated at the source, but the pipe network is old, leaky, and prone to contamination. Even most Delhi residents don't drink straight from the tap. Stick to sealed bottled water, RO-filtered water from restaurants, or water you've purified yourself.

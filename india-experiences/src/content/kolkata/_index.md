@@ -2,11 +2,13 @@
 title: "Things To Do In Kolkata — 2026 Guide"
 description: "Complete guide to Kolkata's top attractions, food scene, heritage sites, and practical travel tips. Your ultimate resource for India's cultural capital."
 city: "kolkata"
+tier: "1"
 category: "general"
 type: "hub"
 datePublished: "2026-02-09"
 dateModified: "2026-02-09"
 status: "machine-draft"
+priority: 10
 schema:
   - Article
   - BreadcrumbList
@@ -26,6 +28,9 @@ faq:
     answer: "Yes, Kolkata is considered India's safest major city with very low crime rates against tourists. The locals are helpful and welcoming. Standard precautions like avoiding isolated areas at night and keeping valuables secure are sufficient for a safe visit."
   - question: "How many days do you need in Kolkata?"
     answer: "Plan 3-4 days minimum to cover major attractions like Victoria Memorial, Howrah Bridge, and key markets. Food enthusiasts and culture lovers should allocate 5-7 days to fully explore the heritage sites, take cooking classes, and experience the local neighborhoods properly."
+tags:
+  - "overview"
+  - "first-time"
 ---
 
 Kolkata delivers an authentic Indian experience unlike any other major city. As Bengal's cultural capital and India's former colonial headquarters, this city of 15 million people offers incredible architecture, legendary street food, and warm locals who take pride in their literary and artistic heritage. You'll find everything from 200-year-old heritage buildings to contemporary art galleries, traditional hand-pulled rickshaws alongside modern metros, and some of the country's most passionate food culture.

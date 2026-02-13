@@ -2,6 +2,7 @@
 title: "Tripolia Bazaar Jaipur — Iron & Brass Shopping"
 description: "Tripolia Bazaar is Jaipur's premier iron and brass market. Shop traditional utensils, decorative items (₹200-5000) and custom metalwork."
 city: "jaipur"
+tier: "3"
 category: "markets"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Custom orders typically take 15 days for completion. Simple modifications take 3-5 days, while intricate designs or large pieces require the full 15-day period. Most artisans require 50% advance payment."
   - question: "What's the best time to visit Tripolia Bazaar for shopping?"
     answer: "Visit between 10 AM-12 PM or 4 PM-7 PM when lighting is good for examining metalwork quality. Avoid midday heat and evening rush. Tuesday and Wednesday see fewer crowds than weekends."
+tags:
+  - "markets"
+  - "shopping"
+  - "old-city"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **Tripolia Bazaar is Jaipur's premier destination for iron and brass shopping, specializing in traditional Rajasthani metalwork, decorative items ranging ₹200-5000 ($2.50-60), and custom orders with 15-day delivery.**

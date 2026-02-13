@@ -3,6 +3,7 @@ title: "Best Cooking Classes in Delhi"
 description: "Delhi cooking classes cost ₹2,000-5,000 and include home kitchen experiences, professional workshops, and market tour combos. Here's where to book."
 type: paa
 city: delhi
+tier: "3"
 category: food
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,12 @@ relatedPages:
   - /delhi/experiences/
   - /delhi/what-food-is-delhi-famous-for/
   - /delhi/what-is-the-best-street-food-in-delhi/
+tags:
+  - "food"
+  - "where-to-eat"
+  - "cooking"
+  - "classes"
+  - "activities"
 ---
 
 **Delhi cooking classes range from ₹2,000-5,000 ($24-60) per person and come in three formats: home kitchen experiences with local families, professional culinary workshops, and market-tour-plus-cooking combos where you shop for ingredients before cooking them.** Most sessions last 3-5 hours, teach 3-5 dishes, and include eating what you've made.

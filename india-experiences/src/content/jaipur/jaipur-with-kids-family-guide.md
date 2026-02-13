@@ -2,6 +2,7 @@
 title: "Visiting Jaipur With Kids"
 description: "Complete family guide to Jaipur with kids. Elephant rides, interactive museums, child-friendly restaurants & 50% kid discounts."
 city: "jaipur"
+tier: "3"
 category: "general"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "City Palace and Hawa Mahal allow strollers on ground floors. Amber Fort has steep stairs making strollers impractical. Jantar Mantar and Albert Hall Museum are stroller-friendly with paved paths and ramps."
   - question: "What are typical child discounts at Jaipur attractions?"
     answer: "Children under 15 get 50% discount at most monuments including City Palace (₹125 vs ₹250), Amber Fort (₹125 vs ₹250), and Albert Hall Museum (₹75 vs ₹150). Kids under 5 enter free at all government monuments."
+tags:
+  - "overview"
+  - "first-time"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **Jaipur is excellent for families with children, offering elephant rides at Amber Fort, hands-on science exhibits at Jantar Mantar, and spacious Central Park for play time. Most attractions offer 50% child discounts and the Pink City provides safe, engaging experiences for all ages.**

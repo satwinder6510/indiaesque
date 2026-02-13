@@ -2,6 +2,7 @@
 title: "Siddhivinayak Temple Mumbai Guide"
 description: "Complete guide to Mumbai's famous Siddhivinayak Temple: darshan timings, prasad prices, dress code, Tuesday crowds & nearby food options."
 city: "mumbai"
+tier: "3"
 category: "spiritual"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,10 @@ faq:
     answer: "Prasad packages at Siddhivinayak Temple cost ₹51 ($0.60), ₹101 ($1.20), and ₹501 ($6). The ₹51 package includes modak and coconut, while higher packages include additional sweets and sacred items."
   - question: "What is the dress code for Siddhivinayak Temple?"
     answer: "Siddhivinayak Temple requires modest clothing covering shoulders and knees. Men should wear shirts and full pants, while women need covered shoulders and full-length bottoms. Avoid leather items and remove footwear before entering the sanctum."
+tags:
+  - "spiritual"
+  - "temples"
+  - "religious"
 ---
 
 **Siddhivinayak Temple in Prabhadevi is Mumbai's most revered Ganesh temple, open daily from 5:30 AM to 10:00 PM. Avoid Tuesday crowds, follow the dress code, and budget ₹51-501 for prasad offerings at this 200-year-old shrine.**

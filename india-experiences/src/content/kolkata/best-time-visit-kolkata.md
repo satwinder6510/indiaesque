@@ -2,6 +2,7 @@
 title: "Best Time To Visit Kolkata"
 description: "October-February is the best time to visit Kolkata with pleasant weather (15-25°C). Avoid hot summers, enjoy festivals but expect crowds."
 city: "kolkata"
+tier: "3"
 category: "general"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,9 @@ faq:
     answer: "Durga Puja (September-October) offers incredible cultural experiences but comes with massive crowds, higher hotel rates (₹5,000-15,000 per night), and booking challenges. Reserve accommodations 3-4 months in advance if visiting during this time."
   - question: "Why should I avoid visiting Kolkata in summer?"
     answer: "Summer (March-June) brings extreme heat and humidity with temperatures reaching 40°C and 80-90% humidity. The combination makes outdoor activities uncomfortable, and you'll spend most time in air-conditioned spaces."
+tags:
+  - "overview"
+  - "first-time"
 ---
 
 **October through February is the best time to visit Kolkata, with comfortable temperatures ranging from 15-25°C and minimal rainfall making it ideal for exploring the city's attractions.**

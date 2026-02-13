@@ -2,6 +2,7 @@
 title: "Is Kolkata Safe For Tourists?"
 description: "Yes, Kolkata is India's safest city for tourists. Learn about safe areas, common scams, solo female travel tips, and emergency contacts."
 city: "kolkata"
+tier: "3"
 category: "general"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,12 @@ faq:
     answer: "Yes, Kolkata is generally safe for solo female travelers. Use prepaid taxis, avoid empty metro compartments late at night, stay in areas like Park Street or Ballygunge, and keep emergency contacts handy including the tourist helpline 1800-11-1363."
   - question: "What are the most common scams targeting tourists in Kolkata?"
     answer: "Common scams include taxi drivers refusing meters and overcharging, fake gem dealers near major hotels, and touts offering unauthorized tours. Always use app-based cabs or insist on meters, and book tours through licensed operators only."
+tags:
+  - "overview"
+  - "first-time"
+  - "tours"
+  - "activities"
+  - "safety"
 ---
 
 **Yes, Kolkata is safe for tourists. The city has been ranked India's safest for three consecutive years with just 86.5 crime cases per lakh population, making it significantly safer than other major Indian cities.**

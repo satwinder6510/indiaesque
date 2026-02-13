@@ -3,6 +3,7 @@ title: "Where to Eat in Old Delhi"
 description: "Old Delhi's best food is at Karim's for kebabs, Paranthe Wali Gali for parathas, and Natraj for dahi bhalle. Here's a lane-by-lane eating guide."
 type: paa
 city: delhi
+tier: "3"
 category: food
 status: machine-draft
 datePublished: "2026-02-07"
@@ -25,6 +26,11 @@ relatedPages:
   - /delhi/things-to-do-in-old-delhi-chandni-chowk/
   - /delhi/what-is-the-best-street-food-in-delhi/
   - /delhi/is-street-food-safe-in-delhi/
+tags:
+  - "food"
+  - "street-food"
+  - "old-delhi"
+  - "chandni-chowk"
 ---
 
 **The best eating in Old Delhi is at Karim's for kebabs, Paranthe Wali Gali for parathas, Al Jawahar for Mughlai food, and Natraj Dahi Bhalle Wala for chaat — all within walking distance of each other in the Chandni Chowk area.** This is Delhi's oldest and most concentrated food district, where some shops have been cooking the same recipes for over a century.

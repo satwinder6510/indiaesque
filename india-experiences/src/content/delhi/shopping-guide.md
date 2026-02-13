@@ -3,8 +3,10 @@ title: "Delhi Shopping Guide — Markets, Souvenirs & Bargaining Tips"
 description: "Chandni Chowk, Dilli Haat, Khan Market, Sarojini Nagar — where to shop, what to buy, and how to bargain in Delhi's markets."
 type: paa
 city: delhi
+tier: "2"
 category: shopping
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /delhi/
@@ -28,6 +30,12 @@ relatedPages:
   - /delhi/neighbourhoods/
   - /delhi/practical-travel-tips/
   - /delhi/heritage-guide/
+tags:
+  - "shopping"
+  - "markets"
+  - "bars"
+  - "nightlife"
+  - "drinks"
 ---
 
 Delhi offers everything from centuries-old bazaars to modern malls. Here's where to shop, what to buy, and how to navigate the city's markets.

@@ -2,6 +2,7 @@
 title: "Famous Sweets Of Jaipur"
 description: "Discover Jaipur's iconic sweets: monsoon ghewar, crispy feeni & mawa kachori. Best shops, prices ₹50-300/kg, and travel packaging tips."
 city: "jaipur"
+tier: "3"
 category: "food"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "Rawat Mishthan Bhandar near Sindhi Camp is famous for the best mawa kachori in Jaipur. They've been serving this sweet-filled pastry for over 50 years, priced at ₹80-120 per piece."
   - question: "How much do Jaipur sweets cost for tourists?"
     answer: "Jaipur sweets range from ₹50-300 per kg depending on the variety. Ghewar costs ₹200-300/kg, feeni ₹150-250/kg, and mawa kachori ₹80-120 per piece. Premium shops charge 20-30% more than local stores."
+tags:
+  - "food"
+  - "where-to-eat"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **Jaipur's most famous sweets include ghewar (a monsoon specialty), feeni (crispy sugar threads), and mawa kachori (sweet stuffed pastry). You'll find the best versions at legendary shops like LMB, Rawat Mishthan Bhandar, and Annapurna Bhandar, with prices ranging from ₹50-300 per kg.**

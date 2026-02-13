@@ -2,6 +2,7 @@
 title: "Juhu Beach Mumbai Guide"
 description: "Complete guide to Juhu Beach Mumbai: 6km stretch, sunset views, street food, celebrity spotting, transport, and accommodation tips."
 city: "mumbai"
+tier: "3"
 category: "nature"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,9 @@ faq:
     answer: "Swimming is not recommended due to pollution and strong currents. The beach is better for walking, street food, and sunset viewing rather than water activities."
   - question: "What street food is available at Juhu Beach?"
     answer: "Popular options include bhel puri (₹30-50), pav bhaji (₹60-100), kulfi (₹40-60), and fresh coconut water (₹30-50). Food stalls operate from 4 PM to 11 PM daily."
+tags:
+  - "nature"
+  - "outdoors"
 ---
 
 **Juhu Beach is Mumbai's most famous 6-kilometer stretch of coastline in the western suburbs, known for spectacular sunsets, celebrity spotting, street food stalls, and proximity to Bollywood stars' homes, though swimming is not recommended due to pollution.**

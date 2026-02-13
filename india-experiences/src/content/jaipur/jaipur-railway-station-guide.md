@@ -2,6 +2,7 @@
 title: "Jaipur Railway Station Guide"
 description: "Complete guide to Jaipur Junction railway station with platform info, transport options, facilities, and major train connections to Delhi, Mumbai."
 city: "jaipur"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "Delhi trains typically depart from platforms 1-6 at Jaipur Junction, depending on the specific service. Check your ticket and the electronic display boards for the exact platform number before departure."
   - question: "Are there waiting rooms available at Jaipur railway station?"
     answer: "Yes, Jaipur Junction has AC and non-AC waiting rooms on the first floor. AC waiting rooms cost ₹30 ($0.36) per person for 6 hours, while non-AC rooms are free for ticket holders."
+tags:
+  - "practical"
+  - "planning"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **Jaipur Junction (JP) is the main railway station serving Jaipur, located in the heart of the city on Station Road. The station connects to major cities across India, with auto-rickshaws costing ₹100-200 ($1.20-2.40) to reach the city center and Pink City attractions.**

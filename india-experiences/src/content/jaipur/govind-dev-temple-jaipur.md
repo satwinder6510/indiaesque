@@ -2,6 +2,7 @@
 title: "Govind Dev Ji Temple Jaipur"
 description: "Govind Dev Ji Temple in Jaipur's City Palace complex offers special darshan at 4:30 AM, 12 PM & 5:30 PM with royal family connections."
 city: "jaipur"
+tier: "3"
 category: "spiritual"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Photography is completely prohibited inside the sanctum sanctorum of Govind Dev Ji Temple. You can take photos in the outer courtyard areas, but cameras and phones must be kept away during darshan."
   - question: "How is the royal family connected to this Krishna temple?"
     answer: "The Jaipur royal family built Govind Dev Ji Temple and continues to patronize it. The deity was originally from Vrindavan and was brought to Jaipur by Maharaja Sawai Jai Singh II for protection."
+tags:
+  - "spiritual"
+  - "temples"
+  - "religious"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **Govind Dev Ji Temple is a Krishna temple located within Jaipur's City Palace complex, famous for its three daily darshan timings at 4:30 AM, 12 PM, and 5:30 PM, and its deep connections to the Jaipur royal family.**

@@ -3,8 +3,10 @@ title: "Things to Do in Mumbai — Complete Guide to the Maximum City"
 description: "Gateway of India, Marine Drive, Bollywood tours, beaches, museums, and street food. What to see, do, and experience in Mumbai."
 type: paa
 city: mumbai
+tier: "2"
 category: things-to-do
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /mumbai/
@@ -24,6 +26,8 @@ relatedPages:
   - /mumbai/food-guide/
   - /mumbai/neighbourhoods/
   - /mumbai/planning-your-trip/
+tags:
+  - "travel"
 ---
 
 Mumbai is India at maximum velocity. Here's how to experience the city that never sleeps.

@@ -2,6 +2,7 @@
 title: "Nahargarh Fort Jaipur — Sunset Views Guide"
 description: "Complete guide to Nahargarh Fort's sunset views. 10km drive from Jaipur city, best timing 5-7 PM, ₹50 parking, and panoramic city vistas."
 city: "jaipur"
+tier: "3"
 category: "heritage"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Parking at Nahargarh Fort costs ₹50 ($0.60) for cars and ₹20 ($0.25) for two-wheelers. The parking area is located right at the fort entrance, making it convenient to access the main areas."
   - question: "Can you drive directly to Nahargarh Fort?"
     answer: "Yes, you can drive directly to Nahargarh Fort. The 10km route from central Jaipur takes 25-30 minutes via well-maintained roads. Vehicle access goes right up to the fort entrance with dedicated parking facilities."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "forts"
+  - "sunset"
 ---
 
 **Nahargarh Fort offers the best sunset views in Jaipur, located 10km from the city center with a scenic drive taking 25-30 minutes. The optimal viewing time is 5:00-7:00 PM when the Pink City glows in golden light below the Aravalli Hills.**

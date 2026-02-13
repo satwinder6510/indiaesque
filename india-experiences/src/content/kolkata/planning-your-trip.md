@@ -3,8 +3,10 @@ title: "Planning Your Kolkata Trip — How Many Days, Best Time & Durga Puja"
 description: "How many days you need in Kolkata, the best time to visit, weather, Durga Puja guide, and sample itineraries for the City of Joy."
 type: paa
 city: kolkata
+tier: "2"
 category: practical
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /kolkata/
@@ -26,6 +28,9 @@ relatedPages:
   - /kolkata/heritage-guide/
   - /kolkata/food-guide/
   - /kolkata/practical-travel-tips/
+tags:
+  - "practical"
+  - "planning"
 ---
 
 Kolkata rewards slow exploration. Here's how to plan your visit to the City of Joy.

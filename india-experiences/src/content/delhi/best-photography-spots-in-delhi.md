@@ -3,6 +3,7 @@ title: "Best Photography Spots in Delhi"
 description: "Humayun's Tomb at golden hour, Lodhi Art District murals, and Chandni Chowk street scenes — here are Delhi's top photography locations."
 type: paa
 city: delhi
+tier: "3"
 category: experiences
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/where-to-see-street-art-in-delhi/
   - /delhi/what-is-agrasen-ki-baoli/
   - /delhi/things-to-do-in-old-delhi-chandni-chowk/
+tags:
+  - "experiences"
+  - "activities"
+  - "photography"
+  - "instagram"
 ---
 
 **Humayun's Tomb at golden hour is Delhi's single best photography location — the sandstone glows amber in the low sun, and the Mughal symmetry gives you compositions that practically frame themselves.** But Delhi has dozens of strong locations across every genre, from street photography to architecture to contemporary art.

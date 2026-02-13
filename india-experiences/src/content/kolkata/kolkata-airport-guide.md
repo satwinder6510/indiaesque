@@ -2,6 +2,7 @@
 title: "Kolkata Airport Guide"
 description: "Complete guide to Netaji Subhas Chandra Bose International Airport. Transport options, facilities, costs, and arrival procedures."
 city: "kolkata"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,12 @@ faq:
     answer: "Yes, Kolkata airport connects to the city via metro. Take the airport shuttle bus to New Garia metro station, then board the Blue Line. Total journey to Park Street takes about 90 minutes including transfers."
   - question: "What facilities are available at Kolkata airport?"
     answer: "Kolkata airport offers currency exchange, ATMs, restaurants, cafes, duty-free shopping, free WiFi, charging stations, and prayer rooms. Terminal 1 handles domestic flights while Terminal 2 serves international routes."
+tags:
+  - "practical"
+  - "planning"
+  - "airport"
+  - "transport"
+  - "arrival"
 ---
 
 **Netaji Subhas Chandra Bose International Airport (CCU) sits 17km northeast of central Kolkata. You can reach the city center via prepaid taxi (₹300-400), metro connection, or ride-sharing apps, with the journey taking 45-90 minutes depending on your chosen transport.**

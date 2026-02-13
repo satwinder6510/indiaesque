@@ -2,11 +2,13 @@
 title: "Things To Do In Jaipur — 2026 Guide"
 description: "Complete guide to Jaipur's Pink City attractions, forts, food, markets, and cultural experiences. Prices in INR, local recommendations, 3-day itinerary."
 city: jaipur
+tier: "1"
 category: general
 type: hub
 datePublished: "2026-02-08"
 dateModified: "2026-02-08"
 status: machine-draft
+priority: 10
 schema:
   - FAQPage
   - Article
@@ -32,6 +34,11 @@ faq:
     answer: "Uber and Ola cost ₹300-400 to the Old City, 30-40 minutes depending on traffic. Prepaid taxis from the airport counter run ₹400-500. The airport is 13km from the city center. No metro connection yet."
   - question: "Is Jaipur expensive?"
     answer: "Jaipur is affordable. Budget travellers spend ₹1,500-2,500 ($18-30) per day. Mid-range runs ₹4,000-8,000 ($50-100). Luxury heritage hotels start at ₹15,000+ ($180+). Street food meals cost ₹50-150, restaurant meals ₹300-800."
+tags:
+  - "overview"
+  - "first-time"
+  - "jaipur"
+  - "day-trips"
 ---
 
 Jaipur is India's Pink City — a planned 18th-century capital built by Maharaja Sawai Jai Singh II with wide boulevards, geometric grids, and buildings painted in the distinctive terracotta pink that defines the city today. UNESCO recognized the walled city as a World Heritage Site in 2019, and for good reason: this is one of the world's best-preserved examples of pre-modern urban planning, wrapped in Rajput grandeur.

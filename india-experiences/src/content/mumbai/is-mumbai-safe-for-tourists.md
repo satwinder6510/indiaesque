@@ -2,6 +2,7 @@
 title: "Is Mumbai Safe For Tourists?"
 description: "Mumbai is generally safe for tourists, ranking 50th out of 60 cities globally. Learn about safe areas, common scams, and essential safety tips."
 city: "mumbai"
+tier: "3"
 category: "general"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Taxi drivers using fake meters, gem scams near tourist areas, overcharging at markets, and fake police demanding bribes. Always use ride-hailing apps and verify prices beforehand."
   - question: "Is it safe for women to travel alone in Mumbai?"
     answer: "Yes, but take precautions. Avoid walking alone after 11 PM, use women-only train compartments, stay in well-lit areas, and book accommodations in safe neighborhoods like Colaba or Bandra."
+tags:
+  - "overview"
+  - "first-time"
+  - "tours"
+  - "activities"
+  - "safety"
 ---
 
 **Mumbai is generally safe for tourists, ranking 50th out of 60 cities globally in safety indices. The city sees millions of visitors annually with most experiencing no serious safety issues, though you need to stay alert for petty crimes and common scams.**

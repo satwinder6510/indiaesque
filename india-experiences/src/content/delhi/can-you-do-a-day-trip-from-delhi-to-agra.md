@@ -3,6 +3,7 @@ title: "Can You Do a Day Trip from Delhi to Agra?"
 description: "Yes, a Delhi to Agra day trip takes 3-4 hours each way by road or 1hr 40min by Gatimaan Express. Leave early, see the Taj, return by evening."
 type: paa
 city: delhi
+tier: "3"
 category: daytrips
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/how-to-get-from-delhi-to-agra/
   - /delhi/humayuns-tomb-vs-taj-mahal/
   - /delhi/best-weekend-trips-from-delhi/
+tags:
+  - "day-trips"
+  - "excursions"
+  - "agra"
+  - "taj-mahal"
 ---
 
 **Yes, you can absolutely do a day trip from Delhi to Agra — the Gatimaan Express gets you there in 1 hour 40 minutes, giving you roughly 6 hours to see the Taj Mahal and Agra Fort before catching the evening train back.** Thousands of visitors do this trip every week, and it works well if you plan the timing right.

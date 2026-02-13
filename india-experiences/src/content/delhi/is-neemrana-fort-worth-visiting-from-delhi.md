@@ -3,6 +3,7 @@ title: "Is Neemrana Fort Worth Visiting From Delhi?"
 description: "Yes. Neemrana Fort Palace is a 2-hour drive from Delhi with zip-lining, a stunning pool, and Rajasthani food. Day visit or overnight options from ₹3,000."
 type: paa
 city: delhi
+tier: "3"
 category: daytrips
 status: machine-draft
 datePublished: "2026-02-07"
@@ -21,6 +22,12 @@ relatedPages:
   - /delhi/day-trips/
   - /delhi/best-weekend-trips-from-delhi/
   - /delhi/can-you-do-a-day-trip-from-delhi-to-jaipur/
+tags:
+  - "day-trips"
+  - "excursions"
+  - "forts"
+  - "heritage"
+  - "history"
 ---
 
 **Yes, Neemrana Fort Palace is absolutely worth visiting from Delhi — it's a 15th-century Rajput fort converted into a heritage hotel, perched on a hillside 2 hours from the city, with zip-lining over the ramparts, a stepped pool with Aravalli views, and excellent Rajasthani food.** You don't need to book a room to visit for the day, which makes it one of the most accessible and satisfying day trips from Delhi.

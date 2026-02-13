@@ -3,6 +3,7 @@ title: "Is There a Pub Crawl in Delhi?"
 description: "Yes — organised pub crawls run in CP and Hauz Khas, or DIY your own in Hauz Khas Village where 15+ bars sit within walking distance."
 type: paa
 city: delhi
+tier: "3"
 category: experiences
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,9 @@ relatedPages:
   - /delhi/things-to-do-in-hauz-khas/
   - /delhi/where-to-drink-craft-beer-in-delhi/
   - /delhi/things-to-do-in-delhi-at-night/
+tags:
+  - "experiences"
+  - "activities"
 ---
 
 **Yes, Delhi has organised pub crawls and — better yet — neighbourhoods where you can easily do your own.** Hauz Khas Village packs 15+ bars into a single walkable lane, and Connaught Place's outer circle has enough lounges and pubs to keep you moving all night.

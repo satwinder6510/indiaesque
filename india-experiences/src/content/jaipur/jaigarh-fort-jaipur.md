@@ -2,6 +2,7 @@
 title: "Jaigarh Fort — The Victory Fort Guide"
 description: "Explore Jaigarh Fort, home to the world's largest cannon Jaivana. Located 15km from Jaipur city center with combined Amber Fort tickets."
 city: "jaipur"
+tier: "3"
 category: "heritage"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "Plan 2-3 hours to properly explore Jaigarh Fort. This includes time to see the Jaivana cannon, walk the fort walls, visit the armory museum, and explore the water tanks and residential quarters."
   - question: "What is the Jaivana cannon at Jaigarh Fort?"
     answer: "The Jaivana cannon is the world's largest wheeled cannon, weighing 50 tons with a 20.2-foot barrel. Built in 1720, it was test-fired only once and could shoot cannonballs up to 35 kilometers away."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "forts"
 ---
 
 **Jaigarh Fort, known as the Victory Fort, sits 15 kilometers from Jaipur city center and houses the world's largest cannon, Jaivana. Built in 1726 by Maharaja Sawai Jai Singh II, this fort requires 2-3 hours to explore and offers combined tickets with Amber Fort for ₹100 ($1.20) extra.**

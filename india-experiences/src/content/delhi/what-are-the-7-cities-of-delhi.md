@@ -3,6 +3,7 @@ title: "What Are the 7 Cities of Delhi?"
 description: "Delhi's seven historic cities span from Lal Kot (1060) to Shahjahanabad (1638). Each was built by a different dynasty, and ruins of all seven still stand."
 type: paa
 city: delhi
+tier: "3"
 category: heritage
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/heritage-walks/
   - /delhi/what-is-mehrauli-archaeological-park/
   - /delhi/how-many-heritage-sites-are-in-delhi/
+tags:
+  - "heritage"
+  - "history"
+  - "overview"
+  - "architecture"
 ---
 
 **The seven cities of Delhi are Lal Kot, Siri, Tughlaqabad, Jahanpanah, Firozabad, Dinpanah/Shergarh, and Shahjahanabad — each built by a different dynasty between 1060 and 1638 AD.** The ruins of all seven still exist across modern Delhi, and you can trace nearly 600 years of power struggles through their remains.

@@ -3,6 +3,7 @@ title: "Things To Do in Delhi in Winter"
 description: "Lodhi Gardens walks, Old Delhi food tours, Republic Day parade, Surajkund Mela, and daulat ki chaat — Delhi's best season, fully explained."
 type: paa
 city: delhi
+tier: "3"
 category: experiences
 status: machine-draft
 datePublished: "2026-02-07"
@@ -23,6 +24,12 @@ relatedPages:
   - /delhi/what-is-surajkund-mela/
   - /delhi/what-happens-on-republic-day-in-delhi/
   - /delhi/what-should-i-pack-for-delhi/
+tags:
+  - "experiences"
+  - "activities"
+  - "winter"
+  - "weather"
+  - "seasons"
 ---
 
 **Winter is the best time to visit Delhi --- full stop.** From November through February, temperatures drop to a comfortable 15-22°C during the day, every outdoor space becomes usable, and the city runs at its best. If you're planning a Delhi trip and have any flexibility on timing, aim for this window.

@@ -3,6 +3,7 @@ title: "Delhi Metro Map & Tips for Tourists (2026)"
 description: "Delhi Metro fares run ₹10-60 per ride. Key stations: Rajiv Chowk for CP, Chandni Chowk for Old Delhi, Hauz Khas for South Delhi nightlife."
 type: paa
 city: delhi
+tier: "3"
 category: practical
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,12 @@ relatedPages:
   - /delhi/how-to-get-around-delhi/
   - /delhi/is-uber-available-in-delhi/
   - /delhi/how-do-i-get-from-delhi-airport-to-the-city/
+tags:
+  - "practical"
+  - "planning"
+  - "tours"
+  - "activities"
+  - "metro"
 ---
 
 **Delhi Metro fares cost ₹10-60 ($0.12-0.72) per ride, and about seven stations cover nearly every major tourist sight in the city.** The network is colour-coded, well-signed in English, and easy to navigate once you know which lines to use.

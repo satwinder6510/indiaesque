@@ -3,8 +3,10 @@ title: "Mumbai Food Guide — Street Food, Restaurants & Culinary Experiences"
 description: "Vada pav, pav bhaji, fine dining, street food tours, best restaurants, and where to eat in Mumbai. Complete guide to the city's legendary food scene."
 type: paa
 city: mumbai
+tier: "2"
 category: food
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /mumbai/
@@ -26,6 +28,11 @@ relatedPages:
   - /mumbai/neighbourhoods/
   - /mumbai/practical-travel-tips/
   - /mumbai/food-tours/
+tags:
+  - "food"
+  - "where-to-eat"
+  - "street-food"
+  - "local-food"
 ---
 
 Mumbai's food scene is relentless. From ₹20 vada pav to ₹5,000 tasting menus, the city feeds you at every turn. Here's where to eat.

@@ -3,6 +3,7 @@ title: "What Language Do They Speak in Delhi?"
 description: "Hindi is Delhi's primary language. English is widely understood in tourist areas, hotels, and restaurants. Some Punjabi and Urdu are also spoken."
 type: paa
 city: delhi
+tier: "3"
 category: practical
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/is-delhi-safe-for-tourists/
   - /delhi/do-i-need-to-tip-in-delhi/
   - /delhi/how-to-get-around-delhi/
+tags:
+  - "practical"
+  - "language"
+  - "culture"
+  - "first-time"
 ---
 
 **Hindi is Delhi's primary language, spoken by the vast majority of the city's 20+ million residents.** English is widely understood in tourist areas, hotels, restaurants, and by educated professionals — you can get through an entire Delhi trip speaking only English if you stick to the main tourist circuit.

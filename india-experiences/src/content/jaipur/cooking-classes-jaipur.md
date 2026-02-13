@@ -2,6 +2,7 @@
 title: "Best Cooking Classes In Jaipur"
 description: "Learn Rajasthani cooking in Jaipur with local families (₹2500-4000) or heritage hotels (₹5000-8000). Market tours included."
 city: "jaipur"
+tier: "3"
 category: "culture"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "You'll master classic Rajasthani dishes like dal bati churma, gatte ki sabzi, laal maas, ker sangri, and bajre ki roti. Classes also cover traditional sweets like ghewar and mohan thal."
   - question: "How long do cooking classes in Jaipur last?"
     answer: "Most cooking classes run 4-5 hours including market visits, cooking instruction, and dining. Heritage hotel classes may extend to 6 hours with additional cultural activities and elaborate menus."
+tags:
+  - "culture"
+  - "heritage"
+  - "cooking"
+  - "food"
+  - "classes"
 ---
 
 **Jaipur offers excellent cooking classes ranging from authentic home experiences with local families (₹2,500-4,000/$30-48) to luxury heritage hotel sessions (₹5,000-8,000/$60-96), all including market tours and recipe booklets.**

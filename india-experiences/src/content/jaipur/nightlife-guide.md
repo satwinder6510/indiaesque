@@ -3,8 +3,10 @@ title: "Jaipur Nightlife Guide — Bars, Rooftops & Evening Entertainment"
 description: "Best rooftop bars, pubs, clubs, and things to do at night in Jaipur. Where to drink and what to expect from the Pink City after dark."
 type: paa
 city: jaipur
+tier: "2"
 category: nightlife
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /jaipur/
@@ -24,6 +26,12 @@ relatedPages:
   - /jaipur/food-guide/
   - /jaipur/safety-guide/
   - /jaipur/planning-your-trip/
+tags:
+  - "nightlife"
+  - "bars"
+  - "entertainment"
+  - "drinks"
+  - "rooftop"
 ---
 
 Jaipur isn't a party city — but that's not why you're here. Instead, enjoy rooftop drinks with fort views, heritage hotel atmospheres, and relaxed evenings. Here's where to go after dark.

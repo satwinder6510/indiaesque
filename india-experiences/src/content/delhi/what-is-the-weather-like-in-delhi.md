@@ -3,6 +3,7 @@ title: "What Is the Weather Like in Delhi?"
 description: "Delhi has extreme seasons — summers hit 45°C+, winters drop to 2°C, and monsoon brings heavy rain July-September. Month-by-month breakdown."
 type: paa
 city: delhi
+tier: "3"
 category: practical
 status: machine-draft
 datePublished: "2026-02-07"
@@ -22,6 +23,11 @@ relatedPages:
   - /delhi/what-is-the-best-month-to-visit-delhi/
   - /delhi/what-should-i-pack-for-delhi/
   - /delhi/is-delhi-polluted/
+tags:
+  - "weather"
+  - "planning"
+  - "seasons"
+  - "climate"
 ---
 
 **Delhi has extreme seasons — scorching summers that hit 45°C+, bone-cold winters that drop to 2°C, and a monsoon that dumps most of the year's rain between July and September.** The city doesn't do mild. Whatever month you visit, you'll need to dress and plan specifically for it.

@@ -2,6 +2,7 @@
 title: "Hawa Mahal Jaipur — Complete Visitor Guide"
 description: "Everything about Hawa Mahal's 953 windows, ₹50 museum entry, best photography spots from chai stalls, and architectural significance."
 city: "jaipur"
+tier: "3"
 category: "heritage"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Early morning between 7-9 AM offers the best lighting with soft golden hues hitting the pink sandstone facade. The chai stalls opposite provide the perfect vantage point for capturing the entire five-story structure without crowds."
   - question: "Is the Hawa Mahal museum worth visiting?"
     answer: "Yes, the inner museum (₹50 entry) displays royal artifacts, miniature paintings, and weapons. You get panoramic city views from the top floors and understand the palace's ingenious cooling system and architectural innovations."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **Hawa Mahal, Jaipur's iconic "Palace of Winds," features 953 intricately carved windows across five stories, designed in 1799 for royal women to observe street life while maintaining privacy. The pink sandstone facade costs ₹50 ($0.60) to explore inside.**

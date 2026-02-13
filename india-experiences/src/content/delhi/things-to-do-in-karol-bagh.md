@@ -3,6 +3,7 @@ title: "Things To Do in Karol Bagh, Delhi"
 description: "Karol Bagh has budget shopping on Ajmal Khan Road, great street food, Gaffar Market electronics, and affordable hotels. Full neighbourhood guide."
 type: paa
 city: delhi
+tier: "3"
 category: neighbourhood
 status: machine-draft
 datePublished: "2026-02-07"
@@ -22,6 +23,9 @@ relatedPages:
   - /delhi/is-delhi-expensive/
   - /delhi/where-should-i-stay-in-delhi/
   - /delhi/how-to-get-around-delhi/
+tags:
+  - "neighbourhoods"
+  - "areas"
 ---
 
 **Karol Bagh is Delhi's best neighbourhood for budget travellers who want real shopping, proper street food, and an affordable place to sleep without the grime of Paharganj.** It's a dense commercial area about 3 km west of Connaught Place, plugged into the Blue Line metro, and packed with the kind of shops where locals actually buy things — which means prices reflect reality rather than tourist inflation.

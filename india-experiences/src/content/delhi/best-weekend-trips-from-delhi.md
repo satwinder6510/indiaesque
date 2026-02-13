@@ -3,6 +3,7 @@ title: "Best Weekend Trips from Delhi"
 description: "Agra, Jaipur, Rishikesh, Neemrana Fort, Mathura, Bharatpur, and Jim Corbett are the top weekend getaways from Delhi. Distances, costs, and what to do."
 type: paa
 city: delhi
+tier: "3"
 category: daytrips
 status: machine-draft
 datePublished: "2026-02-07"
@@ -25,6 +26,9 @@ relatedPages:
   - /delhi/is-neemrana-fort-worth-visiting-from-delhi/
   - /delhi/can-you-do-a-day-trip-from-delhi-to-jaipur/
   - /delhi/day-trip-to-mathura-and-vrindavan-from-delhi/
+tags:
+  - "day-trips"
+  - "excursions"
 ---
 
 **Agra for the Taj Mahal, Jaipur for forts and bazaars, Rishikesh for river rafting and yoga, Neemrana for a heritage hotel escape, and Jim Corbett for tiger safaris — Delhi sits at the centre of some of India's best weekend destinations.** All of these are reachable in 2-6 hours by road or train.

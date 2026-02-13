@@ -2,6 +2,7 @@
 title: "Elephanta Caves From Mumbai"
 description: "Visit Elephanta Caves from Mumbai: ₹200-300 ferry from Gateway of India, UNESCO World Heritage 7th-century temples, timing tips & costs."
 city: "mumbai"
+tier: "3"
 category: "heritage"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,10 @@ faq:
     answer: "Elephanta Caves open Tuesday to Sunday, 9:30 AM to 5:30 PM. Closed on Mondays. Last ferry typically departs Mumbai around 2 PM to ensure return before dark."
   - question: "How long does it take to explore Elephanta Caves?"
     answer: "Plan 4-5 hours total including ferry rides (2 hours) and cave exploration (2-3 hours). The main cave complex takes 1.5-2 hours to see properly with all sculptures."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
 ---
 
 **Elephanta Caves are accessible via a 1-hour ferry ride from Gateway of India costing ₹200-300 ($2.40-3.60). This UNESCO World Heritage site features 7th-century Hindu temples with entry fees of ₹40 for Indians and ₹600 for foreigners.**

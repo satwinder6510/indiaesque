@@ -3,8 +3,10 @@ title: "Day Trips from Jaipur — Pushkar, Ranthambore & Beyond"
 description: "Best day trips from Jaipur: Pushkar, Ranthambore tiger safari, Abhaneri stepwell, Ajmer, and Bhangarh. How to visit, what to see, and planning tips."
 type: paa
 city: jaipur
+tier: "2"
 category: day-trips
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /jaipur/
@@ -24,6 +26,10 @@ relatedPages:
   - /jaipur/getting-around/
   - /jaipur/things-to-do/
   - /jaipur/practical-travel-tips/
+tags:
+  - "day-trips"
+  - "excursions"
+  - "jaipur"
 ---
 
 Jaipur's location makes several excellent destinations accessible as day trips. Here's what's worth your time.

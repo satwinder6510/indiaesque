@@ -3,6 +3,7 @@ title: "Is Delhi Polluted? — Air Quality Guide (2026)"
 description: "Yes, Delhi has serious air pollution, especially November to January when AQI exceeds 300. Check AQI daily and carry an N95 mask."
 type: paa
 city: delhi
+tier: "3"
 category: practical
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,9 @@ relatedPages:
   - /delhi/what-is-the-weather-like-in-delhi/
   - /delhi/what-should-i-pack-for-delhi/
   - /delhi/diwali-in-delhi-what-to-expect/
+tags:
+  - "practical"
+  - "planning"
 ---
 
 **Yes, Delhi has a serious air pollution problem, and it's worst from November through January when the Air Quality Index (AQI) regularly climbs above 300 — classified as hazardous.** If you're visiting during these months, check the AQI daily, carry an N95 mask, and plan your outdoor sightseeing for the morning hours when levels tend to be lower.

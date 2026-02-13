@@ -2,6 +2,7 @@
 title: "Kala Ghoda Art District Mumbai"
 description: "Complete guide to Mumbai's Kala Ghoda Art District: galleries, museums, cafés, annual festival, and street art in South Mumbai's cultural heart."
 city: "mumbai"
+tier: "3"
 category: "culture"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,10 @@ faq:
     answer: "Jehangir Art Gallery offers completely free entry and showcases contemporary Indian artists. The gallery has four exhibition halls and is open Tuesday to Sunday from 11 AM to 7 PM."
   - question: "How do I reach Kala Ghoda by public transport?"
     answer: "Take the local train to Churchgate Station (Western Line) or CST Station (Central Line), then walk 10-15 minutes. You can also take buses to Regal Cinema or Fort Market stops."
+tags:
+  - "culture"
+  - "heritage"
+  - "art"
 ---
 
 **Kala Ghoda Art District is Mumbai's premier cultural quarter in South Mumbai, home to the Jehangir Art Gallery, National Gallery of Modern Art, annual February arts festival, and dozens of boutique shops, cafés, and heritage buildings concentrated around Rampart Row and K Dubash Marg.**

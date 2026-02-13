@@ -2,6 +2,7 @@
 title: "Belur Math Kolkata Guide"
 description: "Complete guide to Belur Math - Ramakrishna Mission headquarters with ferry access from Dakshineswar, free entry, unique architecture & gardens."
 city: "kolkata"
+tier: "3"
 category: "spiritual"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,10 @@ faq:
     answer: "Take the ferry from Dakshineswar Kali Temple ghat directly to Belur Math ghat. The ferry ride costs ₹10 ($0.12) and takes 10 minutes across the Hooghly River. Ferries run every 15-20 minutes during daylight hours."
   - question: "What makes Belur Math's architecture unique?"
     answer: "Belur Math features an extraordinary fusion of Hindu, Islamic, and Christian architectural elements designed by Swami Vivekananda. The main temple combines temple spires, mosque domes, and church windows in one harmonious structure representing universal religion."
+tags:
+  - "spiritual"
+  - "temples"
+  - "religious"
 ---
 
 **Belur Math is the headquarters of the Ramakrishna Mission, located on the west bank of the Hooghly River. This spiritual complex offers free entry, unique fusion architecture, and peaceful gardens, with ferry connections from Dakshineswar Temple making it easily accessible for visitors.**

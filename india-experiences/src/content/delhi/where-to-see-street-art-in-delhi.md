@@ -3,6 +3,7 @@ title: "Where to See Street Art in Delhi"
 description: "Lodhi Colony Art District has 50+ murals from international artists, all free and walkable. Here's how to explore Delhi's open-air gallery."
 type: paa
 city: delhi
+tier: "3"
 category: experiences
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/best-photography-spots-in-delhi/
   - /delhi/best-free-things-to-do-in-delhi/
   - /delhi/things-to-do-in-south-delhi/
+tags:
+  - "art"
+  - "activities"
+  - "street-art"
+  - "culture"
 ---
 
 **Lodhi Colony Art District is where you want to go — it's India's first open-air public art district, with over 50 large-scale murals painted on apartment blocks and government buildings, all completely free to see.** The St+Art India Foundation has been running this project since 2015, bringing artists from over 25 countries to paint here.

@@ -3,6 +3,7 @@ title: "What Is Paranthe Wali Gali?"
 description: "Paranthe Wali Gali is a famous Chandni Chowk alley serving stuffed parathas since the 1870s. Five shops, 30+ fillings, open mornings."
 type: paa
 city: delhi
+tier: "3"
 category: food
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,9 @@ relatedPages:
   - /delhi/where-to-eat-in-old-delhi/
   - /delhi/things-to-do-in-old-delhi-chandni-chowk/
   - /delhi/what-food-is-delhi-famous-for/
+tags:
+  - "food"
+  - "where-to-eat"
 ---
 
 **Paranthe Wali Gali is a narrow alley in Chandni Chowk, Old Delhi, where five shops have been frying stuffed parathas since the 1870s — making it one of the oldest continuous food streets in India.** The name literally translates to "alley of parathas," and the shops here serve over 30 different fillings, from the classic potato to the eccentric banana and rabri.

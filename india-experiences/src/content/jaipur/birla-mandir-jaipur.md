@@ -2,6 +2,7 @@
 title: "Birla Mandir Jaipur — Laxmi Narayan Temple"
 description: "Birla Mandir Jaipur is a stunning white marble temple on Moti Dungri hill offering free entry, evening illumination, and panoramic city views."
 city: "jaipur"
+tier: "3"
 category: "spiritual"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "No, entry to Birla Mandir is completely free. There are no charges for visiting the temple, parking your vehicle, or accessing the temple premises and gardens."
   - question: "How do I reach Birla Mandir from Jaipur city center?"
     answer: "Birla Mandir is 3km from Jaipur city center on Moti Dungri hill. You can take an auto-rickshaw for ₹80-100 ($1-1.20), taxi for ₹150-200 ($1.80-2.40), or city bus route 5A."
+tags:
+  - "spiritual"
+  - "temples"
+  - "religious"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **Birla Mandir Jaipur, also known as Laxmi Narayan Temple, is a stunning white marble Hindu temple located on Moti Dungri hill, 3km from the city center. Built by the Birla family in 1988, this modern temple offers free entry, wheelchair accessibility, and spectacular panoramic views of Jaipur.**

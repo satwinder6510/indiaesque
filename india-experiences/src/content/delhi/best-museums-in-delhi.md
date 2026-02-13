@@ -3,6 +3,7 @@ title: "Best Museums in Delhi"
 description: "Explore Delhi's best museums including the free National Museum, Crafts Museum, Partition Museum, and Gandhi Smriti. Visitor tips inside."
 type: paa
 city: delhi
+tier: "3"
 category: heritage
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,12 @@ relatedPages:
   - /delhi/best-free-things-to-do-in-delhi/
   - /delhi/things-to-do-in-delhi-when-it-rains/
   - /delhi/what-are-the-unesco-world-heritage-sites-in-delhi/
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "museums"
+  - "culture"
 ---
 
 **Delhi has over 50 museums, but five stand out: the National Museum (free entry, enormous collection), the National Gallery of Modern Art, the Partition Museum, the Crafts Museum, and Gandhi Smriti.** These five cover Indian history from the Indus Valley to 1947, modern art, traditional crafts, and one of the most emotionally powerful stories of the 20th century.

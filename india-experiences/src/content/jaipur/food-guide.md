@@ -3,8 +3,10 @@ title: "Jaipur Food Guide — Street Food, Restaurants & Rajasthani Cuisine"
 description: "Rajasthani dal bati churma, street food at Rawat Kachori, fine dining, food tours, and famous Jaipur sweets. Complete guide to eating in the Pink City."
 type: paa
 city: jaipur
+tier: "2"
 category: food
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /jaipur/
@@ -26,6 +28,12 @@ relatedPages:
   - /jaipur/practical-travel-tips/
   - /jaipur/shopping-guide/
   - /jaipur/activities/
+tags:
+  - "food"
+  - "where-to-eat"
+  - "street-food"
+  - "local-food"
+  - "jaipur"
 ---
 
 Jaipur's food is rich, spiced, and built for a desert climate. Expect ghee, dried lentils, and flavours designed to last in hot weather. Here's your guide to eating well in the Pink City.

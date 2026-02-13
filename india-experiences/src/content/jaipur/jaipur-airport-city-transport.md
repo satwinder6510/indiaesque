@@ -2,6 +2,7 @@
 title: "Jaipur Airport To City Transport Guide"
 description: "Complete guide to Jaipur airport transport options. Taxi rates ₹400-600, bus services, metro plans, and travel times to city center."
 city: "jaipur"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "No metro connection exists currently from Jaipur airport. The Jaipur Metro Phase 2 extension to the airport is planned but not operational yet. Taxis, buses, and ride-sharing apps are your main transport options."
   - question: "What's the cheapest way to get from Jaipur airport to city?"
     answer: "City buses are the cheapest option at ₹25-50 ($0.30-0.60). Route 400 connects the airport to Sindhi Camp bus station. However, buses run less frequently than taxis and take longer due to stops."
+tags:
+  - "practical"
+  - "planning"
+  - "airport"
+  - "transport"
+  - "arrival"
 ---
 
 **Jaipur Airport sits 13km from the city center with taxi fares ranging ₹400-600 ($5-7), bus services for ₹25-50, and a 45-minute journey time to central areas. Prepaid taxi counters, ride-sharing apps, and city buses provide your main transport options.**

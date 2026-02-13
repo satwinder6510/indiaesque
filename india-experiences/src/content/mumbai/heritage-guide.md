@@ -3,8 +3,10 @@ title: "Mumbai Heritage Guide — Colonial Architecture, Art Deco & UNESCO Sites
 description: "Gateway of India, Victoria Terminus, Elephanta Caves, Art Deco buildings, and Mumbai's architectural heritage. What to see and the history behind it."
 type: paa
 city: mumbai
+tier: "2"
 category: heritage
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /mumbai/
@@ -24,6 +26,12 @@ relatedPages:
   - /mumbai/planning-your-trip/
   - /mumbai/neighbourhoods/
   - /mumbai/getting-around/
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "art"
+  - "culture"
 ---
 
 Mumbai's architecture tells its story — Portuguese churches, British Gothic, Art Deco apartments, and modern skyscrapers. Here's your heritage guide.

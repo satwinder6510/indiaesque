@@ -2,6 +2,7 @@
 title: "Colaba Causeway Shopping Guide"
 description: "Complete guide to shopping at Colaba Causeway Mumbai: best shops, bargaining tips, street food, and what to buy from jewelry to handicrafts."
 city: "mumbai"
+tier: "3"
 category: "markets"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,9 @@ faq:
     answer: "Start bargaining at 30% of the quoted price. For jewelry expect to pay ₹500-2,000 ($6-24), handicrafts ₹200-1,500 ($2.50-18), and clothes ₹300-1,200 ($3.50-14)."
   - question: "Which metro station is closest to Colaba Causeway?"
     answer: "Churchgate Station on the Western Line is the closest railway station, about 2km away. Take a taxi (₹150-200) or bus from there. The area isn't directly connected to Mumbai Metro."
+tags:
+  - "markets"
+  - "shopping"
 ---
 
 **Colaba Causeway is Mumbai's most famous shopping street, stretching from Regal Cinema to the Gateway of India. You'll find jewelry, handicrafts, clothes, antiques, and street food here, with shops open 10am-9pm daily.**

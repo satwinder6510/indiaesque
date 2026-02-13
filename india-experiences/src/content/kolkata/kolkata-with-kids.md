@@ -2,6 +2,7 @@
 title: "Visiting Kolkata With Kids"
 description: "Complete guide to exploring Kolkata with children. Top family attractions, kid-friendly restaurants, transport tips, and safety advice."
 city: "kolkata"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,9 @@ faq:
     answer: "Kolkata is generally safe for families with children. Main tourist areas are well-patrolled, and locals are helpful. Watch for traffic when crossing streets, avoid street food initially, and carry hand sanitizer. Stay in reputable hotels and use official transport options."
   - question: "What should I know about getting around Kolkata with kids?"
     answer: "Metro is cleanest and most efficient but lacks elevators at many stations. Pre-paid taxis work well for door-to-door travel. Uber and Ola are reliable options. Avoid local buses during peak hours. Book ground-floor hotel rooms to minimize stair climbing with luggage and strollers."
+tags:
+  - "practical"
+  - "planning"
 ---
 
 **Kolkata offers excellent family experiences with Science City, Alipore Zoo, and Eco Park leading kid-friendly attractions. The city is safe for families, though you'll need to plan transport carefully since stroller accessibility can be challenging on sidewalks and older metro stations.**

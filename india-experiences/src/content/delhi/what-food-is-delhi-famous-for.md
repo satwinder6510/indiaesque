@@ -3,6 +3,7 @@ title: "What Food Is Delhi Famous For?"
 description: "Delhi is famous for chaat, chole bhature, parathas, kebabs, butter chicken, and jalebis. Here's what to eat and exactly where to find it."
 type: paa
 city: delhi
+tier: "3"
 category: food
 status: machine-draft
 datePublished: "2026-02-07"
@@ -25,6 +26,9 @@ relatedPages:
   - /delhi/what-is-butter-chicken-and-where-was-it-invented/
   - /delhi/where-to-eat-in-old-delhi/
   - /delhi/is-delhi-vegetarian-friendly/
+tags:
+  - "food"
+  - "where-to-eat"
 ---
 
 **Delhi is famous for chaat, chole bhature, parathas, kebabs, butter chicken, biryani, and jalebis — all of which taste better here than anywhere else in India.** This is a city that has absorbed food traditions from Mughal courts, Punjabi refugees, and traders from every corner of the subcontinent, and the result is one of the most serious eating cities in Asia.

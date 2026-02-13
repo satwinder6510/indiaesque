@@ -2,6 +2,7 @@
 title: "How Many Days Do You Need In Jaipur?"
 description: "Plan your perfect Jaipur trip with our detailed itinerary guide. From 1-day fort visits to 5-day cultural immersion experiences."
 city: "jaipur"
+tier: "3"
 category: "general"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "Three days works perfectly for Golden Triangle tours. You can cover major forts, palaces, markets, and include a day trip to Pushkar or local villages without feeling rushed."
   - question: "What's the ideal duration for first-time visitors to Jaipur?"
     answer: "First-time visitors should plan 3-4 days minimum. This allows time to see major attractions, shop in local markets, try street food, and experience Rajasthani culture at a comfortable pace."
+tags:
+  - "overview"
+  - "first-time"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **You need minimum 3-4 days in Jaipur to see major attractions comfortably. While one day covers basic forts, 3-4 days lets you explore markets, try local food, and take day trips without rushing.**

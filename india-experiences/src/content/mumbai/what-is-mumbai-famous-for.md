@@ -2,6 +2,7 @@
 title: "What Is Mumbai Famous For?"
 description: "Mumbai is famous for Bollywood, being India's financial capital, street food culture, colonial architecture, and massive business hub status."
 city: "mumbai"
+tier: "3"
 category: "general"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,9 @@ faq:
     answer: "Bollywood produces over 1,800 films annually and employs nearly 6 million people directly or indirectly. Film City in Goregaon spans 520 acres and hosts 300+ film shoots monthly, making Mumbai the entertainment capital of India."
   - question: "What makes Mumbai's street food culture unique?"
     answer: "Mumbai serves over 2.5 million street food portions daily across 150,000+ vendors. Iconic dishes like vada pav (₹15-25), bhel puri (₹30-50), and pav bhaji originated here, creating a ₹50,000 crore street food economy."
+tags:
+  - "overview"
+  - "first-time"
 ---
 
 **Mumbai is famous for being India's financial capital, the heart of Bollywood film industry, its legendary street food culture, stunning Art Deco and colonial architecture, and serving as the country's primary business hub generating over ₹3.4 trillion annually.**

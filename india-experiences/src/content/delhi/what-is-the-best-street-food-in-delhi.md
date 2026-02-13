@@ -3,6 +3,7 @@ title: "What Is the Best Street Food in Delhi?"
 description: "Delhi's best street food includes golgappe, aloo tikki, chole kulche, ram ladoo, and dahi bhalle. Here are 15 dishes and where to find each one."
 type: paa
 city: delhi
+tier: "3"
 category: food
 status: machine-draft
 datePublished: "2026-02-07"
@@ -25,6 +26,11 @@ relatedPages:
   - /delhi/is-street-food-safe-in-delhi/
   - /delhi/what-food-is-delhi-famous-for/
   - /delhi/what-is-paranthe-wali-gali/
+tags:
+  - "food"
+  - "street-food"
+  - "where-to-eat"
+  - "local-food"
 ---
 
 **Delhi's best street food includes golgappe, aloo tikki, chole bhature, dahi bhalle, ram ladoo, chole kulche, and kebab rolls — all eaten standing up at stalls that have been perfecting single dishes for decades.** No other Indian city has this depth of street food, and most of the best places don't have a sign out front.

@@ -3,6 +3,7 @@ title: "Things To Do in Delhi When It Rains"
 description: "Museums, cooking classes, mall-hopping, and indoor monuments — how to make the most of Delhi's monsoon season from July to September."
 type: paa
 city: delhi
+tier: "3"
 category: experiences
 status: machine-draft
 datePublished: "2026-02-07"
@@ -22,6 +23,9 @@ relatedPages:
   - /delhi/best-cooking-classes-in-delhi/
   - /delhi/best-cafes-in-delhi/
   - /delhi/what-is-the-best-time-to-visit-delhi/
+tags:
+  - "experiences"
+  - "activities"
 ---
 
 **Delhi's monsoon season runs from July through September, and rainy days are best spent in the city's excellent museums, cooking classes, covered markets, and air-conditioned cafes.** Rain doesn't shut Delhi down --- it just shifts the action indoors, and there's more than enough to fill a full day without getting soaked.

@@ -3,6 +3,7 @@ title: "Best Markets in Delhi for Shopping"
 description: "Chandni Chowk, Khan Market, Sarojini Nagar, Dilli Haat, and Janpath are Delhi's top markets. Here's what to buy at each and how to get there."
 type: paa
 city: delhi
+tier: "3"
 category: markets
 status: machine-draft
 datePublished: "2026-02-07"
@@ -25,6 +26,9 @@ relatedPages:
   - /delhi/is-khan-market-expensive/
   - /delhi/what-to-buy-in-delhi-as-souvenirs/
   - /delhi/is-bargaining-expected-in-delhi-markets/
+tags:
+  - "markets"
+  - "shopping"
 ---
 
 **Delhi has over 100 named markets, but five stand out for visitors: Chandni Chowk for everything under the sun, Khan Market for upscale browsing, Sarojini Nagar for fashion bargains, Dilli Haat for handicrafts, and Janpath for quick souvenirs.** Each one delivers a completely different experience, and you could easily spend a half-day at any of them.

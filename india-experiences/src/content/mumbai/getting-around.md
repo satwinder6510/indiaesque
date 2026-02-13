@@ -3,8 +3,10 @@ title: "Getting Around Mumbai — Local Trains, Airport & Transport Guide"
 description: "Mumbai local trains, airport transfers, taxis, Uber, and getting between neighbourhoods. Complete transport guide for the Maximum City."
 type: paa
 city: mumbai
+tier: "2"
 category: practical
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /mumbai/
@@ -24,6 +26,12 @@ relatedPages:
   - /mumbai/planning-your-trip/
   - /mumbai/where-to-stay/
   - /mumbai/neighbourhoods/
+tags:
+  - "practical"
+  - "planning"
+  - "airport"
+  - "transport"
+  - "arrival"
 ---
 
 Mumbai is spread out and traffic-choked. Local trains are the backbone — learn to use them and the city opens up.

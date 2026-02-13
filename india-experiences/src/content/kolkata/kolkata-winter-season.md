@@ -2,6 +2,7 @@
 title: "Visiting Kolkata In Winter"
 description: "Winter in Kolkata (Dec-Feb) offers perfect 10-25°C weather for walking tours, vibrant Christmas celebrations, and cultural events."
 city: "kolkata"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,12 @@ faq:
     answer: "December is peak season in Kolkata with perfect weather, Christmas celebrations on Park Street, and numerous cultural events. However, expect higher hotel rates and crowds, so book accommodation at least 2-3 months in advance."
   - question: "What should I pack for Kolkata winter?"
     answer: "Pack light woolens like cardigans and jackets for mornings and evenings. Cotton clothes work fine during the day. Don't forget comfortable walking shoes, a light scarf, and layers you can add or remove easily."
+tags:
+  - "practical"
+  - "planning"
+  - "winter"
+  - "weather"
+  - "seasons"
 ---
 
 **Winter is the absolute best time to visit Kolkata, with comfortable temperatures between 10-25°C (50-77°F) from December to February. This peak season offers perfect weather for walking tours, spectacular Christmas celebrations, and ideal conditions for exploring the city's heritage sites.**

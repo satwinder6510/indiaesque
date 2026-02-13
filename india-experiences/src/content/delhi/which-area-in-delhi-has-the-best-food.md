@@ -3,6 +3,7 @@ title: "Which Area in Delhi Has the Best Food?"
 description: "Old Delhi's Chandni Chowk has the best street food. Nizamuddin wins for Mughlai. Connaught Place for restaurants. Here's a neighbourhood food breakdown."
 type: paa
 city: delhi
+tier: "3"
 category: food
 status: machine-draft
 datePublished: "2026-02-07"
@@ -25,6 +26,11 @@ relatedPages:
   - /delhi/things-to-do-in-nizamuddin/
   - /delhi/what-is-the-best-street-food-in-delhi/
   - /delhi/best-restaurants-in-delhi/
+tags:
+  - "food"
+  - "where-to-eat"
+  - "neighbourhoods"
+  - "local-food"
 ---
 
 **Old Delhi's Chandni Chowk has the best street food in Delhi, Nizamuddin is the top area for Mughlai cuisine, Connaught Place leads for sit-down restaurants, and Defence Colony is the strongest South Delhi food neighbourhood.** Each area has a distinct character, and the best approach is to eat in multiple neighbourhoods rather than sticking to one.

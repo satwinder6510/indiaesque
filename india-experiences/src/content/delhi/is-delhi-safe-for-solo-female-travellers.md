@@ -3,6 +3,7 @@ title: "Is Delhi Safe for Solo Female Travellers?"
 description: "Delhi is manageable for solo female travellers with precautions. Use women's metro carriages, Uber/Ola at night, and stay alert."
 type: paa
 city: delhi
+tier: "3"
 category: general
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/is-delhi-safe-at-night/
   - /delhi/how-to-get-around-delhi/
   - /delhi/where-should-i-stay-in-delhi/
+tags:
+  - "safety"
+  - "solo-travel"
+  - "women-travel"
+  - "practical"
 ---
 
 **Delhi is safe for solo female travellers who take standard precautions, particularly around transport and neighbourhood choices.** Thousands of women travel solo in Delhi every year — including Indian women living and commuting alone daily. The city has specific infrastructure designed for women's safety, and knowing how to use it makes a real difference.

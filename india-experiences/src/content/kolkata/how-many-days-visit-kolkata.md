@@ -2,6 +2,7 @@
 title: "How Many Days Do You Need In Kolkata?"
 description: "Plan your Kolkata trip duration: 3-5 days ideal for comprehensive visit. Sample itineraries for 1-7 days with must-see attractions."
 city: "kolkata"
+tier: "3"
 category: "general"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,9 @@ faq:
     answer: "Three days gives you a solid introduction to Kolkata's heritage, food scene, and culture. You can cover most major attractions, take a food tour, and explore key markets like New Market."
   - question: "What can you do with 5 days in Kolkata?"
     answer: "Five days lets you explore Kolkata thoroughly, including day trips to Dakshineswar or extended market exploration. You can also add specialized experiences like pottery workshops in Kumartuli or river cruises."
+tags:
+  - "overview"
+  - "first-time"
 ---
 
 **You need 3-5 days for a comprehensive Kolkata visit. One day covers major highlights, 2-3 days include heritage and culture, while 4-5 days allow for food tours, markets, and day trips to places like Dakshineswar.**

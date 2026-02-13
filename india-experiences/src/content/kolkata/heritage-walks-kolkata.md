@@ -2,6 +2,7 @@
 title: "Heritage Walks In Kolkata"
 description: "Discover Kolkata's heritage through organized walks (₹300-800) and self-guided tours. North Kolkata trails, BBD Bagh colonial walks."
 city: "kolkata"
+tier: "3"
 category: "heritage"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,12 @@ faq:
     answer: "Most heritage walks last 2-4 hours. The North Kolkata heritage trail takes 3-4 hours, while BBD Bagh colonial walks typically last 2-3 hours. Half-day walks covering multiple areas can extend to 5-6 hours."
   - question: "Can you do heritage walks in Kolkata without a guide?"
     answer: "Yes, you can explore Kolkata's heritage independently using marked trails and mobile apps. Popular self-guided routes include Kumartuli pottery quarter, College Street book district, and the Dalhousie area. Download offline maps for navigation."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "walks"
+  - "tours"
 ---
 
 **Heritage walks in Kolkata cost ₹300-800 ($4-10) for organized tours lasting 2-4 hours, covering North Kolkata's traditional neighborhoods and BBD Bagh's colonial architecture. You can also explore self-guided routes for free.**

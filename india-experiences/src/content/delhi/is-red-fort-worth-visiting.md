@@ -3,6 +3,7 @@ title: "Is Red Fort Worth Visiting?"
 description: "Yes, but go early — Red Fort opens at 9:30 AM and gets crowded by 11. Skip Mondays. Entry is ₹35 Indians, ₹500 foreigners. Here's how to make it count."
 type: paa
 city: delhi
+tier: "3"
 category: heritage
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/heritage-walks/
   - /delhi/things-to-do-in-old-delhi-chandni-chowk/
   - /delhi/what-are-the-unesco-world-heritage-sites-in-delhi/
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "forts"
 ---
 
 **Yes, Red Fort is worth visiting — it's one of Delhi's three UNESCO World Heritage Sites and the most important Mughal monument in the city.** But your experience depends heavily on when you go. Arrive early on a weekday morning and you'll appreciate the scale and history. Show up at noon on a Sunday and you'll wonder why you bothered.

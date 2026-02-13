@@ -2,6 +2,7 @@
 title: "Durga Puja In Kolkata Guide"
 description: "Complete guide to Durga Puja in Kolkata: festival dates, best pandals, crowd safety, accommodation tips, and viewing itinerary"
 city: "kolkata"
+tier: "3"
 category: "culture"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,9 @@ faq:
     answer: "South Kolkata neighborhoods like Ballygunge, Gariahat, and Rashbehari have elaborate themed pandals. North Kolkata areas like Shobhabazar and Kumartuli offer traditional celebrations with centuries-old heritage."
   - question: "How crowded does Kolkata get during Durga Puja?"
     answer: "Kolkata becomes extremely crowded with over 2 million visitors daily. Popular pandals have 2-3 hour queues. Travel between pandals takes twice as long due to road closures and pedestrian traffic."
+tags:
+  - "culture"
+  - "heritage"
 ---
 
 **Durga Puja in Kolkata happens in September-October for 5 days, transforming the city into the world's largest open-air art exhibition with over 3,000 pandals (temporary structures housing goddess statues). The festival requires advance accommodation booking and careful crowd navigation planning.**

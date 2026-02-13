@@ -3,6 +3,7 @@ title: "Is Delhi Safe at Night?"
 description: "Parts of Delhi are safe at night — South Delhi, Connaught Place, and Khan Market are well-lit and busy after dark. Here's where to go and where to avoid."
 type: paa
 city: delhi
+tier: "3"
 category: general
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,12 @@ relatedPages:
   - /delhi/is-delhi-safe-for-solo-female-travellers/
   - /delhi/best-nightlife-in-delhi/
   - /delhi/how-to-get-around-delhi/
+tags:
+  - "overview"
+  - "first-time"
+  - "safety"
+  - "practical"
+  - "nightlife"
 ---
 
 **Parts of Delhi are perfectly safe at night, but the city varies wildly block by block.** South Delhi, Connaught Place, and Khan Market are well-patrolled, lit up, and have enough people around after dark. Other areas empty out fast once shops close, and that's where you need to be more careful.

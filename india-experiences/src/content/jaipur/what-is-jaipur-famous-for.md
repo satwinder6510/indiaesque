@@ -2,6 +2,7 @@
 title: "What Is Jaipur Famous For?"
 description: "Discover what makes Jaipur famous: Pink City architecture, UNESCO heritage sites, gem cutting, block printing, and Rajput palaces."
 city: "jaipur"
+tier: "3"
 category: "general"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "Jaipur is renowned for gem cutting, block printing, blue pottery, lac jewelry, and carpet weaving. The city supplies 90% of India's cut gemstones and produces intricate hand-block printed textiles exported worldwide."
   - question: "Is Jaipur part of the Golden Triangle?"
     answer: "Yes, Jaipur forms one corner of India's Golden Triangle tourist circuit along with Delhi and Agra. This 720-kilometer route showcases India's most famous historical monuments including the Taj Mahal, Red Fort, and Amber Fort."
+tags:
+  - "overview"
+  - "first-time"
+  - "highlights"
+  - "introduction"
 ---
 
 **Jaipur is famous for being India's Pink City, renowned for its distinctive pink sandstone architecture, UNESCO World Heritage sites, thriving gem cutting industry, traditional crafts like block printing and blue pottery, and its position as a key stop on India's Golden Triangle tourist route.**

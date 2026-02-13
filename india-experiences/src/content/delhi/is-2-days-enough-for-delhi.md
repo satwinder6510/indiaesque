@@ -3,6 +3,7 @@ title: "Is 2 Days Enough for Delhi?"
 description: "Two days covers Delhi's top highlights like Red Fort and Humayun's Tomb, but you'll miss the deeper food and neighbourhood experiences. Here's how to plan."
 type: paa
 city: delhi
+tier: "3"
 category: general
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,9 @@ relatedPages:
   - /delhi/how-many-days-do-you-need-in-delhi/
   - /delhi/food-tours/
   - /delhi/how-to-spend-1-day-in-delhi/
+tags:
+  - "overview"
+  - "first-time"
 ---
 
 **Two days in Delhi is enough to hit the major highlights, but not enough to explore the city properly.** You'll cover the big-name monuments, get a taste of Old Delhi's street food, and see enough to understand why this city has been rebuilt seven times. But the deeper neighbourhood experiences, the long lunches, and the side streets take longer.

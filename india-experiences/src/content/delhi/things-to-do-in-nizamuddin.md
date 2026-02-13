@@ -3,6 +3,7 @@ title: "Things To Do in Nizamuddin, Delhi"
 description: "Nizamuddin has a 700-year-old Sufi shrine, Thursday night qawwali, Humayun's Tomb, and some of Delhi's best kebabs. Here's what to see and do."
 type: paa
 city: delhi
+tier: "3"
 category: neighbourhood
 status: machine-draft
 datePublished: "2026-02-07"
@@ -22,6 +23,9 @@ relatedPages:
   - /delhi/humayuns-tomb-vs-taj-mahal/
   - /delhi/heritage-walks/
   - /delhi/food-tours/
+tags:
+  - "neighbourhoods"
+  - "areas"
 ---
 
 **Nizamuddin is one of Delhi's oldest continuously inhabited neighbourhoods — a 700-year-old settlement built around the tomb of the Sufi saint Hazrat Nizamuddin Auliya, where you can hear live qawwali every Thursday evening, visit Humayun's Tomb next door, and eat kebabs that locals drive across the city for.** This is Delhi at its most layered, where medieval devotion and modern life occupy the same narrow lanes.

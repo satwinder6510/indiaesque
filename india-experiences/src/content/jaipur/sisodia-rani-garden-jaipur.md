@@ -2,6 +2,7 @@
 title: "Sisodia Rani Garden Jaipur"
 description: "Sisodia Rani Garden in Jaipur features stunning Mughal terraced gardens 8km from city center. Entry ₹25 ($0.30), best visited mornings."
 city: "jaipur"
+tier: "3"
 category: "nature"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Sisodia Rani Garden is located 8km from Jaipur city center on the Jaipur-Agra highway. The journey takes 20-25 minutes by car or auto-rickshaw from major tourist areas like City Palace or Hawa Mahal."
   - question: "What is the best time to visit Sisodia Rani Garden for photography?"
     answer: "Early morning between 6-9 AM provides the best lighting for photography at Sisodia Rani Garden. The soft golden light enhances the Mughal architecture and garden landscapes while avoiding harsh shadows and crowds."
+tags:
+  - "nature"
+  - "outdoors"
+  - "gardens"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **Sisodia Rani Garden is an 18th-century Mughal-style terraced garden located 8km from Jaipur city center on the Agra highway. Built by Maharaja Sawai Jai Singh II for his second queen, it features multi-level gardens, painted pavilions, and fountains with entry costing ₹25 ($0.30) for Indians.**

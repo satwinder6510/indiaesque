@@ -3,6 +3,7 @@ title: "Best SIM Card for Tourists in Delhi (2026)"
 description: "Get an Airtel or Jio SIM at Delhi airport for ₹500-700 ($6-8.50) including data. You'll need a passport photo and copy. Activation takes 2-24 hours."
 type: paa
 city: delhi
+tier: "3"
 category: practical
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/is-uber-available-in-delhi/
   - /delhi/do-i-need-a-visa-for-india/
   - /delhi/how-to-get-around-delhi/
+tags:
+  - "practical"
+  - "planning"
+  - "tours"
+  - "activities"
 ---
 
 **Get an Airtel or Jio SIM at Delhi airport's arrival hall for ₹500-700 ($6-8.50) — it includes 1.5-2 GB daily data for 28 days and is the single most useful thing you can buy when you land.** You'll need your passport, a passport-sized photo, and a photocopy of your passport and visa. Activation takes 2-24 hours.

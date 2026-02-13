@@ -2,6 +2,7 @@
 title: "Best Day Trips From Mumbai"
 description: "Discover top day trips from Mumbai: Lonavala hills (₹40 train), Alibaug beach (₹200 ferry), Matheran toy train & more weekend escapes."
 city: "mumbai"
+tier: "3"
 category: "nature"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "Elephanta Caves is the cheapest day trip at around ₹300 ($3.60) total, including ₹180 ferry tickets, ₹40 entry fee, and ₹80 for basic meals at Gateway of India."
   - question: "Can you visit Alibaug and return to Mumbai in one day?"
     answer: "Yes, Alibaug makes an excellent day trip. Take the 8 AM ferry from Gateway of India (₹200), spend 6-7 hours at beaches, and return by 6 PM ferry to Mumbai."
+tags:
+  - "nature"
+  - "outdoors"
+  - "day-trips"
+  - "excursions"
 ---
 
 **The best day trips from Mumbai include Lonavala hill station (2-hour train journey for ₹40), Alibaug beach via ferry (₹200), Matheran's toy train experience, Karjat for adventure activities, and UNESCO World Heritage Elephanta Caves - all easily accessible within 3 hours and perfect for weekend escapes.**

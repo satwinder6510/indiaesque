@@ -2,6 +2,7 @@
 title: "Cultural Experiences In Jaipur — 2026 Guide"
 description: "Authentic cultural experiences in Jaipur: block printing workshops, cooking classes, folk performances. Prices ₹1500-5000. Expert guide."
 city: "jaipur"
+tier: "2"
 category: "culture"
 type: "category"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "The best cooking classes are at Samode Haveli (₹3,200/$38), Thali House (₹2,500/$30), and Pink City Cooking (₹2,800/$33). All include market visits, hands-on cooking, and meals."
   - question: "What folk performances can I see in Jaipur?"
     answer: "Watch Kalbeliya dance and Manganiyar music at Chokhi Dhani (₹1,200/$14), Bagore ki Haveli evening shows (₹150/$1.80), or private performances through Jaipur Heritage Hotels (₹5,000/$60 per group)."
+tags:
+  - "culture"
+  - "heritage"
+  - "jaipur"
+  - "day-trips"
 ---
 
 Jaipur offers authentic cultural experiences that connect you directly with Rajasthani traditions through hands-on workshops, culinary adventures, and traditional performances. You can learn 400-year-old block printing techniques, cook royal Rajasthani dishes with local families, watch mesmerizing folk dances, and explore contemporary art galleries showcasing both traditional and modern Indian art.

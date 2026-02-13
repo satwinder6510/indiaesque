@@ -3,6 +3,7 @@ title: "Things to Do in Delhi at Night"
 description: "India Gate illuminated, CP dinner strip, Hauz Khas nightlife, Old Delhi night food walks, and Akshardham fountain show — Delhi after dark."
 type: paa
 city: delhi
+tier: "3"
 category: experiences
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/food-tours/
   - /delhi/is-delhi-safe-at-night/
   - /delhi/things-to-do-in-hauz-khas/
+tags:
+  - "experiences"
+  - "activities"
+  - "nightlife"
+  - "after-dark"
 ---
 
 **Delhi comes alive after dark in a completely different way — India Gate glows under floodlights, Connaught Place turns into a dinner-and-drinks circuit, and the food stalls of Old Delhi fire up for the evening rush.** The city's nighttime personality is warmer, cooler (literally, in summer), and often more interesting than daytime.

@@ -3,6 +3,7 @@ title: "Paharganj — Is It Worth Staying?"
 description: "Paharganj is Delhi's cheapest backpacker area with rooms from ₹500/night — but it's chaotic and gritty. Honest pros, cons, and alternatives."
 type: paa
 city: delhi
+tier: "3"
 category: neighbourhood
 status: machine-draft
 datePublished: "2026-02-07"
@@ -22,6 +23,11 @@ relatedPages:
   - /delhi/is-delhi-safe-for-tourists/
   - /delhi/is-delhi-expensive/
   - /delhi/how-much-money-do-i-need-per-day-in-delhi/
+tags:
+  - "neighbourhoods"
+  - "areas"
+  - "accommodation"
+  - "hotels"
 ---
 
 **Paharganj is worth staying in only if you're an experienced budget traveller comfortable with noise, chaos, and rough edges — and if saving ₹500-1,000 a night matters more to you than comfort.** For first-time visitors to India, or anyone who values a decent night's sleep, there are better options at similar prices. Here's the honest breakdown.

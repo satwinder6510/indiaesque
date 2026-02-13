@@ -2,6 +2,7 @@
 title: "Where To Stay In Jaipur"
 description: "Compare Jaipur's best neighborhoods: Old City heritage hotels (₹3000-15000), C-Scheme business district, MI Road shopping area & Bani Park."
 city: "jaipur"
+tier: "3"
 category: "general"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "Bani Park offers the most budget-friendly accommodation with decent hotels starting from ₹800-3,000 ($10-36). It's well-connected to major attractions via auto-rickshaws and buses, making it perfect for backpackers and budget travelers."
   - question: "Is C-Scheme good for business travelers?"
     answer: "C-Scheme is Jaipur's business hub with modern hotels ranging ₹2,000-8,000 ($24-96). It offers excellent connectivity to the airport, railway station, and corporate offices, plus numerous restaurants and shopping malls within walking distance."
+tags:
+  - "accommodation"
+  - "where-to-stay"
+  - "hotels"
+  - "planning"
 ---
 
 **Choose Old City for heritage experience and monument access (₹3,000-15,000), C-Scheme for business travel and modern amenities (₹2,000-8,000), MI Road for shopping convenience (₹1,500-5,000), or Bani Park for budget stays (₹800-3,000).**

@@ -2,6 +2,7 @@
 title: "SIM Cards And Internet In Mumbai"
 description: "Complete guide to getting SIM cards and internet in Mumbai. Prepaid options, eSIM availability, required documents, and WiFi spots for travelers."
 city: "mumbai"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,9 @@ faq:
     answer: "You need your original passport, a photocopy of your passport's photo page and Indian visa page, plus a passport-sized photograph. Some stores also require proof of local address like hotel booking confirmation."
   - question: "Can I get eSIM in Mumbai as a tourist?"
     answer: "Yes, Airtel and Jio offer eSIM services to tourists in Mumbai. Visit their flagship stores at Palladium Mall or Phoenix Mills with your passport and visa documents to activate eSIM on compatible devices."
+tags:
+  - "practical"
+  - "planning"
 ---
 
 **Getting connected in Mumbai is straightforward with multiple prepaid SIM options from Airtel, Jio, and Vi. Tourist plans range from ₹299-799 ($3.60-$9.60), requiring passport copies and photos. eSIM is available from major carriers, and WiFi is widely accessible in hotels, cafés, and malls.**

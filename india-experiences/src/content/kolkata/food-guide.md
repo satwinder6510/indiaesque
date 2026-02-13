@@ -3,8 +3,10 @@ title: "Kolkata Food Guide — Bengali Cuisine, Sweets & Street Food"
 description: "Bengali fish curry, rosogolla, phuchka, kathi rolls, best restaurants, and street food in Kolkata. Complete guide to the City of Joy's legendary food."
 type: paa
 city: kolkata
+tier: "2"
 category: food
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /kolkata/
@@ -26,6 +28,11 @@ relatedPages:
   - /kolkata/neighbourhoods/
   - /kolkata/practical-travel-tips/
   - /kolkata/food-tours/
+tags:
+  - "food"
+  - "where-to-eat"
+  - "street-food"
+  - "local-food"
 ---
 
 Kolkata's food scene is legendary — Bengali fish, sweets that started traditions, street food with soul, and a Chinese community cooking for generations. Here's your guide.

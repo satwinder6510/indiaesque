@@ -3,6 +3,7 @@ title: "Is Street Food Safe in Delhi?"
 description: "Delhi street food is mostly safe if you eat at busy stalls with high turnover. Avoid pre-cut fruit and tap water ice. Tips here."
 type: paa
 city: delhi
+tier: "3"
 category: food
 status: machine-draft
 datePublished: "2026-02-07"
@@ -25,6 +26,12 @@ relatedPages:
   - /delhi/what-is-delhi-belly-and-how-to-avoid-it/
   - /delhi/what-is-the-best-street-food-in-delhi/
   - /delhi/where-to-eat-in-old-delhi/
+tags:
+  - "food"
+  - "where-to-eat"
+  - "street-food"
+  - "local-food"
+  - "safety"
 ---
 
 **Delhi street food is mostly safe if you stick to busy stalls with high customer turnover — a crowd means the food is fresh and constantly being replenished.** Millions of Delhiites eat street food daily without issue. The risk isn't in street food itself; it's in choosing the wrong stall or the wrong item.

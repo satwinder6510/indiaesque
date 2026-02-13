@@ -2,6 +2,7 @@
 title: "Best Markets In Mumbai — 2026 Guide"
 description: "Complete guide to Mumbai's top markets: Crawford Market, Colaba Causeway, Linking Road & Chor Bazaar. Hours, prices, transport tips."
 city: "mumbai"
+tier: "2"
 category: "markets"
 type: "category"
 datePublished: "2026-02-08"
@@ -25,6 +26,9 @@ faq:
     answer: "Budget ₹2,000-5,000 ($25-60) for a good shopping day. T-shirts cost ₹300-800 ($4-10), jewelry ₹500-3,000 ($6-35), and handicrafts ₹200-2,000 ($2.50-25). Always negotiate - initial prices are 2-3 times the final amount."
   - question: "Which Mumbai market is best for antiques and vintage items?"
     answer: "Chor Bazaar is Mumbai's premier destination for antiques, vintage items, and collectibles. Open Friday-Wednesday 11 AM-7 PM, you'll find colonial furniture, old cameras, vintage jewelry, and rare books. Mutton Street within Chor Bazaar has the best antique shops."
+tags:
+  - "markets"
+  - "shopping"
 ---
 
 Mumbai's markets are where the city's commercial soul comes alive. Four markets stand out for their unique offerings, reasonable prices, and authentic local experience: Crawford Market for fresh produce and spices, Colaba Causeway for tourist favorites, Linking Road for fashion-forward clothing, and Chor Bazaar for antiques and vintage treasures.

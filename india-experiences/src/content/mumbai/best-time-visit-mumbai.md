@@ -2,6 +2,7 @@
 title: "Best Time To Visit Mumbai"
 description: "Visit Mumbai October-March for cool, dry weather. Avoid monsoon flooding June-September. Complete guide to Mumbai's seasons and festivals."
 city: "mumbai"
+tier: "3"
 category: "general"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,9 @@ faq:
     answer: "Mumbai stays around 30°C throughout the year. Winter months (December-February) drop to 20-25°C at night. Summer peaks at 35°C in May with 80% humidity making it feel much hotter."
   - question: "When do Mumbai's major festivals happen?"
     answer: "Ganesh Chaturthi occurs in August/September during monsoon. Diwali falls in October/November during peak season. Navratri happens in September/October, perfect weather for outdoor celebrations at venues like NSCI Club."
+tags:
+  - "overview"
+  - "first-time"
 ---
 
 **October to March is the best time to visit Mumbai. These months offer cool, dry weather with temperatures around 20-30°C and minimal rainfall, perfect for exploring the city's attractions and outdoor markets.**

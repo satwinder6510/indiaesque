@@ -3,8 +3,10 @@ title: "Delhi Safety Guide — Scams, Night Safety & Practical Tips"
 description: "How to avoid scams, which areas are safe at night, street food safety, and air pollution advice. Practical safety tips for visiting Delhi."
 type: paa
 city: delhi
+tier: "2"
 category: practical
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /delhi/
@@ -28,6 +30,12 @@ relatedPages:
   - /delhi/is-delhi-safe-for-solo-female-travellers/
   - /delhi/practical-travel-tips/
   - /delhi/getting-around/
+tags:
+  - "practical"
+  - "planning"
+  - "safety"
+  - "scams"
+  - "nightlife"
 ---
 
 Delhi is safe for tourists who take basic precautions. The main risks aren't crime — they're scams, traffic, and occasionally air pollution. Here's what to watch for and how to handle it.

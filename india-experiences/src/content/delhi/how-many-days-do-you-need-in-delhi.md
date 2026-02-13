@@ -3,6 +3,7 @@ title: "How Many Days Do You Need in Delhi?"
 description: "You need 2-3 days minimum for Delhi's top sights, or 4-5 days to explore food, neighbourhoods, and day trips. Here's what each timeframe covers."
 type: paa
 city: delhi
+tier: "3"
 category: general
 status: machine-draft
 datePublished: "2026-02-07"
@@ -25,6 +26,9 @@ relatedPages:
   - /delhi/day-trips/
   - /delhi/food-tours/
   - /delhi/heritage-walks/
+tags:
+  - "overview"
+  - "first-time"
 ---
 
 **Most travellers need 3 days to see Delhi properly, though 2 days covers the main highlights and 4-5 days lets you go significantly deeper.** The right number depends on whether you want a monument tour or a full-city experience.

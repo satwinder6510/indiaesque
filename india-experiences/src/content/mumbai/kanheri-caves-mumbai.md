@@ -2,6 +2,7 @@
 title: "Kanheri Caves Mumbai"
 description: "Explore 109 ancient Buddhist rock-cut caves at Kanheri in Sanjay Gandhi National Park. Entry ₹25, guided tours available, closed monsoons."
 city: "mumbai"
+tier: "3"
 category: "nature"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,9 @@ faq:
     answer: "Kanheri Caves close during monsoon season from June to September for safety reasons. The caves are open Tuesday to Sunday from 9:00 AM to 5:00 PM. They remain closed on Mondays except public holidays."
   - question: "How do you reach Kanheri Caves from Mumbai?"
     answer: "Take the Western Railway to Borivali station, then catch bus route 228 or auto-rickshaw to Sanjay Gandhi National Park main gate. From there, board the park's van service to reach the caves, located 5km inside the park."
+tags:
+  - "nature"
+  - "outdoors"
 ---
 
 **Kanheri Caves are 109 ancient Buddhist rock-cut caves dating from the 1st to 10th century CE, located inside Sanjay Gandhi National Park in Borivali, Mumbai. Entry costs ₹25 ($0.30) for Indians, with guided tours available and closure during monsoons.**

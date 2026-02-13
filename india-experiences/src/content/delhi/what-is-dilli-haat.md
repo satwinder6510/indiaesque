@@ -3,6 +3,7 @@ title: "What Is Dilli Haat? Delhi's Crafts Bazaar"
 description: "Dilli Haat is an open-air handicrafts market with ₹30 entry, selling crafts from all Indian states plus regional street food. Near INA metro."
 type: paa
 city: delhi
+tier: "3"
 category: markets
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,10 @@ relatedPages:
   - /delhi/what-are-the-best-markets-in-delhi/
   - /delhi/what-to-buy-in-delhi-as-souvenirs/
   - /delhi/is-bargaining-expected-in-delhi-markets/
+tags:
+  - "markets"
+  - "shopping"
+  - "old-city"
 ---
 
 **Dilli Haat is an open-air crafts bazaar run by Delhi Tourism where artisans from every Indian state sell handicrafts, textiles, and regional food under one roof — all for a ₹30 ($0.35) entry fee.** It's the single most efficient place in Delhi to buy authentic Indian souvenirs without the chaos of Old Delhi's markets.

@@ -3,8 +3,10 @@ title: "Things to Do in Kolkata — Complete Guide to the City of Joy"
 description: "Victoria Memorial, Howrah Bridge, Kumartuli, Mother Teresa sites, heritage walks, and Bengali culture. What to see and do in Kolkata."
 type: paa
 city: kolkata
+tier: "2"
 category: things-to-do
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /kolkata/
@@ -24,6 +26,8 @@ relatedPages:
   - /kolkata/food-guide/
   - /kolkata/planning-your-trip/
   - /kolkata/practical-travel-tips/
+tags:
+  - "travel"
 ---
 
 Kolkata is India's cultural heart — literary, nostalgic, food-obsessed. Here's how to experience the City of Joy.

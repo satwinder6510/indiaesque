@@ -2,6 +2,7 @@
 title: "Jantar Mantar Jaipur — Astronomical Marvel Guide"
 description: "Explore Jaipur's Jantar Mantar - UNESCO World Heritage astronomical observatory with world's largest sundial. Guide costs, timings & more."
 city: "jaipur"
+tier: "3"
 category: "heritage"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Plan 1-2 hours for your visit to Jantar Mantar. This allows enough time to see all 19 instruments with a guide and understand their astronomical significance without rushing."
   - question: "What is the Samrat Yantra at Jantar Mantar?"
     answer: "The Samrat Yantra is the world's largest sundial at Jantar Mantar, standing 27 meters tall. It can measure time accurate to 2 seconds and tracks the sun's movement throughout the day."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **Jantar Mantar Jaipur is an 18th-century astronomical observatory featuring 19 stone instruments including the world's largest sundial. This UNESCO World Heritage site requires a guided tour (₹500-700) to understand its complex astronomical functions and takes 1-2 hours to explore properly.**

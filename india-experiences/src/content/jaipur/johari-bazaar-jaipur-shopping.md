@@ -2,6 +2,7 @@
 title: "Johari Bazaar Jaipur Shopping Guide"
 description: "Complete guide to shopping at Johari Bazaar Jaipur - jewelry prices, certified dealers, gem testing tips, and how to avoid tourist traps."
 city: "jaipur"
+tier: "3"
 category: "markets"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Silver jewelry ranges from ₹500-5,000 ($6-60) per piece. Semi-precious gems cost ₹1,000-10,000 ($12-120), while precious gems range from ₹10,000-50,000 ($120-600). Always negotiate - initial prices are typically 2-3 times the final selling price."
   - question: "Where can I park when shopping at Johari Bazaar?"
     answer: "Use the paid parking lot near Hawa Mahal (₹20-50 per hour) or park at City Palace and walk 300 meters. Avoid street parking as it's congested and you risk fines. Auto-rickshaws drop you directly at the bazaar entrance."
+tags:
+  - "markets"
+  - "shopping"
+  - "old-city"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **Johari Bazaar is Jaipur's premier jewelry market located 200 meters from Hawa Mahal, specializing in silver jewelry (₹500-5,000/$6-60), precious gems (₹1,000-50,000/$12-600), and traditional kundan work. Shop with certified dealers displaying BIS hallmarks and gemological certificates to avoid the numerous fake stone vendors targeting tourists.**

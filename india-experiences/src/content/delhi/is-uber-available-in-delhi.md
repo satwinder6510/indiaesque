@@ -3,6 +3,7 @@ title: "Is Uber Available in Delhi?"
 description: "Yes — Uber and Ola both operate across Delhi. Download both apps and get an Indian SIM for OTP verification. Rides cost ₹100-400 across the city."
 type: paa
 city: delhi
+tier: "3"
 category: practical
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/how-do-i-get-from-delhi-airport-to-the-city/
   - /delhi/best-sim-card-for-tourists-in-delhi/
   - /delhi/is-delhi-safe-at-night/
+tags:
+  - "transport"
+  - "getting-around"
+  - "practical"
+  - "apps"
 ---
 
 **Yes, Uber works across Delhi and is one of the easiest ways to get around the city.** Ola — India's homegrown equivalent — also operates everywhere and often has more drivers available. Download both apps before you arrive. You'll need an Indian SIM card for OTP verification, which you can pick up at the [airport when you land](/delhi/how-do-i-get-from-delhi-airport-to-the-city/).

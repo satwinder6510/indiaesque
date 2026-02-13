@@ -2,6 +2,7 @@
 title: "Bapu Bazaar Jaipur — Textile Shopping Guide"
 description: "Complete guide to textile shopping at Bapu Bazaar Jaipur. Bandhani scarves ₹200-1500, block prints, juttis ₹300-1200, tailoring tips."
 city: "jaipur"
+tier: "3"
 category: "markets"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Check fabric weight, color fastness by rubbing with white cloth, examine block print alignment, and feel the cotton thread count. Avoid synthetic blends unless specifically wanted - pure cotton feels cooler and breathes better."
   - question: "Is Bapu Bazaar better than Nehru Bazaar for textiles?"
     answer: "Bapu Bazaar offers better prices and wholesale options for textiles, while Nehru Bazaar has more variety in handicrafts. For serious fabric shopping and bulk purchases, Bapu Bazaar wins hands down."
+tags:
+  - "markets"
+  - "shopping"
+  - "old-city"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **Bapu Bazaar is Jaipur's textile paradise, offering bandhani scarves (₹200-1500), block-printed fabrics, leather juttis (₹300-1200), and expert tailoring services at wholesale prices that beat most tourist markets.**

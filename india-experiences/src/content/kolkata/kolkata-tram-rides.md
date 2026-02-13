@@ -2,6 +2,7 @@
 title: "Kolkata Tram Rides Guide"
 description: "Ride India's last operating tram system in Kolkata. Routes, fares (₹5-10), heritage value & photo spots in this 150-year transport legacy."
 city: "kolkata"
+tier: "3"
 category: "heritage"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,10 @@ faq:
     answer: "Major operating routes include Esplanade to Kidderpore, Tollygunge to Ballygunge, and Shyama Charan Mukherjee Street to Kidderpore. Check current schedules as routes change frequently."
   - question: "When is the best time to ride Kolkata trams?"
     answer: "Visit between 10 AM-4 PM on weekdays to avoid rush hour crowds. Early morning rides offer better photo opportunities with softer lighting and fewer passengers."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
 ---
 
 **Kolkata operates India's last functioning tram system, running since 1873 with fares of just ₹5-10 ($0.06-0.12). While primarily a tourist attraction today, these heritage tramcars offer slow-paced sightseeing through the city's historic neighborhoods.**

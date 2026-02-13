@@ -2,6 +2,7 @@
 title: "Getting Around Kolkata"
 description: "Complete transport guide for Kolkata: Metro fares ₹5-20, yellow taxis, Uber/Ola, buses, historic trams, auto-rickshaws, and airport transfers."
 city: "kolkata"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,9 @@ faq:
     answer: "Yellow taxi fares start around ₹25 ($0.30) for the first kilometer and ₹12-15 per additional kilometer. Always negotiate the fare beforehand or insist on using the meter, especially for longer distances."
   - question: "Are Kolkata trams still running?"
     answer: "Yes, but only on select routes. The main operational route runs from Esplanade to Tollygunge. Trams cost ₹5-10 ($0.06-0.12) and offer a unique heritage experience, though they're slower than other transport options."
+tags:
+  - "practical"
+  - "planning"
 ---
 
 **Kolkata offers diverse transport options including the Metro (₹5-20/$0.06-0.24), iconic yellow Ambassador taxis, app-based cabs, buses, historic trams, and auto-rickshaws, with services generally operating until 9:30-10:00 PM.**

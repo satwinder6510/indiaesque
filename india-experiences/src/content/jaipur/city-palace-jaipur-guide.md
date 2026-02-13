@@ -2,6 +2,7 @@
 title: "City Palace Jaipur Complete Guide"
 description: "Complete guide to City Palace Jaipur covering Chandra Mahal, Mubarak Mahal, museums, entry fees, guided tours, and visit tips."
 city: "jaipur"
+tier: "3"
 category: "heritage"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Photography is allowed in most areas of City Palace with your mobile phone or camera. However, some museum sections and private areas of Chandra Mahal restrict photography. Flash photography is generally not permitted inside museums."
   - question: "Can you buy combination tickets for City Palace and Jantar Mantar?"
     answer: "Yes, combination tickets are available for City Palace and Jantar Mantar at ₹700 ($8.50) for Indians and ₹1,500 ($18) for foreigners. This saves money compared to buying separate tickets and both attractions are within walking distance."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "palaces"
+  - "royalty"
 ---
 
 **City Palace Jaipur is a royal complex featuring Chandra Mahal, Mubarak Mahal, and several museums that require 4 hours to explore properly. Entry costs ₹500 ($6) for Indians and ₹1,000 ($12) for foreigners, with guided tours available for ₹500-800 ($6-10).**

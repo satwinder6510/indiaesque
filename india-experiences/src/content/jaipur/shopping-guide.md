@@ -3,8 +3,10 @@ title: "Jaipur Shopping Guide — Markets, Textiles & Handicrafts"
 description: "Johari Bazaar for gems, Bapu Bazaar for textiles, block printing workshops, bargaining tips, and what to buy in the Pink City."
 type: paa
 city: jaipur
+tier: "2"
 category: shopping
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /jaipur/
@@ -24,6 +26,12 @@ relatedPages:
   - /jaipur/practical-travel-tips/
   - /jaipur/activities/
   - /jaipur/neighbourhoods/
+tags:
+  - "shopping"
+  - "markets"
+  - "jaipur"
+  - "day-trips"
+  - "textiles"
 ---
 
 Jaipur is a shopper's paradise — centuries-old bazaars, traditional crafts, and some of India's finest textiles. Here's where to find what.

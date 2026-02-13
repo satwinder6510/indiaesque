@@ -2,6 +2,7 @@
 title: "Mumbai Visa Requirements"
 description: "Complete guide to Mumbai visa requirements: e-Tourist visa options, application process, required documents, fees, and arrival procedures."
 city: "mumbai"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,9 @@ faq:
     answer: "No, e-Tourist visas cannot be extended in India. You must exit the country before your visa expires and apply for a new visa if you want to return."
   - question: "What documents do I need for an Indian visa application?"
     answer: "You need a passport valid for 6 months, recent passport photo, confirmed flight tickets, hotel bookings, and proof of funds. Business visas require invitation letters from Indian companies."
+tags:
+  - "practical"
+  - "planning"
 ---
 
 **Most foreign nationals need a visa to enter Mumbai, India. The e-Tourist visa is the most convenient option, available for 30, 90, or 365 days with fees ranging from $25-$100 depending on your nationality and duration.**

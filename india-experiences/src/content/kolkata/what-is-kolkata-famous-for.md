@@ -2,6 +2,7 @@
 title: "What Is Kolkata Famous For?"
 description: "Kolkata is famous for being India's cultural capital, Rabindranath Tagore's birthplace, Victoria Memorial, street food, rosogulla sweets, and Durga Puja."
 city: "kolkata"
+tier: "3"
 category: "general"
 type: "paa"
 datePublished: "2026-02-09"
@@ -22,6 +23,9 @@ faq:
     answer: "Kolkata's street food combines Bengali flavors with influences from Chinese immigrants and Marwari traders. You'll find unique items like kathi rolls, phuchka, and jhalmuri that originated here and spread across India."
   - question: "When is the best time to see Durga Puja in Kolkata?"
     answer: "Durga Puja happens in September or October each year, lasting five days. The entire city transforms with elaborate pandals (temporary structures) and street festivities. Book accommodation early as prices increase significantly during this period."
+tags:
+  - "overview"
+  - "first-time"
 ---
 
 **Kolkata is famous for being India's cultural capital, home to Nobel laureate Rabindranath Tagore, iconic colonial architecture like Victoria Memorial, the birthplace of rosogulla sweets, and hosting the world's largest Durga Puja celebration.**

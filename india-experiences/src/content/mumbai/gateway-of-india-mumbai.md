@@ -2,6 +2,7 @@
 title: "Gateway Of India Mumbai Guide"
 description: "Complete guide to Gateway Of India: built 1924, ferry to Elephanta Caves ₹200-300, best photography times, crowd tips & nearby attractions."
 city: "mumbai"
+tier: "3"
 category: "heritage"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,10 @@ faq:
     answer: "Early morning (6-8 AM) and evening (5-7 PM) offer the best lighting for photography. Morning has fewer crowds and softer light, while evening provides golden hour lighting with the monument beautifully lit."
   - question: "What are the main attractions near Gateway of India?"
     answer: "The Taj Mahal Palace Hotel is directly opposite, Colaba Causeway shopping street is 5 minutes walk, Regal Cinema and Prince of Wales Museum are nearby. Apollo Bunder waterfront offers great views of Mumbai Harbor."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
 ---
 
 **Gateway of India is Mumbai's most iconic monument, built in 1924 in Indo-Saracenic architecture style. Located at Apollo Bunder, it serves as the main departure point for ferries to Elephanta Caves and houses several nearby attractions including the Taj Hotel and Colaba Causeway.**

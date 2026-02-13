@@ -2,6 +2,7 @@
 title: "How Many Days Do You Need In Mumbai?"
 description: "Plan your Mumbai trip with our detailed itinerary guide. 3-4 days covers major attractions, 5-7 days for comprehensive exploration."
 city: "mumbai"
+tier: "3"
 category: "general"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,9 @@ faq:
     answer: "Focus on South Mumbai attractions like Gateway of India, Chhatrapati Shivaji Terminus, and Colaba Causeway on day one. Day two should include Crawford Market, street food tours in Mohammed Ali Road, and sunset at Marine Drive."
   - question: "How much does a 4-day Mumbai trip cost?"
     answer: "Budget travelers spend ₹2,000-3,000 ($25-36) daily, mid-range travelers ₹5,000-8,000 ($60-95) daily, and luxury travelers ₹15,000+ ($180+) daily including accommodation, food, transport, and activities."
+tags:
+  - "overview"
+  - "first-time"
 ---
 
 **You need 3-4 days minimum to see Mumbai's major attractions and experience its culture. For comprehensive exploration including day trips to beaches and suburbs, plan 5-7 days.**

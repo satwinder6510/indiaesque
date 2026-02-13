@@ -3,6 +3,7 @@ title: "Is Delhi Safe for Tourists?"
 description: "Delhi is generally safe for tourists. Petty theft and scams are the main risks, not violent crime. Practical safety tips inside."
 type: paa
 city: delhi
+tier: "3"
 category: general
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,10 @@ relatedPages:
   - /delhi/is-delhi-safe-for-solo-female-travellers/
   - /delhi/how-to-avoid-scams-in-delhi/
   - /delhi/how-to-get-around-delhi/
+tags:
+  - "safety"
+  - "practical"
+  - "first-time"
 ---
 
 **Delhi is generally safe for tourists, with petty scams and overcharging being the main risks rather than violent crime.** Millions of international visitors come through every year without incident. Basic street awareness and a few specific precautions go a long way.

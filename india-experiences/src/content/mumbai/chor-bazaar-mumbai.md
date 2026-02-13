@@ -2,6 +2,7 @@
 title: "Chor Bazaar Mumbai Guide"
 description: "Complete guide to Mumbai's famous Chor Bazaar (Thieves Market) - antiques, vintage items, Bollywood memorabilia, haggling tips & timings."
 city: "mumbai"
+tier: "3"
 category: "markets"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,10 @@ faq:
     answer: "Visit Chor Bazaar between 9am-12pm on weekdays for the best selection and less crowded lanes. The market opens at 11am on most days but closes completely on Fridays. Avoid afternoons when it gets extremely crowded and hot."
   - question: "How much should you bargain at Chor Bazaar?"
     answer: "Start by offering 30-50% of the quoted price at Chor Bazaar. Most items are marked up 200-300% initially. You can typically get 50-70% off the first price with persistent haggling. Never accept the first price - bargaining is expected and essential."
+tags:
+  - "markets"
+  - "shopping"
+  - "old-city"
 ---
 
 **Chor Bazaar, Mumbai's famous "Thieves Market," is a sprawling antique market near Mohammed Ali Road where you can find vintage furniture, Bollywood memorabilia, and colonial artifacts. Visit between 9am-12pm (closed Fridays) and bargain hard - expect to pay 30-50% of the initial quoted price.**

@@ -2,11 +2,13 @@
 title: "Things To Do In Mumbai — 2026 Guide"
 description: "Complete Mumbai travel guide covering top attractions, food tours, transport tips, and 3-day itineraries. Gateway of India to Dharavi."
 city: "mumbai"
+tier: "1"
 category: "general"
 type: "hub"
 datePublished: "2026-02-09"
 dateModified: "2026-02-09"
 status: "machine-draft"
+priority: 10
 schema:
   - Article
   - BreadcrumbList
@@ -26,6 +28,9 @@ faq:
     answer: "November to February offers the most comfortable weather with temperatures between 15-30°C and minimal rainfall. Avoid monsoon season (June-September) when heavy rains can disrupt sightseeing and transport."
   - question: "Is Mumbai safe for tourists?"
     answer: "Mumbai is generally safe for tourists with standard precautions. Stick to well-lit areas at night, use registered taxis or ride-sharing apps, and watch for pickpockets in crowded areas like local trains and markets."
+tags:
+  - "overview"
+  - "first-time"
 ---
 
 Mumbai packs centuries of history, world-class street food, and modern entertainment into India's financial capital. From colonial architecture at the Gateway of India to Bollywood studios in Film City, you'll find activities ranging from heritage walks through Fort district to late-night food crawls in Mohammed Ali Road.

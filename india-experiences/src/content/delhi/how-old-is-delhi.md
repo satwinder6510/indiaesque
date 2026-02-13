@@ -3,6 +3,7 @@ title: "How Old Is Delhi?"
 description: "Delhi has been inhabited since at least the 6th century BC, making it roughly 2,500 years old. Seven historic cities were built here across ten dynasties."
 type: paa
 city: delhi
+tier: "3"
 category: heritage
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,10 @@ relatedPages:
   - /delhi/heritage-walks/
   - /delhi/how-many-heritage-sites-are-in-delhi/
   - /delhi/where-to-see-mughal-architecture-in-delhi/
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
 ---
 
 **Delhi has been continuously inhabited since at least the 6th century BC, making the city roughly 2,500 years old.** Archaeological evidence at Purana Qila (Old Fort) near Pragati Maidan suggests this area may be the site of Indraprastha, the legendary capital of the Pandavas described in the Mahabharata.

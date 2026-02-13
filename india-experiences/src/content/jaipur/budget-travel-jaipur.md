@@ -2,6 +2,7 @@
 title: "Budget Travel Guide To Jaipur"
 description: "Complete budget breakdown for Jaipur: ₹1,300-3,500 daily. Accommodation ₹800-2000, food ₹300-600, transport ₹200-500, entries ₹200-400."
 city: "jaipur"
+tier: "3"
 category: "general"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Budget ₹300-600 ($3.50-7) daily for food. Street food costs ₹50-100 per meal, local restaurants ₹150-300, while hotel restaurants charge ₹400-800. Markets like Johri Bazaar offer cheapest options."
   - question: "What are the cheapest accommodation options in Jaipur?"
     answer: "Hostels in areas like Bani Park cost ₹800-1,200 ($9-14) per night. Budget hotels near railway station charge ₹1,000-2,000 ($12-24). Avoid peak season (Oct-Mar) for better rates."
+tags:
+  - "overview"
+  - "first-time"
+  - "budget"
+  - "affordable"
+  - "jaipur"
 ---
 
 **You can comfortably explore Jaipur on ₹1,300-3,500 ($15-42) per day, covering accommodation (₹800-2000), meals (₹300-600), transport (₹200-500), and attraction entries (₹200-400). The composite ticket saves significant money at ₹1,000 for five major sites.**

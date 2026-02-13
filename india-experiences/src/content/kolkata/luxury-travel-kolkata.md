@@ -2,6 +2,7 @@
 title: "Luxury Travel In Kolkata"
 description: "Experience Kolkata's finest 5-star hotels, Michelin-worthy dining, private tours, and exclusive cultural programs starting from ₹15,000/night."
 city: "kolkata"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,11 @@ faq:
     answer: "Luxury travel in Kolkata costs ₹30,000-50,000 ($360-600) per day including 5-star accommodation, fine dining, private tours, and premium experiences. This excludes international flights but covers all ground expenses."
   - question: "Are private helicopter tours available in Kolkata?"
     answer: "Yes, helicopter tours operate from Netaji Subhas Chandra Bose Airport starting at ₹15,000 ($180) for 30 minutes. Book through Pawan Hans or Heritage Aviation for aerial views of the Hooghly River and city landmarks."
+tags:
+  - "practical"
+  - "planning"
+  - "luxury"
+  - "upscale"
 ---
 
 **Luxury travel in Kolkata centers on three premier 5-star hotels - The Oberoi Grand, ITC Sonar, and Taj Bengal - complemented by Michelin-worthy dining, private heritage tours, and exclusive cultural experiences starting from ₹30,000 ($360) per day.**

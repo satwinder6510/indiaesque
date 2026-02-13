@@ -3,8 +3,10 @@ title: "Planning Your Jaipur Trip — How Many Days, Best Time & Itineraries"
 description: "How many days you need in Jaipur, the best time to visit, weather by month, sample itineraries, and what to see on your first trip."
 type: paa
 city: jaipur
+tier: "2"
 category: practical
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /jaipur/
@@ -26,6 +28,11 @@ relatedPages:
   - /jaipur/things-to-do/
   - /jaipur/where-to-stay/
   - /jaipur/practical-travel-tips/
+tags:
+  - "practical"
+  - "planning"
+  - "jaipur"
+  - "day-trips"
 ---
 
 Jaipur rewards those who take their time. Here's how to plan your visit to the Pink City.

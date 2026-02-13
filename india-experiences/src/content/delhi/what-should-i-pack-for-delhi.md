@@ -3,6 +3,7 @@ title: "What Should I Pack for Delhi?"
 description: "Pack light cotton for summer, warm layers for winter, modest clothing for temples, walking shoes, and a basic medical kit. Season-by-season packing list."
 type: paa
 city: delhi
+tier: "3"
 category: practical
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/what-is-the-weather-like-in-delhi/
   - /delhi/what-is-delhi-belly-and-how-to-avoid-it/
   - /delhi/what-should-i-avoid-in-delhi/
+tags:
+  - "practical"
+  - "packing"
+  - "planning"
+  - "preparation"
 ---
 
 **What you pack for Delhi depends almost entirely on when you're going — the city swings from 5°C winter nights to 47°C summer afternoons.** Year-round essentials include modest clothing for religious sites, good walking shoes, sunscreen, and a basic medical kit. Here's the full breakdown by season.

@@ -3,6 +3,7 @@ title: "What Is Surajkund Mela?"
 description: "Surajkund Mela is a two-week crafts fair near Delhi with handicrafts from every Indian state, regional food stalls, and cultural performances. Entry ₹180."
 type: paa
 city: delhi
+tier: "3"
 category: festival
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,10 @@ relatedPages:
   - /delhi/best-time-to-visit-delhi-for-festivals/
   - /delhi/what-to-buy-in-delhi-as-souvenirs/
   - /delhi/things-to-do-in-delhi-in-winter/
+tags:
+  - "festivals"
+  - "culture"
+  - "events"
 ---
 
 **Surajkund Mela is an annual two-week international crafts fair held in Faridabad (30 km south of Delhi), where artisans from all 28 Indian states and over a dozen countries sell handicrafts, textiles, pottery, and folk art under one sprawling open-air complex.** It runs from approximately 1-15 February each year and draws over a million visitors.

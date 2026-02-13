@@ -2,6 +2,7 @@
 title: "Park Street Kolkata Guide"
 description: "Complete Park Street guide covering Peter Cat, Mocambo, nightlife, Christmas celebrations, cemetery, parking tips & dining costs ₹800-2000."
 city: "kolkata"
+tier: "3"
 category: "culture"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,12 @@ faq:
     answer: "Expect to spend ₹800-2000 ($10-24) per person at premium restaurants like Peter Cat and Mocambo. Mid-range cafes cost ₹400-600 ($5-7), while street food and quick bites range from ₹100-300 ($1-4)."
   - question: "Is parking difficult on Park Street?"
     answer: "Yes, parking is extremely challenging. Use paid parking at Forum Mall (₹20/hour) or Quest Mall. Metro is better - Park Street Metro Station connects directly. Avoid driving during Christmas season and weekends when crowds peak."
+tags:
+  - "culture"
+  - "heritage"
+  - "parks"
+  - "nature"
+  - "outdoors"
 ---
 
 **Park Street is Kolkata's premier dining and entertainment district, famous for iconic restaurants like Peter Cat and Mocambo, vibrant nightlife, spectacular Christmas celebrations, and the historic Park Street Cemetery.**

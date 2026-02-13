@@ -3,6 +3,7 @@ title: "How to Spend 3 Days in Delhi"
 description: "A day-by-day Delhi itinerary covering Old Delhi, New Delhi monuments, and South Delhi experiences. Practical routes, timings, and costs included."
 type: paa
 city: delhi
+tier: "3"
 category: general
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,9 @@ relatedPages:
   - /delhi/how-to-spend-1-day-in-delhi/
   - /delhi/food-tours/
   - /delhi/heritage-walks/
+tags:
+  - "overview"
+  - "first-time"
 ---
 
 **Three days is the sweet spot for Delhi — enough to cover the major monuments, eat your way through Old Delhi, and explore a few neighbourhoods beyond the tourist trail.** Here's a practical day-by-day itinerary with specific timings, costs, and metro routes.

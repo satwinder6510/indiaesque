@@ -2,6 +2,7 @@
 title: "Internet And SIM Cards In Jaipur"
 description: "Get connected in Jaipur with tourist SIM cards from Jio/Airtel stores near railway station & MI Road. Data plans ₹200-500 plus WiFi info."
 city: "jaipur"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "Tourist data plans range from ₹200-500 ($2.40-$6). Basic plans offer 1-2GB daily data for 14-28 days, while premium plans provide 3-4GB daily data with unlimited calls for up to 84 days."
   - question: "Where can I find reliable WiFi in Jaipur besides hotels?"
     answer: "Most cafes on MI Road and C-Scheme offer free WiFi. Major heritage sites like Amber Fort and City Palace have paid WiFi zones. Malls like Phoenix Marketcity and World Trade Park provide complimentary internet access."
+tags:
+  - "practical"
+  - "planning"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **You can easily get internet connectivity in Jaipur through tourist SIM cards from Jio and Airtel stores near the railway station and MI Road, with data plans costing ₹200-500 ($2.40-$6). Most hotels, cafes, and heritage sites also offer WiFi access.**

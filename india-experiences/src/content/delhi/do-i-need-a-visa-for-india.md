@@ -3,6 +3,7 @@ title: "Do I Need a Visa for India?"
 description: "Most nationalities need an e-visa for India. Apply online at indianvisaonline.gov.in at least 4 days before travel. 30-day tourist e-visas start at $25."
 type: paa
 city: delhi
+tier: "3"
 category: practical
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,9 @@ relatedPages:
   - /delhi/best-sim-card-for-tourists-in-delhi/
   - /delhi/what-should-i-pack-for-delhi/
   - /delhi/how-much-money-do-i-need-per-day-in-delhi/
+tags:
+  - "practical"
+  - "planning"
 ---
 
 **Most nationalities need a visa to enter India, and the e-visa is the fastest way to get one.** Over 160 countries are eligible to apply online at indianvisaonline.gov.in. The 30-day tourist e-visa costs $25, takes about 72 hours to process, and can be applied for at least 4 days before your departure date.

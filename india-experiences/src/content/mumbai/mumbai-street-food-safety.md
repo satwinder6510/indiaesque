@@ -2,6 +2,7 @@
 title: "Mumbai Street Food Safety Tips"
 description: "Essential safety tips for eating Mumbai street food. Learn which stalls to choose, foods to avoid, and stomach remedies."
 city: "mumbai"
+tier: "3"
 category: "food"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Look for stalls with high customer turnover, fresh ingredients being prepared continuously, and clean cooking surfaces. Busy stalls near offices or colleges are usually your best bet for fresh food."
   - question: "What should I do if I get sick from street food in Mumbai?"
     answer: "Stay hydrated with ORS packets (₹10-15), take probiotics, and eat plain rice or toast. For severe symptoms, visit a pharmacy for Eldoper (₹25) or consult a doctor. Most mild cases resolve within 24-48 hours."
+tags:
+  - "food"
+  - "where-to-eat"
+  - "street-food"
+  - "local-food"
+  - "safety"
 ---
 
 **Choose busy stalls with high turnover, stick to fried or grilled items, avoid water-based foods and ice, and carry ORS packets. Popular tourist-safe spots include Elco Market in Bandra and established joints around Chowpatty Beach.**

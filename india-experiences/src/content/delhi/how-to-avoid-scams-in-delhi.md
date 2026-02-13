@@ -3,6 +3,7 @@ title: "How To Avoid Scams in Delhi — Tourist Guide"
 description: "The biggest Delhi scams: fake tourist offices, the 'hotel is closed' taxi trick, and gem shop hustles. Here's how to spot and avoid every one of them."
 type: paa
 city: delhi
+tier: "3"
 category: practical
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,12 @@ relatedPages:
   - /delhi/what-should-i-avoid-in-delhi/
   - /delhi/how-to-get-around-delhi/
   - /delhi/is-delhi-safe-at-night/
+tags:
+  - "practical"
+  - "planning"
+  - "tours"
+  - "activities"
+  - "scams"
 ---
 
 **The most common Delhi scams target tourists at three specific places: New Delhi Railway Station, the airport exit, and around major monuments like Red Fort and India Gate.** All of them rely on the same trick — someone approaches you with unsolicited help, and the help comes with a hidden cost. The fix is simple: ignore anyone who approaches you first.

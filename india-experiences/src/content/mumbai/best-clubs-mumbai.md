@@ -2,6 +2,7 @@
 title: "Best Clubs In Mumbai"
 description: "Mumbai's top clubs: Trilogy Juhu, Kitty Su, 1Above. Entry fees ₹2,000-5,000, dress codes, guest lists, peak hours 11pm-3am guide."
 city: "mumbai"
+tier: "3"
 category: "nightlife"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,10 @@ faq:
     answer: "Smart casual is standard - collared shirts, dress shoes, and trousers for men. No flip-flops, shorts, or tank tops. Women should avoid overly casual attire. Designer clubs have stricter requirements."
   - question: "What time do Mumbai clubs get busy?"
     answer: "Peak hours are 11pm-3am. Arrive by 10:30pm to avoid long queues. Most clubs stay open until 3am on weekdays, 4am on weekends, though some have extended hours until 6am."
+tags:
+  - "nightlife"
+  - "bars"
+  - "entertainment"
 ---
 
 **Mumbai's club scene centers around Trilogy in Juhu, Kitty Su at The Lalit, and 1Above, with cover charges ranging ₹2,000-5,000 ($24-60), smart casual dress codes, and peak hours from 11pm-3am.**

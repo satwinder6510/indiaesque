@@ -3,6 +3,7 @@ title: "Day Trip to Mathura & Vrindavan From Delhi"
 description: "Visit Krishna's birthplace on a day trip from Delhi. Mathura and Vrindavan are 3 hours away with temples, ghats, and street food. Best during Holi."
 type: paa
 city: delhi
+tier: "3"
 category: day-trips
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/best-weekend-trips-from-delhi/
   - /delhi/can-you-do-a-day-trip-from-delhi-to-agra/
   - /delhi/how-to-get-around-delhi/
+tags:
+  - "day-trips"
+  - "excursions"
+  - "religious"
+  - "temples"
 ---
 
 **Mathura and Vrindavan make one of the most rewarding day trips from Delhi — a 3-hour drive south to the birthplace of Lord Krishna and the town where he spent his childhood.** The twin cities sit on the banks of the Yamuna River and pack in hundreds of temples, colourful ghats, and some of the most intense religious energy you'll find anywhere in India.

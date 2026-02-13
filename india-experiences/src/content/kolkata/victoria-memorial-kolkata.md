@@ -2,6 +2,7 @@
 title: "Victoria Memorial Kolkata Guide"
 description: "Complete Victoria Memorial guide: ₹30-200 entry fee, 10 AM-5 PM timings, evening laser show, museum collections & visiting tips for 2026."
 city: "kolkata"
+tier: "3"
 category: "heritage"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,10 @@ faq:
     answer: "Photography is only allowed in the gardens and exterior areas. You cannot take photos inside the memorial hall or museum galleries. Security guards strictly enforce this rule throughout the building."
   - question: "What time is the laser show at Victoria Memorial?"
     answer: "The sound and light show runs twice daily at 7:15 PM and 8:15 PM (winter) or 7:45 PM and 8:45 PM (summer). Shows are in English and Bengali alternately. Tickets cost ₹40-80 depending on seating."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
 ---
 
 **Victoria Memorial charges ₹30 ($0.35) for Indians and ₹200 ($2.40) for foreigners, opens 10 AM-5 PM (closed Mondays), features evening laser shows, houses British colonial artifacts, allows photography only in gardens, and is best visited early morning to avoid crowds.**

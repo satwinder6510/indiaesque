@@ -3,6 +3,7 @@ title: "Best Cafes in Delhi"
 description: "Delhi's best cafes include Indian Coffee House in CP (historic), Blue Tokai (specialty coffee), Kunzum Travel Cafe in Hauz Khas, and Triveni Terrace Cafe."
 type: paa
 city: delhi
+tier: "3"
 category: food
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/things-to-do-in-connaught-place/
   - /delhi/things-to-do-in-hauz-khas/
   - /delhi/where-to-drink-craft-beer-in-delhi/
+tags:
+  - "food"
+  - "where-to-eat"
+  - "cafes"
+  - "coffee"
 ---
 
 **Delhi's best cafes include Indian Coffee House in Connaught Place for history, Blue Tokai for specialty coffee, Kunzum Travel Cafe in Hauz Khas for its pay-what-you-want model, and Triveni Terrace Cafe for art gallery vibes.** The city's cafe culture has shifted dramatically in the last decade — you can now find properly pulled espresso and single-origin pour-overs alongside the old-school filter coffee institutions.

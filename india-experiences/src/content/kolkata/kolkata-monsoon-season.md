@@ -2,6 +2,7 @@
 title: "Visiting Kolkata In Monsoon"
 description: "Complete guide to visiting Kolkata during monsoon season (June-September). Heavy rainfall, waterlogging, indoor attractions, and travel tips."
 city: "kolkata"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,12 @@ faq:
     answer: "Salt Lake, parts of EM Bypass, Gariahat, Jadavpur, and some areas in South Kolkata face severe waterlogging. Central Kolkata around Park Street and Esplanade generally drain better due to older infrastructure."
   - question: "Are hotel rates cheaper during Kolkata's monsoon season?"
     answer: "Yes, hotel rates drop 20-40% during monsoon season. Mid-range hotels that cost ₹4,000 ($48) in winter can be found for ₹2,500-3,000 ($30-36) during the rains due to fewer tourists."
+tags:
+  - "practical"
+  - "planning"
+  - "monsoon"
+  - "weather"
+  - "seasons"
 ---
 
 **Visiting Kolkata during monsoon (June-September) means heavy rainfall averaging 1,200-1,400mm, significant waterlogging in areas like Salt Lake and EM Bypass, but also fewer crowds, 20-40% lower hotel rates, and excellent opportunities to experience the city's vibrant indoor cultural scene.**

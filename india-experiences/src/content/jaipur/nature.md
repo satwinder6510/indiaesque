@@ -2,6 +2,7 @@
 title: "Nature & Day Trips From Jaipur — 2026 Guide"
 description: "Complete guide to Ranthambore, Pushkar & Mandawa day trips from Jaipur. Transport options, prices ₹3000-8000, timing & seasonal tips."
 city: "jaipur"
+tier: "2"
 category: "nature"
 type: "category"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Day trips from Jaipur cost ₹3,000-8,000 ($36-96) depending on destination and inclusions. Pushkar trips start at ₹3,000, Ranthambore safaris cost ₹3,500-6,000, and Mandawa heritage tours range from ₹4,000-8,000."
   - question: "Can you visit Ranthambore and return to Jaipur in one day?"
     answer: "Yes, Ranthambore day trips are possible from Jaipur. Start at 5 AM, reach by 8:30 AM for morning safari, have lunch, take evening safari if desired, and return by 9 PM. Total travel time is 6-7 hours."
+tags:
+  - "nature"
+  - "outdoors"
+  - "day-trips"
+  - "excursions"
+  - "jaipur"
 ---
 
 Jaipur serves as your gateway to three incredible day trip destinations: Ranthambore National Park for wildlife safaris, Pushkar for spiritual experiences, and Mandawa for heritage exploration. Each destination offers a different flavor of Rajasthan, from Bengal tigers to sacred lakes to painted havelis.

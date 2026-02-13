@@ -3,6 +3,7 @@ title: "Where to Hear Live Sufi Music in Delhi"
 description: "Nizamuddin Dargah hosts free qawwali every Thursday evening starting around 6:30pm. Here's what to expect and where else to hear Sufi music."
 type: paa
 city: delhi
+tier: "3"
 category: experiences
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/things-to-do-in-nizamuddin/
   - /delhi/things-to-do-in-delhi-at-night/
   - /delhi/best-free-things-to-do-in-delhi/
+tags:
+  - "nightlife"
+  - "music"
+  - "sufi"
+  - "entertainment"
 ---
 
 **Nizamuddin Dargah is where you go — every Thursday evening, qawwali singers perform live Sufi devotional music for free in the courtyard of this 14th-century shrine, and it's one of the most powerful things you can experience in Delhi.** Sessions start around 6:30-7:00pm and run for 1.5-2 hours.

@@ -2,6 +2,7 @@
 title: "Dharavi Slum Tour Mumbai"
 description: "Ethical Dharavi slum tours with Reality Tours & Travel. ₹1,400 for 2.5 hours, 80% profits to community. Responsible tourism guidelines."
 city: "mumbai"
+tier: "3"
 category: "heritage"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Reality Tours & Travel, the most established operator, returns 80% of their profits directly to community development projects including schools, healthcare, and infrastructure improvements in Dharavi."
   - question: "Is it safe to visit Dharavi as a tourist?"
     answer: "Yes, visiting Dharavi with licensed tour operators is safe. The community welcomes respectful visitors, and guides are local residents who know the area well and maintain good relationships with locals."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "tours"
+  - "activities"
 ---
 
 **Dharavi slum tours cost ₹1,400 ($17) for 2.5 hours with Reality Tours & Travel, the most ethical operator that returns 80% of profits to community development. Tours follow strict no-photography policies and are led by local residents who provide authentic perspectives on life in Asia's largest slum.**

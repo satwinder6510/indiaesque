@@ -4,9 +4,15 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "validate": "node scripts/seo-validate.mjs",
+    "build": "npm run validate && astro build",
+    "build:skip-validation": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "migrate:tiers": "node scripts/migrate-tiers.mjs",
+    "migrate:tiers:dry": "node scripts/migrate-tiers.mjs --dry-run",
+    "report": "node scripts/link-report.mjs",
+    "check-duplicates": "node scripts/check-duplicates.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.12",

@@ -3,6 +3,7 @@ title: "UNESCO World Heritage Sites in Delhi"
 description: "Delhi has three UNESCO sites: Red Fort, Humayun's Tomb, and Qutub Minar. Here's what to expect at each, with entry fees, timings, and tips."
 type: paa
 city: delhi
+tier: "3"
 category: heritage
 status: machine-draft
 datePublished: "2026-02-07"
@@ -25,6 +26,11 @@ relatedPages:
   - /delhi/is-qutub-minar-worth-visiting/
   - /delhi/humayuns-tomb-vs-taj-mahal/
   - /delhi/how-many-heritage-sites-are-in-delhi/
+tags:
+  - "heritage"
+  - "monuments"
+  - "unesco"
+  - "history"
 ---
 
 **Delhi has three UNESCO World Heritage Sites: Red Fort (designated 2007), Humayun's Tomb (1993), and the Qutub Minar complex (1993).** All three are Mughal or pre-Mughal era monuments maintained by the Archaeological Survey of India, and you can visit all of them in a single well-planned day.

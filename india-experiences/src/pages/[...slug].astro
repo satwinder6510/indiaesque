@@ -7,6 +7,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import cities from '../data/cities.json';
 import experiencesData from '../data/experiences.json';
 import { searchProducts, getDestinationId } from '../lib/viator';
+import { buildContentIndex, getAutoLinks, formatLinksForDisplay } from '../lib/content-index';
 
 export const prerender = true;
 
@@ -35,20 +36,46 @@ const PAA_CATEGORY_TOURS: Record<string, number[]> = {
 export async function getStaticPaths() {
   const allPages = await getCollection('pages');
 
+  // Build content index for auto-linking
+  const contentIndex = buildContentIndex(allPages);
+
   return allPages.map(entry => {
     let slug = entry.id;
     if (slug.endsWith('/_index')) {
       slug = slug.replace('/_index', '');
     }
 
+    // Compute current page URL
+    const currentUrl = '/' + slug + '/';
+
+    // Get auto-links if page has a city
+    const city = entry.data.city;
+    let autoLinks = null;
+    if (city) {
+      // Pass tier for tier-based linking rules
+      const tier = entry.data.tier ||
+        (entry.data.type === 'hub' ? '1' : entry.data.priority >= 9 ? '2' : '3');
+
+      autoLinks = getAutoLinks(
+        contentIndex,
+        city,
+        entry.data.category,
+        entry.data.tags ?? [],
+        currentUrl,
+        entry.data.relatedPages,
+        entry.data.priority ?? 5,
+        tier
+      );
+    }
+
     return {
       params: { slug },
-      props: { entry },
+      props: { entry, autoLinks },
     };
   });
 }
 
-const { entry } = Astro.props;
+const { entry, autoLinks } = Astro.props;
 const { Content } = await render(entry);
 const {
   title,
@@ -126,12 +153,20 @@ if (type === 'hub' && cityData) {
   });
 }
 
-const relatedLinks = (relatedPages ?? []).map(href => {
+// Auto-links with real titles (from content index)
+const cityLinks = autoLinks ? formatLinksForDisplay(autoLinks.cityLinks) : [];
+const relatedLinks = autoLinks ? formatLinksForDisplay(autoLinks.relatedLinks) : [];
+
+// Fallback for manual relatedPages (legacy support)
+const legacyRelatedLinks = (relatedPages ?? []).map(href => {
   const parts = href.replace(/^\/|\/$/g, '').split('/');
   const last = parts[parts.length - 1];
   const label = last.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
   return { href, label };
 });
+
+// Use auto-links if available, otherwise fall back to legacy
+const finalRelatedLinks = relatedLinks.length > 0 ? relatedLinks : legacyRelatedLinks;
 
 const categoryName = entry.data.category !== 'general'
   ? entry.data.category.split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
@@ -186,7 +221,8 @@ const experiences = viatorProducts.map(p => ({
     bestMonths={bestMonths}
     goodMonths={goodMonths}
     faq={faq}
-    relatedPages={relatedLinks}
+    cityLinks={cityLinks}
+    relatedPages={finalRelatedLinks}
     schema={schemaObjects}
   >
     <Content />
@@ -201,7 +237,8 @@ const experiences = viatorProducts.map(p => ({
     categorySlug={entry.data.category}
     heroImage={heroImage}
     faq={faq}
-    relatedPages={relatedLinks}
+    cityLinks={cityLinks}
+    relatedPages={finalRelatedLinks}
     schema={schemaObjects}
     experiences={experiences}
   >
@@ -217,7 +254,8 @@ const experiences = viatorProducts.map(p => ({
     datePublished={datePublished}
     dateModified={dateModified}
     faq={faq}
-    relatedPages={relatedLinks}
+    cityLinks={cityLinks}
+    relatedPages={finalRelatedLinks}
     schema={schemaObjects}
     experiences={experiences}
   >

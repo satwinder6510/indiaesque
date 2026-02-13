@@ -3,8 +3,10 @@ title: "Delhi Festivals & Events — Diwali, Holi, Republic Day & More"
 description: "When festivals happen in Delhi, what to expect, and how to participate. Diwali, Holi, Republic Day Parade, and cultural events through the year."
 type: paa
 city: delhi
+tier: "2"
 category: culture
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /delhi/
@@ -28,6 +30,12 @@ relatedPages:
   - /delhi/planning-your-trip/
   - /delhi/practical-travel-tips/
   - /delhi/nightlife-guide/
+tags:
+  - "culture"
+  - "heritage"
+  - "holi"
+  - "festivals"
+  - "diwali"
 ---
 
 Delhi celebrates festivals with an intensity matching its population. Here's what happens when, and how to experience it.

@@ -2,6 +2,7 @@
 title: "Photography In Jaipur — Best Spots Guide"
 description: "Complete guide to photography in Jaipur with golden hour timings, monument fees (₹25-200), drone rules, and best spots like Amber Fort."
 city: "jaipur"
+tier: "3"
 category: "general"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Golden hour at Amber Fort is 6:00-8:00 AM and 5:30-7:00 PM. Morning light creates stunning shadows on the fort's walls, while evening light illuminates the structure beautifully from Maota Lake viewpoint."
   - question: "Are drones allowed for photography in Jaipur?"
     answer: "Drones are strictly prohibited at all monuments and within 5km of Jaipur Airport. You need special permits from local authorities and ASI for drone photography, which can take weeks to obtain."
+tags:
+  - "overview"
+  - "first-time"
+  - "photography"
+  - "instagram"
+  - "jaipur"
 ---
 
 **Jaipur offers incredible photography opportunities with golden hour timing at Amber Fort from 6:00-8:00 AM providing the best light. Photography fees range from ₹25-200 ($0.30-2.40) at monuments, while drones require special permits and are generally restricted.**

@@ -2,6 +2,7 @@
 title: "Haji Ali Dargah Mumbai Guide"
 description: "Complete guide to Haji Ali Dargah: tide timings, 500m walkway access, Sufi tomb visit tips, photography rules, and nearby attractions."
 city: "mumbai"
+tier: "3"
 category: "spiritual"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,10 @@ faq:
     answer: "No, there's no entry fee to visit Haji Ali Dargah. The shrine welcomes visitors of all religions free of charge. You only pay for offerings, prasad, or flowers if you choose to purchase them."
   - question: "Can you take photos inside Haji Ali Dargah?"
     answer: "Photography inside the main shrine is restricted. You can take photos of the exterior architecture and the walkway, but avoid photographing people praying and respect the sacred atmosphere inside."
+tags:
+  - "spiritual"
+  - "temples"
+  - "religious"
 ---
 
 **Haji Ali Dargah is Mumbai's iconic 15th-century Sufi shrine accessible via a 500-meter walkway only during low tide. The dargah houses the tomb of Saint Pir Haji Ali Shah Bukhari, welcomes all religions, charges no entry fee, and offers spectacular sunset views from Worli seaface.**

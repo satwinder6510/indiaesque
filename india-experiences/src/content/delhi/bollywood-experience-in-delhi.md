@@ -3,6 +3,7 @@ title: "Bollywood Experience in Delhi"
 description: "Watch a Bollywood film at PVR for ₹300-700, take a dance class, or visit Kingdom of Dreams in Gurgaon. Here's how to get your Bollywood fix."
 type: paa
 city: delhi
+tier: "3"
 category: experiences
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,9 @@ relatedPages:
   - /delhi/things-to-do-in-delhi-when-it-rains/
   - /delhi/best-nightlife-in-delhi/
   - /delhi/things-to-do-in-delhi-with-kids/
+tags:
+  - "experiences"
+  - "activities"
 ---
 
 **The easiest Bollywood experience in Delhi is watching a film at a local cinema — tickets cost ₹300-700 ($3.60-8.40), shows run all day, and you don't need to speak Hindi to enjoy the spectacle.** Beyond the movies, you can take a Bollywood dance class, catch a live musical show, or visit film-related landmarks around the city.

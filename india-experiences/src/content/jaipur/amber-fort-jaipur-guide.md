@@ -2,6 +2,7 @@
 title: "Complete Guide To Amber Fort Jaipur"
 description: "Complete guide to Amber Fort Jaipur: elephant rides ₹1200, jeep rides ₹400, Sheesh Mahal highlights, timings, and travel tips 11km from city."
 city: "jaipur"
+tier: "3"
 category: "heritage"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Amber Fort opens at 8:00 AM and closes at 5:30 PM daily. Visit early morning around 8 AM to avoid crowds and heat, especially during summer months."
   - question: "How far is Amber Fort from Jaipur city center?"
     answer: "Amber Fort is located 11km north of Jaipur city center in Amer. The journey takes 30-45 minutes by car or taxi, depending on traffic conditions."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "forts"
+  - "jaipur"
 ---
 
 **Amber Fort is a 16th-century hilltop fortress 11km from Jaipur city center, famous for elephant rides (₹1,200), stunning Sheesh Mahal mirror work, and evening sound & light shows starting at 6:30 PM in winter.**

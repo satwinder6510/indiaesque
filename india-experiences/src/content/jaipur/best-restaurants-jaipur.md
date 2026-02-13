@@ -2,6 +2,7 @@
 title: "Best Restaurants In Jaipur"
 description: "Discover Jaipur's top restaurants from rooftop dining at 1135 AD to heritage spots at Rambagh Palace. Price ranges ₹500-3000 ($6-36)."
 city: "jaipur"
+tier: "3"
 category: "food"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "Expect ₹500-1,000 ($6-12) at local favorites like Spice Court, ₹1,500-2,500 ($18-30) at rooftop restaurants, and ₹2,500-4,000 ($30-48) at heritage hotels like Rambagh Palace."
   - question: "Which restaurants offer the best views in Jaipur?"
     answer: "1135 AD provides stunning City Palace views, Peacock Rooftop overlooks Hawa Mahal, and Bar Palladio at Narain Niwas offers beautiful garden settings. All require advance reservations for window tables."
+tags:
+  - "food"
+  - "where-to-eat"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **Jaipur's restaurant scene ranges from rooftop dining with palace views to heritage hotel experiences. Top picks include 1135 AD for City Palace vistas (₹2,000-3,000), Peacock Rooftop overlooking Hawa Mahal (₹1,500-2,500), and Rambagh Palace for royal dining (₹3,000-4,000).**

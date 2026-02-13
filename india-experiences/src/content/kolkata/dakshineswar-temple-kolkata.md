@@ -2,6 +2,7 @@
 title: "Dakshineswar Kali Temple Guide"
 description: "Complete guide to visiting Dakshineswar Kali Temple: timings 5 AM-12:30 PM & 3 PM-8:30 PM, free entry, metro access, dress code & crowd tips."
 city: "kolkata"
+tier: "3"
 category: "spiritual"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,10 @@ faq:
     answer: "Take the Blue Line metro to Dakshineswar station, which is the last stop. The temple is a 5-minute walk from the station. Metro tickets cost ₹5-25 depending on your starting point."
   - question: "Can I take photos inside Dakshineswar Temple?"
     answer: "Photography is prohibited inside the main temple complex and sanctum. You can take photos in the outer courtyards and gardens, but respect the religious atmosphere and other devotees."
+tags:
+  - "spiritual"
+  - "temples"
+  - "religious"
 ---
 
 **Dakshineswar Kali Temple opens daily from 5 AM-12:30 PM and 3 PM-8:30 PM with free entry. Located 30 minutes from central Kolkata via metro, this 19th-century temple draws thousands daily to worship Goddess Kali and connect with Ramakrishna's spiritual legacy.**

@@ -2,6 +2,7 @@
 title: "Best Bengali Sweets In Kolkata"
 description: "Discover Kolkata's legendary sweet shops like KC Das and Bhim Nag. Complete guide to Rosogulla, Sandesh, prices, and where to find them."
 city: "kolkata"
+tier: "3"
 category: "food"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,9 @@ faq:
     answer: "KC Das on Esplanade East claims to be the original creator of Rosogulla, established in 1868. The shop maintains the traditional recipe and preparation methods, though several other establishments also claim heritage status."
   - question: "How long do Bengali sweets stay fresh?"
     answer: "Rosogulla and Rasamalai last 2-3 days refrigerated, Sandesh stays fresh for 1-2 days, and Mishti Doi keeps for 3-4 days. Most shops prepare sweets fresh daily and don't use preservatives."
+tags:
+  - "food"
+  - "where-to-eat"
 ---
 
 **Kolkata's best Bengali sweets come from legendary shops like KC Das (original Rosogulla creators), Bhim Nag, Girish Chandra Dey & Nakur Chandra Nandy. You'll find premium Rosogulla at ₹120-150/kg, Sandesh at ₹200-300/kg, with most shops concentrated around Shyama Charan Mukherjee Street and College Street.**

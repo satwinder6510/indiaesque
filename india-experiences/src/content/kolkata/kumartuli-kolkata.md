@@ -2,6 +2,7 @@
 title: "Kumartuli Potters Quarter Guide"
 description: "Complete guide to Kolkata's historic Kumartuli pottery district. Visit times, idol-making process, artisan interactions, and cultural significance."
 city: "kolkata"
+tier: "3"
 category: "culture"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,10 @@ faq:
     answer: "Always ask permission before photographing artisans. Most welcome respectful photography for ₹20-50 ($0.25-0.60) tip. Avoid using flash near delicate clay work and don't obstruct their workspace."
   - question: "How do you get to Kumartuli from central Kolkata?"
     answer: "Take the metro to Shobhabazar-Sutanuti station, then walk 10 minutes north along Kumartuli Street. Alternatively, take a taxi to Kumartuli Ghat for ₹80-120 ($1-1.50) from central areas."
+tags:
+  - "culture"
+  - "heritage"
+  - "art"
 ---
 
 **Kumartuli is Kolkata's 300-year-old potters quarter where skilled artisans create clay idols for festivals year-round. Located along the Hooghly River, this working neighborhood offers free exploration of traditional pottery workshops, direct artisan interactions, and authentic cultural experiences best enjoyed during morning hours.**

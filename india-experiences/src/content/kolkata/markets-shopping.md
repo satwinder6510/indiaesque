@@ -2,6 +2,7 @@
 title: "Best Markets In Kolkata — 2026 Guide"
 description: "Discover Kolkata's top markets: New Market for textiles, College Street for rare books, Gariahat for local goods. Plus bargaining tips & hours."
 city: "kolkata"
+tier: "2"
 category: "markets"
 type: "category"
 datePublished: "2026-02-09"
@@ -25,6 +26,9 @@ faq:
     answer: "Start by offering 30-40% of the quoted price in most Kolkata markets. You can usually settle at 60-70% of the original price for clothing and accessories, less for books and fixed-price items."
   - question: "Which metro stations are closest to Kolkata's main markets?"
     answer: "Esplanade Metro is nearest to New Market, College Street Metro serves the book market, Gariahat Metro connects to Gariahat Market, and Shyama Charan Dey Street Metro is closest to Hatibagan Market."
+tags:
+  - "markets"
+  - "shopping"
 ---
 
 Kolkata's markets are legendary shopping destinations where you'll find everything from rare antique books to hand-woven silk sarees. The city's four major markets—New Market, College Street, Gariahat, and Hatibagan—each offer distinct experiences and specialties that reflect Bengali culture and commerce.

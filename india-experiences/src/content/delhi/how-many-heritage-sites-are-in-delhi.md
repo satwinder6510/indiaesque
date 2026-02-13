@@ -3,6 +3,7 @@ title: "How Many Heritage Sites Are in Delhi?"
 description: "Delhi has 174 ASI-protected monuments and 3 UNESCO World Heritage Sites — more than any other Indian city. Here's what that means for your visit."
 type: paa
 city: delhi
+tier: "3"
 category: heritage
 status: machine-draft
 datePublished: "2026-02-07"
@@ -25,6 +26,10 @@ relatedPages:
   - /delhi/what-are-the-7-cities-of-delhi/
   - /delhi/best-free-things-to-do-in-delhi/
   - /delhi/what-is-mehrauli-archaeological-park/
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
 ---
 
 **Delhi has 174 monuments protected by the Archaeological Survey of India (ASI) and 3 UNESCO World Heritage Sites — more heritage sites than any other city in India.** That count doesn't even include the hundreds of unprotected ruins, colonial-era buildings, and neighbourhood shrines scattered across the city.

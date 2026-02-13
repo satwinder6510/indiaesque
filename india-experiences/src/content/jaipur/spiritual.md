@@ -2,6 +2,7 @@
 title: "Temples & Spiritual Sites In Jaipur — 2026 Guide"
 description: "Complete guide to Jaipur's top temples: Galta Ji Monkey Temple, Govind Dev Ji, and Birla Mandir. Prayer timings, dress codes, and tips."
 city: "jaipur"
+tier: "2"
 category: "spiritual"
 type: "category"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Common donation amounts range from ₹21 to ₹501. Most devotees offer ₹21, ₹51, or ₹101. Larger amounts like ₹251 or ₹501 are typical for special occasions or particular prayers."
   - question: "Are there dress code requirements for visiting temples in Jaipur?"
     answer: "Yes, conservative dress is required. Cover shoulders, chest, and knees. Remove shoes before entering prayer halls. Some temples provide free head coverings. Avoid leather items at certain temples."
+tags:
+  - "spiritual"
+  - "temples"
+  - "religious"
+  - "jaipur"
+  - "day-trips"
 ---
 
 Jaipur's spiritual landscape offers three major temples that showcase different aspects of Hindu devotion and architecture. Galta Ji (Monkey Temple) sits in the Aravalli hills with natural springs, Govind Dev Ji Temple serves as the city's most important Krishna shrine, and Birla Mandir represents modern temple architecture with pristine marble construction.

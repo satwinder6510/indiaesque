@@ -3,6 +3,7 @@ title: "How Do I Get From Delhi Airport to the City?"
 description: "Take the Airport Express Metro for ₹60 ($0.72) in 20 minutes to New Delhi station. Uber costs ₹300-500. Prepaid taxis ₹400-600. Full transport guide."
 type: paa
 city: delhi
+tier: "3"
 category: practical
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,12 @@ relatedPages:
   - /delhi/is-uber-available-in-delhi/
   - /delhi/best-sim-card-for-tourists-in-delhi/
   - /delhi/where-should-i-stay-in-delhi/
+tags:
+  - "practical"
+  - "planning"
+  - "airport"
+  - "transport"
+  - "arrival"
 ---
 
 **The Airport Express Metro is the fastest and cheapest option — ₹60 ($0.72) and 20 minutes to New Delhi station.** Uber and Ola cost ₹300-500 depending on traffic and take 30-60 minutes. Prepaid taxis run ₹400-600. Here's how each option works so you can pick the right one for your situation.

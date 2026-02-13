@@ -2,6 +2,7 @@
 title: "College Street Book Market Guide"
 description: "Complete guide to College Street Book Market - world's largest secondhand book market. Bargaining tips, rare finds, prices ₹20-500."
 city: "kolkata"
+tier: "3"
 category: "markets"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,9 @@ faq:
     answer: "Book prices range from ₹20-500 ($0.25-6). Common paperbacks cost ₹20-50, textbooks ₹100-300, and rare or collectible books can go up to ₹500 or more depending on condition and rarity."
   - question: "How do you bargain effectively at College Street Book Market?"
     answer: "Start by offering 30-40% of the asking price. Be polite but firm, show genuine interest in multiple books to get bulk discounts, and be prepared to walk away - vendors often call you back with better offers."
+tags:
+  - "markets"
+  - "shopping"
 ---
 
 **College Street Book Market is the world's largest secondhand book market, stretching along College Street near Calcutta University. You'll find everything from rare manuscripts to current bestsellers at prices ranging ₹20-500 ($0.25-6), with the iconic Indian Coffee House anchoring this literary paradise.**

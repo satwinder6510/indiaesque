@@ -3,8 +3,10 @@ title: "Getting Around Kolkata — Metro, Trams & Transport Guide"
 description: "Kolkata metro, trams, yellow taxis, airport transfers, and getting between neighbourhoods. Complete transport guide for the City of Joy."
 type: paa
 city: kolkata
+tier: "2"
 category: practical
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /kolkata/
@@ -24,6 +26,11 @@ relatedPages:
   - /kolkata/planning-your-trip/
   - /kolkata/where-to-stay/
   - /kolkata/things-to-do/
+tags:
+  - "practical"
+  - "planning"
+  - "metro"
+  - "transport"
 ---
 
 Kolkata has India's oldest metro, its only trams, and yellow Ambassador taxis (though fading). Here's how to navigate.

@@ -2,6 +2,7 @@
 title: "Mumbai Cultural Festivals Calendar"
 description: "Complete guide to Mumbai's major festivals: Ganesh Chaturthi, Kala Ghoda Arts Festival, Mumbai Film Festival, Navratri & Diwali."
 city: "mumbai"
+tier: "3"
 category: "culture"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,9 @@ faq:
     answer: "Most street festivals like Ganesh Chaturthi and Navratri are free. Kala Ghoda Arts Festival events range from free to ₹500 ($6). Mumbai Film Festival tickets cost ₹200-800 ($2.50-10) depending on the venue."
   - question: "Which Mumbai festival is best for tourists to experience?"
     answer: "Ganesh Chaturthi offers the most authentic cultural experience for tourists. The processions, street food, and community celebrations give you a genuine taste of Mumbai's festival spirit without requiring advance bookings."
+tags:
+  - "culture"
+  - "heritage"
 ---
 
 **Mumbai celebrates major cultural festivals throughout the year, with Ganesh Chaturthi in August-September being the city's biggest celebration, followed by the Kala Ghoda Arts Festival in February, Mumbai Film Festival in October, and vibrant Navratri and Diwali festivities.**

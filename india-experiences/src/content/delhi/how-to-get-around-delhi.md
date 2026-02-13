@@ -3,6 +3,7 @@ title: "How To Get Around Delhi — Transport Guide"
 description: "The Delhi Metro is the best way to get around. Uber and Ola work for door-to-door trips. Auto rickshaws handle short hops — agree on a fare first."
 type: paa
 city: delhi
+tier: "3"
 category: practical
 status: machine-draft
 datePublished: "2026-02-07"
@@ -25,6 +26,9 @@ relatedPages:
   - /delhi/is-uber-available-in-delhi/
   - /delhi/how-do-i-get-from-delhi-airport-to-the-city/
   - /delhi/is-delhi-safe-for-tourists/
+tags:
+  - "practical"
+  - "planning"
 ---
 
 **The Delhi Metro is the single best way to get around the city — it's fast, cheap, air-conditioned, and reaches every major tourist area.** For everything the Metro doesn't cover, Uber and Ola fill the gaps, and auto rickshaws work for short distances when you don't want to wait for a cab.

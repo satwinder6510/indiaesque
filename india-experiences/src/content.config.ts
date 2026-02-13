@@ -7,7 +7,17 @@ const pages = defineCollection({
     title: z.string(),
     description: z.string(),
     city: z.string().optional(),
-    category: z.string(),
+    // SEO Governance: Tier-based content hierarchy
+    tier: z.enum(['1', '2', '3']).optional(),  // Required after migration: 1=hub, 2=guide, 3=micro
+    category: z.enum([
+      // Governance categories
+      'hub', 'guide', 'micro', 'where-to-stay', 'experiences', 'neighbourhoods',
+      'things-to-do', 'food-guide', 'nightlife-guide', 'day-trips', 'heritage-guide', 'safety-guide',
+      // Legacy categories for backward compatibility
+      'general', 'food', 'heritage', 'practical', 'activities', 'transport',
+      'shopping', 'culture', 'wellness', 'markets', 'nature', 'spiritual',
+      'nightlife', 'festival', 'daytrips', 'neighbourhood',
+    ]),
     type: z.enum(['hub', 'category', 'paa', 'blog']),
     datePublished: z.string(),
     dateModified: z.string(),
@@ -26,6 +36,9 @@ const pages = defineCollection({
     price: z.string().optional(),
     bestMonths: z.array(z.number()).optional(),
     goodMonths: z.array(z.number()).optional(),
+    // Internal linking fields
+    priority: z.number().min(1).max(10).default(5),  // Computed from tier, kept for backward compatibility
+    tags: z.array(z.string()).optional(),            // for topic matching
   }),
 });
 

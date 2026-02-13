@@ -3,6 +3,7 @@ title: "Humayun's Tomb vs Taj Mahal"
 description: "Humayun's Tomb came first (1570) and inspired the Taj Mahal (1653). It's smaller, far less crowded, and better for photography. Here's how they compare."
 type: paa
 city: delhi
+tier: "3"
 category: heritage
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,12 @@ relatedPages:
   - /delhi/can-you-do-a-day-trip-from-delhi-to-agra/
   - /delhi/things-to-do-in-nizamuddin/
   - /delhi/what-are-the-unesco-world-heritage-sites-in-delhi/
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "tombs"
+  - "mughal"
 ---
 
 **Humayun's Tomb (1570) came 83 years before the Taj Mahal (1653) and directly inspired its design — the Taj is the famous descendant, but Humayun's Tomb is the original.** Both are Mughal garden tombs built by grieving spouses, both are UNESCO World Heritage Sites, and both are worth your time for different reasons.

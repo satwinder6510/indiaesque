@@ -3,6 +3,7 @@ title: "How Much Does a Food Tour Cost in Delhi?"
 description: "Delhi food tours cost ₹1,500-3,500 ($18-42) for group tours with 8-12 tastings over 3-4 hours. Private tours run ₹3,000-6,000. Here's what to expect."
 type: paa
 city: delhi
+tier: "3"
 category: food
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/what-is-the-best-street-food-in-delhi/
   - /delhi/where-to-eat-in-old-delhi/
   - /delhi/what-food-is-delhi-famous-for/
+tags:
+  - "food"
+  - "where-to-eat"
+  - "tours"
+  - "activities"
 ---
 
 **A group food tour in Delhi costs ₹1,500-3,500 ($18-42) per person, lasts 3-4 hours, and includes 8-12 tastings at different stalls and restaurants.** Private food tours run ₹3,000-6,000 ($36-72) per person. Most tours cover Old Delhi's Chandni Chowk area, which has the highest concentration of legendary food stalls.

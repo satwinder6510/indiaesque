@@ -3,6 +3,7 @@ title: "Republic Day in Delhi — What To Expect"
 description: "Guide to Delhi's Republic Day parade on 26 January: how to get tickets, timing, security rules, and the week-long celebrations."
 type: paa
 city: delhi
+tier: "3"
 category: festival
 status: machine-draft
 datePublished: "2026-02-07"
@@ -22,6 +23,11 @@ relatedPages:
   - /delhi/best-time-to-visit-delhi-for-festivals/
   - /delhi/things-to-do-in-delhi-in-winter/
   - /delhi/what-is-delhi-best-known-for/
+tags:
+  - "festivals"
+  - "culture"
+  - "events"
+  - "republic-day"
 ---
 
 **India's Republic Day parade on 26 January is the most spectacular military and cultural display in Delhi — a 90-minute procession of tanks, missile systems, fighter jet flyovers, camel-mounted cavalry, and elaborate cultural floats rolling down Kartavya Path in the heart of the capital.** If you're in Delhi in late January, this is worth rearranging your schedule for.

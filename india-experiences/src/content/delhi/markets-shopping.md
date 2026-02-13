@@ -2,6 +2,7 @@
 title: "Best Markets In Delhi — Shopping Guide 2026"
 description: "Delhi's best markets from Chandni Chowk to Khan Market. What each sells, price ranges, bargaining tips, and how to get there by metro."
 city: delhi
+tier: "2"
 category: markets
 type: category
 datePublished: "2026-02-07"
@@ -23,6 +24,9 @@ faq:
     answer: "Chandni Chowk for textiles and spices, Khan Market for books and boutiques, Sarojini Nagar for cheap fashion, Dilli Haat for handicrafts, and Janpath for tourist souvenirs. Each has a different character and price range."
   - question: "Is bargaining expected in Delhi markets?"
     answer: "Yes in street markets — start at 40-50% of the asking price. No bargaining at malls, Khan Market shops, or stores with printed price tags. Dilli Haat has some room for negotiation on larger purchases."
+tags:
+  - "markets"
+  - "shopping"
 ---
 
 Delhi's markets are as old as its empires. Some of these bazaars were laid out in the 17th century by Mughal architects; others sprang up around railway stations in the British era; a few are government-designed experiments from the 1970s. Each has its own personality, price range, and specialty — and each requires a slightly different shopping strategy.

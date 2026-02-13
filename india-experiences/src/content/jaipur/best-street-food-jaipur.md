@@ -2,6 +2,7 @@
 title: "Best Street Food In Jaipur"
 description: "Discover Jaipur's best street food spots in Johari Bazaar, Nehru Bazaar & Chandpole. From Rawat's pyaaz kachori to LMB lassi (₹20-100)."
 city: "jaipur"
+tier: "3"
 category: "food"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Yes, when you choose popular stalls with high turnover and follow basic hygiene practices. Avoid raw salads, drink bottled water, and eat at busy places where food is freshly prepared throughout the day."
   - question: "What's the average cost of street food in Jaipur?"
     answer: "Most street food items cost ₹20-100 ($0.25-1.20). Kachoris cost ₹15-25, lassi ₹30-50, chaat ₹40-80, and dal baati churma ₹60-100 depending on the location and portion size."
+tags:
+  - "food"
+  - "where-to-eat"
+  - "street-food"
+  - "local-food"
+  - "jaipur"
 ---
 
 **Jaipur's best street food is found in three main areas: Johari Bazaar for authentic Rajasthani snacks, Nehru Bazaar for diverse chaat options, and Chandpole for traditional sweets and savories, with prices ranging ₹20-100 ($0.25-1.20) per item.**

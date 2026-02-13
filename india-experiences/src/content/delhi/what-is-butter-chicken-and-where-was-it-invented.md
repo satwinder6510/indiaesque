@@ -3,6 +3,7 @@ title: "What Is Butter Chicken & Where Was It Invented?"
 description: "Butter chicken was invented in Delhi in 1947 by Kundan Lal Gujral at Moti Mahal in Daryaganj. Here's the origin story and where to eat it today."
 type: paa
 city: delhi
+tier: "3"
 category: food
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/what-food-is-delhi-famous-for/
   - /delhi/best-restaurants-in-delhi/
   - /delhi/where-to-eat-in-old-delhi/
+tags:
+  - "food"
+  - "where-to-eat"
+  - "local-food"
+  - "restaurants"
 ---
 
 **Butter chicken was invented in Delhi in 1947 by Kundan Lal Gujral at Moti Mahal restaurant in Daryaganj — he simmered leftover tandoori chicken in a tomato, butter, and cream gravy, and accidentally created one of the most popular Indian dishes on the planet.** The dish has since spread to every Indian restaurant worldwide, but Delhi remains the best place to eat the original version.

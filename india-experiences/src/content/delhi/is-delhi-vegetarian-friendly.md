@@ -3,6 +3,7 @@ title: "Is Delhi Vegetarian Friendly?"
 description: "Delhi is extremely vegetarian friendly. Most restaurants have extensive veg menus, and many are exclusively 'pure veg.' Here's what to eat and where."
 type: paa
 city: delhi
+tier: "3"
 category: food
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,9 @@ relatedPages:
   - /delhi/what-food-is-delhi-famous-for/
   - /delhi/is-street-food-safe-in-delhi/
   - /delhi/what-is-the-best-street-food-in-delhi/
+tags:
+  - "food"
+  - "where-to-eat"
 ---
 
 **Delhi is one of the most vegetarian-friendly cities in the world — roughly a third of all restaurants are exclusively vegetarian, and the rest have extensive veg menus.** You'll see green "pure veg" signs on storefronts everywhere. Vegetarian food in Delhi isn't an afterthought; it's a major part of the city's food identity.

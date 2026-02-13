@@ -3,8 +3,10 @@ title: "Delhi Neighbourhoods Guide — Where to Explore"
 description: "Connaught Place, Hauz Khas, Old Delhi, South Delhi, Karol Bagh, Nizamuddin — what each neighbourhood offers and why to visit."
 type: paa
 city: delhi
+tier: "2"
 category: practical
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /delhi/
@@ -26,6 +28,9 @@ relatedPages:
   - /delhi/things-to-do/
   - /delhi/food-guide/
   - /delhi/nightlife-guide/
+tags:
+  - "practical"
+  - "planning"
 ---
 
 Delhi is a city of villages and neighbourhoods, each with its own character. Here's what to expect from the areas you're most likely to visit.

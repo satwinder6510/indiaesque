@@ -3,6 +3,7 @@ title: "Mughal Architecture in Delhi — Complete Guide"
 description: "Delhi has over 100 Mughal-era monuments including Red Fort, Humayun's Tomb, and Jama Masjid. Entry fees, visiting tips, and a suggested route."
 type: paa
 city: delhi
+tier: "3"
 category: heritage
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/what-are-the-unesco-world-heritage-sites-in-delhi/
   - /delhi/how-old-is-delhi/
   - /delhi/is-red-fort-worth-visiting/
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "mughal"
 ---
 
 **Delhi contains over 100 monuments from the Mughal period (1526-1857), including two UNESCO World Heritage Sites — Red Fort and Humayun's Tomb — along with Jama Masjid (India's largest mosque), Purana Qila, Safdarjung's Tomb, and the Nizamuddin shrine complex.** No other city in India has this density of Mughal architecture, and you can see the empire's entire arc — from its ambitious beginnings to its final decline — within a 15-kilometre radius.

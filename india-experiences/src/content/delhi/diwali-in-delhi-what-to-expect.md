@@ -3,6 +3,7 @@ title: "Diwali in Delhi — What To Expect"
 description: "Experience Diwali in Delhi: decorated markets, fireworks, sweets, temple visits, and honest air quality advice. Tips for tourists."
 type: paa
 city: delhi
+tier: "3"
 category: festival
 status: machine-draft
 datePublished: "2026-02-07"
@@ -22,6 +23,11 @@ relatedPages:
   - /delhi/best-time-to-visit-delhi-for-festivals/
   - /delhi/is-delhi-polluted/
   - /delhi/what-are-the-best-markets-in-delhi/
+tags:
+  - "festivals"
+  - "culture"
+  - "events"
+  - "diwali"
 ---
 
 **Diwali in Delhi is an overwhelming sensory experience — millions of oil lamps and candles illuminate homes and markets, fireworks and firecrackers thunder across the city for hours, and the smell of sweets, incense, and gunpowder fills the air.** It's India's biggest festival, and Delhi celebrates it with an intensity that matches its scale as the national capital.

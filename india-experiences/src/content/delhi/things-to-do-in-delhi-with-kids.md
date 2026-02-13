@@ -3,6 +3,7 @@ title: "Things to Do in Delhi With Kids"
 description: "National Science Centre, Delhi Zoo, Rail Museum, and Adventure Island — most charge under ₹200 entry. Here's what works for families."
 type: paa
 city: delhi
+tier: "3"
 category: experiences
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,9 @@ relatedPages:
   - /delhi/best-free-things-to-do-in-delhi/
   - /delhi/things-to-do-in-delhi-when-it-rains/
   - /delhi/how-to-spend-3-days-in-delhi/
+tags:
+  - "experiences"
+  - "activities"
 ---
 
 **The National Science Centre, Delhi Zoo, Rail Museum, and Akshardham Temple are the strongest picks for families — all cost under ₹200 per person and keep kids engaged for 2-3 hours each.** Delhi isn't an obvious family destination, but it has more child-friendly spots than most visitors expect.

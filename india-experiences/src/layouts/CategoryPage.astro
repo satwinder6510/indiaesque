@@ -19,6 +19,7 @@ interface Props {
     reviewCount?: number;
   }[];
   faq?: { question: string; answer: string }[];
+  cityLinks?: { href: string; label: string }[];
   relatedPages?: { href: string; label: string }[];
   schema?: object[];
 }
@@ -33,6 +34,7 @@ const {
   heroImage = '/images/default-hero.jpg',
   experiences = [],
   faq = [],
+  cityLinks = [],
   relatedPages = [],
   schema = []
 } = Astro.props;
@@ -63,11 +65,23 @@ const heroImageMobile = heroImage.replace(/(\.[^.]+)$/, '-mobile$1');
       <slot />
     </div>
 
-    <!-- EXPERIENCES LIST -->
+    <!-- CORE CITY LINKS -->
+    {cityLinks.length > 0 && (
+      <div class="internal-links">
+        <h2 class="internal-links-title">More in {city}</h2>
+        <ul class="internal-links-list">
+          {cityLinks.slice(0, 6).map(link => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <!-- RELATED PAGES -->
     {relatedPages.length > 0 && (
-      <div class="experiences">
-        <h2 class="experiences-title">{categoryName} in {city}</h2>
-        <ul class="experiences-list">
+      <div class="internal-links related">
+        <h2 class="internal-links-title">Related</h2>
+        <ul class="internal-links-list">
           {relatedPages.map(link => (
             <li><a href={link.href}>{link.label}</a></li>
           ))}
@@ -311,13 +325,17 @@ const heroImageMobile = heroImage.replace(/(\.[^.]+)$/, '-mobile$1');
     margin: 0;
   }
 
-  /* EXPERIENCES */
-  .experiences {
+  /* INTERNAL LINKS */
+  .internal-links {
     margin-top: 40px;
     padding-top: 30px;
     border-top: 1px solid #e5e5e5;
   }
-  .experiences-title {
+  .internal-links.related {
+    margin-top: 30px;
+    padding-top: 25px;
+  }
+  .internal-links-title {
     font-family: 'Oswald', sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -326,22 +344,35 @@ const heroImageMobile = heroImage.replace(/(\.[^.]+)$/, '-mobile$1');
     margin: 0 0 20px;
     color: #1a1a1a;
   }
-  .experiences-list {
-    list-style: disc;
-    padding-left: 18px;
+  .internal-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  @media (min-width: 480px) {
+    .internal-links-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .internal-links-list li {
     margin: 0;
   }
-  .experiences-list li {
-    margin-bottom: 10px;
-  }
-  .experiences-list a {
+  .internal-links-list a {
+    display: block;
+    padding: 10px 14px;
+    background: #f8f8f6;
     color: #333;
     text-decoration: none;
     font-size: 14px;
-    line-height: 1.4;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
   }
-  .experiences-list a:hover {
-    color: #e07060;
+  .internal-links-list a:hover {
+    background: #e07060;
+    color: #fff;
   }
 
   /* FAQ */

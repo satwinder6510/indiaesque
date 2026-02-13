@@ -3,8 +3,10 @@ title: "Jaipur Activities — Cooking Classes, Art Workshops & Experiences"
 description: "Cooking classes, block printing workshops, folk dance shows, food tours, and cultural experiences in Jaipur. Hands-on activities beyond sightseeing."
 type: paa
 city: jaipur
+tier: "2"
 category: activities
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /jaipur/
@@ -24,6 +26,12 @@ relatedPages:
   - /jaipur/food-guide/
   - /jaipur/shopping-guide/
   - /jaipur/planning-your-trip/
+tags:
+  - "activities"
+  - "things-to-do"
+  - "art"
+  - "culture"
+  - "cooking"
 ---
 
 Jaipur offers hands-on cultural experiences that go beyond monument visits. Here's how to learn, create, and immerse yourself in Rajasthani traditions.

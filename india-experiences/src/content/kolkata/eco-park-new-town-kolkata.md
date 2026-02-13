@@ -2,6 +2,7 @@
 title: "Eco Park New Town Guide"
 description: "Complete guide to Eco Park Kolkata - entry fees ₹30-50, 480 acres, boating, cycling zones, food courts. 21km from city center."
 city: "kolkata"
+tier: "3"
 category: "nature"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,10 @@ faq:
     answer: "Plan for half a day (4-6 hours) to explore Eco Park properly. This gives you enough time to visit multiple zones, enjoy activities like boating or cycling, and have meals at the food courts."
   - question: "Is Eco Park suitable for families with children?"
     answer: "Yes, Eco Park is extremely family-friendly with dedicated children's play areas, safe cycling tracks, paddle boats, toy trains, and multiple food courts. The park has something for every age group."
+tags:
+  - "nature"
+  - "outdoors"
+  - "parks"
 ---
 
 **Eco Park New Town is Kolkata's largest urban park spanning 480 acres in New Town, with entry fees of ₹30 ($0.35) weekdays and ₹50 ($0.60) weekends. Located 21km from the city center, this recreational space features multiple themed zones, boating, cycling, and requires half a day to explore properly.**

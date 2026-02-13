@@ -3,6 +3,7 @@ title: "Where To Celebrate Holi in Delhi — 2026"
 description: "The best places to celebrate Holi in Delhi in 2026, from hotel parties to organic colour events. Safety tips, what to wear, and a Mathura day trip option."
 type: paa
 city: delhi
+tier: "3"
 category: festival
 status: machine-draft
 datePublished: "2026-02-07"
@@ -22,6 +23,11 @@ relatedPages:
   - /delhi/best-time-to-visit-delhi-for-festivals/
   - /delhi/day-trip-to-mathura-and-vrindavan-from-delhi/
   - /delhi/is-delhi-safe-for-tourists/
+tags:
+  - "festivals"
+  - "culture"
+  - "events"
+  - "holi"
 ---
 
 **The safest and most enjoyable way to celebrate Holi in Delhi as a tourist is at an organised event — hotel-hosted parties, ticketed music festivals, or curated cultural experiences — rather than jumping into random street celebrations.** In 2026, Holi falls on Tuesday, 10 March, with the Holika Dahan bonfire on the evening of 9 March.

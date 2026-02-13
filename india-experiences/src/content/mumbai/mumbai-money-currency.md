@@ -2,6 +2,7 @@
 title: "Money And Currency In Mumbai"
 description: "Complete guide to Mumbai money: INR currency, ATMs, exchange rates, UPI payments, credit cards, daily budgets ₹2,000-8,000, and tipping tips."
 city: "mumbai"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,9 @@ faq:
     answer: "Carry ₹2,000-3,000 ($24-36) daily for street food, local transport, and small purchases. Most restaurants and shops accept UPI or cards, but cash works everywhere."
   - question: "Do Mumbai taxis and rickshaws accept digital payments?"
     answer: "Yes, most taxis, Uber, Ola, and many auto-rickshaws accept UPI payments like Google Pay and PhonePe. Traditional black-yellow taxis still prefer cash."
+tags:
+  - "practical"
+  - "planning"
 ---
 
 **Mumbai operates on Indian Rupees (INR), with widespread UPI digital payments, abundant ATMs, and daily budgets ranging from ₹2,000 ($24) for budget travel to ₹8,000 ($96) for luxury experiences.**

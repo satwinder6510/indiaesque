@@ -3,6 +3,7 @@ title: "Things To Do in Old Delhi & Chandni Chowk"
 description: "Red Fort, Jama Masjid, Paranthe Wali Gali, spice markets, and cycle rickshaws — here's everything to do in Old Delhi and Chandni Chowk."
 type: paa
 city: delhi
+tier: "3"
 category: neighbourhood
 status: machine-draft
 datePublished: "2026-02-07"
@@ -23,6 +24,11 @@ relatedPages:
   - /delhi/self-guided-walking-tour-old-delhi/
   - /delhi/where-to-eat-in-old-delhi/
   - /delhi/is-delhi-safe-for-tourists/
+tags:
+  - "neighbourhoods"
+  - "areas"
+  - "old-delhi"
+  - "chandni-chowk"
 ---
 
 **Old Delhi is the original city — a 17th-century Mughal capital where 400-year-old lanes are still packed with traders, food stalls, and architecture that predates most modern nations.** Chandni Chowk, the main artery, was designed by Emperor Shah Jahan's daughter and once had a canal running down its centre reflecting moonlight (that's where the name comes from). Today, the canal is long gone, but the energy hasn't faded.

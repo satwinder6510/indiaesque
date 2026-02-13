@@ -3,6 +3,7 @@ title: "Things To Do in South Delhi — Area Guide"
 description: "South Delhi has Qutub Minar, Lodhi Gardens, Khan Market, and top galleries. It's greener, calmer, and more spread out than Old Delhi."
 type: paa
 city: delhi
+tier: "3"
 category: neighbourhoods
 status: machine-draft
 datePublished: "2026-02-07"
@@ -25,6 +26,10 @@ relatedPages:
   - /delhi/where-to-see-street-art-in-delhi/
   - /delhi/best-cafes-in-delhi/
   - /delhi/heritage-walks/
+tags:
+  - "neighbourhoods"
+  - "areas"
+  - "south-delhi"
 ---
 
 **South Delhi is where the city slows down — tree-lined avenues, 12th-century monuments, well-kept gardens, and Delhi's best restaurants replace the density and chaos of the old city.** Qutub Minar, Lodhi Gardens, Khan Market, and Sunder Nursery are the main draws, and you'll want at least a full day to do the area justice.

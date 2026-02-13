@@ -3,6 +3,7 @@ title: "How Much Money Do I Need Per Day in Delhi?"
 description: "Budget ₹2,000-3,000 ($24-36) per day for hostels and street food. Mid-range ₹5,000-10,000. Luxury ₹15,000+. Here's exactly where that money goes."
 type: paa
 city: delhi
+tier: "3"
 category: general
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,9 @@ relatedPages:
   - /delhi/where-should-i-stay-in-delhi/
   - /delhi/how-to-get-around-delhi/
   - /delhi/food-tours/
+tags:
+  - "overview"
+  - "first-time"
 ---
 
 **Plan for ₹2,000-3,000 ($24-36) per day on a tight budget, ₹5,000-10,000 ($60-120) for comfortable mid-range travel, or ₹15,000+ ($180+) for luxury.** The biggest variables are where you sleep and how many paid monuments you visit. Food and transport in Delhi are cheap at every level.

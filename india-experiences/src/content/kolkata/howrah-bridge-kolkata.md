@@ -2,6 +2,7 @@
 title: "How To Visit Howrah Bridge"
 description: "Complete guide to visiting Howrah Bridge - access points, best photo spots, ferry rides, flower market visits, and safety tips for 2026."
 city: "kolkata"
+tier: "3"
 category: "heritage"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,10 @@ faq:
     answer: "Early morning (4-6 AM) for flower market visits, sunset (5:30-6:30 PM) for golden hour photos, or evening (7-9 PM) to see the bridge illuminated against the night sky."
   - question: "How much does it cost to visit Howrah Bridge?"
     answer: "Walking across Howrah Bridge is completely free. Ferry rides underneath cost ₹5-10 ($0.06-0.12) per person. Photography is free, though some boat operators charge ₹50-100 ($0.60-1.20) for river photography tours."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
 ---
 
 **You can visit Howrah Bridge by walking across from either the Kolkata side (near Barabazar) or Howrah side, taking the metro to Mahatma Gandhi Road or Howrah stations, or enjoying ferry rides underneath for river views.**

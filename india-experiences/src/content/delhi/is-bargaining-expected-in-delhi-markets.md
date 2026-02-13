@@ -3,6 +3,7 @@ title: "Is Bargaining Expected in Delhi Markets?"
 description: "Yes, bargaining is standard in Delhi's street markets. Start at 50% of the asking price and negotiate from there. Here's where and how to do it."
 type: paa
 city: delhi
+tier: "3"
 category: markets
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,12 @@ relatedPages:
   - /delhi/what-are-the-best-markets-in-delhi/
   - /delhi/what-is-dilli-haat/
   - /delhi/what-to-buy-in-delhi-as-souvenirs/
+tags:
+  - "markets"
+  - "shopping"
+  - "bars"
+  - "nightlife"
+  - "drinks"
 ---
 
 **Yes, bargaining is completely normal in Delhi's street markets — vendors expect it, and their opening prices are set with negotiation in mind.** A good starting offer is 50% of the asking price, and you'll usually settle somewhere around 60-70%. If you pay the first quoted price, you're almost certainly overpaying.

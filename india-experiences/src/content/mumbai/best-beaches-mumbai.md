@@ -2,6 +2,7 @@
 title: "Best Beaches In Mumbai"
 description: "Discover Mumbai's top beaches from popular Juhu to secluded Madh Island. Complete guide with safety tips and water quality warnings."
 city: "mumbai"
+tier: "3"
 category: "nature"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,9 @@ faq:
     answer: "Swimming isn't recommended at Mumbai beaches due to high pollution levels and strong currents. Chowpatty Beach explicitly prohibits swimming. Most locals and tourists use the beaches for walking and street food."
   - question: "Which beach is best for sunset views in Mumbai?"
     answer: "Versova Beach offers the best sunset views in Mumbai due to its western orientation and relatively cleaner shoreline. The sunsets are particularly spectacular during winter months from November to February."
+tags:
+  - "nature"
+  - "outdoors"
 ---
 
 **Mumbai has five main beaches worth visiting: Juhu for celebrity spotting and crowds, Versova for cleaner conditions and sunsets, Aksa for fewer tourists, Madh Island for seclusion, and Chowpatty for street food culture. However, swimming isn't recommended at any Mumbai beach due to pollution.**

@@ -3,8 +3,10 @@ title: "Jaipur Practical Travel Tips — Budget, Money, SIM Cards & First-Time V
 description: "Essential tips for visiting Jaipur: budget planning, currency, SIM cards, what first-time visitors need to know, and how to save money in the Pink City."
 type: paa
 city: jaipur
+tier: "2"
 category: practical
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /jaipur/
@@ -26,6 +28,12 @@ relatedPages:
   - /jaipur/getting-around/
   - /jaipur/where-to-stay/
   - /jaipur/safety-guide/
+tags:
+  - "practical"
+  - "planning"
+  - "budget"
+  - "affordable"
+  - "jaipur"
 ---
 
 Jaipur is more manageable than Delhi but still requires some planning. Here's everything practical you need to know.

@@ -3,6 +3,7 @@ title: "Best Time To Visit Delhi for Festivals"
 description: "October to March is ideal for Delhi festivals — Dussehra, Diwali, Republic Day, and Holi. Month-by-month festival calendar included."
 type: paa
 city: delhi
+tier: "3"
 category: festival
 status: machine-draft
 datePublished: "2026-02-07"
@@ -23,6 +24,10 @@ relatedPages:
   - /delhi/what-is-the-best-month-to-visit-delhi/
   - /delhi/diwali-in-delhi-what-to-expect/
   - /delhi/where-to-celebrate-holi-in-delhi/
+tags:
+  - "festivals"
+  - "culture"
+  - "events"
 ---
 
 **October through March is the best period to visit Delhi for festivals, with at least one major celebration every few weeks — Dussehra, Diwali, Christmas, Republic Day, Surajkund Mela, and Holi all fall within this six-month window.** This also happens to be Delhi's most comfortable season weather-wise, making it a win on every front.

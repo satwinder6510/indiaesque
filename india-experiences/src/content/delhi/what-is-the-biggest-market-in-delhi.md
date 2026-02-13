@@ -3,6 +3,7 @@ title: "What Is the Biggest Market in Delhi?"
 description: "Chandni Chowk is Delhi's biggest market and one of the largest in Asia. Built in the 1650s, each lane specialises in different goods."
 type: paa
 city: delhi
+tier: "3"
 category: markets
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,9 @@ relatedPages:
   - /delhi/things-to-do-in-old-delhi-chandni-chowk/
   - /delhi/where-to-buy-spices-in-delhi/
   - /delhi/what-are-the-best-markets-in-delhi/
+tags:
+  - "markets"
+  - "shopping"
 ---
 
 **Chandni Chowk is the biggest market in Delhi — a 1.5-kilometre stretch of wholesale and retail bazaars that's been in continuous operation since 1650.** It's one of the largest and oldest markets in Asia, with over 400,000 people passing through its lanes every single day.

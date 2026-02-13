@@ -2,6 +2,7 @@
 title: "Shantiniketan Day Trip From Kolkata"
 description: "Complete guide to visiting Shantiniketan from Kolkata. Distance, transport, Visva Bharati University, Tagore sites, and day trip tips."
 city: "kolkata"
+tier: "3"
 category: "culture"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,11 @@ faq:
     answer: "Yes, one day covers the main attractions including Visva Bharati University, Tagore Museum, Uttarayan Complex, and handicraft shopping at Surul Rajbari. However, staying overnight allows you to experience evening cultural programs and explore at a relaxed pace."
   - question: "What is the best time to visit Shantiniketan?"
     answer: "October to March offers pleasant weather with temperatures between 15-25°C. Avoid monsoons (June-September) due to heavy rains. Poush Mela in December attracts huge crowds, so book accommodation early if visiting during this festival."
+tags:
+  - "culture"
+  - "heritage"
+  - "day-trips"
+  - "excursions"
 ---
 
 **Shantiniketan makes an excellent day trip from Kolkata, located 165km away with a 3-4 hour journey by road or train. You can explore Rabindranath Tagore's university town, visit Visva Bharati University, shop for handicrafts, and return to Kolkata the same evening.**

@@ -2,6 +2,7 @@
 title: "Best Museums In Mumbai"
 description: "Complete guide to Mumbai's top museums including Chhatrapati Shivaji Museum, Nehru Science Centre, and Gandhi Museum with prices and hours."
 city: "mumbai"
+tier: "3"
 category: "culture"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "Most Mumbai museums charge entry fees ranging from ₹15-70. However, some galleries within cultural centers occasionally offer free exhibitions. Check individual museum websites for special free entry days during festivals."
   - question: "How long does it take to visit major Mumbai museums?"
     answer: "Plan 2-3 hours for Chhatrapati Shivaji Museum, 3-4 hours for Nehru Science Centre, and 1-2 hours each for Mani Bhavan and Bhau Daji Lad Museum. You can comfortably visit 2-3 museums in a full day."
+tags:
+  - "culture"
+  - "heritage"
+  - "museums"
+  - "history"
 ---
 
 **Mumbai's best museums include Chhatrapati Shivaji Maharaj Vastu Sangrahalaya (₹70), Nehru Science Centre (₹65), Mani Bhavan Gandhi Museum (₹15), and Bhau Daji Lad Museum, offering everything from ancient artifacts to interactive science exhibits across the city.**

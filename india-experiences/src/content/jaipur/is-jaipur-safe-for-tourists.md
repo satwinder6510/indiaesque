@@ -2,6 +2,7 @@
 title: "Is Jaipur Safe For Tourists?"
 description: "Jaipur is generally safe for tourists, but watch for gem scams in Old City. New areas like C-Scheme are safer. Get safety tips here."
 city: "jaipur"
+tier: "3"
 category: "general"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Gem and carpet scams near City Palace are most common. Vendors befriend tourists, invite them for tea, then pressure them to buy overpriced gems or carpets with fake certificates and shipping promises that never arrive."
   - question: "Is it safe for women to travel alone in Jaipur?"
     answer: "Women can travel safely in Jaipur with precautions. Stay in well-lit areas, use registered taxis like Uber or Ola, dress conservatively, and avoid isolated areas after dark. The modern areas are generally safer than Old City."
+tags:
+  - "overview"
+  - "first-time"
+  - "tours"
+  - "activities"
+  - "safety"
 ---
 
 **Yes, Jaipur is generally safe for tourists, but you need to stay alert for common scams and choose your areas wisely. The modern parts of the city are significantly safer than the Old City.**

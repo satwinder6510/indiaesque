@@ -3,6 +3,7 @@ title: "Romantic Things To Do in Delhi for Couples"
 description: "Lodhi Gardens sunset, Indian Accent dinner, Sunder Nursery walks, Champa Gali evenings, and rooftop dining — Delhi's best date spots."
 type: paa
 city: delhi
+tier: "3"
 category: experiences
 status: machine-draft
 datePublished: "2026-02-07"
@@ -22,6 +23,9 @@ relatedPages:
   - /delhi/best-nightlife-in-delhi/
   - /delhi/best-cafes-in-delhi/
   - /delhi/things-to-do-in-delhi-at-night/
+tags:
+  - "experiences"
+  - "activities"
 ---
 
 **Lodhi Gardens at sunset is the most romantic thing you can do in Delhi — it's free, gorgeous, and the golden light through the Mughal ruins makes everything feel cinematic.** Pair it with dinner at Indian Accent and you've got a world-class date night in a city that doesn't get enough credit for romance.

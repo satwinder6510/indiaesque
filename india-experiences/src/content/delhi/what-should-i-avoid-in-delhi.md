@@ -3,6 +3,7 @@ title: "What Should I Avoid in Delhi?"
 description: "Avoid street taxis, tap water, aggressive touts near tourist spots, and walking alone at night in quiet areas. Here's the full list with practical fixes."
 type: paa
 city: delhi
+tier: "3"
 category: general
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/is-delhi-safe-for-tourists/
   - /delhi/can-you-drink-tap-water-in-delhi/
   - /delhi/is-delhi-safe-at-night/
+tags:
+  - "safety"
+  - "scams"
+  - "practical"
+  - "first-time"
 ---
 
 **Avoid street taxis, tap water, aggressive touts near monuments, and walking alone in quiet areas after dark.** Delhi isn't dangerous if you know what to sidestep. Most problems tourists run into are preventable with basic awareness and a few smart habits.

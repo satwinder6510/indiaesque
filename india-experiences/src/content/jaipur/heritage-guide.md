@@ -3,8 +3,10 @@ title: "Jaipur Heritage Guide — Forts, Palaces & Monuments"
 description: "Amber Fort, City Palace, Hawa Mahal, Nahargarh, Jaigarh — complete guide to Jaipur's royal heritage. What to see, entry fees, and timing."
 type: paa
 city: jaipur
+tier: "2"
 category: heritage
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /jaipur/
@@ -24,6 +26,12 @@ relatedPages:
   - /jaipur/planning-your-trip/
   - /jaipur/photography-guide/
   - /jaipur/getting-around/
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "forts"
+  - "palaces"
 ---
 
 Jaipur's forts and palaces are among India's finest. Built by Rajput kings over 400 years, they combine military architecture with stunning artistry. Here's your complete guide.

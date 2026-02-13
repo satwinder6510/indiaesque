@@ -2,6 +2,7 @@
 title: "Mumbai During Monsoon Season"
 description: "Mumbai monsoon guide: 2,400mm rainfall from June-September brings flooding, transport issues. Essential gear, indoor attractions & travel tips."
 city: "mumbai"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Low-lying areas like Sion, Kurla, Andheri subway, Santa Cruz, and parts of South Mumbai near Colaba flood regularly. Avoid these areas during heavy rainfall warnings."
   - question: "Do trains run normally during Mumbai monsoon?"
     answer: "Local trains face frequent delays and cancellations during heavy rains. Suburban lines to Virar, Kasara, and Panvel are most affected. Check real-time updates before traveling."
+tags:
+  - "practical"
+  - "planning"
+  - "monsoon"
+  - "weather"
+  - "seasons"
 ---
 
 **Mumbai receives an average of 2,400mm rainfall between June and September, causing significant flooding in low-lying areas, major transport disruptions, and requiring specific preparations including waterproof gear and flexible itineraries.**

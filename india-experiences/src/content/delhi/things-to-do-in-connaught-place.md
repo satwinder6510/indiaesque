@@ -3,6 +3,7 @@ title: "Things To Do in Connaught Place — Area Guide"
 description: "Connaught Place offers Agrasen ki Baoli, Jantar Mantar, top restaurants, and Delhi's best nightlife. Walkable and metro-connected."
 type: paa
 city: delhi
+tier: "3"
 category: neighbourhoods
 status: machine-draft
 datePublished: "2026-02-07"
@@ -25,6 +26,11 @@ relatedPages:
   - /delhi/best-nightlife-in-delhi/
   - /delhi/how-to-get-around-delhi/
   - /delhi/things-to-do-in-old-delhi-chandni-chowk/
+tags:
+  - "neighbourhoods"
+  - "areas"
+  - "connaught-place"
+  - "central-delhi"
 ---
 
 **Connaught Place — locals just call it CP — is Delhi's colonial-era commercial heart, a circular complex of white colonnaded buildings that functions as the city's main meeting point, restaurant district, and nightlife hub.** The Rajiv Chowk Metro station sits directly underneath, making CP the most connected neighbourhood in Delhi.

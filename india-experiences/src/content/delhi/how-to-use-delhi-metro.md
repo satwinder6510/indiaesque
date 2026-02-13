@@ -3,6 +3,7 @@ title: "How To Use the Delhi Metro — Step by Step"
 description: "Buy a token or Metro smart card at any station, pass through the security check, and board. Here's everything you need to know about riding Delhi's Metro."
 type: paa
 city: delhi
+tier: "3"
 category: practical
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/delhi-metro-map-and-tips/
   - /delhi/how-do-i-get-from-delhi-airport-to-the-city/
   - /delhi/is-delhi-safe-for-tourists/
+tags:
+  - "practical"
+  - "planning"
+  - "metro"
+  - "transport"
 ---
 
 **Buy a token or Metro smart card at any station, pass through the mandatory security check, and you're on.** The Delhi Metro is the easiest public transport system in India to figure out, and most tourists get the hang of it within their first ride.

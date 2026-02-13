@@ -2,6 +2,7 @@
 title: "Religious Sites In Mumbai"
 description: "Complete guide to Mumbai's religious sites: Hindu temples, Islamic shrines, Christian churches, Buddhist caves & Jain temples with visiting tips."
 city: "mumbai"
+tier: "3"
 category: "spiritual"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,10 @@ faq:
     answer: "Yes, most Hindu temples in Mumbai welcome visitors of all faiths, including Siddhivinayak and Mahalaxmi Temple. Photography may be restricted inside the main sanctum areas."
   - question: "What are the visiting hours for Haji Ali Dargah?"
     answer: "Haji Ali Dargah is open daily from 5:30 AM to 10 PM. You can only walk on the causeway during low tide - check tide timings before visiting as the pathway gets submerged during high tide."
+tags:
+  - "spiritual"
+  - "temples"
+  - "religious"
 ---
 
 **Mumbai houses significant religious sites representing all major faiths - from the famous Siddhivinayak Temple and Haji Ali Dargah to Mount Mary Church and ancient Buddhist caves at Elephanta, each requiring specific visiting etiquette and offering unique spiritual experiences.**

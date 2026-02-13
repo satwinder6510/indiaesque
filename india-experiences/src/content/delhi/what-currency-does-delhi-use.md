@@ -3,6 +3,7 @@ title: "What Currency Does Delhi Use? — Money Guide"
 description: "Delhi uses the Indian Rupee (INR/₹). ATMs are everywhere, cards work at most restaurants and shops. Carry cash for markets and auto rickshaws."
 type: paa
 city: delhi
+tier: "3"
 category: practical
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/how-much-money-do-i-need-per-day-in-delhi/
   - /delhi/is-bargaining-expected-in-delhi-markets/
   - /delhi/how-to-get-around-delhi/
+tags:
+  - "money"
+  - "practical"
+  - "planning"
+  - "first-time"
 ---
 
 **Delhi uses the Indian Rupee, written as ₹ or INR.** One Rupee is divided into 100 paise, though paise coins are effectively extinct — everything rounds to the nearest Rupee. As of 2026, $1 USD equals roughly ₹83-85, and €1 equals roughly ₹90-93.

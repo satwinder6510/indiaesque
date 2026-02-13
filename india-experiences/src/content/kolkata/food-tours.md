@@ -2,6 +2,7 @@
 title: "Best Food Tours In Kolkata — 2026 Guide"
 description: "Discover Kolkata's best food tours from volunteer-run walks to private guides. Street food, Bengali cuisine & Chinese quarter tours from ₹50."
 city: "kolkata"
+tier: "2"
 category: "food"
 type: "category"
 datePublished: "2026-02-09"
@@ -25,6 +26,11 @@ faq:
     answer: "North Kolkata food tours cover authentic Bengali cuisine best, including visits to century-old sweet shops, fish markets, and traditional eateries. Private tours can customize routes to focus specifically on Bengali specialties like hilsa fish and rosogolla."
   - question: "Are Kolkata food tours safe for foreigners?"
     answer: "Yes, organized food tours are safe as guides select hygienic vendors and know which places to avoid. Tours also help you navigate language barriers and understand local food customs safely."
+tags:
+  - "food"
+  - "where-to-eat"
+  - "tours"
+  - "activities"
 ---
 
 Kolkata offers some of India's most diverse food tours, from volunteer-run community walks to private culinary adventures through the city's legendary eating districts. You can explore everything from Bengali sweet shops to Chinese restaurants in Tangra, with costs ranging from ₹50-500 ($0.60-6) per dish and tour fees from ₹500-8,000 ($6-96).

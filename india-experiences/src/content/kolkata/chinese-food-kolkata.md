@@ -2,6 +2,7 @@
 title: "Best Chinese Food In Kolkata"
 description: "Discover Kolkata's authentic Chinese cuisine in Tangra Chinatown. From Golden Joy to Beijing Restaurant, find the best spots for dim sum and Hakka noodles."
 city: "kolkata"
+tier: "3"
 category: "food"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,9 @@ faq:
     answer: "Chinese food in Kolkata ranges from ₹150-400 ($1.80-4.80) per dish. Street food and breakfast items at Tiretta Bazaar cost ₹50-150 ($0.60-1.80), while restaurants like Golden Joy charge ₹200-500 ($2.40-6) for main courses."
   - question: "What time should I visit for Chinese breakfast in Kolkata?"
     answer: "Visit Tiretta Bazaar between 6:30 AM and 9:30 AM for authentic Chinese breakfast. The morning market serves fresh dim sum, fish ball soup, and steamed buns prepared by the local Chinese community."
+tags:
+  - "food"
+  - "where-to-eat"
 ---
 
 **Kolkata serves the best Chinese food in India, with Tangra Chinatown offering authentic Hakka cuisine and Tiretta Bazaar providing traditional breakfast options. Expect to spend ₹150-400 ($1.80-4.80) per dish at established restaurants.**

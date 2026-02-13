@@ -2,6 +2,7 @@
 title: "Mumbai Transport Guide — 2026"
 description: "Complete Mumbai transport guide: local trains, metros, taxis, and airport transfers. Includes safety tips, prices, and rush hour timing."
 city: "mumbai"
+tier: "2"
 category: "practical"
 type: "category"
 datePublished: "2026-02-08"
@@ -25,6 +26,9 @@ faq:
     answer: "Airport transfers to South Mumbai (Colaba, Fort) cost ₹800-1,500 ($10-18). Pre-paid taxis charge ₹900-1,200, Uber/Ola cost ₹600-1,000, and the airport express train costs ₹110 but requires additional local transport."
   - question: "Do Mumbai taxis use meters or fixed rates?"
     answer: "Mumbai black-yellow taxis legally must use meters, but many refuse and demand fixed rates from tourists. Insist on the meter or use Uber/Ola instead. Meter rates are ₹25 base fare plus ₹17.29 per kilometer."
+tags:
+  - "practical"
+  - "planning"
 ---
 
 Mumbai's transport system carries over 8 million people daily across local trains, metros, buses, taxis, and auto-rickshaws. You'll navigate this massive network efficiently once you understand the basics, timing, and pricing. This guide covers every transport option with specific costs, safety tips, and insider knowledge to move around the city like a local.

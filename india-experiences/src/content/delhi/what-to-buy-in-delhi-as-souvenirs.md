@@ -3,6 +3,7 @@ title: "What to Buy in Delhi as Souvenirs"
 description: "Spices from Khari Baoli, pashmina scarves, miniature paintings, brass items, Ayurvedic products, and Indian tea make the best Delhi souvenirs."
 type: paa
 city: delhi
+tier: "3"
 category: markets
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,10 @@ relatedPages:
   - /delhi/where-to-buy-spices-in-delhi/
   - /delhi/what-are-the-best-markets-in-delhi/
   - /delhi/what-is-dilli-haat/
+tags:
+  - "markets"
+  - "shopping"
+  - "souvenirs"
 ---
 
 **Spices, textiles, miniature paintings, brassware, Ayurvedic products, and loose-leaf tea are the smartest buys in Delhi — they're lightweight, affordable, and genuinely Indian.** Skip the plastic Taj Mahal models and bring home something people will actually use or display.

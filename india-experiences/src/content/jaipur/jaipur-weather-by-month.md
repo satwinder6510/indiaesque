@@ -2,6 +2,7 @@
 title: "Jaipur Weather By Month"
 description: "Complete month-by-month guide to Jaipur's weather including temperatures, rainfall, and what to pack for each season."
 city: "jaipur"
+tier: "3"
 category: "general"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Monsoon season in Jaipur typically starts in early July and lasts through September. The city receives moderate rainfall averaging 650mm annually, with August being the wettest month."
   - question: "What should I wear in Jaipur during winter months?"
     answer: "Pack layers for Jaipur winters (December-February). You'll need light woolens, a jacket for early mornings and evenings when temperatures drop to 5-10°C, and comfortable cotton clothes for warm afternoons."
+tags:
+  - "overview"
+  - "first-time"
+  - "weather"
+  - "climate"
+  - "seasons"
 ---
 
 **Jaipur experiences three distinct seasons: pleasant winters (October-March) with temperatures of 15-28°C, scorching summers (April-June) reaching 45°C, and moderate monsoons (July-September) with occasional heavy rainfall and high humidity.**

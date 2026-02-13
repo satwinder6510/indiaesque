@@ -3,8 +3,10 @@ title: "Jaipur Safety Guide — Scams, Tips & What to Know"
 description: "Is Jaipur safe for tourists? Common scams, solo travel advice, night safety, and practical tips for staying safe in the Pink City."
 type: paa
 city: jaipur
+tier: "2"
 category: practical
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /jaipur/
@@ -24,6 +26,12 @@ relatedPages:
   - /jaipur/getting-around/
   - /jaipur/where-to-stay/
   - /jaipur/things-to-do/
+tags:
+  - "practical"
+  - "planning"
+  - "safety"
+  - "scams"
+  - "jaipur"
 ---
 
 Jaipur is a safe city for tourists. The risks are financial (scams, overcharging) rather than physical. Here's what to watch for.

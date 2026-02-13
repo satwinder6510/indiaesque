@@ -2,6 +2,7 @@
 title: "Mumbai Airport To City Center"
 description: "Get from Mumbai Airport to city center via Uber (₹800-1,500), metro, pre-paid taxis, and shuttles. Complete guide with costs and timing."
 city: "mumbai"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: ""
   - question: "Are pre-paid taxis available at both Mumbai Airport terminals?"
     answer: "Yes, pre-paid taxi counters operate at both Terminal 1 and Terminal 2. Rates to South Mumbai are ₹700-900 ($8-11), plus ₹15 per bag and night charges after 10 PM."
+tags:
+  - "practical"
+  - "planning"
+  - "airport"
+  - "transport"
+  - "arrival"
 ---
 
 **Getting from Chhatrapati Shivaji Maharaj International Airport to Mumbai's city center takes 45 minutes to 2 hours depending on your transport choice and traffic. Uber costs ₹800-1,500 ($10-18), while the metro connection costs ₹60-80 ($0.70-1) but requires transfers.**

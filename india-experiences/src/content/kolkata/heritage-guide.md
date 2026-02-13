@@ -3,8 +3,10 @@ title: "Kolkata Heritage Guide — Victoria Memorial, Howrah Bridge & Colonial A
 description: "Victoria Memorial, Howrah Bridge, colonial buildings, temples, and Kolkata's architectural heritage. What to see and the history behind it."
 type: paa
 city: kolkata
+tier: "2"
 category: heritage
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /kolkata/
@@ -24,6 +26,10 @@ relatedPages:
   - /kolkata/planning-your-trip/
   - /kolkata/neighbourhoods/
   - /kolkata/getting-around/
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
 ---
 
 Kolkata has India's finest colonial architecture — a living museum of the British Raj. Here's your heritage guide.

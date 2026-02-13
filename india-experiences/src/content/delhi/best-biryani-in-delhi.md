@@ -3,6 +3,7 @@ title: "Best Biryani in Delhi — Where Locals Actually Go"
 description: "The best biryani in Delhi ranges from Al Jawahar near Jama Masjid to Dum Pukht at ITC Maurya. Prices from ₹200 to ₹3,000 with local picks."
 type: paa
 city: delhi
+tier: "3"
 category: food
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,12 @@ relatedPages:
   - /delhi/where-to-eat-in-old-delhi/
   - /delhi/what-food-is-delhi-famous-for/
   - /delhi/best-restaurants-in-delhi/
+tags:
+  - "food"
+  - "where-to-eat"
+  - "biryani"
+  - "local-food"
+  - "restaurants"
 ---
 
 **The best biryani in Delhi is found at Al Jawahar opposite Jama Masjid for an affordable, authentic Mughlai plate, at Dum Pukht inside ITC Maurya for a luxury slow-cooked experience, and through Biryani By Kilo if you want quality biryani delivered to your hotel.** Delhi isn't Hyderabad — biryani isn't the city's defining dish — but the Mughal legacy here means the biryani tradition runs deep, and several places do it exceptionally well.

@@ -2,6 +2,7 @@
 title: "New Market Kolkata Shopping Guide"
 description: "Complete guide to New Market (Sir Stuart Hogg Market) - sections, bargaining tips, timings, prices, and best buys for tourists in Kolkata."
 city: "kolkata"
+tier: "3"
 category: "markets"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,9 @@ faq:
     answer: "You can typically bargain down prices by 30-50% at New Market. Start by offering half the quoted price and negotiate upward. Fixed-price shops display boards clearly."
   - question: "What should tourists be careful about when shopping at New Market?"
     answer: "Watch for fake branded goods, especially electronics and designer items. Check quality carefully, keep valuables secure, and avoid carrying large amounts of cash or jewelry."
+tags:
+  - "markets"
+  - "shopping"
 ---
 
 **New Market Kolkata, officially called Sir Stuart Hogg Market, is a 150-year-old shopping complex offering everything from spices and clothing to electronics and souvenirs. Located on Lindsay Street near Esplanade Metro Station, it's open daily from 10 AM to 8 PM.**

@@ -2,6 +2,7 @@
 title: "Money And Currency In Jaipur"
 description: "Complete guide to money and currency in Jaipur. ATM locations, card acceptance, forex counters, tipping, bargaining, and digital payments."
 city: "jaipur"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "Tip 10-15% at restaurants if service charge isn't included. For tour guides, ₹50-100 ($0.60-1.20) per person is standard for half-day tours, ₹100-200 for full-day tours. Hotel staff typically receive ₹20-50 for room service and housekeeping."
   - question: "Do shops in Jaipur accept credit cards?"
     answer: "Most hotels, upscale restaurants, and established shops accept credit cards. However, street vendors, local markets, and small eateries prefer cash. Digital payments like UPI, Paytm, and Google Pay are increasingly common in markets and shops around MI Road and tourist areas."
+tags:
+  - "practical"
+  - "planning"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **The Indian Rupee (INR) is Jaipur's currency, with cash still king for street vendors and local markets. ATMs are abundant, cards work at most hotels and restaurants, and digital payments are rapidly growing in popularity across the city.**

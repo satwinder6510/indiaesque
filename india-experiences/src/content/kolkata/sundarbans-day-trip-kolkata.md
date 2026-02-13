@@ -2,6 +2,7 @@
 title: "Sundarbans Day Trip From Kolkata"
 description: "Sundarbans day trips from Kolkata cost ₹3,000-8,000 ($36-96). Book 1-2 day packages with meals, permits, boat rides included."
 city: "kolkata"
+tier: "3"
 category: "nature"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,11 @@ faq:
     answer: "Backpackers United, Help Tourism, and West Bengal Tourism Development Corporation offer reliable Sundarbans packages with proper permits, experienced guides, and good safety records."
   - question: "What's included in Sundarbans tour packages?"
     answer: "Most packages include AC transport from Kolkata, boat rides, forest permits, meals, guide services, and accommodation for overnight trips. Entry fees and personal expenses are typically separate."
+tags:
+  - "nature"
+  - "outdoors"
+  - "day-trips"
+  - "excursions"
 ---
 
 **Sundarbans day trips from Kolkata cost ₹3,000-8,000 ($36-96) and include transport, boat rides, meals, and permits. Book through established operators like Help Tourism or WBTDC, with advance reservations required for forest entry permits.**

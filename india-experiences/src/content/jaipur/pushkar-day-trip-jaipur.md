@@ -2,6 +2,7 @@
 title: "Pushkar Day Trip From Jaipur"
 description: "Complete guide to Pushkar day trip from Jaipur: 2.5-hour drive, Brahma Temple, Pushkar Lake, camel safaris ₹1500-3000, holy city rules."
 city: "jaipur"
+tier: "3"
 category: "nature"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Photography is strictly prohibited inside Brahma Temple and other temples. You can take photos around Pushkar Lake and the ghats, but avoid photographing people performing religious rituals without permission."
   - question: "What time should I leave Pushkar to return to Jaipur?"
     answer: "Leave Pushkar by 5 PM to reach Jaipur by 7:30 PM on weekdays. During weekends or festivals, leave by 4:30 PM to avoid heavy traffic and ensure you reach safely before dark."
+tags:
+  - "nature"
+  - "outdoors"
+  - "day-trips"
+  - "excursions"
+  - "jaipur"
 ---
 
 **A Pushkar day trip from Jaipur is entirely doable with a 2.5-hour drive covering 150 kilometers. You can visit Brahma Temple, Pushkar Lake, enjoy camel safaris (₹1500-3000), and return the same evening while respecting the holy city's protocols.**

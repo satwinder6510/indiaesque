@@ -3,8 +3,10 @@ title: "Delhi Heritage Guide — Monuments, History & Architecture"
 description: "Red Fort, Humayun's Tomb, Qutub Minar, and Delhi's UNESCO sites. What to see, how long to spend, and the history behind each monument."
 type: paa
 city: delhi
+tier: "2"
 category: heritage
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /delhi/
@@ -28,6 +30,10 @@ relatedPages:
   - /delhi/planning-your-trip/
   - /delhi/heritage-walks/
   - /delhi/practical-travel-tips/
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
 ---
 
 Delhi is a palimpsest of empires. Seven cities have risen and fallen here over 2,500 years, each leaving monuments that still stand. Here's what to see and the history behind it.

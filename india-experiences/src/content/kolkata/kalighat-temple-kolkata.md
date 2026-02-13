@@ -2,6 +2,7 @@
 title: "Kalighat Temple Kolkata Guide"
 description: "Complete guide to Kalighat Temple, one of 51 Shakti Peethas. Temple timings, metro access, offerings, scam alerts & spiritual significance."
 city: "kolkata"
+tier: "3"
 category: "spiritual"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,10 @@ faq:
     answer: "Take the Purple Line to Kalighat Metro Station, which is 500 meters from the temple. Exit from Gate 1 and walk straight down Anami Sangha Street. The journey costs ₹10-25 ($0.12-0.30) depending on your starting station."
   - question: "What should I watch out for at Kalighat Temple?"
     answer: "Beware of fake priests demanding donations, flower sellers quoting inflated prices, and shoe-keepers asking excessive charges. Stick to official temple counters for offerings and keep your belongings secure in crowds."
+tags:
+  - "spiritual"
+  - "temples"
+  - "religious"
 ---
 
 **Kalighat Temple is one of the 51 sacred Shakti Peethas where Goddess Kali's toes are believed to have fallen. Located in South Kolkata, this 200-year-old temple operates from 5 AM-2 PM and 5-10:30 PM daily, attracting thousands of devotees seeking blessings from the fierce goddess.**

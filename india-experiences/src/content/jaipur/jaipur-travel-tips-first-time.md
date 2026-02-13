@@ -2,6 +2,7 @@
 title: "Jaipur Travel Tips For First Time Visitors"
 description: "Essential first-time Jaipur tips: bargain at 30% quoted price, book composite tickets for ₹1000, avoid gem scams, temple dress codes."
 city: "jaipur"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "The composite ticket costs ₹1000 ($12) and covers 5 major attractions: Amber Fort, City Palace, Jantar Mantar, Hawa Mahal, and Albert Hall Museum. Valid for 2 days and saves you ₹500+ compared to individual tickets."
   - question: "How do I avoid gem scams in Jaipur?"
     answer: "Never accept 'export business' offers from strangers. Avoid shops recommended by rickshaw drivers who get commission. Don't believe stories about tax-free exports or investment opportunities. Buy gems only from certified government emporiums if needed."
+tags:
+  - "practical"
+  - "planning"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **Start bargaining at 30% of the quoted price in markets, book the ₹1000 composite ticket for major attractions, dress conservatively for temples, tip 10-15% at restaurants, and avoid gem export scams - these essential tips will save you money and hassles during your first Jaipur visit.**

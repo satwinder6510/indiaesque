@@ -2,6 +2,7 @@
 title: "Best Fine Dining Restaurants In Mumbai"
 description: "Mumbai's top fine dining restaurants including Trishna, Bombay Canteen, and Taj hotels. Complete guide with prices, reservations & dress codes."
 city: "mumbai"
+tier: "3"
 category: "food"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,9 @@ faq:
     answer: "Yes, all top fine dining restaurants in Mumbai require advance reservations, especially Trishna, Wasabi, and Golden Dragon. Book 7-14 days ahead for weekends. Call directly or use their online booking systems. Walk-ins are rarely accommodated at premium establishments."
   - question: "What's the dress code for Mumbai's fine dining restaurants?"
     answer: "Smart casual to formal attire is required. Men need collared shirts and closed shoes - no shorts, flip-flops, or tank tops. Women should wear dresses, blouses with trousers/skirts, or elegant ethnic wear. Taj hotels are strictest about dress codes."
+tags:
+  - "food"
+  - "where-to-eat"
 ---
 
 **Mumbai's best fine dining restaurants include Trishna (₹3,000-5,000), Bombay Canteen (₹2,500-4,000), and luxury hotel establishments like Wasabi and Golden Dragon at Taj Mahal Palace, offering everything from progressive Indian cuisine to authentic Japanese and Chinese dining experiences.**

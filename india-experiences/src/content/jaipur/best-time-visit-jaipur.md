@@ -2,6 +2,7 @@
 title: "Best Time To Visit Jaipur"
 description: "October to March is the best time to visit Jaipur with pleasant 15-25°C weather. Avoid April-June heat (40°C+). Festival seasons and pricing guide."
 city: "jaipur"
+tier: "3"
 category: "general"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "Monsoon (July-September) brings relief from heat but creates challenges. Roads flood frequently, humidity stays high at 80%, and many outdoor activities get cancelled. Hotels offer 30-40% discounts during this period."
   - question: "When do hotel prices peak in Jaipur?"
     answer: "Hotel prices peak during December-January and festival periods like Diwali. Luxury hotels charge ₹8,000-12,000 ($95-145) per night. Book 2-3 months ahead during peak season to secure better rates."
+tags:
+  - "overview"
+  - "first-time"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **October to March is the best time to visit Jaipur, with comfortable temperatures between 15-25°C (59-77°F). This period offers perfect weather for exploring palaces and forts without the scorching summer heat that reaches 45°C (113°F).**

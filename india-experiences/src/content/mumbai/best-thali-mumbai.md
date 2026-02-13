@@ -2,6 +2,7 @@
 title: "Best Thali Restaurants In Mumbai"
 description: "Mumbai's top unlimited thali spots from Shree Thaker Bhojanalay's 30 dishes for ₹600-800 to Sindhudurg's Maharashtrian spread."
 city: "mumbai"
+tier: "3"
 category: "food"
 type: "paa"
 datePublished: "2026-02-08"
@@ -24,6 +25,9 @@ faq:
     answer: "Unlimited thali prices range from ₹350-400 ($4-5) for basic Maharashtrian thalis to ₹600-800 ($7-10) for premium Gujarati thalis with 30+ dishes. Mid-range options cost ₹450-550 ($5-7) at popular chains."
   - question: "What's the proper etiquette for eating thali in Mumbai?"
     answer: "Eat with your right hand, don't waste food as unlimited means taking only what you'll finish, and servers will keep refilling items. Mix rice with dal and vegetables, use bread to scoop curries, and save sweets for last."
+tags:
+  - "food"
+  - "where-to-eat"
 ---
 
 **Mumbai's best thali restaurants offer unlimited traditional meals ranging from Shree Thaker Bhojanalay's 30-dish Gujarati spread for ₹600-800 ($7-10) to Maharashtrian specialties at Sindhudurg and Chaitanya for ₹350-450 ($4-5).**

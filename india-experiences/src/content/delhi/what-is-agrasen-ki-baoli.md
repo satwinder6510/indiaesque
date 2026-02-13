@@ -3,6 +3,7 @@ title: "What Is Agrasen Ki Baoli?"
 description: "Agrasen ki Baoli is a free-entry 14th-century stepwell near Connaught Place — one of Delhi's most atmospheric and photogenic spots."
 type: paa
 city: delhi
+tier: "3"
 category: heritage
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/things-to-do-in-connaught-place/
   - /delhi/best-free-things-to-do-in-delhi/
   - /delhi/how-many-heritage-sites-are-in-delhi/
+tags:
+  - "heritage"
+  - "monuments"
+  - "history"
+  - "stepwell"
 ---
 
 **Agrasen ki Baoli is a 14th-century stepwell in the middle of central Delhi, just off Connaught Place — a 60-metre long, 15-metre deep stone staircase descending into the earth, lined with 108 arched niches across three levels.** Entry is free, it takes 20-30 minutes to explore, and it's one of the most atmospheric places in the city.

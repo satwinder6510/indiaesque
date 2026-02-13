@@ -2,6 +2,7 @@
 title: "Indian Museum Kolkata Guide"
 description: "Complete guide to Indian Museum Kolkata: ₹20 entry for Indians, ₹500 for foreigners. Open 10 AM-5 PM, closed Mondays. See Egyptian mummy & more."
 city: "kolkata"
+tier: "3"
 category: "heritage"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,12 @@ faq:
     answer: "Indian Museum opens at 10 AM and closes at 5 PM daily except Mondays when it remains closed. The last entry is allowed at 4:30 PM. Plan to arrive early for the best experience."
   - question: "How much time do you need at Indian Museum Kolkata?"
     answer: "You need 3-4 hours to properly explore the Indian Museum's six main galleries and extensive collections. Art enthusiasts and history buffs often spend 4-5 hours here covering all sections thoroughly."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "museums"
+  - "culture"
 ---
 
 **The Indian Museum in Kolkata charges ₹20 ($0.25) entry for Indians and ₹500 ($6) for foreigners, opens 10 AM-5 PM daily except Mondays, and houses exceptional collections including an Egyptian mummy, Buddhist artifacts, and natural history specimens across six galleries.**

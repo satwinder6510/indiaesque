@@ -2,6 +2,7 @@
 title: "Pubs And Clubs In Jaipur"
 description: "Best pubs and clubs in Jaipur: C-Scheme hotspots like Blackout, F Bar & Lounge. Entry fees ₹500-1500, 21+ age limit, weekend crowds."
 city: "jaipur"
+tier: "3"
 category: "nightlife"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "All pubs and clubs in Jaipur enforce a strict 21+ age policy as per Rajasthan state laws. You must carry valid photo ID (Aadhaar, passport, or driver's license) for entry verification."
   - question: "Which area has the best nightlife in Jaipur?"
     answer: "C-Scheme is Jaipur's nightlife hub, housing popular venues like Blackout, F Bar & Lounge, and Grunge. The area is well-connected and safe, with most clubs within walking distance of each other."
+tags:
+  - "nightlife"
+  - "bars"
+  - "entertainment"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **Jaipur's nightlife centers around C-Scheme area, featuring clubs like Blackout (₹1200-1500 entry), F Bar & Lounge (₹800-1000), and hotel-based venues. All enforce 21+ age limits with entry fees ranging ₹500-1500 ($6-18), varying by weekday versus weekend crowds.**

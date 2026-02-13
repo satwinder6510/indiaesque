@@ -3,6 +3,7 @@ title: "How To Get From Delhi to Agra — 2026 Guide"
 description: "Get from Delhi to Agra by Gatimaan Express (1hr 40min, ₹750-1,500), private car (3-4 hours, ₹3,000-4,000), or Shatabdi train. Full 2026 comparison."
 type: paa
 city: delhi
+tier: "3"
 category: daytrips
 status: machine-draft
 datePublished: "2026-02-07"
@@ -23,6 +24,11 @@ relatedPages:
   - /delhi/day-trips/
   - /delhi/can-you-do-a-day-trip-from-delhi-to-agra/
   - /delhi/how-to-get-around-delhi/
+tags:
+  - "day-trips"
+  - "excursions"
+  - "agra"
+  - "taj-mahal"
 ---
 
 **The fastest way to get from Delhi to Agra is the Gatimaan Express, which takes 1 hour 40 minutes from Hazrat Nizamuddin station and costs ₹750-1,500 ($9-18) depending on class — it's more reliable, more comfortable, and faster than driving, which takes 3-4 hours via the Yamuna Expressway.** Here's every option compared, with booking tips and practical advice for 2026.

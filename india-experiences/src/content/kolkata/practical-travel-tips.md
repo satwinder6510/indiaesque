@@ -3,8 +3,10 @@ title: "Kolkata Practical Travel Tips — Budget, Solo Travel & First-Time Guide
 description: "Essential tips for visiting Kolkata: budget planning, solo female travel, what first-time visitors need to know, and how to navigate the City of Joy."
 type: paa
 city: kolkata
+tier: "2"
 category: practical
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /kolkata/
@@ -24,6 +26,11 @@ relatedPages:
   - /kolkata/getting-around/
   - /kolkata/where-to-stay/
   - /kolkata/safety-guide/
+tags:
+  - "practical"
+  - "planning"
+  - "budget"
+  - "affordable"
 ---
 
 Kolkata is different from other Indian metros — slower, more intellectual, deeply literary. Here's how to navigate the City of Joy.

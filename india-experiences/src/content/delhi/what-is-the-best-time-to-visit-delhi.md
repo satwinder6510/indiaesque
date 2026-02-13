@@ -3,6 +3,7 @@ title: "What Is the Best Time to Visit Delhi?"
 description: "October to March is the best time to visit Delhi, with cool weather and clear skies. Avoid April-June (45C+). Season-by-season guide."
 type: paa
 city: delhi
+tier: "3"
 category: general
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/what-is-the-weather-like-in-delhi/
   - /delhi/what-should-i-pack-for-delhi/
   - /delhi/things-to-do-in-delhi-in-winter/
+tags:
+  - "weather"
+  - "planning"
+  - "when-to-visit"
+  - "seasons"
 ---
 
 **October to March is the best time to visit Delhi, with daytime temperatures between 10 and 28 degrees Celsius and mostly dry skies.** This six-month window covers Delhi's autumn, winter, and early spring — the only seasons when outdoor sightseeing is genuinely comfortable.

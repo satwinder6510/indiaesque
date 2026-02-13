@@ -3,8 +3,10 @@ title: "Planning Your Mumbai Trip — How Many Days, Best Time & Itineraries"
 description: "How many days you need in Mumbai, the best time to visit, weather by month, sample itineraries, and what makes Mumbai worth visiting."
 type: paa
 city: mumbai
+tier: "2"
 category: practical
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /mumbai/
@@ -26,6 +28,9 @@ relatedPages:
   - /mumbai/heritage-guide/
   - /mumbai/food-guide/
   - /mumbai/practical-travel-tips/
+tags:
+  - "practical"
+  - "planning"
 ---
 
 Mumbai rewards those who embrace its chaos. Here's how to plan your visit to the Maximum City.

@@ -2,6 +2,7 @@
 title: "Best Rooftop Bars In Jaipur"
 description: "Discover Jaipur's top rooftop bars with Amber Fort views. Drinks ₹400-1200, sunset reservations essential, fort illumination after 7 PM."
 city: "jaipur"
+tier: "3"
 category: "nightlife"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Yes, reservations are essential for sunset timing (6-8 PM) at popular spots like PCO and heritage hotel terraces. Call ahead, especially on weekends and during peak tourist season."
   - question: "Can you see Amber Fort from rooftop bars in Jaipur?"
     answer: "Several rooftop bars offer Amber Fort views, particularly heritage hotel terraces in the old city. The fort illumination starts at 7 PM, creating spectacular nighttime views for diners and drinkers."
+tags:
+  - "nightlife"
+  - "bars"
+  - "entertainment"
+  - "drinks"
+  - "rooftop"
 ---
 
 **Jaipur's best rooftop bars include PCO (Palace Cinema) with craft cocktails ₹600-1200, Tattoo Café offering panoramic city views with drinks ₹400-800, and heritage hotel terraces providing stunning Amber Fort views with beverages ranging ₹500-1000 ($6-12).**

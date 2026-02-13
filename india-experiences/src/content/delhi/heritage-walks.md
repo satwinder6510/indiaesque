@@ -2,6 +2,7 @@
 title: "Best Heritage Walks In Delhi — 2026"
 description: "Guided and self-guided heritage walks in Delhi covering 174 ASI monuments and 3 UNESCO sites. Routes, prices from ₹500, and practical tips."
 city: delhi
+tier: "2"
 category: heritage
 type: category
 datePublished: "2026-02-07"
@@ -23,6 +24,12 @@ faq:
     answer: "Delhi has 174 ASI-protected monuments and 3 UNESCO World Heritage Sites (Red Fort, Humayun's Tomb, Qutub Minar complex). That's more protected monuments than most countries."
   - question: "Can you do heritage walks without a guide?"
     answer: "Yes. Old Delhi (Chandni Chowk to Jama Masjid), Lodhi Gardens, and Mehrauli Archaeological Park are all easy to explore independently. Download offline maps — phone signal is patchy inside some monuments."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "walks"
+  - "tours"
 ---
 
 Delhi has 174 monuments protected by the Archaeological Survey of India and three UNESCO World Heritage Sites. Most visitors see three or four of these — Red Fort, Humayun's Tomb, Qutub Minar, maybe Jama Masjid — and call it done. But the real depth of Delhi's heritage sits in the dozens of tombs, mosques, step-wells, and fortress ruins scattered through parks, residential colonies, and even traffic roundabouts.

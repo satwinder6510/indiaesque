@@ -3,6 +3,7 @@ title: "How to Spend 1 Day in Delhi"
 description: "One day in Delhi covers Red Fort, Chandni Chowk, Humayun's Tomb, Lodhi Gardens, and Connaught Place. Here's a realistic hour-by-hour itinerary."
 type: paa
 city: delhi
+tier: "3"
 category: general
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,9 @@ relatedPages:
   - /delhi/how-many-days-do-you-need-in-delhi/
   - /delhi/how-to-use-delhi-metro/
   - /delhi/food-tours/
+tags:
+  - "overview"
+  - "first-time"
 ---
 
 **One day in Delhi is a sprint, but you can cover Old Delhi's Mughal heritage, the major New Delhi monuments, and still have time for a proper dinner.** The key is starting early, using the metro, and accepting that you'll barely scratch the surface.

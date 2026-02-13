@@ -3,8 +3,10 @@ title: "Planning Your Delhi Trip — Itineraries, Best Time & Weather"
 description: "How many days you need in Delhi, the best time to visit, sample itineraries for 1-3 days, and what to expect month by month."
 type: paa
 city: delhi
+tier: "2"
 category: practical
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /delhi/
@@ -28,6 +30,12 @@ relatedPages:
   - /delhi/where-should-i-stay-in-delhi/
   - /delhi/things-to-do/
   - /delhi/food-guide/
+tags:
+  - "practical"
+  - "planning"
+  - "weather"
+  - "climate"
+  - "seasons"
 ---
 
 ## How Many Days in Delhi?

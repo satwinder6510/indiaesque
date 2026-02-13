@@ -3,6 +3,7 @@ title: "Is Delhi Worth Visiting?"
 description: "Yes, Delhi is worth visiting — but it's not an easy city. Expect sensory overload, incredible food, Mughal monuments, and chaos. Here's what to know."
 type: paa
 city: delhi
+tier: "3"
 category: general
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/food-tours/
   - /delhi/is-delhi-safe-for-tourists/
   - /delhi/what-is-the-best-time-to-visit-delhi/
+tags:
+  - "overview"
+  - "first-time"
+  - "planning"
+  - "introduction"
 ---
 
 **Yes, Delhi is absolutely worth visiting, but you need to arrive with the right expectations.** It's not a relaxing beach destination or a picture-perfect European capital. Delhi is loud, crowded, occasionally overwhelming, and deeply rewarding if you lean into it.

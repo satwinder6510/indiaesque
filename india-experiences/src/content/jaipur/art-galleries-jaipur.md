@@ -2,6 +2,7 @@
 title: "Best Art Galleries In Jaipur"
 description: "Discover Jaipur's top art galleries from Gallery Art Positive to Sanganer studios. Find contemporary art, pricing, and artist interactions."
 city: "jaipur"
+tier: "3"
 category: "culture"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Sanganer artist studios offer original pieces starting at ₹2,000 ($24). The government emporium at Khadi Gramodyog Bhawan sells certified traditional art at fixed prices. Many galleries offer payment plans for expensive pieces."
   - question: "Do Jaipur art galleries offer artist interaction opportunities?"
     answer: "Yes, Gallery Art Positive hosts artist talks every third Saturday. Sanganer studios welcome visitors to watch artists work. Many galleries arrange meet-and-greets during exhibition openings, typically held on Friday evenings."
+tags:
+  - "culture"
+  - "heritage"
+  - "art"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **Jaipur's art scene combines contemporary galleries like Gallery Art Positive with traditional museum collections and working artist studios in Sanganer, offering art pieces from ₹2,000 to ₹50,000 ($24-$600) with regular exhibitions and artist interactions.**

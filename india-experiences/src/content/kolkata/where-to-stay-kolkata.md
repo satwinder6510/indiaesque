@@ -2,6 +2,7 @@
 title: "Where To Stay In Kolkata"
 description: "Best areas to stay in Kolkata: Park Street for central location, Sudder Street for budget travelers, Salt Lake for modern hotels."
 city: "kolkata"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,11 @@ faq:
     answer: "Sudder Street is Kolkata's backpacker hub with budget hotels and guesthouses ranging from ₹800-2,000 ($10-24) per night. It's central, safe, and has plenty of budget restaurants and travel agencies."
   - question: "Is Salt Lake a good area to stay in Kolkata?"
     answer: "Salt Lake offers modern infrastructure with shopping malls, restaurants, and newer hotels. It's quieter than central Kolkata but requires metro or taxi rides to reach major tourist attractions in the city center."
+tags:
+  - "practical"
+  - "planning"
+  - "accommodation"
+  - "hotels"
 ---
 
 **The best areas to stay in Kolkata are Park Street/Esplanade for central access to attractions (₹2,000-5,000/$24-60 per night), Sudder Street for budget travelers (₹800-2,000/$10-24), Salt Lake for modern amenities (₹3,000-8,000/$36-96), and the Airport area for transit stays (₹2,500-6,000/$30-72).**

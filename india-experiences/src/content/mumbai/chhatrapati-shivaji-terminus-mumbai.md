@@ -2,6 +2,7 @@
 title: "Chhatrapati Shivaji Terminus Guide"
 description: "Complete guide to Mumbai's iconic CST railway station - Victorian Gothic architecture, UNESCO heritage site, travel tips & photography rules."
 city: "mumbai"
+tier: "3"
 category: "heritage"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,10 @@ faq:
     answer: "Approximately 3 million passengers use Chhatrapati Shivaji Terminus daily, making it one of the busiest railway stations in the world. The station serves both suburban and long-distance trains connecting Mumbai to major Indian cities."
   - question: "What architectural style is CST built in?"
     answer: "CST showcases Victorian Gothic Revival architecture with Indian decorative elements. British architect Frederick William Stevens designed the building, incorporating pointed arches, ribbed vaults, and flying buttresses with Indian motifs and carvings."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
 ---
 
 **Chhatrapati Shivaji Terminus (CST) is a UNESCO World Heritage railway station in Mumbai, built in 1887 in Victorian Gothic Revival style with Indian architectural elements. This architectural marvel serves 3 million daily passengers and stands as one of Mumbai's most iconic landmarks.**

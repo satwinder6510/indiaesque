@@ -2,6 +2,7 @@
 title: "Nehru Bazaar Jaipur — Handicrafts Guide"
 description: "Complete guide to Nehru Bazaar handicrafts: blue pottery ₹100-2000, lac jewelry, carpets, antiques. Workshop visits, export services ₹500-1500."
 city: "jaipur"
+tier: "3"
 category: "markets"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Yes, most established shops provide export packaging for ₹500-1500 depending on item size and destination. They handle customs documentation and arrange door-to-door shipping through DHL or FedEx."
   - question: "How do I identify authentic handicrafts versus machine-made items?"
     answer: "Check for slight imperfections in hand-painted designs, uneven edges on pottery, and natural variations in color. Ask for quality certificates from government-approved artisan cooperatives and visit recommended workshops."
+tags:
+  - "markets"
+  - "shopping"
+  - "old-city"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **Nehru Bazaar specializes in authentic Rajasthani handicrafts including blue pottery (₹100-2000), lac jewelry, handwoven carpets, and antiques. Located near Hawa Mahal, the market offers workshop visits, export packaging services (₹500-1500), and government quality certificates for genuine handicrafts.**

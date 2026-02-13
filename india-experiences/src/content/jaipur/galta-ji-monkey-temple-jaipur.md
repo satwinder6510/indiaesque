@@ -2,6 +2,7 @@
 title: "Galta Ji Monkey Temple Jaipur Guide"
 description: "Visit Galta Ji Monkey Temple: ancient hilltop complex 10km from Jaipur with natural springs, playful monkeys, and sacred tanks."
 city: "jaipur"
+tier: "3"
 category: "spiritual"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Exercise caution around monkeys. Don't carry food, plastic bags, or loose items. Keep your distance, don't make sudden movements, and never try to touch them. They can be aggressive if they smell food."
   - question: "How much does it cost to visit Galta Ji Monkey Temple?"
     answer: "Entry to Galta Ji is free. You'll only pay for transportation - an auto-rickshaw costs ₹300-400 ($3.50-4.75) from Jaipur city center, or taxi fare around ₹500-700 ($6-8.50)."
+tags:
+  - "spiritual"
+  - "temples"
+  - "religious"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **Galta Ji Monkey Temple is an ancient hilltop temple complex located 10km east of Jaipur, famous for its natural springs, sacred water tanks, and hundreds of rhesus macaques that call this place home.**

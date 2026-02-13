@@ -2,6 +2,7 @@
 title: "Budget Travel In Kolkata"
 description: "Complete budget guide for Kolkata: ₹1000-4000 daily costs, cheap stays, street food, transport tips, and free attractions in 2026."
 city: "kolkata"
+tier: "3"
 category: "practical"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,11 @@ faq:
     answer: "Budget hostels in Sudder Street offer dorm beds from ₹400-800 ($5-10). Backpacker Lodge, Times Guest House, and Hotel Maria provide clean accommodation. Budget hotels in Park Street area start from ₹1,200 ($14) for private rooms."
   - question: "Is street food safe and cheap in Kolkata?"
     answer: "Street food is extremely affordable at ₹20-100 ($0.25-1.20) per item and generally safe if you choose busy stalls. Stick to hot, freshly prepared items and avoid raw vegetables or ice from uncertain sources."
+tags:
+  - "practical"
+  - "planning"
+  - "budget"
+  - "affordable"
 ---
 
 **Kolkata offers excellent value for budget travelers, with backpackers managing comfortably on ₹1,000-2,000 ($12-24) daily and mid-range travelers enjoying good comfort at ₹2,000-4,000 ($24-48) per day, including accommodation, food, and transport.**

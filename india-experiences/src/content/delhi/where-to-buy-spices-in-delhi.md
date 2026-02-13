@@ -3,6 +3,7 @@ title: "Where to Buy Spices in Delhi"
 description: "Khari Baoli in Old Delhi is Asia's largest spice market. Buy whole spices at wholesale prices — a fraction of supermarket costs. Here's what to get."
 type: paa
 city: delhi
+tier: "3"
 category: markets
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/what-are-the-best-markets-in-delhi/
   - /delhi/things-to-do-in-old-delhi-chandni-chowk/
   - /delhi/what-to-buy-in-delhi-as-souvenirs/
+tags:
+  - "markets"
+  - "shopping"
+  - "spices"
+  - "food"
 ---
 
 **Khari Baoli in Old Delhi is where you buy spices in Delhi — it's Asia's largest spice market, and prices here are 50-70% lower than Delhi supermarkets and a tiny fraction of what you'd pay abroad.** The market has operated near Fatehpuri Masjid since the Mughal era, and the smell hits you before you even turn the corner.

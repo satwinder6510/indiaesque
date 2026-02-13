@@ -2,6 +2,7 @@
 title: "Best Art Workshops In Jaipur"
 description: "Learn block printing at Anokhi Museum (₹2500), blue pottery at Neeru Kumar Studio (₹3000), jewelry making workshops (₹2000-4000)."
 city: "jaipur"
+tier: "3"
 category: "culture"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "You'll take home your finished creations - hand-printed fabric scarves, painted pottery items, handmade jewelry, or miniature paintings. Most workshops include materials and packaging for safe transport."
   - question: "How long do art workshops in Jaipur typically last?"
     answer: "Most workshops run 3-6 hours depending on the art form. Block printing takes 3-4 hours, blue pottery 4-5 hours, and jewelry making 3-6 hours. Some studios offer half-day and full-day options."
+tags:
+  - "culture"
+  - "heritage"
+  - "art"
+  - "workshops"
+  - "activities"
 ---
 
 **Jaipur offers excellent hands-on art workshops including block printing at Anokhi Museum (₹2,500/$30), blue pottery at Neeru Kumar Studio (₹3,000/$36), and jewelry making classes (₹2,000-4,000/$24-48). Most workshops run 3-6 hours and require advance booking.**

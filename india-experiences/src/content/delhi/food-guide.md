@@ -3,8 +3,10 @@ title: "Delhi Food Guide — Street Food, Restaurants & Culinary Experiences"
 description: "Old Delhi street food, butter chicken origins, best biryani, top restaurants, vegetarian options, and food tours. Where and what to eat in Delhi."
 type: paa
 city: delhi
+tier: "2"
 category: food
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /delhi/
@@ -28,6 +30,11 @@ relatedPages:
   - /delhi/neighbourhoods/
   - /delhi/safety-guide/
   - /delhi/food-tours/
+tags:
+  - "food"
+  - "where-to-eat"
+  - "street-food"
+  - "local-food"
 ---
 
 Delhi's food scene spans 400-year-old recipes in Old Delhi's lanes to modern restaurants pushing Indian cuisine forward. Here's where to eat and what to try.

@@ -3,6 +3,7 @@ title: "Things To Do in Delhi in Summer"
 description: "Beat 45°C heat with AC museums, mall escapes, cooking classes, and water parks. Plus why Delhi's summer low season saves you serious money."
 type: paa
 city: delhi
+tier: "3"
 category: experiences
 status: machine-draft
 datePublished: "2026-02-07"
@@ -22,6 +23,12 @@ relatedPages:
   - /delhi/what-should-i-pack-for-delhi/
   - /delhi/best-museums-in-delhi/
   - /delhi/is-delhi-expensive/
+tags:
+  - "experiences"
+  - "activities"
+  - "summer"
+  - "weather"
+  - "seasons"
 ---
 
 **Delhi in summer means temperatures above 40°C from April through June, so every worthwhile activity either happens before 9am or inside air conditioning.** It's the city's low season for a reason, but if you end up here during the hot months, you can still have a genuinely good time --- and save a lot of money doing it.

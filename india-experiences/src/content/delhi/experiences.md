@@ -2,6 +2,7 @@
 title: "Best Experiences In Delhi — 2026 Guide"
 description: "Beyond sightseeing: cooking classes, cycling tours, street art walks, and Sufi music in Delhi. Prices from ₹500 with booking details."
 city: delhi
+tier: "2"
 category: experiences
 type: category
 datePublished: "2026-02-07"
@@ -23,6 +24,9 @@ faq:
     answer: "Cooking classes in home kitchens (₹2,000-5,000), early morning cycling through Old Delhi (₹1,500-2,000), Lodhi Art District street art walks (free), Thursday evening Sufi qawwali at Nizamuddin Dargah (free), and Bollywood dance workshops."
   - question: "Are cooking classes worth it in Delhi?"
     answer: "Yes. Home cooking classes are the best value — you visit a local market, buy ingredients, and cook 4-5 dishes in someone's kitchen for ₹2,000-3,500. You leave with recipes and a full stomach."
+tags:
+  - "experiences"
+  - "activities"
 ---
 
 The standard Delhi itinerary hits Red Fort, Humayun's Tomb, Qutub Minar, and India Gate. These are worth seeing — but the experiences that actually change how you understand the city happen in someone's kitchen, on a bicycle at 6am, or sitting cross-legged at a Sufi shrine on a Thursday night.

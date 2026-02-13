@@ -2,6 +2,7 @@
 title: "Best Food Tours In Delhi — 2026"
 description: "Compare Delhi's best food tours from ₹1,500. Old Delhi street food walks, cooking class combos, and market tours with prices and booking info."
 city: delhi
+tier: "2"
 category: food
 type: category
 datePublished: "2026-02-07"
@@ -23,6 +24,11 @@ faq:
     answer: "Group food tours in Delhi cost ₹1,500-3,500 ($18-42) per person for 3-4 hours including 8-12 tastings. Private tours run ₹3,000-6,000. Most tours meet near Chandni Chowk or Chawri Bazaar metro station."
   - question: "Is street food safe in Delhi?"
     answer: "Street food in Delhi is generally safe if you pick busy stalls with high turnover. Cooked-to-order food is safest. Avoid pre-cut fruit, raw salads, and tap water ice. Guided food tours stick to vetted stalls."
+tags:
+  - "food"
+  - "where-to-eat"
+  - "tours"
+  - "activities"
 ---
 
 A food tour in Delhi is the fastest way to eat your way through 400 years of culinary history without getting lost in the lanes of Old Delhi or accidentally ordering something your stomach isn't ready for. The best tours cover 8-12 stops over 3-4 hours, and you'll eat more in a single morning than most restaurants serve in an evening.

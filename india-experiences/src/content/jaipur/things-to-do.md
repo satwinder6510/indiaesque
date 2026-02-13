@@ -3,8 +3,10 @@ title: "Things to Do in Jaipur — Complete Guide to the Pink City"
 description: "Best attractions, photography spots, family activities, free things to do, and experiences in Jaipur. What to see and why Jaipur is worth visiting."
 type: paa
 city: jaipur
+tier: "2"
 category: things-to-do
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /jaipur/
@@ -26,6 +28,9 @@ relatedPages:
   - /jaipur/food-guide/
   - /jaipur/shopping-guide/
   - /jaipur/planning-your-trip/
+tags:
+  - "jaipur"
+  - "day-trips"
 ---
 
 Jaipur rewards every type of traveller — history buffs, shoppers, foodies, photographers. Here's your complete guide to the Pink City.

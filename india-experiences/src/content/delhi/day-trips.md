@@ -2,6 +2,7 @@
 title: "Best Day Trips From Delhi — 2026 Guide"
 description: "Day trips from Delhi to Agra, Jaipur, Neemrana, and Mathura. Train times, costs from ₹750, and what to see on each trip."
 city: delhi
+tier: "2"
 category: daytrips
 type: category
 datePublished: "2026-02-07"
@@ -23,6 +24,9 @@ faq:
     answer: "Yes. The Gatimaan Express takes 1 hour 40 minutes from Hazrat Nizamuddin station. Leave at 6:10am, see the Taj Mahal and Agra Fort, return on the 5:50pm train. By car it's 3-4 hours each way via the Yamuna Expressway."
   - question: "What are the best day trips from Delhi?"
     answer: "Agra and the Taj Mahal (3-4 hours), Neemrana Fort Palace (2 hours), Mathura and Vrindavan (3 hours), and Bharatpur bird sanctuary (4 hours). Jaipur is possible but better as an overnight — it's 5-6 hours each way."
+tags:
+  - "day-trips"
+  - "excursions"
 ---
 
 Delhi sits at the centre of a web of highways and rail lines that reach some of northern India's most significant sites within a few hours. Agra and the Taj Mahal are the obvious draw, but Neemrana, Mathura, Bharatpur, and even Jaipur are reachable from Delhi in a day — with varying degrees of comfort and schedule tightness.

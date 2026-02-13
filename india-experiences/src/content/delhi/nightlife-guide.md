@@ -3,8 +3,10 @@ title: "Delhi Nightlife Guide — Bars, Clubs & Evening Experiences"
 description: "Best bars, craft beer, live music, rooftop lounges, and things to do after dark in Delhi. Hauz Khas, CP, and beyond."
 type: paa
 city: delhi
+tier: "2"
 category: nightlife
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /delhi/
@@ -28,6 +30,12 @@ relatedPages:
   - /delhi/neighbourhoods/
   - /delhi/safety-guide/
   - /delhi/food-guide/
+tags:
+  - "nightlife"
+  - "bars"
+  - "entertainment"
+  - "drinks"
+  - "after-dark"
 ---
 
 Delhi's nightlife runs from Sufi devotional music in medieval shrines to rooftop cocktail bars overlooking the city. Here's where to go after dark.

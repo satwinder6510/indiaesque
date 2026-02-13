@@ -2,6 +2,7 @@
 title: "Best Heritage Walks In Mumbai — 2026 Guide"
 description: "Explore Mumbai's colonial architecture and Art Deco heritage on guided walks (₹800-2,000) through Fort, CST, and Marine Drive."
 city: "mumbai"
+tier: "2"
 category: "heritage"
 type: "category"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "The Fort District walk covers colonial buildings and CST station. The Art Deco Marine Drive tour showcases 1930s architecture. The Ballard Estate walk explores Indo-Saracenic buildings. Each route takes 2-3 hours to complete."
   - question: "Can you do heritage walks without a guide in Mumbai?"
     answer: "Yes, you can explore heritage sites independently using self-guided apps or printed maps. Download StoryTrails or Detour for audio commentary. Most heritage buildings are accessible by foot, and you can follow marked walking routes in Fort and Colaba areas."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "walks"
+  - "tours"
 ---
 
 Mumbai houses the world's second-largest collection of Art Deco buildings after Miami, making heritage walks here exceptional for architecture lovers. You'll find guided tours ranging from ₹800-2,000 ($10-24) covering everything from Victorian Gothic structures to 1930s Art Deco masterpieces across South Mumbai's historic districts.

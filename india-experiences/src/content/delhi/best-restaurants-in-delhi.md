@@ -3,6 +3,7 @@ title: "Best Restaurants in Delhi"
 description: "Delhi's best restaurants include Indian Accent for fine dining, Bukhara for dal makhani, Karim's for Mughlai, and SodaBottleOpenerWala for Parsi food."
 type: paa
 city: delhi
+tier: "3"
 category: food
 status: machine-draft
 datePublished: "2026-02-07"
@@ -25,6 +26,9 @@ relatedPages:
   - /delhi/best-cafes-in-delhi/
   - /delhi/where-to-eat-in-old-delhi/
   - /delhi/best-biryani-in-delhi/
+tags:
+  - "food"
+  - "where-to-eat"
 ---
 
 **Delhi's best restaurants span from the legendary Bukhara at ITC Maurya for dal makhani and tandoori meats, to Indian Accent for modern Indian fine dining, to Karim's for Mughlai kebabs that have been on the grill since 1913.** This is a city where you can spend ₹100 or ₹10,000 on a meal and both can be exceptional.

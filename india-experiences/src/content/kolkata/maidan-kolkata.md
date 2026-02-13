@@ -2,6 +2,7 @@
 title: "Maidan Kolkata Guide"
 description: "Complete guide to Maidan Kolkata - India's largest urban park. Free entry, morning activities, cricket grounds, food stalls & safety tips."
 city: "kolkata"
+tier: "3"
 category: "nature"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,9 @@ faq:
     answer: "Horse riding at Maidan costs ₹100-200 ($1.20-2.40) for a 10-15 minute ride. Early morning hours from 6-8 AM offer the best experience with cooler weather and fewer crowds."
   - question: "Can you enter Maidan for free?"
     answer: "Yes, entry to Maidan is completely free. You can walk, jog, play sports, and enjoy the green space without any charges. Only specific venues like Eden Gardens stadium charge entry fees."
+tags:
+  - "nature"
+  - "outdoors"
 ---
 
 **Maidan is India's largest urban park, spanning 400 hectares in central Kolkata. This massive green lung offers free entry, morning horse riding (₹100-200), cricket grounds, food stalls, and serves as the city's primary recreational space with safe, well-lit areas.**

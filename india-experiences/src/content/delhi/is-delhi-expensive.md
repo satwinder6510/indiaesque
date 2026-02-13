@@ -3,6 +3,7 @@ title: "Is Delhi Expensive?"
 description: "Delhi is cheap by Western standards. Budget travellers can get by on ₹2,000-3,000 ($24-36) a day. Mid-range costs ₹5,000-10,000. Here's the full breakdown."
 type: paa
 city: delhi
+tier: "3"
 category: general
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,9 @@ relatedPages:
   - /delhi/where-should-i-stay-in-delhi/
   - /delhi/food-tours/
   - /delhi/how-to-get-around-delhi/
+tags:
+  - "overview"
+  - "first-time"
 ---
 
 **Delhi is remarkably cheap by Western standards.** A budget traveller can get through a full day on ₹2,000-3,000 ($24-36), including a hostel bed, three meals, metro rides, and a couple of monument entries. Mid-range comfort runs ₹5,000-10,000 ($60-120) per day. Luxury has no ceiling.

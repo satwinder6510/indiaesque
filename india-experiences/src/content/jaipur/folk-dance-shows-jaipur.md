@@ -2,6 +2,7 @@
 title: "Folk Dance Shows In Jaipur"
 description: "Complete guide to folk dance shows in Jaipur. Best venues, timings, prices & traditional dances like Ghoomar & Kalbeliya."
 city: "jaipur"
+tier: "3"
 category: "culture"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Entry-only shows cost ₹30-60 ($0.35-0.70) at venues like Bagore Ki Haveli. Dinner packages with folk dance performances at heritage hotels range from ₹1,500-3,000 ($18-36) per person."
   - question: "Can you take photos during folk dance performances?"
     answer: "Photography policies vary by venue. Bagore Ki Haveli allows photos without flash for ₹10 extra. Heritage hotels generally permit photography during dinner shows, but always confirm with staff before the performance begins."
+tags:
+  - "culture"
+  - "heritage"
+  - "dance"
+  - "entertainment"
+  - "jaipur"
 ---
 
 **Jaipur offers authentic folk dance shows at Bagore Ki Haveli (₹30-60), heritage hotels, and cultural centers. Performances feature traditional Rajasthani dances like Ghoomar and Kalbeliya, typically running from 7-8 PM with dinner packages available for ₹1,500-3,000.**

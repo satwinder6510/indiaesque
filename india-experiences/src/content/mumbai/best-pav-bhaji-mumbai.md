@@ -2,6 +2,7 @@
 title: "Best Pav Bhaji In Mumbai"
 description: "Discover Mumbai's best pav bhaji spots from Sardar and Canon to Juhu Beach stalls. Complete guide with prices, locations & what makes each special."
 city: "mumbai"
+tier: "3"
 category: "food"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,9 @@ faq:
     answer: "Tardeo houses the legendary Sardar Pav Bhaji, while Bandra offers Amrit Sagar. For beachside experience, Juhu and Chowpatty have excellent stalls. Each area offers a different atmosphere but equally delicious pav bhaji."
   - question: "What comes with pav bhaji in Mumbai?"
     answer: "Every pav bhaji plate comes with chopped onions, lemon wedges, and sometimes green chilies. The pav is buttered and grilled, while the bhaji is topped with butter, onions, and coriander. Some places add cheese for extra charge."
+tags:
+  - "food"
+  - "where-to-eat"
 ---
 
 **Mumbai's best pav bhaji spots include Sardar Pav Bhaji in Tardeo, Canon Pav Bhaji near Churchgate, and Amrit Sagar in Bandra, all charging ₹80-150 ($1-2) per plate. Beachside stalls at Juhu and Chowpatty offer equally delicious versions with ocean views.**

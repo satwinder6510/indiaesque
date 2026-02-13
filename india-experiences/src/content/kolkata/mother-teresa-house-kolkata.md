@@ -2,6 +2,7 @@
 title: "Mother Teresa House Kolkata Guide"
 description: "Visit Mother Teresa's Motherhouse in Kolkata - location, visiting hours 8-11:45 AM & 3-6 PM, free entry, dress code, tomb & museum details."
 city: "kolkata"
+tier: "3"
 category: "heritage"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,10 @@ faq:
     answer: "Photography is strictly prohibited inside the Motherhouse, including near Mother Teresa's tomb and in the museum. You can take photos outside the building."
   - question: "Where is Mother Teresa House located in Kolkata?"
     answer: "The Motherhouse is at 54A, A. J. C. Bose Road in Park Circus area. Take the metro to Park Street or Sealdah station, then a taxi or bus to reach the location."
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
 ---
 
 **Mother Teresa House, officially called the Motherhouse, is located at 54A, A. J. C. Bose Road in Kolkata's Park Circus area. The house serves as the headquarters of the Missionaries of Charity and contains Mother Teresa's tomb, a small museum, and welcomes visitors daily from 8:00-11:45 AM and 3:00-6:00 PM.**

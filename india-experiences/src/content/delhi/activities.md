@@ -3,8 +3,10 @@ title: "Delhi Activities — Cooking Classes, Tours, Yoga & Experiences"
 description: "Cooking classes, cycling tours, walking tours, yoga, Bollywood experiences, and street art in Delhi. Hands-on experiences beyond sightseeing."
 type: paa
 city: delhi
+tier: "2"
 category: activities
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /delhi/
@@ -28,6 +30,12 @@ relatedPages:
   - /delhi/food-guide/
   - /delhi/heritage-guide/
   - /delhi/neighbourhoods/
+tags:
+  - "activities"
+  - "things-to-do"
+  - "tours"
+  - "yoga"
+  - "wellness"
 ---
 
 Delhi offers hands-on experiences beyond monument visits. Here's where to cook, cycle, walk, stretch, and explore.

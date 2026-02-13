@@ -3,6 +3,7 @@ title: "What Is the Best Month to Visit Delhi?"
 description: "November and February are the best months to visit Delhi. November has post-monsoon freshness and Diwali. February brings mild weather and clear skies."
 type: paa
 city: delhi
+tier: "3"
 category: general
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/best-time-to-visit-delhi-for-festivals/
   - /delhi/what-is-the-weather-like-in-delhi/
   - /delhi/what-should-i-pack-for-delhi/
+tags:
+  - "weather"
+  - "planning"
+  - "when-to-visit"
+  - "seasons"
 ---
 
 **November and February are the two best months to visit Delhi.** November offers post-monsoon freshness and Diwali celebrations, while February brings mild temperatures, improving air quality, and the start of Delhi's flowering season. Both avoid the extreme heat and heavy rain that define most of the year.

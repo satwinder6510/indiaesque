@@ -2,6 +2,7 @@
 title: "Bollywood Tours In Mumbai"
 description: "Explore Mumbai's Bollywood scene with Film City tours (₹1,200-2,500), celebrity home tours, studio visits, and iconic cinema experiences."
 city: "mumbai"
+tier: "3"
 category: "culture"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,11 @@ faq:
     answer: "Yes, advance booking is essential, especially for Film City tours which require 48-hour notice. Celebrity home tours can be booked same-day, but weekend slots fill up quickly during peak season."
   - question: "Can you meet celebrities on these tours?"
     answer: "Meeting celebrities isn't guaranteed as it depends on shooting schedules. Film City tours may offer glimpses during active shoots, but maintain respectful distances. Celebrity homes are viewed from outside only for privacy reasons."
+tags:
+  - "culture"
+  - "heritage"
+  - "tours"
+  - "activities"
 ---
 
 **Mumbai's Bollywood tours range from ₹1,200-2,500 ($14-30) for Film City experiences to celebrity home tours in Juhu and Bandra, plus visits to iconic theaters and museums showcasing India's film capital.**

@@ -2,6 +2,7 @@
 title: "Best Street Food In Kolkata"
 description: "Discover Kolkata's best street food from ₹10 puchka to ₹80 kathi rolls. Guide to top dishes, locations, prices & safety tips."
 city: "kolkata"
+tier: "3"
 category: "food"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,11 @@ faq:
     answer: "New Market, Park Street, College Street, and Tiretta Bazaar offer the best variety. Each area specializes in different items - Tiretta Bazaar for Chinese breakfast, College Street for traditional Bengali snacks."
   - question: "Is Kolkata street food safe for tourists?"
     answer: "Yes, when you choose busy stalls with high turnover, eat freshly prepared food, and drink bottled water. Avoid raw items and stick to well-cooked dishes during your first few days."
+tags:
+  - "food"
+  - "where-to-eat"
+  - "street-food"
+  - "local-food"
 ---
 
 **Kolkata's street food scene offers incredible flavors at unbeatable prices - from ₹10 ($0.12) jhal muri to ₹80 ($0.95) kathi rolls. The best spots are New Market, Park Street, College Street, and Tiretta Bazaar, where you'll find everything from Bengali classics to Indo-Chinese fusion.**

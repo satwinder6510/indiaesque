@@ -2,6 +2,7 @@
 title: "Central Park Jaipur — Jogging Track Guide"
 description: "Complete guide to Central Park Jaipur's 5.25km jogging track, ₹5 entry fee, musical fountain at 7 PM, metro access & morning timings."
 city: "jaipur"
+tier: "3"
 category: "nature"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "The musical fountain show at Central Park starts at 7 PM daily and runs for approximately 30 minutes. It's free to watch once you've paid the park entry fee."
   - question: "How long is the jogging track at Central Park Jaipur?"
     answer: "The main jogging track at Central Park is 5.25 kilometers long. There's also a shorter 2.5km inner track for beginners or those wanting a lighter workout."
+tags:
+  - "nature"
+  - "outdoors"
+  - "parks"
+  - "jaipur"
+  - "day-trips"
 ---
 
 **Central Park Jaipur features a well-maintained 5.25km jogging track with ₹5 entry fee, musical fountain shows at 7 PM, and direct metro connectivity via Central Park station. The park opens for morning walks at 5:30 AM.**

@@ -3,6 +3,7 @@ title: "Self-Guided Walking Tour of Old Delhi"
 description: "A 3-4 hour self-guided walking tour from Chandni Chowk Metro to Jama Masjid. Route map, food stops, distances, and practical tips for 2026."
 type: paa
 city: delhi
+tier: "3"
 category: heritage
 status: machine-draft
 datePublished: "2026-02-07"
@@ -25,6 +26,12 @@ relatedPages:
   - /delhi/food-tours/
   - /delhi/what-is-paranthe-wali-gali/
   - /delhi/how-to-avoid-scams-in-delhi/
+tags:
+  - "heritage"
+  - "history"
+  - "monuments"
+  - "walks"
+  - "tours"
 ---
 
 **You can walk the essential highlights of Old Delhi on your own in 3-4 hours, starting at Chandni Chowk Metro station and ending at Jama Masjid, covering roughly 3 kilometres through the bazaars, food lanes, and Mughal-era streets of Shahjahanabad.** No guide is needed — the route below is linear and easy to follow with a phone map.

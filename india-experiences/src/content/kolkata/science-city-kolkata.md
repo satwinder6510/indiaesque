@@ -2,6 +2,7 @@
 title: "Science City Kolkata Guide"
 description: "Complete guide to Science City Kolkata - entry fees ₹30-200, Space Odyssey, 3D theaters, advance booking tips and full day itinerary."
 city: "kolkata"
+tier: "3"
 category: "culture"
 type: "paa"
 datePublished: "2026-02-09"
@@ -25,6 +26,9 @@ faq:
     answer: "Yes, you can book tickets online through the official Science City website. Advance booking is recommended, especially on weekends and holidays when crowds are larger."
   - question: "What are the entry fees for different sections at Science City?"
     answer: "Entry fees range from ₹30-200 ($0.35-2.40) depending on sections. Basic entry is ₹30, while premium experiences like 3D theaters and Space Odyssey cost ₹100-200 each."
+tags:
+  - "culture"
+  - "heritage"
 ---
 
 **Science City Kolkata is the largest science center in the Indian subcontinent, featuring interactive exhibits, 3D theaters, and Space Odyssey experiences. Entry fees range from ₹30-200 ($0.35-2.40) per section, and you need a full day to explore everything.**

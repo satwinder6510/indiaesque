@@ -3,8 +3,10 @@ title: "Mumbai Practical Travel Tips — Budget, Money, SIM & Monsoon Guide"
 description: "Essential tips for visiting Mumbai: budget planning, currency, SIM cards, monsoon travel, and what first-time visitors need to know about India's maximum city."
 type: paa
 city: mumbai
+tier: "2"
 category: practical
 status: published
+priority: 9
 datePublished: "2026-02-13"
 dateModified: "2026-02-13"
 parentPage: /mumbai/
@@ -26,6 +28,12 @@ relatedPages:
   - /mumbai/getting-around/
   - /mumbai/where-to-stay/
   - /mumbai/safety-guide/
+tags:
+  - "practical"
+  - "planning"
+  - "budget"
+  - "affordable"
+  - "monsoon"
 ---
 
 Mumbai moves fast and costs more than other Indian cities. Here's how to navigate the Maximum City.

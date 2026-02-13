@@ -2,6 +2,7 @@
 title: "Sanjay Gandhi National Park Mumbai"
 description: "Complete guide to Sanjay Gandhi National Park: 104 sq km urban wildlife sanctuary with 35+ leopards, Kanheri Caves, lion safari, toy train."
 city: "mumbai"
+tier: "3"
 category: "nature"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,10 @@ faq:
     answer: "The best time to visit is October to March when temperatures are cooler and humidity is lower. Early morning visits between 7:30 AM and 10:00 AM offer the best wildlife spotting opportunities and comfortable walking conditions."
   - question: "Are there really leopards in Sanjay Gandhi National Park?"
     answer: "Yes, Sanjay Gandhi National Park has over 35 leopards living within its boundaries. This makes it one of the few urban national parks with a significant leopard population. Most sightings occur during early morning or late evening hours."
+tags:
+  - "nature"
+  - "outdoors"
+  - "parks"
 ---
 
 **Sanjay Gandhi National Park is a 104 square kilometer urban wildlife sanctuary in Mumbai housing over 35 leopards, ancient Kanheri Caves, and offering lion safari experiences. Entry costs ₹44 ($0.50) for adults, with the best visiting time being October to March.**

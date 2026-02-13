@@ -3,6 +3,7 @@ title: "Yoga Classes in Delhi for Tourists"
 description: "Drop-in yoga classes in Delhi cost ₹500-1,000 per session. Sivananda Yoga Centre, Yoga Kshema, and Hauz Khas studios welcome walk-ins."
 type: paa
 city: delhi
+tier: "3"
 category: experiences
 status: machine-draft
 datePublished: "2026-02-07"
@@ -24,6 +25,11 @@ relatedPages:
   - /delhi/things-to-do-in-hauz-khas/
   - /delhi/things-to-do-in-delhi-in-winter/
   - /delhi/best-free-things-to-do-in-delhi/
+tags:
+  - "wellness"
+  - "yoga"
+  - "activities"
+  - "classes"
 ---
 
 **Drop-in yoga classes in Delhi cost ₹500-1,000 ($6-12) per session, and several well-established centres welcome tourists without requiring advance booking or monthly memberships.** The Sivananda Yoga Vedanta Centre, Yoga Kshema, and studios around Hauz Khas are the most accessible options.

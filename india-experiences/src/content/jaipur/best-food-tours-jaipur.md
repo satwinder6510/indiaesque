@@ -2,6 +2,7 @@
 title: "Best Food Tours In Jaipur"
 description: "Discover Jaipur's best food tours from ₹1500 guided Old City walks to ₹5000 heritage hotel cooking classes. Complete guide with prices & tips."
 city: "jaipur"
+tier: "3"
 category: "food"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Yes, most operators accommodate vegetarian, vegan, and gluten-free diets with advance notice. Jaipur's strong vegetarian culture makes it particularly easy to find meat-free options on any tour."
   - question: "Which areas do food tours cover in Jaipur?"
     answer: "Most tours focus on Old City areas like Johari Bazaar, Bapu Bazaar, and Chandpole. Some include visits to local homes in residential areas or heritage hotels for cooking experiences."
+tags:
+  - "food"
+  - "where-to-eat"
+  - "tours"
+  - "activities"
+  - "jaipur"
 ---
 
 **The best food tours in Jaipur range from ₹1,500-2,500 ($18-30) guided walks through Old City to ₹3,000-5,000 ($36-60) cooking classes at heritage hotels, with most lasting 3-5 hours.**

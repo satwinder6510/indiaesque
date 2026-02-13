@@ -2,6 +2,7 @@
 title: "Live Music Venues In Mumbai"
 description: "Mumbai's live music scene spans indie venues in Bandra, classical halls, and Bollywood karaoke. Entry fees from ₹500-2,000 ($6-24)."
 city: "mumbai"
+tier: "3"
 category: "nightlife"
 type: "paa"
 datePublished: "2026-02-08"
@@ -25,6 +26,12 @@ faq:
     answer: "Bandra West hosts several indie venues including The Quarter, Shiro, and Toto's Garage. These spots regularly feature local bands and singer-songwriters with covers around ₹800-1,200 ($10-14)."
   - question: "Are there classical music venues in Mumbai?"
     answer: "NCPA (Nariman Point), Tata Theatre, and Prithvi Theatre host classical performances. Tickets range from ₹300-2,500 ($4-30) depending on the artist and seating."
+tags:
+  - "nightlife"
+  - "bars"
+  - "entertainment"
+  - "music"
+  - "live-music"
 ---
 
 **Mumbai's live music scene offers everything from indie rock venues in Bandra West to classical concerts at NCPA, with cover charges typically ranging from ₹500-2,000 ($6-24). The city's music venues cater to diverse tastes, from Bollywood karaoke nights to underground jazz clubs.**
