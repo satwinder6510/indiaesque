@@ -294,6 +294,39 @@ export default function Dashboard() {
                 </span>
               </div>
             </Link>
+
+            {/* SEO Content Card */}
+            <Link
+              href="/seo"
+              className="block bg-[var(--background-card)] rounded-2xl p-6 border border-[var(--border)] hover:border-[var(--primary)] hover:shadow-lg transition-all group"
+            >
+              <div className="flex items-start justify-between">
+                <div>
+                  <div className="text-[var(--primary)] mb-4 group-hover:scale-110 transition-transform inline-block">
+                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-[var(--foreground)] mb-1">
+                    SEO Content
+                  </h3>
+                  <p className="text-[var(--foreground-muted)] text-sm mb-4">
+                    Generate & validate pages
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center justify-between text-sm pt-4 border-t border-[var(--border)]">
+                <span className="text-[var(--foreground-muted)]">
+                  AI detection, content banks
+                </span>
+                <span className="text-[var(--primary)] font-medium group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                  Manage
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </div>
+            </Link>
           </div>
         )}
       </main>
