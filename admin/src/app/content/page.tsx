@@ -472,6 +472,7 @@ export default function ContentPage() {
                         <th className="text-left py-3 px-4 text-sm font-medium text-[var(--foreground-muted)]">Slug</th>
                         <th className="text-left py-3 px-4 text-sm font-medium text-[var(--foreground-muted)]">Tier</th>
                         <th className="text-left py-3 px-4 text-sm font-medium text-[var(--foreground-muted)]">Status</th>
+                        <th className="text-left py-3 px-4 text-sm font-medium text-[var(--foreground-muted)]">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -493,6 +494,18 @@ export default function ContentPage() {
                             <span className={`px-2 py-1 rounded text-xs font-medium ${getStatusColor(page.status)}`}>
                               {page.status}
                             </span>
+                          </td>
+                          <td className="py-3 px-4">
+                            {page.status === "generated" ? (
+                              <Link
+                                href={`/content/edit/${selectedCity}/${page.slug}`}
+                                className="text-[var(--primary)] hover:underline text-sm"
+                              >
+                                Edit
+                              </Link>
+                            ) : (
+                              <span className="text-[var(--foreground-muted)] text-sm">—</span>
+                            )}
                           </td>
                         </tr>
                       ))}
