@@ -7,9 +7,9 @@
     "build": "next build --no-lint",
     "start": "next start",
     "lint": "eslint",
-    "cf:build": "npx @cloudflare/next-on-pages",
+    "cf:build": "npx opennextjs-cloudflare build",
     "cf:dev": "npx wrangler dev",
-    "cf:deploy": "npm run cf:build && npx wrangler deploy"
+    "cf:deploy": "npm run cf:build && npx wrangler pages deploy"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.74.0",
@@ -22,7 +22,7 @@
     "sharp": "^0.34.5"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.16",
+    "@opennextjs/cloudflare": "^1.16.5",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
