@@ -15,8 +15,16 @@ interface Experience {
   listImage: string;
   heroImage: string;
   href: string;
-  viatorTagId: number;
+  viatorTagId?: number;
   showOnHomepage?: boolean;
+  // Curated experience fields
+  curated?: boolean;
+  cities?: string[];
+  price?: string;
+  duration?: string;
+  bookingUrl?: string;
+  priority?: number;
+  active?: boolean;
 }
 
 export async function GET() {
@@ -84,7 +92,7 @@ export async function PUT(request: Request) {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, slug, category, description, viatorTagId } = body;
+    const { name, slug, category, description, viatorTagId, curated, cities, price, duration, bookingUrl, priority } = body;
 
     if (!name || !slug) {
       return NextResponse.json({ error: "Name and slug are required" }, { status: 400 });
@@ -98,7 +106,24 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Experience with this slug already exists" }, { status: 400 });
     }
 
-    const newExperience: Experience = {
+    const newExperience: Experience = curated ? {
+      name,
+      slug,
+      category: category || "Curated",
+      description: description || "",
+      cardImage: "",
+      listImage: "",
+      heroImage: "",
+      href: bookingUrl || "",
+      curated: true,
+      cities: cities || [],
+      price: price || "",
+      duration: duration || "",
+      bookingUrl: bookingUrl || "",
+      priority: priority || 10,
+      active: true,
+      showOnHomepage: false,
+    } : {
       name,
       slug,
       category: category || "Tours",
