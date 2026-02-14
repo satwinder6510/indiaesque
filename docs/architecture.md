@@ -2,7 +2,7 @@
 
 **Reference document. Consult before making any structural changes.**
 
-Last updated: 2026-02-13 (Added: City image management, hero image inheritance)
+Last updated: 2026-02-14 (Added: Experiences Admin)
 
 ---
 
@@ -32,6 +32,7 @@ Last updated: 2026-02-13 (Added: City image management, hero image inheritance)
 19. About Page Admin
 20. SEO Implementation
 21. Footer Structure
+22. Experiences Admin
 
 ---
 
@@ -2609,6 +2610,69 @@ Clean, minimal footer used across the site.
 - Headings: Oswald, 12px, 400 weight, 0.2em letter-spacing
 - Body: Muli, 14-15px
 - Links: Muli, 14px, #6b7280 (hover: #2a9d8f)
+
+---
+
+## 22. Experiences Admin
+
+Admin interface for managing experience types shown on the homepage and throughout the site.
+
+### Admin URL
+
+`/experiences` in the Next.js admin app
+
+### Data Source
+
+**File:** `india-experiences/src/data/experiences.json`
+
+```json
+{
+  "name": "Food Tours",
+  "slug": "food-tours",
+  "category": "Culinary",
+  "description": "Discover India through its flavours...",
+  "cardImage": "/images/experiences/food-tours-card.jpg",
+  "listImage": "/images/experiences/food-tours-list.jpg",
+  "heroImage": "/images/experiences/food-tours-hero.jpg",
+  "href": "/experiences/food-tours/",
+  "viatorTagId": 21911,
+  "showOnHomepage": true
+}
+```
+
+### Features
+
+| Feature | Description |
+|---------|-------------|
+| Homepage Toggle | Switch to show/hide experience on homepage "Featured Experiences" section |
+| Image Upload | Upload image, auto-resized to card (400×400), list (800×500), hero (1200×600) |
+| Edit Details | Name, category, description, Viator tag ID |
+| External Badge | Shows "EXT" for experiences still using external Unsplash URLs |
+
+### Image Storage
+
+**Directory:** `india-experiences/public/images/experiences/`
+
+| Size | Dimensions | Naming |
+|------|------------|--------|
+| Card | 400×400 | `{slug}-card.jpg` |
+| List | 800×500 | `{slug}-list.jpg` |
+| Hero | 1200×600 | `{slug}-hero.jpg` |
+
+### API Endpoints
+
+| Method | Endpoint | Purpose |
+|--------|----------|---------|
+| GET | `/api/experiences` | List all experiences with image status |
+| PUT | `/api/experiences` | Update experience (toggle, details) |
+| POST | `/api/experiences` | Create new experience |
+| DELETE | `/api/experiences?slug=x` | Delete experience |
+
+### Homepage Integration
+
+Experiences with `showOnHomepage: true` appear in the "Featured Experiences" section on the homepage. The homepage reads from `experiences.json` and filters by this flag.
+
+**File:** `india-experiences/src/pages/index.astro` (lines 24-30)
 
 ---
 
