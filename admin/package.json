@@ -7,9 +7,9 @@
     "build": "next build --no-lint",
     "start": "next start",
     "lint": "eslint",
-    "pages:build": "npx @cloudflare/next-on-pages",
-    "pages:dev": "npx wrangler pages dev .vercel/output/static --compatibility-flag=nodejs_compat",
-    "pages:deploy": "npm run pages:build && npx wrangler pages deploy .vercel/output/static"
+    "cf:build": "npx @cloudflare/next-on-pages",
+    "cf:dev": "npx wrangler dev",
+    "cf:deploy": "npm run cf:build && npx wrangler deploy"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.74.0",
