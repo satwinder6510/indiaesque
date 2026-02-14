@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readJSON, writeJSON } from "@/lib/github";
-import fs from "fs";
-import path from "path";
 
 const DATA_PATH = "india-experiences/src/data/about.json";
 
@@ -31,33 +29,14 @@ interface AboutData {
   };
 }
 
-// Check if we have GitHub credentials
-const useGitHub = !!(process.env.GITHUB_TOKEN && process.env.GITHUB_OWNER && process.env.GITHUB_REPO);
-
-// Helper to get local path
-const getLocalPath = () => path.join(process.cwd(), "..", "india-experiences", "src", "data", "about.json");
-
 // Helper to read about data
 async function getAbout(): Promise<AboutData | null> {
-  if (useGitHub) {
-    return await readJSON<AboutData>(DATA_PATH);
-  } else {
-    const localPath = getLocalPath();
-    if (fs.existsSync(localPath)) {
-      return JSON.parse(fs.readFileSync(localPath, "utf-8"));
-    }
-    return null;
-  }
+  return await readJSON<AboutData>(DATA_PATH);
 }
 
 // Helper to save about data
 async function saveAbout(data: AboutData, message: string): Promise<void> {
-  if (useGitHub) {
-    await writeJSON(DATA_PATH, data, message);
-  } else {
-    const localPath = getLocalPath();
-    fs.writeFileSync(localPath, JSON.stringify(data, null, 2));
-  }
+  await writeJSON(DATA_PATH, data, message);
 }
 
 /**

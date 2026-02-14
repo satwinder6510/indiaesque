@@ -1,6 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import { listDirectory, uploadBinaryFile, readJSON, writeJSON } from "@/lib/github";
-import { processImage, imageSizes, getImageMetadata } from "@/lib/image-processor";
+
+// Try to import sharp-based processor, fall back to simple upload
+let processImage: any = null;
+let getImageMetadata: any = null;
+let imageSizes: any = {};
+
+try {
+  const processor = require("@/lib/image-processor");
+  processImage = processor.processImage;
+  getImageMetadata = processor.getImageMetadata;
+  imageSizes = processor.imageSizes;
+} catch {
+  // Sharp not available (e.g., on Cloudflare)
+  console.log("Image processor not available, using simple upload");
+}
 
 const IMAGES_BASE = "india-experiences/public/images";
 const DATA_BASE = "india-experiences/src/data";
@@ -91,7 +105,7 @@ export async function GET(request: NextRequest) {
       category,
       name,
       images,
-      requiredSizes: requiredSizes.map(s => ({
+      requiredSizes: requiredSizes.map((s: { name: string; width: number; height: number }) => ({
         variant: s.name,
         width: s.width,
         height: s.height,
@@ -137,44 +151,65 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Map category to processor key
-    const categoryKey = category === "cities" ? "city" :
-                        category === "staycations" ? "staycation" :
-                        category === "experiences" ? "experience" :
-                        category === "content" ? "content" : "general";
-
     // Get image buffer
     const arrayBuffer = await file.arrayBuffer();
     const inputBuffer = Buffer.from(arrayBuffer);
 
-    // Get original image metadata
-    const metadata = await getImageMetadata(inputBuffer);
-
-    // Process image into all required sizes
-    const processedImages = await processImage(inputBuffer, categoryKey, name);
-
-    // Upload all processed images to GitHub
     const uploadResults = [];
-    for (const img of processedImages) {
-      const path = `${IMAGES_BASE}/${category}/${img.name}`;
-      const base64Content = img.buffer.toString("base64");
+
+    // Check if image processing is available (has sharp)
+    if (processImage && getImageMetadata) {
+      // Map category to processor key
+      const categoryKey = category === "cities" ? "city" :
+                          category === "staycations" ? "staycation" :
+                          category === "experiences" ? "experience" :
+                          category === "content" ? "content" : "general";
+
+      // Process image into all required sizes
+      const processedImages = await processImage(inputBuffer, categoryKey, name);
+
+      // Upload all processed images to GitHub
+      for (const img of processedImages) {
+        const path = `${IMAGES_BASE}/${category}/${img.name}`;
+        const base64Content = img.buffer.toString("base64");
+
+        const result = await uploadBinaryFile(
+          path,
+          base64Content,
+          `feat(images): add ${img.name} [admin-tool]`
+        );
+
+        uploadResults.push({
+          name: img.name,
+          path,
+          width: img.width,
+          height: img.height,
+          size: img.size,
+          url: getGitHubRawUrl(path),
+          publicUrl: `/images/${category}/${img.name}`,
+          sha: result.sha,
+        });
+      }
+    } else {
+      // Simple upload without resizing (for Cloudflare compatibility)
+      const imageName = `${name}-card.jpg`; // Default to card variant
+      const path = `${IMAGES_BASE}/${category}/${imageName}`;
+      const base64Content = inputBuffer.toString("base64");
 
       const result = await uploadBinaryFile(
         path,
         base64Content,
-        `feat(images): add ${img.name} [admin-tool]`
+        `feat(images): add ${imageName} [admin-tool]`
       );
 
       uploadResults.push({
-        name: img.name,
+        name: imageName,
         path,
-        width: img.width,
-        height: img.height,
-        size: img.size,
-        // Use raw GitHub URL for admin display
+        width: 0,
+        height: 0,
+        size: inputBuffer.length,
         url: getGitHubRawUrl(path),
-        // Keep relative path for storing in JSON (used by public site)
-        publicUrl: `/images/${category}/${img.name}`,
+        publicUrl: `/images/${category}/${imageName}`,
         sha: result.sha,
       });
     }
@@ -231,13 +266,11 @@ export async function POST(request: NextRequest) {
       status: "success",
       original: {
         name: file.name,
-        width: metadata.width,
-        height: metadata.height,
-        size: metadata.size,
+        size: inputBuffer.length,
       },
       generated: uploadResults,
       jsonUpdated,
-      message: `Generated ${uploadResults.length} image sizes${jsonUpdated ? " and updated data file" : ""}`,
+      message: `Uploaded ${uploadResults.length} image(s)${jsonUpdated ? " and updated data file" : ""}`,
     });
   } catch (error) {
     console.error("Upload image error:", error);

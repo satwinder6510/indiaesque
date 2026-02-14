@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readJSON, listDirectory, writeJSON } from "@/lib/github";
-import fs from "fs";
-import path from "path";
 
 const DATA_BASE = "india-experiences/src/data";
 const IMAGES_BASE = "india-experiences/public/images";
@@ -19,33 +17,14 @@ interface CityData {
   goodMonths: number[];
 }
 
-// Check if we have GitHub credentials
-const useGitHub = !!(process.env.GITHUB_TOKEN && process.env.GITHUB_OWNER && process.env.GITHUB_REPO);
-
-// Helper to get local path
-const getLocalPath = () => path.join(process.cwd(), "..", "india-experiences", "src", "data", "cities.json");
-
 // Helper to read cities
 async function getCities(): Promise<CityData[]> {
-  if (useGitHub) {
-    return await readJSON<CityData[]>(`${DATA_BASE}/cities.json`) || [];
-  } else {
-    const localPath = getLocalPath();
-    if (fs.existsSync(localPath)) {
-      return JSON.parse(fs.readFileSync(localPath, "utf-8"));
-    }
-    return [];
-  }
+  return await readJSON<CityData[]>(`${DATA_BASE}/cities.json`) || [];
 }
 
 // Helper to save cities
 async function saveCities(cities: CityData[], message: string): Promise<void> {
-  if (useGitHub) {
-    await writeJSON(`${DATA_BASE}/cities.json`, cities, message);
-  } else {
-    const localPath = getLocalPath();
-    fs.writeFileSync(localPath, JSON.stringify(cities, null, 2));
-  }
+  await writeJSON(`${DATA_BASE}/cities.json`, cities, message);
 }
 
 /**
@@ -57,16 +36,8 @@ export async function GET() {
     const isUploaded = (p: string) => p.startsWith("/images/");
     const cities = await getCities();
 
-    let uploadedNames = new Set<string>();
-    if (useGitHub) {
-      const uploadedImages = await listDirectory(`${IMAGES_BASE}/cities`);
-      uploadedNames = new Set(uploadedImages.map(f => f.name));
-    } else {
-      const imagesPath = path.join(process.cwd(), "..", "india-experiences", "public", "images", "cities");
-      if (fs.existsSync(imagesPath)) {
-        uploadedNames = new Set(fs.readdirSync(imagesPath));
-      }
-    }
+    const uploadedImages = await listDirectory(`${IMAGES_BASE}/cities`);
+    const uploadedNames = new Set(uploadedImages.map(f => f.name));
 
     const citiesWithStatus = cities.map(city => ({
       ...city,

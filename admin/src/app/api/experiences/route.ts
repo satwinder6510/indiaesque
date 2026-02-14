@@ -1,10 +1,7 @@
 import { NextResponse } from "next/server";
-import { promises as fs } from "fs";
-import path from "path";
+import { readJSON, writeJSON, fileExists } from "@/lib/github";
 
-const INDIA_EXPERIENCES_PATH = path.join(process.cwd(), "..", "india-experiences");
-const EXPERIENCES_PATH = path.join(INDIA_EXPERIENCES_PATH, "src", "data", "experiences.json");
-const IMAGES_PATH = path.join(INDIA_EXPERIENCES_PATH, "public", "images", "experiences");
+const EXPERIENCES_PATH = "india-experiences/src/data/experiences.json";
 
 interface Experience {
   name: string;
@@ -29,20 +26,17 @@ interface Experience {
 
 export async function GET() {
   try {
-    const data = await fs.readFile(EXPERIENCES_PATH, "utf-8");
-    const experiences: Experience[] = JSON.parse(data);
+    const experiences = await readJSON<Experience[]>(EXPERIENCES_PATH);
+
+    if (!experiences) {
+      return NextResponse.json({ error: "Experiences file not found" }, { status: 404 });
+    }
 
     // Check which experiences have local images
     const experiencesWithStatus = await Promise.all(
       experiences.map(async (exp) => {
-        const localCardPath = path.join(IMAGES_PATH, `${exp.slug}-card.jpg`);
-        let hasLocalImage = false;
-        try {
-          await fs.access(localCardPath);
-          hasLocalImage = true;
-        } catch {
-          hasLocalImage = false;
-        }
+        const imagePath = `india-experiences/public/images/experiences/${exp.slug}-card.jpg`;
+        const hasLocalImage = await fileExists(imagePath);
         return {
           ...exp,
           hasLocalImage,
@@ -66,8 +60,10 @@ export async function PUT(request: Request) {
     const body = await request.json();
     const { slug, updates } = body;
 
-    const data = await fs.readFile(EXPERIENCES_PATH, "utf-8");
-    const experiences: Experience[] = JSON.parse(data);
+    const experiences = await readJSON<Experience[]>(EXPERIENCES_PATH);
+    if (!experiences) {
+      return NextResponse.json({ error: "Experiences file not found" }, { status: 404 });
+    }
 
     const index = experiences.findIndex((e) => e.slug === slug);
     if (index === -1) {
@@ -77,7 +73,7 @@ export async function PUT(request: Request) {
     // Update the experience
     experiences[index] = { ...experiences[index], ...updates };
 
-    await fs.writeFile(EXPERIENCES_PATH, JSON.stringify(experiences, null, 2));
+    await writeJSON(EXPERIENCES_PATH, experiences, `Update experience: ${slug}`);
 
     return NextResponse.json({ success: true, experience: experiences[index] });
   } catch (error) {
@@ -98,8 +94,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Name and slug are required" }, { status: 400 });
     }
 
-    const data = await fs.readFile(EXPERIENCES_PATH, "utf-8");
-    const experiences: Experience[] = JSON.parse(data);
+    const experiences = await readJSON<Experience[]>(EXPERIENCES_PATH);
+    if (!experiences) {
+      return NextResponse.json({ error: "Experiences file not found" }, { status: 404 });
+    }
 
     // Check if slug already exists
     if (experiences.some((e) => e.slug === slug)) {
@@ -137,7 +135,7 @@ export async function POST(request: Request) {
     };
 
     experiences.push(newExperience);
-    await fs.writeFile(EXPERIENCES_PATH, JSON.stringify(experiences, null, 2));
+    await writeJSON(EXPERIENCES_PATH, experiences, `Add experience: ${slug}`);
 
     return NextResponse.json({ success: true, experience: newExperience });
   } catch (error) {
@@ -158,8 +156,10 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: "Slug is required" }, { status: 400 });
     }
 
-    const data = await fs.readFile(EXPERIENCES_PATH, "utf-8");
-    const experiences: Experience[] = JSON.parse(data);
+    const experiences = await readJSON<Experience[]>(EXPERIENCES_PATH);
+    if (!experiences) {
+      return NextResponse.json({ error: "Experiences file not found" }, { status: 404 });
+    }
 
     const filtered = experiences.filter((e) => e.slug !== slug);
 
@@ -167,7 +167,7 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: "Experience not found" }, { status: 404 });
     }
 
-    await fs.writeFile(EXPERIENCES_PATH, JSON.stringify(filtered, null, 2));
+    await writeJSON(EXPERIENCES_PATH, filtered, `Delete experience: ${slug}`);
 
     return NextResponse.json({ success: true });
   } catch (error) {
