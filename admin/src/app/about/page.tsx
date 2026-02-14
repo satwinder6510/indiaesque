@@ -99,6 +99,17 @@ export default function AboutPage() {
     setData({ ...data, sections });
   };
 
+  const updateHighlight = (sectionIndex: number, highlightIndex: number, field: "title" | "description", value: string) => {
+    if (!data) return;
+    const sections = [...data.sections];
+    const section = sections[sectionIndex];
+    if (!section.highlights) return;
+    const highlights = [...section.highlights];
+    highlights[highlightIndex] = { ...highlights[highlightIndex], [field]: value };
+    sections[sectionIndex] = { ...section, highlights };
+    setData({ ...data, sections });
+  };
+
   const addSection = () => {
     if (!data) return;
     const newId = `section-${Date.now()}`;

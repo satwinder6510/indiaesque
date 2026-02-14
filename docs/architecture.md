@@ -2674,6 +2674,68 @@ Experiences with `showOnHomepage: true` appear in the "Featured Experiences" sec
 
 **File:** `india-experiences/src/pages/index.astro` (lines 24-30)
 
+### Curated Experiences (Custom Experiences)
+
+The admin has two tabs:
+
+1. **Experience Types** — Manage Viator-linked experience categories (food tours, walking tours, etc.)
+2. **Curated** — Create custom hand-picked experiences to inject into city pages
+
+#### Curated Experience Data Structure
+
+```json
+{
+  "name": "Private Delhi Food Walk",
+  "slug": "private-delhi-food-walk",
+  "category": "Curated",
+  "description": "A hand-picked culinary adventure...",
+  "cardImage": "/images/experiences/private-delhi-food-walk-card.jpg",
+  "href": "https://booking-url.com",
+  "curated": true,
+  "cities": ["delhi", "agra"],
+  "price": "₹3,500",
+  "duration": "4 hours",
+  "bookingUrl": "https://booking-url.com",
+  "priority": 1,
+  "active": true
+}
+```
+
+| Field | Description |
+|-------|-------------|
+| `curated` | Boolean flag identifying custom experiences |
+| `cities` | Array of city slugs where this experience appears |
+| `price` | Display price string |
+| `duration` | Duration string (e.g., "4 hours", "Full day") |
+| `bookingUrl` | External booking link |
+| `priority` | Sort order (lower = appears first) |
+| `active` | Toggle to enable/disable without deleting |
+
+#### City Page Injection
+
+Curated experiences appear in a **"Featured in {City}"** section above the Viator/partner experiences on:
+- Category pages (`CategoryPage.astro`)
+- PAA pages (`PAAPage.astro`)
+
+**Files:**
+- `india-experiences/src/pages/[...slug].astro` — Filters curated experiences by city
+- `india-experiences/src/layouts/CategoryPage.astro` — Renders featured section
+- `india-experiences/src/layouts/PAAPage.astro` — Renders featured section
+
+**Injection Logic:**
+```javascript
+// In [...slug].astro
+const featuredExperiences = curatedExperiences
+  .filter(exp => exp.cities?.includes(citySlug))
+  .sort((a, b) => (a.priority || 10) - (b.priority || 10))
+```
+
+#### Featured Section Styling
+
+- Dark gradient background (`#1a1a2e` → `#16213e`)
+- Gold "Featured" badge on each card
+- Appears before the light-gray Viator section
+
 ---
 
 ## Appendix: Pre-Launch Checklist

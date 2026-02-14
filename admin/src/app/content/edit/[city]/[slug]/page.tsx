@@ -128,11 +128,11 @@ export default function EditPage() {
                 <span className="text-[var(--foreground-muted)]">/</span>
                 <h1 className="font-semibold text-[var(--foreground)]">{slug}</h1>
               </div>
-              {pageData?.frontmatter?.title && (
+              {pageData?.frontmatter?.title ? (
                 <p className="text-sm text-[var(--foreground-muted)] truncate max-w-md">
                   {String(pageData.frontmatter.title)}
                 </p>
-              )}
+              ) : null}
             </div>
           </div>
 
@@ -238,7 +238,7 @@ export default function EditPage() {
               </span>
             </div>
             <div>
-              Tier {pageData?.frontmatter?.tier || "?"} · {String(pageData?.frontmatter?.type || "unknown")}
+              Tier {String(pageData?.frontmatter?.tier ?? "?")} · {String(pageData?.frontmatter?.type ?? "unknown")}
             </div>
           </footer>
         </main>

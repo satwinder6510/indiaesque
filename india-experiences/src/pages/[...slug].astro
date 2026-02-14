@@ -9,6 +9,11 @@ import experiencesData from '../data/experiences.json';
 import { searchProducts, getDestinationId } from '../lib/viator';
 import { buildContentIndex, getAutoLinks, formatLinksForDisplay } from '../lib/content-index';
 
+// Get curated experiences (our own featured experiences)
+const curatedExperiences = experiencesData.filter(
+  (exp: any) => exp.curated === true && exp.active === true
+);
+
 export const prerender = true;
 
 // Map content categories to Viator tag IDs
@@ -209,6 +214,19 @@ const experiences = viatorProducts.map(p => ({
   rating: p.rating,
   reviewCount: p.reviewCount,
 }));
+
+// Get featured (curated) experiences for this city
+const featuredExperiences = curatedExperiences
+  .filter((exp: any) => exp.cities?.includes(citySlug))
+  .sort((a: any, b: any) => (a.priority || 10) - (b.priority || 10))
+  .map((exp: any) => ({
+    title: exp.name,
+    href: exp.bookingUrl || exp.href,
+    image: exp.cardImage || '',
+    duration: exp.duration,
+    price: exp.price || '',
+    featured: true,
+  }));
 ---
 
 {type === 'hub' ? (
@@ -241,6 +259,7 @@ const experiences = viatorProducts.map(p => ({
     relatedPages={finalRelatedLinks}
     schema={schemaObjects}
     experiences={experiences}
+    featuredExperiences={featuredExperiences}
   >
     <Content />
   </CategoryPage>
@@ -258,6 +277,7 @@ const experiences = viatorProducts.map(p => ({
     relatedPages={finalRelatedLinks}
     schema={schemaObjects}
     experiences={experiences}
+    featuredExperiences={featuredExperiences}
   >
     <Content />
   </PAAPage>

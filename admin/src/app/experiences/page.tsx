@@ -60,6 +60,8 @@ export default function ExperiencesPage() {
     bookingUrl: "",
     priority: 10,
   });
+  const [lookupCode, setLookupCode] = useState("");
+  const [lookingUp, setLookingUp] = useState(false);
 
   const fetchExperiences = async () => {
     try {
@@ -232,6 +234,7 @@ export default function ExperiencesPage() {
         bookingUrl: "",
         priority: 10,
       });
+      setLookupCode("");
       await fetchExperiences();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to create");
@@ -271,6 +274,38 @@ export default function ExperiencesPage() {
         ? newExp.cities.filter((c) => c !== city)
         : [...newExp.cities, city],
     });
+  };
+
+  const lookupViatorProduct = async () => {
+    if (!lookupCode.trim()) {
+      setError("Enter a Viator product code");
+      return;
+    }
+    setLookingUp(true);
+    setError(null);
+    try {
+      const res = await fetch(`/api/experiences/lookup?code=${encodeURIComponent(lookupCode.trim())}&provider=viator`);
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Lookup failed");
+      }
+      const product = data.product;
+      // Auto-fill form fields
+      setNewExp({
+        ...newExp,
+        name: product.title,
+        slug: lookupCode.trim().toLowerCase(),
+        category: "Curated",
+        description: product.description?.slice(0, 200) || "",
+        price: product.price,
+        duration: product.duration,
+        bookingUrl: product.bookingUrl,
+      });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Lookup failed");
+    } finally {
+      setLookingUp(false);
+    }
   };
 
   const homepageCount = typeExperiences.filter((e) => e.showOnHomepage).length;
@@ -711,7 +746,10 @@ export default function ExperiencesPage() {
             <div className="px-6 py-4 border-b border-[var(--border)] flex items-center justify-between sticky top-0 bg-[var(--background-card)]">
               <h3 className="text-lg font-semibold text-[var(--foreground)]">Add Curated Experience</h3>
               <button
-                onClick={() => setShowAddModal(false)}
+                onClick={() => {
+                  setShowAddModal(false);
+                  setLookupCode("");
+                }}
                 className="p-1 text-[var(--foreground-muted)] hover:text-[var(--foreground)]"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -721,6 +759,37 @@ export default function ExperiencesPage() {
             </div>
 
             <div className="p-6 space-y-4">
+              {/* Viator Lookup */}
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl">
+                <label className="block text-sm font-medium text-blue-700 dark:text-blue-300 mb-2">
+                  Import from Viator (optional)
+                </label>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={lookupCode}
+                    onChange={(e) => setLookupCode(e.target.value)}
+                    placeholder="Product code, e.g. 12345P1"
+                    className="flex-1 px-4 py-2 bg-white dark:bg-[var(--background)] border border-blue-300 dark:border-blue-700 rounded-lg text-[var(--foreground)]"
+                  />
+                  <button
+                    type="button"
+                    onClick={lookupViatorProduct}
+                    disabled={lookingUp}
+                    className="px-4 py-2 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 disabled:opacity-50"
+                  >
+                    {lookingUp ? "..." : "Lookup"}
+                  </button>
+                </div>
+                <p className="text-xs text-blue-600 dark:text-blue-400 mt-2">
+                  Enter a Viator product code to auto-fill details. Find the code in the Viator URL (e.g., viator.com/tours/Delhi/<strong>12345P1</strong>)
+                </p>
+              </div>
+
+              <div className="border-t border-[var(--border)] pt-4">
+                <p className="text-xs text-[var(--foreground-muted)] mb-4">Or enter details manually:</p>
+              </div>
+
               <div>
                 <label className="block text-sm font-medium text-[var(--foreground)] mb-1">Name *</label>
                 <input
@@ -832,7 +901,10 @@ export default function ExperiencesPage() {
 
             <div className="px-6 py-4 border-t border-[var(--border)] flex justify-end gap-3 sticky bottom-0 bg-[var(--background-card)]">
               <button
-                onClick={() => setShowAddModal(false)}
+                onClick={() => {
+                  setShowAddModal(false);
+                  setLookupCode("");
+                }}
                 className="px-4 py-2 text-[var(--foreground-muted)] hover:text-[var(--foreground)]"
               >
                 Cancel

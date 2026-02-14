@@ -18,6 +18,14 @@ interface Props {
     rating?: number;
     reviewCount?: number;
   }[];
+  featuredExperiences?: {
+    title: string;
+    href: string;
+    image?: string;
+    duration?: string;
+    price?: string;
+    featured?: boolean;
+  }[];
   faq?: { question: string; answer: string }[];
   cityLinks?: { href: string; label: string }[];
   relatedPages?: { href: string; label: string }[];
@@ -33,6 +41,7 @@ const {
   categorySlug,
   heroImage = '/images/default-hero.jpg',
   experiences = [],
+  featuredExperiences = [],
   faq = [],
   cityLinks = [],
   relatedPages = [],
@@ -102,6 +111,35 @@ const heroImageMobile = heroImage.replace(/(\.[^.]+)$/, '-mobile$1');
       </div>
     )}
   </article>
+
+  <!-- FEATURED EXPERIENCES -->
+  {featuredExperiences.length > 0 && (
+    <section class="featured-section">
+      <div class="featured-inner">
+        <h2>Featured in {city}</h2>
+        <p class="featured-desc">Hand-picked experiences curated by our team.</p>
+
+        <div class="featured-grid">
+          {featuredExperiences.map(exp => (
+            <a href={exp.href} target="_blank" rel="noopener" class="tour-card featured-card">
+              <div class="tour-image">
+                <img src={exp.image || heroImage} alt={exp.title} loading="lazy" />
+                {exp.duration && <span class="tour-duration">{exp.duration}</span>}
+                <span class="featured-badge">Featured</span>
+              </div>
+              <div class="tour-body">
+                <h3 class="tour-title">{exp.title}</h3>
+                <div class="tour-footer">
+                  <span class="tour-price">{exp.price || 'View Details'}</span>
+                  <span class="tour-cta">BOOK NOW</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- VIATOR TOURS -->
   {experiences.length > 0 && (
@@ -404,6 +442,65 @@ const heroImageMobile = heroImage.replace(/(\.[^.]+)$/, '-mobile$1');
     line-height: 1.6;
     color: #666;
     margin: 0;
+  }
+
+  /* FEATURED SECTION */
+  .featured-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 48px 20px;
+  }
+  .featured-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .featured-section h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+    text-align: center;
+  }
+  .featured-desc {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 32px;
+    text-align: center;
+  }
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 600px) {
+    .featured-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 900px) {
+    .featured-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .featured-card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .featured-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  .featured-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-family: 'Muli', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1a1a2e;
+    background: linear-gradient(135deg, #E9CDB0 0%, #d4a574 100%);
+    padding: 4px 10px;
   }
 
   /* VIATOR TOURS SECTION */
